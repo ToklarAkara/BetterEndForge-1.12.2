@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "normal": [
+      {
+        "model": "betterendforge:block/end_lotus_flower"
+      },
+      {
+        "model": "betterendforge:block/end_lotus_flower_2"
+      }
+    ]
+  }
+}

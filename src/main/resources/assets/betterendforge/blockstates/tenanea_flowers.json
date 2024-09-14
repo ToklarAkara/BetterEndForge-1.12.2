@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "shape=top": {
+      "model": "betterendforge:block/tenanea_flowers_middle"
+    },
+    "shape=middle": {
+      "model": "betterendforge:block/tenanea_flowers_middle"
+    },
+    "shape=bottom": {
+      "model": "betterendforge:block/tenanea_flowers_bottom"
+    }
+  }
+}

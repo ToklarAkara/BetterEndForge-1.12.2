@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=bottom": {
+      "model": "betterendforge:block/smaragdant_slab"
+    },
+    "half=top": {
+      "model": "betterendforge:block/smaragdant_slab",
+      "x": 180,
+      "uvlock": true
+    }
+  }
+}

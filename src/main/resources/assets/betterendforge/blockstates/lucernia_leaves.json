@@ -1,0 +1,74 @@
+{
+  "variants": {
+    "normal": [
+      {
+        "model": "betterendforge:block/lucernia_leaves_1"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_2"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_3"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_4"
+      }
+    ],
+    "check_decay=true,decayable=true": [
+      {
+        "model": "betterendforge:block/lucernia_leaves_1"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_2"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_3"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_4"
+      }
+    ],
+    "check_decay=true,decayable=false": [
+      {
+        "model": "betterendforge:block/lucernia_leaves_1"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_2"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_3"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_4"
+      }
+    ],
+    "check_decay=false,decayable=true": [
+      {
+        "model": "betterendforge:block/lucernia_leaves_1"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_2"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_3"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_4"
+      }
+    ],
+    "check_decay=false,decayable=false": [
+      {
+        "model": "betterendforge:block/lucernia_leaves_1"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_2"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_3"
+      },
+      {
+        "model": "betterendforge:block/lucernia_leaves_4"
+      }
+    ]
+  }
+}

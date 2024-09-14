@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=top": {
+      "model": "betterendforge:block/end_lotus_slab_top"
+    },
+    "half=bottom": {
+      "model": "betterendforge:block/end_lotus_slab"
+    }
+  }
+}

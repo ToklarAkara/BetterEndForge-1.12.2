@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "normal": {
+      "model": "betterendforge:block/lacugrove_leaves"
+    },
+    "check_decay=true,decayable=true": [
+      {
+        "model": "betterendforge:block/lacugrove_leaves"
+      }
+    ],
+    "check_decay=true,decayable=false": [
+      {
+        "model": "betterendforge:block/lacugrove_leaves"
+      }
+    ],
+    "check_decay=false,decayable=true": [
+      {
+        "model": "betterendforge:block/lacugrove_leaves"
+      }
+    ],
+    "check_decay=false,decayable=false": [
+      {
+        "model": "betterendforge:block/lacugrove_leaves"
+      }
+    ]
+  }
+}

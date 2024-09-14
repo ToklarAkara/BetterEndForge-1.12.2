@@ -1,0 +1,47 @@
+{
+  "variants": {
+    "normal": {
+      "model": "betterendforge:block/helix_tree_leaves"
+    },
+    "color=0": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ],
+    "color=1": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ],
+    "color=2": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ],
+    "color=3": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ],
+    "color=4": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ],
+    "color=5": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ],
+    "color=6": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ],
+    "color=7": [
+      {
+        "model": "betterendforge:block/helix_tree_leaves"
+      }
+    ]
+  }
+}

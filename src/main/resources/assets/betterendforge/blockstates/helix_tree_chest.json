@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "betterendforge:block/helix_tree_chest"
+    }
+  }
+}

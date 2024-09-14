@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "normal": {
+      "model": "betterendforge:block/pythadendron_leaves"
+    },
+    "check_decay=true,decayable=true": [
+      {
+        "model": "betterendforge:block/pythadendron_leaves"
+      }
+    ],
+    "check_decay=true,decayable=false": [
+      {
+        "model": "betterendforge:block/pythadendron_leaves"
+      }
+    ],
+    "check_decay=false,decayable=true": [
+      {
+        "model": "betterendforge:block/pythadendron_leaves"
+      }
+    ],
+    "check_decay=false,decayable=true": [
+      {
+        "model": "betterendforge:block/pythadendron_leaves"
+      }
+    ]
+  }
+}

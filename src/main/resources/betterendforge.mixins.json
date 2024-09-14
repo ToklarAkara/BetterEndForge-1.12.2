@@ -1,0 +1,46 @@
+{
+  "required": true,
+  "package": "mod.beethoven92.betterendforge.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "betterendforge.refmap.json",
+  "mixins": [
+    "AnvilBlockMixin",
+    "BiomeContainerMixin",
+    "BiomeGenerationSettingsAccessor",
+    "BoneMealItemMixin",
+    "ChorusFlowerBlockMixin",
+    "ChorusPlantBlockMixin",
+    "ChorusPlantFeatureMixin",
+    "DimensionTypeMixin",
+    "EndCityStructureMixin",
+    "EndDragonFightMixin",
+    "EndermanEntityMixin",
+    "EndPodiumFeatureMixin",
+    "EndSpikeFeatureMixin",
+    "EndSpikeMixin",
+    "EntityMixin",
+    "MinecraftServerMixin",
+    "MixinWorldProviderEnd",
+    "NoiseChunkGeneratorMixin",
+    "PlayerEntityMixin",
+    "PlayerListMixin",
+    "RecipeManagerMixin",
+    "RepairContainerMixin",
+    "ServerPlayerEntityMixin",
+    "ServerPlayNetHandlerMixin"
+  ],
+  "client": [
+    "AnvilScreenMixin",
+    "BiomeColorsMixin",
+    "ClientPlayNetHandlerMixin",
+    "FogRendererMixin",
+    "MinecraftMixin",
+    "MusicTickerMixin",
+    "SoundVolumeAccessor",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

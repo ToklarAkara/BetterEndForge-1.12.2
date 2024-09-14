@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": [
+      {
+        "model": "betterendforge:block/hydralux_petal_block"
+      }
+    ]
+  }
+}

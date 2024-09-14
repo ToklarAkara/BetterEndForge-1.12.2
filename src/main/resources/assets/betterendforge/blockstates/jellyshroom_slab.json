@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=top": {
+      "model": "betterendforge:block/jellyshroom_slab_top"
+    },
+    "half=bottom": {
+      "model": "betterendforge:block/jellyshroom_slab"
+    }
+  }
+}
