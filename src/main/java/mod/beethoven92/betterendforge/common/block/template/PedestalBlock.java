@@ -394,5 +394,15 @@ public class PedestalBlock extends Block
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState();
 	} //TODO META
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState p_149662_1_) {
+		return false;
+	}
 }
 

@@ -35,10 +35,11 @@ public class EternalCrystalRenderer extends ModelBase
 	public static void render(int age, float tickDelta, float x, float y, float z)
 	{
 		GlStateManager.pushMatrix();
-		GlStateManager.translate(x, y, z);
-		GlStateManager.scale(0.6F, 0.6F, 0.6F);
-		GlStateManager.rotate((age + tickDelta) / 25.0F + 6.0F, 0.0F, 1.0F, 0.0F);
+		GlStateManager.translate(x+0.5, y, z+0.5);
+		GlStateManager.scale(1F, 1F, 1F);
+		GlStateManager.rotate((float) (((age + tickDelta) / 25.0F + 6.0F)/Math.PI/2*180), 0.0F, 1.0F, 0.0F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture (CRYSTAL_TEXTURE);
+		GlStateManager.disableDepth();
 
 		float[] colors = colors(age);
 		GlStateManager.color(colors[0], colors[1], colors[2], colors[3]);
@@ -52,7 +53,7 @@ public class EternalCrystalRenderer extends ModelBase
 			SHARDS[i].render(0.0625F);
 			GlStateManager.popMatrix();
 		}
-
+		GlStateManager.enableDepth();
 		GlStateManager.popMatrix();
 	}
 

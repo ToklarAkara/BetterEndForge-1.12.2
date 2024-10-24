@@ -21,7 +21,7 @@ public class UmbraValleyBiome extends BetterEndBiome
 			.setFoliageColor(172, 189, 190)
 			.setWaterFogColor(69, 104, 134)
 			.setFogDensity(1.5F)
-			.setSurface(new AbstractMap.SimpleEntry<>(ModBlocks.PALLIDIUM_FULL, ModBlocks.UMBRALITH.stone))
+			.setSurface(ModConfiguredSurfaceBuilders.UMBRA_SURFACE)
 			//.setSurface(ModConfiguredSurfaceBuilders.get(ModConfiguredSurfaceBuilders.UMBRA_SURFACE))
 				//.setParticles(ModParticleTypes.AMBER_SPHERE, 0.0001F)
 			.setMusic(ModSoundEvents.AMBIENT_UMBRA_VALLEY)

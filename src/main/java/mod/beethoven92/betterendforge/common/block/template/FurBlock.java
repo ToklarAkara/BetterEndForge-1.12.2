@@ -62,12 +62,12 @@ public class FurBlock extends AttachedBlock implements IShearable {
 	@Override public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) { return true; }
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState p_149662_1_) {
 		return false;
 	}
 
@@ -75,6 +75,11 @@ public class FurBlock extends AttachedBlock implements IShearable {
 	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
+	@Override
+	public int getLightOpacity(IBlockState p_getLightOpacity_1_, IBlockAccess p_getLightOpacity_2_, BlockPos p_getLightOpacity_3_) {
+		return 255;
 	}
 
 	@Override

@@ -718,19 +718,39 @@ public class ModBlocks {
 
     public static final Block LACUGROVE_SAPLING = registerBlockWithDefaultItem("lacugrove_sapling", () -> new LacugroveSaplingBlock(Material.PLANTS).setHardness(0).setResistance(0).setTickRandomly(true));
 
-    public static final Block LACUGROVE_LEAVES = registerBlockWithDefaultItem("lacugrove_leaves", () -> new CustomBlockLeaves());
+    public static final Block LACUGROVE_LEAVES = registerBlockWithDefaultItem("lacugrove_leaves", () -> new CustomBlockLeaves(){
+        @Override
+        public Item getItemDropped(IBlockState p_180660_1_, Random p_180660_2_, int p_180660_3_) {
+            return Item.getItemFromBlock(ModBlocks.LACUGROVE_SAPLING);
+        }
+    });
 
     public static final Block PYTHADENDRON_SAPLING = registerBlockWithDefaultItem("pythadendron_sapling", () -> new PythadendronSaplingBlock().setHardness(0).setResistance(0).setTickRandomly(true));
 
-    public static final Block PYTHADENDRON_LEAVES = registerBlockWithDefaultItem("pythadendron_leaves", () -> new CustomBlockLeaves());
+    public static final Block PYTHADENDRON_LEAVES = registerBlockWithDefaultItem("pythadendron_leaves", () -> new CustomBlockLeaves(){
+        @Override
+        public Item getItemDropped(IBlockState p_180660_1_, Random p_180660_2_, int p_180660_3_) {
+            return Item.getItemFromBlock(ModBlocks.PYTHADENDRON_SAPLING);
+        }
+    });
 
     public static final Block DRAGON_TREE_SAPLING = registerBlockWithDefaultItem("dragon_tree_sapling", () -> new DragonTreeSaplingBlock().setHardness(0).setResistance(0).setTickRandomly(true));
 
-    public static final Block DRAGON_TREE_LEAVES = registerBlockWithDefaultItem("dragon_tree_leaves", () -> new CustomBlockLeaves());
+    public static final Block DRAGON_TREE_LEAVES = registerBlockWithDefaultItem("dragon_tree_leaves", () -> new CustomBlockLeaves(){
+        @Override
+        public Item getItemDropped(IBlockState p_180660_1_, Random p_180660_2_, int p_180660_3_) {
+            return Item.getItemFromBlock(ModBlocks.DRAGON_TREE_SAPLING);
+        }
+    });
 
     public static final Block TENANEA_SAPLING = registerBlockWithDefaultItem("tenanea_sapling", () -> new TenaneaSaplingBlock().setHardness(0).setResistance(0).setTickRandomly(true));
 
-    public static final Block TENANEA_LEAVES = registerBlockWithDefaultItem("tenanea_leaves", () -> new CustomBlockLeaves());
+    public static final Block TENANEA_LEAVES = registerBlockWithDefaultItem("tenanea_leaves", () -> new CustomBlockLeaves(){
+        @Override
+        public Item getItemDropped(IBlockState p_180660_1_, Random p_180660_2_, int p_180660_3_) {
+            return Item.getItemFromBlock(ModBlocks.TENANEA_SAPLING);
+        }
+    });
 
     public static final Block TENANEA_FLOWERS = registerBlockWithDefaultItem("tenanea_flowers", () -> new TenaneaFlowersBlock().setHardness(0).setResistance(0).setLightLevel(15));
 
@@ -890,7 +910,12 @@ public class ModBlocks {
 
     public static final Block LUCERNIA_SAPLING = registerBlockWithDefaultItem("lucernia_sapling", () -> new LucerniaSaplingBlock(Material.PLANTS).setHardness(0).setResistance(0).setTickRandomly(true));
 
-    public static final Block LUCERNIA_LEAVES = registerBlockWithDefaultItem("lucernia_leaves", () -> new CustomBlockLeaves());
+    public static final Block LUCERNIA_LEAVES = registerBlockWithDefaultItem("lucernia_leaves", () -> new CustomBlockLeaves(){
+        @Override
+        public Item getItemDropped(IBlockState p_180660_1_, Random p_180660_2_, int p_180660_3_) {
+            return Item.getItemFromBlock(ModBlocks.LUCERNIA_SAPLING);
+        }
+    });
 
     public static final Block LUCERNIA_OUTER_LEAVES = registerBlockWithDefaultItem("lucernia_outer_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(15));
 

@@ -8,10 +8,13 @@ import mod.beethoven92.betterendforge.common.tileentity.PedestalTileEntity;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.tileentity.TileEntityBeaconRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import org.lwjgl.util.vector.Vector3f;
 
@@ -29,6 +32,7 @@ public class PedestalRenderer extends TileEntitySpecialRenderer<PedestalTileEnti
 
 		ItemStack activeItem = tileEntity.getStack();
 		GlStateManager.pushMatrix();
+		RenderHelper.enableStandardItemLighting();
 		GlStateManager.translate((float) x + 0.5F, (float) y + ((PedestalBlock) state.getBlock()).getHeight(state), (float) z + 0.5F);
 		Minecraft minecraft = Minecraft.getMinecraft();
 		Vector3f translate = new Vector3f(0, 0, 0); // Adjust translation as needed
@@ -43,7 +47,9 @@ public class PedestalRenderer extends TileEntitySpecialRenderer<PedestalTileEnti
 		if (state.getBlock() == ModBlocks.ETERNAL_PEDESTAL && state.getValue(EternalPedestal.ACTIVATED)) {
 			float[] colors = EternalCrystalRenderer.colors(age);
 			int yPos = tileEntity.getPos().getY();
-			BeamRenderer.renderLightBeam(age, -yPos, 1024 - yPos, colors, 0.25F, 0.13F, 0.16F);
+			//Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("textures/entity/end_gateway_beam.png"));
+			//TileEntityBeaconRenderer.renderBeamSegment(x,y,z, partialTicks, 1, age, yPos, 1024 - yPos, colors, 0.13F, 0.16F);
+			//BeamRenderer.renderLightBeam(age, -yPos, 1024 - yPos, colors, 0.25F, 0.13F, 0.16F);
 			float altitude = MathHelper.sin((tileEntity.getAge() + partialTicks) / 10.0F) * 0.1F + 0.1F;
 			GlStateManager.translate(0.0D, altitude, 0.0D);
 		}
@@ -54,10 +60,10 @@ public class PedestalRenderer extends TileEntitySpecialRenderer<PedestalTileEnti
 			EternalCrystalRenderer.render(age, partialTicks, (float) x, (float) y, (float) z);
 		} else {
 			float rotation = (age + partialTicks) / 25.0F + 6.0F;
-			GlStateManager.rotate(rotation, 0.0F, 1.0F, 0.0F);
+			GlStateManager.rotate((float) (rotation/Math.PI/2*180), 0.0F, 1.0F, 0.0F);
 			minecraft.getRenderItem().renderItem(activeItem, net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType.GROUND);
 		}
-
+		RenderHelper.disableStandardItemLighting();
 		GlStateManager.popMatrix();
 	}
 

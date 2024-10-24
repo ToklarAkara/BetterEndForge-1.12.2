@@ -45,8 +45,8 @@ public class SulphurCrystalBlock extends AttachedBlock {
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos){
-		EnumFacing direction = worldIn.getBlockState(pos).getValue(FACING);
+	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
+	{
 		BlockPos blockPos = pos.offset(direction.getOpposite());
 		return worldIn.getBlockState(blockPos).getBlock() == ModBlocks.BRIMSTONE;
 	}

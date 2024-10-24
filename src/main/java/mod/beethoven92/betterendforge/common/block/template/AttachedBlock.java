@@ -1,9 +1,11 @@
 package mod.beethoven92.betterendforge.common.block.template;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockButton;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,7 +30,7 @@ public class AttachedBlock extends Block {
 
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		return this.getDefaultState().withProperty(FACING, facing.getOpposite());
+		return this.getDefaultState().withProperty(FACING, facing);
 	}
 
 	@Override
@@ -64,10 +66,26 @@ public class AttachedBlock extends Block {
 		}
 	}
 
+	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side)
+	{
+		return canPlaceBlock(worldIn, pos, side);
+	}
 
-	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos){
-		EnumFacing direction = worldIn.getBlockState(pos).getValue(FACING);
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+	{
+		for (EnumFacing enumfacing : EnumFacing.values())
+		{
+			if (canPlaceBlock(worldIn, pos, enumfacing))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
+	{
 		BlockPos blockPos = pos.offset(direction.getOpposite());
 		return worldIn.getBlockState(blockPos).isSideSolid(worldIn, blockPos, direction) || worldIn.getBlockState(blockPos).getBlock().isLeaves(worldIn.getBlockState(blockPos), worldIn, blockPos);
 	}

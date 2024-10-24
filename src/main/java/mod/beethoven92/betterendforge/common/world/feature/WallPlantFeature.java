@@ -27,7 +27,7 @@ public class WallPlantFeature extends WallScatterFeature
 		if (block instanceof WallPlantBlock) 
 		{
 			IBlockState state = block.getDefaultState().withProperty(WallPlantBlock.FACING, dir);
-			return block.canPlaceBlockAt(world, pos);
+			return ((WallPlantBlock)block).isValidPosition(state, world, pos);
 		}
 		else if (block instanceof AttachedBlock) 
 		{

@@ -23,7 +23,7 @@ public class FoggyMushroomlandBiome extends BetterEndBiome
 				setFogDensity(3).
 				setWaterColor(119, 227, 250).
 				setWaterFogColor(119, 227, 250).
-				setSurface(new AbstractMap.SimpleEntry<>(ModBlocks.END_MYCELIUM, Blocks.END_STONE)).
+				setSurface(ModConfiguredSurfaceBuilders.MUSHROOMLAND_SURFACE).
 				//setSurface(ModConfiguredSurfaceBuilders.get(ModConfiguredSurfaceBuilders.MUSHROOMLAND_SURFACE)).
 				//setParticles(ModParticleTypes.GLOWING_SPHERE, 0.001F).
 				setAmbientSound(ModSoundEvents.AMBIENT_FOGGY_MUSHROOMLAND).

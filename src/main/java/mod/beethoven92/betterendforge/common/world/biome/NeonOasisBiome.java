@@ -16,7 +16,7 @@ public class NeonOasisBiome extends BetterEndBiome {
 		super(new BiomeTemplate("neon_oasis").setGenChance(0.5F).setFogColor(226, 239, 168).setFogDensity(2)
 				.setWaterFogColor(106, 238, 215).setWaterColor(106, 238, 215)
 				//.setSurface(ModConfiguredSurfaceBuilders.get(ModConfiguredSurfaceBuilders.NEON_OASUS_SURFACE))
-				.setSurface(new AbstractMap.SimpleEntry<>(ModBlocks.ENDSTONE_DUST, Blocks.END_STONE))
+				.setSurface(ModConfiguredSurfaceBuilders.NEON_OASUS_SURFACE)
 				//.setParticles(ParticleTypes.WHITE_ASH, 0.01F)
 				.setAmbientSound(ModSoundEvents.AMBIENT_DUST_WASTELANDS)
 				.setMusic(ModSoundEvents.MUSIC_OPENSPACE)

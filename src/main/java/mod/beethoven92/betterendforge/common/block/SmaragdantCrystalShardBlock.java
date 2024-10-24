@@ -5,6 +5,7 @@ import java.util.EnumMap;
 import com.google.common.collect.Maps;
 
 import mod.beethoven92.betterendforge.common.block.template.AttachedBlock;
+import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCactus;
 import net.minecraft.block.material.Material;
@@ -56,9 +57,8 @@ public class SmaragdantCrystalShardBlock extends AttachedBlock {
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		IBlockState state = worldIn.getBlockState(pos);
-		EnumFacing direction = state.getValue(FACING);
+	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
+	{
 		BlockPos blockPos = pos.offset(direction.getOpposite());
 		IBlockState support = worldIn.getBlockState(blockPos);
 		return support.isSideSolid(worldIn, blockPos, direction);

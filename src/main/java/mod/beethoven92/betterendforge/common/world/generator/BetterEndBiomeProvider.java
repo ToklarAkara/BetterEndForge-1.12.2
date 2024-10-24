@@ -141,7 +141,7 @@ public class BetterEndBiomeProvider extends BiomeProvider
 		{
 			for (int j = 0; j < width; ++j)
 			{
-				oldBiomeList[i*width+j]=getNoiseBiome(x+j, 0, z+i);
+				oldBiomeList[i*width+j]=getNoiseBiome((x+j)>>2, 0, (z+i)>>2);
 			}
 		}
 		return oldBiomeList;

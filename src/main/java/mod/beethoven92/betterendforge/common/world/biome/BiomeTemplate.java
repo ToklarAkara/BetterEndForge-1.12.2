@@ -12,6 +12,9 @@ import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.ConfiguredFeature;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.EndDecorator;
+import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.ConfiguredSurfaceBuilder;
+import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.SurfaceBuilder;
+import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
@@ -34,8 +37,6 @@ public class BiomeTemplate
 //	private final List<CarverInfo> carvers = Lists.newArrayList();
 	private final List<SpawnInfo> mobs = Lists.newArrayList();
 	private final List<Biome.SpawnListEntry> spawns = Lists.newArrayList();
-	private Block topBlock;
-	private Block fillerBlock;
 
 	private float depth = 0.1F;
     private float scale = 0.2F;
@@ -60,6 +61,7 @@ public class BiomeTemplate
 	private float genChance = 1F;
 	private boolean hasCaves = true;
 	private boolean isCaveBiome = false;
+	private ConfiguredSurfaceBuilder<?> surface;
 
 	public BiomeTemplate(String name)
 	{
@@ -228,22 +230,38 @@ public class BiomeTemplate
 
 	public BiomeTemplate setSurface(Block block)
 	{
-		topBlock = block;
-		fillerBlock = Blocks.END_STONE;
-//		setSurface(() -> SurfaceBuilder.DEFAULT.func_242929_a(new SurfaceBuilderConfig(
-//				block.getDefaultState(),
-//				Blocks.END_STONE.getDefaultState(),
-//				Blocks.END_STONE.getDefaultState()
-//		)));
+		setSurface(SurfaceBuilder.DEFAULT.func_242929_a(new SurfaceBuilderConfig(
+				block.getDefaultState(),
+				Blocks.END_STONE.getDefaultState(),
+				Blocks.END_STONE.getDefaultState()
+		)));
 		return this;
 	}
 
-	public BiomeTemplate setSurface(AbstractMap.SimpleEntry<Block, Block> surface)
+	public BiomeTemplate setSurface(ConfiguredSurfaceBuilder<?> surface)
 	{
-		topBlock = surface.getKey();
-		fillerBlock = surface.getValue();
+		this.surface = surface;
 		return this;
 	}
+
+//	public BiomeTemplate setSurface(Block block)
+//	{
+//		topBlock = block;
+//		fillerBlock = Blocks.END_STONE;
+////		setSurface(() -> SurfaceBuilder.DEFAULT.func_242929_a(new SurfaceBuilderConfig(
+////				block.getDefaultState(),
+////				Blocks.END_STONE.getDefaultState(),
+////				Blocks.END_STONE.getDefaultState()
+////		)));
+//		return this;
+//	}
+//
+//	public BiomeTemplate setSurface(AbstractMap.SimpleEntry<Block, Block> surface)
+//	{
+//		topBlock = surface.getKey();
+//		fillerBlock = surface.getValue();
+//		return this;
+//	}
 
 	public BiomeTemplate addStructure(MapGenStructure structure)
 	{
@@ -276,7 +294,7 @@ public class BiomeTemplate
 
 
 	public Biome build(){
-		Biome biome = new Biome(
+		ExtendedBiome biome = new ExtendedBiome(
 				new Biome.BiomeProperties(id.getPath())
 						.setWaterColor(waterColor)
 						.setTemperature(temperature)
@@ -284,22 +302,11 @@ public class BiomeTemplate
 						.setBaseHeight(depth)
 						.setHeightVariation(scale)
 						.setRainDisabled()
-		){
-			@Override
-			public int getGrassColorAtPos(BlockPos pos) {
-				return grassColor;
-			}
+		);
 
-			@Override
-			public int getFoliageColorAtPos(BlockPos pos) {
-				return foliageColor;
-			}
-
-			@Override
-			public int getSkyColorByTemp(float currentTemperature) {
-				return 0;
-			}
-		};
+		biome.setFoliageColor(foliageColor);
+		biome.setGrassColor(grassColor);
+		biome.setSurface(surface);
 
 		for (SpawnInfo info : mobs)
 		{
@@ -312,16 +319,16 @@ public class BiomeTemplate
 
 		biome.decorator = new EndDecorator(features);
 
-		if(topBlock!=null) {
-			biome.topBlock = topBlock.getDefaultState();
-		}else{
-			biome.topBlock = Blocks.END_STONE.getDefaultState();
-		}
-		if(fillerBlock!=null) {
-			biome.fillerBlock = fillerBlock.getDefaultState();
-		}else{
-			biome.fillerBlock = Blocks.END_STONE.getDefaultState();
-		}
+//		if(topBlock!=null) {
+//			biome.topBlock = topBlock.getDefaultState();
+//		}else{
+//			biome.topBlock = Blocks.END_STONE.getDefaultState();
+//		}
+//		if(fillerBlock!=null) {
+//			biome.fillerBlock = fillerBlock.getDefaultState();
+//		}else{
+//			biome.fillerBlock = Blocks.END_STONE.getDefaultState();
+//		}
 
 		return biome;
 	}

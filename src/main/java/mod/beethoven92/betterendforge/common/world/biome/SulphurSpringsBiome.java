@@ -24,7 +24,7 @@ public class SulphurSpringsBiome extends BetterEndBiome
 				setWaterColor(25, 90, 157).
 				setWaterFogColor(30, 65, 61).
 				setCaves(false).
-				setSurface(new AbstractMap.SimpleEntry<>(ModBlocks.SULPHURIC_ROCK.stone, Blocks.END_STONE)).
+				setSurface(ModConfiguredSurfaceBuilders.SULPHURIC_SURFACE).
 				//setSurface(ModConfiguredSurfaceBuilders.get(ModConfiguredSurfaceBuilders.SULPHURIC_SURFACE)).
 				setAmbientSound(ModSoundEvents.AMBIENT_SULPHUR_SPRINGS).
 				setMusic(ModSoundEvents.MUSIC_OPENSPACE).

@@ -11,11 +11,13 @@ import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.util.sdf.SDF;
 import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFDisplacement;
 import mod.beethoven92.betterendforge.common.util.sdf.primitive.SDFSphere;
+import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 
 public class FloatingSpireFeature extends SpireFeature
 {
@@ -50,11 +52,13 @@ public class FloatingSpireFeature extends SpireFeature
 				if (world.rand.nextInt(16) == 0) {
 					support.add(info.getPos().up());
 				}
-				return world.getBiome(info.getPos()).topBlock;
+				Biome biome = world.getBiome(info.getPos());
+				return (biome instanceof ExtendedBiome)?((ExtendedBiome)biome).getSurface().config.getTop() :biome.topBlock;
 			}
 			else if (info.getState(EnumFacing.UP, 3).getBlock()==Blocks.AIR)
 			{
-				return world.getBiome(info.getPos()).fillerBlock;
+				Biome biome = world.getBiome(info.getPos());
+				return (biome instanceof ExtendedBiome)?((ExtendedBiome)biome).getSurface().config.getUnder() :biome.fillerBlock;
 			}
 			return info.getState();
 		});

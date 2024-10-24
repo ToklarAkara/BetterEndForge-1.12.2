@@ -20,6 +20,11 @@ public class UnderwaterWallPlantBlock extends WallPlantBlock
 		this.setDefaultState(this.blockState.getBaseState().withProperty(WATERLOGGED, true));
 	}
 
+	public boolean isValidPosition(IBlockState state, World worldIn, BlockPos pos)
+	{
+		return worldIn.getBlockState(pos).getMaterial() == Material.WATER && super.isValidPosition(state, worldIn, pos);
+	}
+
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
 	{

@@ -13,6 +13,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3i;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class TenaneaFlowersBlock extends EndVineBlock {
@@ -65,5 +66,10 @@ public class TenaneaFlowersBlock extends EndVineBlock {
 
 	public static int getItemColor() {
 		return ModMathHelper.color(255, 255, 255);
+	}
+
+	@Override
+	public boolean isPassable(IBlockAccess p_176205_1_, BlockPos p_176205_2_) {
+		return true;
 	}
 }

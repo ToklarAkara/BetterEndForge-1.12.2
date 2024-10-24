@@ -19,6 +19,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -26,10 +27,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class EndVineBlock extends BlockBush implements IGrowable, IShearable {
+public class EndVineBlock extends Block implements IGrowable, IShearable {
 	public static final PropertyEnum<TripleShape> SHAPE = BlockProperties.TRIPLE_SHAPE;
 	private static final AxisAlignedBB VOXEL_SHAPE = new AxisAlignedBB(2D/16D, 0D/16D, 2D/16D, 14D/16D, 16D/16D, 14D/16D);
 
@@ -138,4 +141,22 @@ public class EndVineBlock extends BlockBush implements IGrowable, IShearable {
 			super.harvestBlock(worldIn, player, pos, state, te, stack);
 		}
 	}
+
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getRenderLayer()
+	{
+		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
+
+	public boolean isOpaqueCube(IBlockState state)
+	{
+		return false;
+	}
+
+	public boolean isFullCube(IBlockState state)
+	{
+		return false;
+	}
+
 }

@@ -57,15 +57,39 @@ public class WallPlantBlock extends PlantBlock
 		return EnumOffsetType.NONE;
 	}
 
-	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+	public boolean isValidPosition(IBlockState state, World worldIn, BlockPos pos)
 	{
-		IBlockState state = worldIn.getBlockState(pos);
 		EnumFacing direction = state.getValue(FACING);
 		BlockPos blockPos = pos.offset(direction.getOpposite());
 		IBlockState blockState = worldIn.getBlockState(blockPos);
 		return isValidSupport(worldIn, blockPos, blockState, direction);
 	}
+
+	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side)
+	{
+		return canPlaceBlock(worldIn, pos, side);
+	}
+
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+	{
+		for (EnumFacing enumfacing : EnumFacing.values())
+		{
+			if (canPlaceBlock(worldIn, pos, enumfacing))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
+	{
+		BlockPos blockPos = pos.offset(direction.getOpposite());
+		IBlockState blockState = worldIn.getBlockState(blockPos);
+		return isValidSupport(worldIn, blockPos, blockState, direction);
+	}
+
 
 	public boolean isValidSupport(IBlockAccess world, BlockPos pos, IBlockState blockState, EnumFacing direction)
 	{
@@ -81,7 +105,7 @@ public class WallPlantBlock extends PlantBlock
 		{
 			EnumFacing direction2 = direction.getOpposite();
 			blockState = blockState.withProperty(FACING, direction2);
-			if (blockState.getBlock().canPlaceBlockAt(worldIn, pos))
+			if (canPlaceBlock(worldIn, pos, direction2))
 			{
 				return blockState;
 			}

@@ -24,16 +24,14 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.relauncher.Side;
 
-@EventBusSubscriber(modid = BetterEnd.MOD_ID)
+@EventBusSubscriber(modid = BetterEnd.MOD_ID, value = Side.CLIENT)
 public class ColorHandler
 {
-	public static void init() {
-		MinecraftForge.EVENT_BUS.register(new ColorHandler());
-	}
 
 	@SubscribeEvent
-	public void onBlockColorHandler(ColorHandlerEvent.Block event)
+	public static void onBlockColorHandler(ColorHandlerEvent.Block event)
 	{
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) ->
 				AuroraCrystalBlock.getBlockColor(pos), ModBlocks.AURORA_CRYSTAL);
@@ -62,7 +60,7 @@ public class ColorHandler
 	}
 
 	@SubscribeEvent
-	public void onItemColorHandler(ColorHandlerEvent.Item event)
+	public static void onItemColorHandler(ColorHandlerEvent.Item event)
 	{
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) ->
 				AuroraCrystalBlock.getItemColor(), ModBlocks.AURORA_CRYSTAL);
@@ -94,19 +92,19 @@ public class ColorHandler
 				EndPortals.getColor(0), ModBlocks.END_PORTAL_BLOCK);
 	}
 
-	private void registerColoredMaterialBlocks(ColorHandlerEvent.Block event, ColoredMaterial material)
+	private static void registerColoredMaterialBlocks(ColorHandlerEvent.Block event, ColoredMaterial material)
 	{
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) ->
 				state.getMaterial().getMaterialMapColor().colorValue, material.getBlocks());
 	}
 
-	private void registerColoredMaterialItems(ColorHandlerEvent.Item event, ColoredMaterial material)
+	private static void registerColoredMaterialItems(ColorHandlerEvent.Item event, ColoredMaterial material)
 	{
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) ->
 				((ItemBlock)stack.getItem()).getBlock().getMaterial(null).getMaterialMapColor().colorValue, material.getBlocks());
 	}
 
-	private Block[] getLanterns() {
+	private static Block[] getLanterns() {
 		List<Block> result = new ArrayList<>();
 		for (StoneMaterial m : StoneMaterial.getMaterials())
 			result.add(m.lantern);

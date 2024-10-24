@@ -76,6 +76,14 @@ public class SmallJellyshroomBlock extends AttachedBlock implements IGrowable {
 	}
 
 	@Override
+	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
+	{
+		BlockPos blockPos = pos.offset(direction.getOpposite());
+		IBlockState support = worldIn.getBlockState(blockPos);
+		return support.isSideSolid(worldIn, blockPos, direction) && support.getLightValue() == 0;
+	}
+
+	@Override
 	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
 		return state.getValue(FACING) == EnumFacing.UP && ModTags.END_GROUND.contains(worldIn.getBlockState(pos.down()).getBlock());
 	}

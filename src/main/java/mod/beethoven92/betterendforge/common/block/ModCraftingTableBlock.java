@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.block;
 
+import mod.beethoven92.betterendforge.common.inventory.ModContainerWorkbench;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -30,14 +31,12 @@ public class ModCraftingTableBlock extends Block {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (worldIn.isRemote) {
-			return true;
-		} else {
-			player.displayGui(new InterfaceCraftingTable(worldIn, pos));
-			player.addStat(StatList.CRAFTING_TABLE_INTERACTION);
-			return true;
-		}
-	}
+        if (!worldIn.isRemote) {
+            player.displayGui(new InterfaceCraftingTable(worldIn, pos));
+            player.addStat(StatList.CRAFTING_TABLE_INTERACTION);
+        }
+        return true;
+    }
 
 	public static class InterfaceCraftingTable implements IInteractionObject {
 		private final World world;
@@ -50,7 +49,7 @@ public class ModCraftingTableBlock extends Block {
 
 		@Override
 		public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-			return new ContainerWorkbench(playerInventory, this.world, this.pos);
+			return new ModContainerWorkbench(playerInventory, this.world, this.pos);
 		}
 
 		@Override
