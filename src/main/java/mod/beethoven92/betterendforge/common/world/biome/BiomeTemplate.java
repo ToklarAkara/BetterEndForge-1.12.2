@@ -307,6 +307,7 @@ public class BiomeTemplate
 		biome.setFoliageColor(foliageColor);
 		biome.setGrassColor(grassColor);
 		biome.setSurface(surface);
+		biome.setFogColor(fogColor);
 
 		for (SpawnInfo info : mobs)
 		{

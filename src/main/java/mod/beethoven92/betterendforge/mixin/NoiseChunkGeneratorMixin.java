@@ -71,33 +71,33 @@ public abstract class NoiseChunkGeneratorMixin
 //		}
 	}
 
-	@Inject(method = "buildSurfaces", at = @At("HEAD"), cancellable = true)
-	public void buildSurfaces(ChunkPrimer p_185962_1_, CallbackInfo ci)
-	{
-		int i = chunkX;
-		int j = chunkZ;
-		SharedSeedRandom sharedseedrandom = new SharedSeedRandom();
-		sharedseedrandom.setBaseChunkSeed(i, j);
-		int k = chunkX<<4;
-		int l = chunkZ<<4;
-		double d0 = 0.0625D;
-		BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
-
-		for(int i1 = 0; i1 < 16; ++i1) {
-			for(int j1 = 0; j1 < 16; ++j1) {
-				int k1 = k + i1;
-				int l1 = l + j1;
-				int i2 = 127;
-				double d1 = this.surfaceDepthNoise.noiseAt((double)k1 * 0.0625D, (double)l1 * 0.0625D, 0.0625D, (double)i1 * 0.0625D) * 15.0D;
-				Biome biome = world.getBiome(blockpos$mutable.setPos(k + i1, i2, l + j1));
-				if(biome instanceof ExtendedBiome) {
-					((ExtendedBiome)biome).buildSurface(sharedseedrandom, p_185962_1_, k1, l1, i2, d1, Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), 0, world.getSeed());
-				}else{
-					ModConfiguredSurfaceBuilders.END_SURFACE.setSeed(world.getSeed());
-					ModConfiguredSurfaceBuilders.END_SURFACE.buildSurface(sharedseedrandom, p_185962_1_, biome, k1, l1, i2, d1, Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), 0, world.getSeed());
-				}
-			}
-		}
-		ci.cancel();
-	}
+//	@Inject(method = "buildSurfaces", at = @At("HEAD"), cancellable = true)
+//	public void buildSurfaces(ChunkPrimer p_185962_1_, CallbackInfo ci)
+//	{
+//		int i = chunkX;
+//		int j = chunkZ;
+//		SharedSeedRandom sharedseedrandom = new SharedSeedRandom();
+//		sharedseedrandom.setBaseChunkSeed(i, j);
+//		int k = chunkX<<4;
+//		int l = chunkZ<<4;
+//		double d0 = 0.0625D;
+//		BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
+//
+//		for(int i1 = 0; i1 < 16; ++i1) {
+//			for(int j1 = 0; j1 < 16; ++j1) {
+//				int k1 = k + i1;
+//				int l1 = l + j1;
+//				int i2 = 127;
+//				double d1 = this.surfaceDepthNoise.noiseAt((double)k1 * 0.0625D, (double)l1 * 0.0625D, 0.0625D, (double)i1 * 0.0625D) * 15.0D;
+//				Biome biome = world.getBiome(blockpos$mutable.setPos(k + i1, i2, l + j1));
+//				if(biome instanceof ExtendedBiome) {
+//					((ExtendedBiome)biome).buildSurface(sharedseedrandom, p_185962_1_, k1, l1, i2, d1, Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), 0, world.getSeed());
+//				}else{
+//					ModConfiguredSurfaceBuilders.END_SURFACE.setSeed(world.getSeed());
+//					ModConfiguredSurfaceBuilders.END_SURFACE.buildSurface(sharedseedrandom, p_185962_1_, biome, k1, l1, i2, d1, Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), 0, world.getSeed());
+//				}
+//			}
+//		}
+//		ci.cancel();
+//	}
 }

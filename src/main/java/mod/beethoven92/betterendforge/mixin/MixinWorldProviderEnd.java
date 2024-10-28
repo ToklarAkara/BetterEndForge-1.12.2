@@ -16,6 +16,6 @@ public abstract class MixinWorldProviderEnd extends WorldProvider {
 
     @Inject(method = "init", at=@At("TAIL"))
     public void init(CallbackInfo ci){
-        this.biomeProvider = new BetterEndBiomeProvider(ForgeRegistries.BIOMES, getSeed());
+        //this.biomeProvider = new BetterEndBiomeProvider(ForgeRegistries.BIOMES, getSeed());
     }
 }

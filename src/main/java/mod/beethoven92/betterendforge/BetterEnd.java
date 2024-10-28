@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge;
 
+import git.jbredwards.nether_api.mod.common.registry.NetherAPIRegistry;
 import mod.beethoven92.betterendforge.client.ClientOptions;
 import mod.beethoven92.betterendforge.common.capability.EndData;
 import mod.beethoven92.betterendforge.common.init.*;
@@ -76,11 +77,13 @@ public class BetterEnd
     public static class WorldGenRegistryEvents
     {
     	@SubscribeEvent
-    	public static void registerBiomes(RegistryEvent.Register<Biome> event) 
-    	{
-    		ModBiomes.register();
-    		ModBiomes.getModBiomes().forEach((end_biome) -> event.getRegistry().register(end_biome.getBiome()));
-    	}
+    	public static void registerBiomes(RegistryEvent.Register<Biome> event) {
+			ModBiomes.register();
+			ModBiomes.getModBiomes().forEach((end_biome) -> {
+				event.getRegistry().register(end_biome.getBiome());
+				NetherAPIRegistry.THE_END.registerBiome(end_biome.getBiome(), 1);
+			});
+		}
 
 		@SubscribeEvent
 		public static void registerRecipes(RegistryEvent.Register<IRecipe> event){
