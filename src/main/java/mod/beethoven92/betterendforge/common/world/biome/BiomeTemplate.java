@@ -304,6 +304,10 @@ public class BiomeTemplate
 						.setRainDisabled()
 		);
 
+		biome.getSpawnableList(EnumCreatureType.MONSTER).clear();
+		biome.getSpawnableList(EnumCreatureType.CREATURE).clear();
+		biome.getSpawnableList(EnumCreatureType.AMBIENT).clear();
+		biome.getSpawnableList(EnumCreatureType.WATER_CREATURE).clear();
 		biome.setFoliageColor(foliageColor);
 		biome.setGrassColor(grassColor);
 		biome.setSurface(surface);

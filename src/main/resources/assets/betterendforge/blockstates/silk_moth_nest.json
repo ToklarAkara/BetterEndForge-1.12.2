@@ -62,6 +62,54 @@
     "active=true,facing=west,fullness=3": {
       "model": "betterendforge:block/silk_moth_nest_bottom_silk",
       "y": 270
+    },
+    "active=false,facing=north,fullness=0": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=south,fullness=0": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=east,fullness=0": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=west,fullness=0": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=north,fullness=1": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=south,fullness=1": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=east,fullness=1": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=west,fullness=1": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=north,fullness=2": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=south,fullness=2": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=east,fullness=2": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=west,fullness=2": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=north,fullness=3": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=south,fullness=3": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=east,fullness=3": {
+      "model": "betterendforge:block/silk_moth_nest_top"
+    },
+    "active=false,facing=west,fullness=3": {
+      "model": "betterendforge:block/silk_moth_nest_top"
     }
   }
 }

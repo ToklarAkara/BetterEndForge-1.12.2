@@ -2,6 +2,12 @@
   "variants": {
     "normal": {
       "model": "betterendforge:block/blue_vine_lantern"
+    },
+    "natural=false": {
+      "model": "betterendforge:block/blue_vine_lantern"
+    },
+    "natural=true": {
+      "model": "betterendforge:block/blue_vine_lantern"
     }
   }
 }
