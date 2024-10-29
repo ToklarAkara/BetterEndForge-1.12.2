@@ -4,31 +4,22 @@ import com.google.common.collect.ImmutableList;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.init.ModBiomes;
 import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTUtil;
+import net.minecraft.nbt.*;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.Capability.IStorage;
 import net.minecraftforge.common.capabilities.CapabilityInject;
-import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.INBTSerializable;
-import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nonnull;
@@ -36,7 +27,6 @@ import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import java.util.function.Function;
 
 public class EndData implements INBTSerializable<NBTTagCompound> {
 	@CapabilityInject(EndData.class)
@@ -44,9 +34,11 @@ public class EndData implements INBTSerializable<NBTTagCompound> {
 
 	private Set<UUID> players;
 	private BlockPos spawn;
+	private Set<Long> decoratorPasses;
 
 	public EndData() {
 		players = new HashSet<>();
+		decoratorPasses = new HashSet<>();
 	}
 
 	private void login(EntityPlayerMP player) {
@@ -127,6 +119,11 @@ public class EndData implements INBTSerializable<NBTTagCompound> {
 		for (UUID id : players)
 			list.appendTag(NBTUtil.createUUIDTag(id));
 		nbt.setTag("players", list);
+
+		NBTTagList listDec = new NBTTagList();
+		for (Long id : decoratorPasses)
+			listDec.appendTag(new NBTTagLong(id));
+		nbt.setTag("decoratorPasses", listDec);
 		return nbt;
 	}
 
@@ -138,6 +135,22 @@ public class EndData implements INBTSerializable<NBTTagCompound> {
 		NBTTagList list = nbt.getTagList("players", Constants.NBT.TAG_COMPOUND);
 		for (int i = 0; i < list.tagCount(); i++)
 			players.add(NBTUtil.getUUIDFromTag(list.getCompoundTagAt(i)));
+
+		NBTTagList listDec = nbt.getTagList("decoratorPasses", Constants.NBT.TAG_LONG);
+		for (int i = 0; i < listDec.tagCount(); i++)
+			decoratorPasses.add(((NBTTagLong)listDec.get(i)).getLong());
+	}
+
+	public void storePass(BlockPos pos){
+		decoratorPasses.add(pos.toLong());
+	}
+
+	public boolean hasPass(BlockPos pos){
+		return decoratorPasses.contains(pos.toLong());
+	}
+
+	public boolean removePass(BlockPos pos){
+		return decoratorPasses.remove(pos.toLong());
 	}
 
 	@EventBusSubscriber(modid = BetterEnd.MOD_ID)
