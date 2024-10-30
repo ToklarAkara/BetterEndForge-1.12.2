@@ -126,16 +126,30 @@ public class NeonCactusPlantBlock extends Block {
 		}
 	}
 
-	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		IBlockState state = worldIn.getBlockState(pos);
-		EnumFacing dir = state.getValue(FACING);
+	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side)
+	{
+		return canPlaceBlock(worldIn, pos, side);
+	}
+
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+	{
+		for (EnumFacing enumfacing : EnumFacing.values())
+		{
+			if (canPlaceBlock(worldIn, pos, enumfacing))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing dir)
+	{
 		BlockPos supportPos = pos.offset(dir.getOpposite());
 		IBlockState support = worldIn.getBlockState(supportPos);
 		return support.getBlock()==(this) || support.getBlock().isSideSolid(support, worldIn, supportPos, dir);
 	}
-
-
 
 	@Override
 	public void randomTick(World world, BlockPos pos, IBlockState state, Random random) {

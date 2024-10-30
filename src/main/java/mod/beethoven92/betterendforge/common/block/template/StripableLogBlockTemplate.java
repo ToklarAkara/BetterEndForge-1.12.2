@@ -2,16 +2,12 @@ package mod.beethoven92.betterendforge.common.block.template;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemAxe;
-import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -39,7 +35,7 @@ public class StripableLogBlockTemplate extends BlockLog {
 		if (playerIn.getHeldItem(hand).getItem() instanceof ItemAxe) {
 			worldIn.playSound(playerIn, pos, SoundEvents.BLOCK_WOOD_HIT, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			if (!worldIn.isRemote) {
-				worldIn.setBlockState(pos, striped.getDefaultState().withProperty(BlockRotatedPillar.AXIS, state.getValue(BlockRotatedPillar.AXIS)), 11);
+				worldIn.setBlockState(pos, striped.getDefaultState().withProperty(LOG_AXIS, state.getValue(LOG_AXIS)), 11);
 				if (!playerIn.capabilities.isCreativeMode) {
 					playerIn.getHeldItem(hand).damageItem(1, playerIn);
 				}
@@ -51,16 +47,16 @@ public class StripableLogBlockTemplate extends BlockLog {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, BlockRotatedPillar.AXIS);
+		return new BlockStateContainer(this, LOG_AXIS);
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(BlockRotatedPillar.AXIS, EnumFacing.Axis.values()[meta]);
+		return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.values()[meta]);
 	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return state.getValue(BlockRotatedPillar.AXIS).ordinal();
+		return state.getValue(LOG_AXIS).ordinal();
 	}
 }

@@ -88,6 +88,10 @@ public class SilkMothEntity extends EntityAnimal implements EntityFlying {
 		this.tasks.addTask(9, new EntityAISwimming(this));
 	}
 
+	public void fall(float distance, float damageMultiplier)
+	{
+	}
+
 	@Override
 	protected PathNavigate createNavigator(World world) {
 		PathNavigateFlying birdNavigation = new PathNavigateFlying(this, world) {

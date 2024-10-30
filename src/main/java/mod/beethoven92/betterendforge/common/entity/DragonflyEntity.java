@@ -93,6 +93,10 @@ public class DragonflyEntity extends EntityAnimal implements EntityFlying {
 		return true;
 	}
 
+	public void fall(float distance, float damageMultiplier)
+	{
+	}
+
 //	@Override
 //	public boolean onLivingFall(float distance, float damageMultiplier) {
 //		return false;

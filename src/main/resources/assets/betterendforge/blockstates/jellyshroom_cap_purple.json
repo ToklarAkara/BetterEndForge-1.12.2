@@ -2,6 +2,30 @@
   "variants": {
     "normal": {
       "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=0": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=1": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=2": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=3": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=4": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=5": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=6": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
+    },
+    "color=7": {
+      "model": "betterendforge:block/jellyshroom_cap_purple"
     }
   }
 }

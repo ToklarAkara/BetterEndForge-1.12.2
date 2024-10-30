@@ -1,235 +1,235 @@
 {
   "variants": {
-    "bottom=empty,shape=bottom,facing=up": {
+    "bottom=empty,facing=up,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big"
     },
-    "bottom=empty,shape=bottom,facing=down": {
+    "bottom=empty,facing=down,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big",
       "x": 180
     },
-    "bottom=empty,shape=bottom,facing=north": {
+    "bottom=empty,facing=north,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big",
       "x": 90
     },
-    "bottom=empty,shape=bottom,facing=south": {
+    "bottom=empty,facing=south,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big",
       "x": 90,
       "y": 180
     },
-    "bottom=empty,shape=bottom,facing=east": {
+    "bottom=empty,facing=east,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big",
       "x": 90,
       "y": 90
     },
-    "bottom=empty,shape=bottom,facing=west": {
+    "bottom=empty,facing=west,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big",
       "x": 90,
       "y": 270
     },
-    "bottom=sand,shape=bottom,facing=up": {
+    "bottom=sand,facing=up,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_sand"
     },
-    "bottom=sand,shape=bottom,facing=down": {
+    "bottom=sand,facing=down,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_sand",
       "x": 180
     },
-    "bottom=sand,shape=bottom,facing=north": {
+    "bottom=sand,facing=north,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_sand",
       "x": 90
     },
-    "bottom=sand,shape=bottom,facing=south": {
+    "bottom=sand,facing=south,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_sand",
       "x": 90,
       "y": 180
     },
-    "bottom=sand,shape=bottom,facing=east": {
+    "bottom=sand,facing=east,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_sand",
       "x": 90,
       "y": 90
     },
-    "bottom=sand,shape=bottom,facing=west": {
+    "bottom=sand,facing=west,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_sand",
       "x": 90,
       "y": 270
     },
-    "bottom=moss,shape=bottom,facing=up": {
+    "bottom=moss,facing=up,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_moss"
     },
-    "bottom=moss,shape=bottom,facing=down": {
+    "bottom=moss,facing=down,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_moss",
       "x": 180
     },
-    "bottom=moss,shape=bottom,facing=north": {
+    "bottom=moss,facing=north,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_moss",
       "x": 90
     },
-    "bottom=moss,shape=bottom,facing=south": {
+    "bottom=moss,facing=south,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_moss",
       "x": 90,
       "y": 180
     },
-    "bottom=moss,shape=bottom,facing=east": {
+    "bottom=moss,facing=east,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_moss",
       "x": 90,
       "y": 90
     },
-    "bottom=moss,shape=bottom,facing=west": {
+    "bottom=moss,facing=west,shape=bottom": {
       "model": "betterendforge:block/neon_cactus_big_moss",
       "x": 90,
       "y": 270
     },
-    "bottom=empty,shape=middle,facing=up": {
+    "bottom=empty,facing=up,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium"
     },
-    "bottom=empty,shape=middle,facing=down": {
+    "bottom=empty,facing=down,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium",
       "x": 180
     },
-    "bottom=empty,shape=middle,facing=north": {
+    "bottom=empty,facing=north,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium",
       "x": 90
     },
-    "bottom=empty,shape=middle,facing=south": {
+    "bottom=empty,facing=south,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium",
       "x": 90,
       "y": 180
     },
-    "bottom=empty,shape=middle,facing=east": {
+    "bottom=empty,facing=east,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium",
       "x": 90,
       "y": 90
     },
-    "bottom=empty,shape=middle,facing=west": {
+    "bottom=empty,facing=west,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium",
       "x": 90,
       "y": 270
     },
-    "bottom=sand,shape=middle,facing=up": {
+    "bottom=sand,facing=up,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_sand"
     },
-    "bottom=sand,shape=middle,facing=down": {
+    "bottom=sand,facing=down,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_sand",
       "x": 180
     },
-    "bottom=sand,shape=middle,facing=north": {
+    "bottom=sand,facing=north,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_sand",
       "x": 90
     },
-    "bottom=sand,shape=middle,facing=south": {
+    "bottom=sand,facing=south,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_sand",
       "x": 90,
       "y": 180
     },
-    "bottom=sand,shape=middle,facing=east": {
+    "bottom=sand,facing=east,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_sand",
       "x": 90,
       "y": 90
     },
-    "bottom=sand,shape=middle,facing=west": {
+    "bottom=sand,facing=west,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_sand",
       "x": 90,
       "y": 270
     },
-    "bottom=moss,shape=middle,facing=up": {
+    "bottom=moss,facing=up,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_moss"
     },
-    "bottom=moss,shape=middle,facing=down": {
+    "bottom=moss,facing=down,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_moss",
       "x": 180
     },
-    "bottom=moss,shape=middle,facing=north": {
+    "bottom=moss,facing=north,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_moss",
       "x": 90
     },
-    "bottom=moss,shape=middle,facing=south": {
+    "bottom=moss,facing=south,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_moss",
       "x": 90,
       "y": 180
     },
-    "bottom=moss,shape=middle,facing=east": {
+    "bottom=moss,facing=east,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_moss",
       "x": 90,
       "y": 90
     },
-    "bottom=moss,shape=middle,facing=west": {
+    "bottom=moss,facing=west,shape=middle": {
       "model": "betterendforge:block/neon_cactus_medium_moss",
       "x": 90,
       "y": 270
     },
-    "bottom=empty,shape=top,facing=up": {
+    "bottom=empty,facing=up,shape=top": {
       "model": "betterendforge:block/neon_cactus_small"
     },
-    "bottom=empty,shape=top,facing=down": {
+    "bottom=empty,facing=down,shape=top": {
       "model": "betterendforge:block/neon_cactus_small",
       "x": 180
     },
-    "bottom=empty,shape=top,facing=north": {
+    "bottom=empty,facing=north,shape=top": {
       "model": "betterendforge:block/neon_cactus_small",
       "x": 90
     },
-    "bottom=empty,shape=top,facing=south": {
+    "bottom=empty,facing=south,shape=top": {
       "model": "betterendforge:block/neon_cactus_small",
       "x": 90,
       "y": 180
     },
-    "bottom=empty,shape=top,facing=east": {
+    "bottom=empty,facing=east,shape=top": {
       "model": "betterendforge:block/neon_cactus_small",
       "x": 90,
       "y": 90
     },
-    "bottom=empty,shape=top,facing=west": {
+    "bottom=empty,facing=west,shape=top": {
       "model": "betterendforge:block/neon_cactus_small",
       "x": 90,
       "y": 270
     },
-    "bottom=sand,shape=top,facing=up": {
+    "bottom=sand,facing=up,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_sand"
     },
-    "bottom=sand,shape=top,facing=down": {
+    "bottom=sand,facing=down,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_sand",
       "x": 180
     },
-    "bottom=sand,shape=top,facing=north": {
+    "bottom=sand,facing=north,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_sand",
       "x": 90
     },
-    "bottom=sand,shape=top,facing=south": {
+    "bottom=sand,facing=south,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_sand",
       "x": 90,
       "y": 180
     },
-    "bottom=sand,shape=top,facing=east": {
+    "bottom=sand,facing=east,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_sand",
       "x": 90,
       "y": 90
     },
-    "bottom=sand,shape=top,facing=west": {
+    "bottom=sand,facing=west,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_sand",
       "x": 90,
       "y": 270
     },
-    "bottom=moss,shape=top,facing=up": {
+    "bottom=moss,facing=up,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_moss"
     },
-    "bottom=moss,shape=top,facing=down": {
+    "bottom=moss,facing=down,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_moss",
       "x": 180
     },
-    "bottom=moss,shape=top,facing=north": {
+    "bottom=moss,facing=north,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_moss",
       "x": 90
     },
-    "bottom=moss,shape=top,facing=south": {
+    "bottom=moss,facing=south,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_moss",
       "x": 90,
       "y": 180
     },
-    "bottom=moss,shape=top,facing=east": {
+    "bottom=moss,facing=east,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_moss",
       "x": 90,
       "y": 90
     },
-    "bottom=moss,shape=top,facing=west": {
+    "bottom=moss,facing=west,shape=top": {
       "model": "betterendforge:block/neon_cactus_small_moss",
       "x": 90,
       "y": 270

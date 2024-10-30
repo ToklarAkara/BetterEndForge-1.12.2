@@ -81,7 +81,8 @@ public class BetterEnd
 			ModBiomes.register();
 			ModBiomes.getModBiomes().forEach((end_biome) -> {
 				event.getRegistry().register(end_biome.getBiome());
-				NetherAPIRegistry.THE_END.registerBiome(end_biome.getBiome(), 1);
+				if(!ModBiomes.CAVE_BIOMES.getBiomes().contains(end_biome))
+					NetherAPIRegistry.THE_END.registerBiome(end_biome.getBiome(), 80);
 			});
 		}
 
