@@ -2,19 +2,17 @@ package mod.beethoven92.betterendforge;
 
 import git.jbredwards.nether_api.mod.common.registry.NetherAPIRegistry;
 import mod.beethoven92.betterendforge.client.ClientOptions;
-import mod.beethoven92.betterendforge.common.capability.EndData;
+import mod.beethoven92.betterendforge.client.PhysicalClientSide;
 import mod.beethoven92.betterendforge.common.init.*;
+import mod.beethoven92.betterendforge.common.teleporter.EndPortals;
+import mod.beethoven92.betterendforge.common.world.feature.BiomeNBTStructures;
 import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
 import mod.beethoven92.betterendforge.config.Configs;
-import mod.beethoven92.betterendforge.config.jsons.JsonConfig;
 import mod.beethoven92.betterendforge.config.jsons.JsonConfigWriter;
-import mod.beethoven92.betterendforge.data.InfusionRecipes;
 import mod.beethoven92.betterendforge.data.ModRecipes;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -24,16 +22,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
-
-import java.io.File;
-import java.nio.file.Path;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import mod.beethoven92.betterendforge.client.PhysicalClientSide;
-import mod.beethoven92.betterendforge.common.recipes.ModRecipeManager;
-import mod.beethoven92.betterendforge.common.teleporter.EndPortals;
-import mod.beethoven92.betterendforge.common.world.feature.BiomeNBTStructures;
 
 
 @Mod(modid = BetterEnd.MOD_ID)
@@ -66,7 +56,6 @@ public class BetterEnd
 
 	@Mod.EventHandler
 	public static void init(FMLInitializationEvent event) {
-		CapabilityManager.INSTANCE.register(EndData.class, new EndData.Storage(), EndData::new);
 		ModTileEntityTypes.registerTileEntities();
 		ModEntityTypes.registerEntitySpawns();
 		BiomeNBTStructures.loadStructures();

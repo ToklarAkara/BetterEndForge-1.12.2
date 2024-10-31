@@ -40,7 +40,7 @@ public class MixinPlayerChunkMapEntry {
     private void betterEndForge$doDecoration(){
         if(chunk==null) return;
         if(chunk.getWorld().provider.getDimension()!=1) return;
-        EndData data = chunk.getWorld().getCapability(EndData.CAPABILITY, null);
+        EndData data = EndData.getInstance();
         BlockPos pos = new BlockPos(chunk.x * 16,0, chunk.z * 16);
         if(data!=null && data.hasPass(pos)) {
             data.removePass(pos);

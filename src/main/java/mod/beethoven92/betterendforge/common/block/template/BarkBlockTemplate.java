@@ -10,6 +10,7 @@ import net.minecraft.block.state.IBlockState;
 public class BarkBlockTemplate extends BlockLog {
 	public BarkBlockTemplate() {
 		super();
+		this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.Y));
 	}
 
 	@Override

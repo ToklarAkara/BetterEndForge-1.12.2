@@ -29,14 +29,21 @@ import java.util.Set;
 import java.util.UUID;
 
 public class EndData implements INBTSerializable<NBTTagCompound> {
-	@CapabilityInject(EndData.class)
-	public static final Capability<EndData> CAPABILITY = null;
+	//public static final Capability<EndData> CAPABILITY = null;
+	private static EndData INSTANCE;
+
+	public static EndData getInstance(){
+		if(INSTANCE==null){
+			INSTANCE = new EndData();
+		}
+		return INSTANCE;
+	}
 
 	private Set<UUID> players;
 	private BlockPos spawn;
 	private Set<Long> decoratorPasses;
 
-	public EndData() {
+	private EndData() {
 		players = new HashSet<>();
 		decoratorPasses = new HashSet<>();
 	}
@@ -97,17 +104,11 @@ public class EndData implements INBTSerializable<NBTTagCompound> {
 	}
 
 	public static void playerLogin(EntityPlayerMP player) {
-		World end = player.getServer().getWorld(1);
-		if (end == null)
-			return;
-		end.getCapability(CAPABILITY, null).login(player);
+		EndData.getInstance().login(player);
 	}
 
 	public static void playerRespawn(EntityPlayerMP player) {
-		World end = player.getServer().getWorld(1);
-		if (end == null)
-			return;
-		end.getCapability(CAPABILITY, null).teleportToSpawn(player);
+		EndData.getInstance().teleportToSpawn(player);
 	}
 
 	@Override
@@ -153,50 +154,4 @@ public class EndData implements INBTSerializable<NBTTagCompound> {
 		return decoratorPasses.remove(pos.toLong());
 	}
 
-	@EventBusSubscriber(modid = BetterEnd.MOD_ID)
-	public static class Provider implements ICapabilitySerializable<NBTTagCompound> {
-
-		private final EndData instance = CAPABILITY.getDefaultInstance();
-
-		@Override
-		public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
-			return getCapability(capability, facing)!=null;
-		}
-
-		@Override
-		public <T> T getCapability(Capability<T> cap, EnumFacing side) {
-			return CAPABILITY.cast(instance);
-		}
-
-		@Override
-		public NBTTagCompound serializeNBT() {
-			return (NBTTagCompound) CAPABILITY.getStorage().writeNBT(CAPABILITY, instance, null);
-		}
-
-		@Override
-		public void deserializeNBT(NBTTagCompound nbt) {
-			CAPABILITY.getStorage().readNBT(CAPABILITY, instance, null, nbt);
-		}
-
-		private static final ResourceLocation LOCATION = new ResourceLocation(BetterEnd.MOD_ID, "enddata");
-
-		@SubscribeEvent
-		public static void attachCapability(AttachCapabilitiesEvent<World> event) {
-			if (event.getObject().provider.getDimension() == 1)
-				event.addCapability(LOCATION, new Provider());
-		}
-	}
-
-	public static class Storage implements IStorage<EndData> {
-
-		@Override
-		public NBTBase writeNBT(Capability<EndData> capability, EndData instance, EnumFacing side) {
-			return instance.serializeNBT();
-		}
-
-		@Override
-		public void readNBT(Capability<EndData> capability, EndData instance, EnumFacing side, NBTBase nbt) {
-			instance.deserializeNBT((NBTTagCompound) nbt);
-		}
-	}
 }

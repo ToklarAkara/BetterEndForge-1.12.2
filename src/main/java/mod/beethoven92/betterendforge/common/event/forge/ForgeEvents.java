@@ -9,16 +9,20 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingDestroyBlockEvent;
 import net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+
+import java.io.File;
 
 @Mod.EventBusSubscriber(modid = BetterEnd.MOD_ID)
 public class ForgeEvents {
@@ -58,4 +62,23 @@ public class ForgeEvents {
 		}
 	}
 
+	@SubscribeEvent
+	public static void onWorldSave(WorldEvent.Save event) {
+		if (event.getWorld().provider.getDimension() != 1) return;
+		File file = new File(event.getWorld().getSaveHandler().getWorldDirectory(), "betterEndData.dat");
+		try {
+			CompressedStreamTools.safeWrite(EndData.getInstance().serializeNBT(), file);
+		} catch (Exception e) {
+		}
+	}
+
+	@SubscribeEvent
+	public static void onWorldLoad(WorldEvent.Load event) {
+		if (event.getWorld().provider.getDimension() != 1) return;
+		File file = new File(event.getWorld().getSaveHandler().getWorldDirectory(), "betterEndData.dat");
+		try {
+			EndData.getInstance().deserializeNBT(CompressedStreamTools.read(file));
+		} catch (Exception e) {
+		}
+	}
 }

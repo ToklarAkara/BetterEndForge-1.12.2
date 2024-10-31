@@ -18,20 +18,4 @@ public class CrystaliteBootsModel extends ModelBiped {
 		this.rightBoot.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, scale + 0.25F);
 		this.rightBoot.setRotationPoint(-1.9F, 12.0F, 0.0F);
 	}
-
-	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.leftBoot.render(scale);
-		this.rightBoot.render(scale);
-	}
-
-	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-		this.leftBoot.rotateAngleX = this.bipedLeftLeg.rotateAngleX;
-		this.leftBoot.rotateAngleY = this.bipedLeftLeg.rotateAngleY;
-		this.leftBoot.rotateAngleZ = this.bipedLeftLeg.rotateAngleZ;
-		this.rightBoot.rotateAngleX = this.bipedRightLeg.rotateAngleX;
-		this.rightBoot.rotateAngleY = this.bipedRightLeg.rotateAngleY;
-		this.rightBoot.rotateAngleZ = this.bipedRightLeg.rotateAngleZ;
-	}
 }

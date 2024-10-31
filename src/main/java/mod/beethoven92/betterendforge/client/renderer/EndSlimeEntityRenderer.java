@@ -54,13 +54,14 @@ public class EndSlimeEntityRenderer extends RenderLiving<EndSlimeEntity> {
 		@Override
 		public void doRenderLayer(T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 			if (!entity.isInvisible()) {
+				GlStateManager.enableBlend();
+				Minecraft.getMinecraft().getTextureManager().bindTexture(getEntityTexture(entity));
 				if (entity.isLake()) {
-					Minecraft.getMinecraft().getTextureManager().bindTexture(TEXTURE[2]);
 					this.modelLake.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 				} else if (entity.isAmber() || entity.isChorus()) {
-					Minecraft.getMinecraft().getTextureManager().bindTexture(TEXTURE[3]);
 					this.modelOrdinal.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 				}
+				GlStateManager.disableBlend();
 			}
 		}
 

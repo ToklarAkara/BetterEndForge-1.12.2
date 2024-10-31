@@ -13,7 +13,11 @@ import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-public class StoneMaterial 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+
+public class StoneMaterial
 {
 	private static List<StoneMaterial> MATERIALS = new ArrayList<>();
 	
@@ -56,7 +60,12 @@ public class StoneMaterial
 		slab = ModBlocks.registerBlockWithDefaultItem(name + "_slab",
 				() -> new CustomBlockSlab(Material.ROCK).setHardness(3.0F).setResistance(9.0F));
 		wall = ModBlocks.registerBlockWithDefaultItem(name + "_wall", 
-				() -> new BlockWall(stone).setHardness(3.0F).setResistance(9.0F));
+				() -> new BlockWall(stone){
+					public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
+					{
+						items.add(new ItemStack(this));
+					}
+				}.setHardness(3.0F).setResistance(9.0F));
 //		button = ModBlocks.registerBlockWithDefaultItem(name + "_button",
 //				() -> new BlockButton(Material.ROCK).setHardness(3.0F).setResistance(9.0F));
 

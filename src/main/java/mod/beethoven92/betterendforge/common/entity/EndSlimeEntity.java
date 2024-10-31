@@ -7,11 +7,7 @@ import java.util.Random;
 import mod.beethoven92.betterendforge.common.init.ModBiomes;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndBiome;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntitySlime;
@@ -31,6 +27,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+
+import javax.annotation.Nullable;
 
 public class EndSlimeEntity extends EntitySlime {
 	private static final DataParameter<Byte> VARIANT = EntityDataManager.createKey(EndSlimeEntity.class, DataSerializers.BYTE);
@@ -56,6 +54,23 @@ public class EndSlimeEntity extends EntitySlime {
 	protected void entityInit() {
 		super.entityInit();
 		this.dataManager.register(VARIANT, (byte) 0);
+	}
+
+	@Nullable
+	@Override
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
+		IEntityLivingData data = super.onInitialSpawn(difficulty, livingdata);
+		BetterEndBiome biome = ModBiomes.getFromBiome(world.getBiome(getPosition()));
+		if (biome == ModBiomes.FOGGY_MUSHROOMLAND) {
+			this.setMossy();
+		}
+		else if (biome == ModBiomes.MEGALAKE || biome == ModBiomes.MEGALAKE_GROVE) {
+			this.setLake();
+		}
+		else if (biome == ModBiomes.AMBER_LAND) {
+			this.setAmber(true);
+		}
+		return data;
 	}
 
 	@Override

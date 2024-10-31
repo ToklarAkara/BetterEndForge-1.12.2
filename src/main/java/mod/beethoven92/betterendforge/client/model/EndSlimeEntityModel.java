@@ -14,7 +14,7 @@ public class EndSlimeEntityModel extends ModelBase {
 
 	public EndSlimeEntityModel(boolean onlyShell) {
 		this.textureWidth = 64;
-		this.textureHeight = 64;
+		this.textureHeight = 32;
 
 		this.innerCube = new ModelRenderer(this, 0, 16);
 		this.rightEye = new ModelRenderer(this, 32, 0);

@@ -163,12 +163,13 @@ public class WoodenMaterial
 	}
 
 	private static <T extends Block> T registerBlockWithBurnItem(String name, Supplier<? extends T> blockSupplier, int burnTime) {
-		T block = blockSupplier.get();
-		block.setRegistryName(new ResourceLocation(BetterEnd.MOD_ID, name));
-		ForgeRegistries.BLOCKS.register(block);
-		ItemBlock itemBlock = new ItemBlock(block);
-		itemBlock.setRegistryName(block.getRegistryName());
-		ForgeRegistries.ITEMS.register(itemBlock);
-		return block;
+//		T block = blockSupplier.get();
+//		block.setRegistryName(new ResourceLocation(BetterEnd.MOD_ID, name));
+//		ForgeRegistries.BLOCKS.register(block);
+//		ItemBlock itemBlock = new ItemBlock(block);
+//		itemBlock.setRegistryName(block.getRegistryName());
+//		ForgeRegistries.ITEMS.register(itemBlock);
+//		return block;
+		return ModBlocks.registerBlockWithDefaultItem(name, blockSupplier);
 	}
 }

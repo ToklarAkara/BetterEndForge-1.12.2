@@ -21,7 +21,7 @@ public class EndDecorator extends BiomeDecorator {
 
     public void decorate(World worldIn, Random random, Biome biome, BlockPos pos){
         if(decorating){
-            worldIn.getCapability(EndData.CAPABILITY, null).storePass(pos);
+            EndData.getInstance().storePass(pos);
             return;
         }
         decorating = true;

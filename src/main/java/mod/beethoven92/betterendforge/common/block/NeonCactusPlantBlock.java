@@ -391,4 +391,9 @@ public class NeonCactusPlantBlock extends Block {
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState();
 	}//TODO META
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 }

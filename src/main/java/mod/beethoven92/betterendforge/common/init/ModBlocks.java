@@ -177,7 +177,7 @@ public class ModBlocks {
         public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side) {
             return false;
         }
-    }.setHardness(1f).setResistance(1f).setLightLevel(15));
+    }.setHardness(1f).setResistance(1f).setLightLevel(1));
 
     public static final Block AMBER_BLOCK = registerBlockWithDefaultItem("amber_block", () -> new Block(Material.IRON, MapColor.YELLOW).
 
@@ -194,7 +194,7 @@ public class ModBlocks {
         public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
             return SoundType.GLASS;
         }
-    }.setHardness(1f).setResistance(1f).setLightLevel(15));
+    }.setHardness(1f).setResistance(1f).setLightLevel(1));
 
     public static final Block SMARAGDANT_CRYSTAL_SHARD = registerBlockWithDefaultItem("smaragdant_crystal_shard", () -> new SmaragdantCrystalShardBlock() {
                 @Nullable
@@ -207,30 +207,30 @@ public class ModBlocks {
                 public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
                     return SoundType.GLASS;
                 }
-            }.setLightLevel(15)
+            }.setLightLevel(1)
 
     );
 
     // LANTERNS
-    public static final Block ANDESITE_LANTERN = registerBlockWithDefaultItem("andesite_lantern", () -> new ModLanternBlock().setLightLevel(15));
-    public static final Block DIORITE_LANTERN = registerBlockWithDefaultItem("diorite_lantern", () -> new ModLanternBlock().setLightLevel(15));
-    public static final Block GRANITE_LANTERN = registerBlockWithDefaultItem("granite_lantern", () -> new ModLanternBlock().setLightLevel(15));
-    public static final Block QUARTZ_LANTERN = registerBlockWithDefaultItem("quartz_lantern", () -> new ModLanternBlock().setLightLevel(15));
-    public static final Block PURPUR_LANTERN = registerBlockWithDefaultItem("purpur_lantern", () -> new ModLanternBlock().setLightLevel(15));
-    public static final Block END_STONE_LANTERN = registerBlockWithDefaultItem("end_stone_lantern", () -> new ModLanternBlock().setLightLevel(15));
-    public static final Block BLACKSTONE_LANTERN = registerBlockWithDefaultItem("blackstone_lantern", () -> new ModLanternBlock().setLightLevel(15));
+    public static final Block ANDESITE_LANTERN = registerBlockWithDefaultItem("andesite_lantern", () -> new ModLanternBlock().setLightLevel(1));
+    public static final Block DIORITE_LANTERN = registerBlockWithDefaultItem("diorite_lantern", () -> new ModLanternBlock().setLightLevel(1));
+    public static final Block GRANITE_LANTERN = registerBlockWithDefaultItem("granite_lantern", () -> new ModLanternBlock().setLightLevel(1));
+    public static final Block QUARTZ_LANTERN = registerBlockWithDefaultItem("quartz_lantern", () -> new ModLanternBlock().setLightLevel(1));
+    public static final Block PURPUR_LANTERN = registerBlockWithDefaultItem("purpur_lantern", () -> new ModLanternBlock().setLightLevel(1));
+    public static final Block END_STONE_LANTERN = registerBlockWithDefaultItem("end_stone_lantern", () -> new ModLanternBlock().setLightLevel(1));
+    public static final Block BLACKSTONE_LANTERN = registerBlockWithDefaultItem("blackstone_lantern", () -> new ModLanternBlock().setLightLevel(1));
 
     public static final Block IRON_BULB_LANTERN = registerBlockWithDefaultItem("iron_bulb_lantern", () -> new BulbVineLanternBlock());
 
     public static final Block IRON_CHANDELIER = registerBlockWithDefaultItem("iron_chandelier", () -> new ChandelierBlock(Material.IRON).
 
 
-            setLightLevel(15));
+            setLightLevel(1));
 
     public static final Block GOLD_CHANDELIER = registerBlockWithDefaultItem("gold_chandelier", () -> new ChandelierBlock(Material.IRON).
 
 
-            setLightLevel(15));
+            setLightLevel(1));
 
     // ORES
     public static final Block ENDER_ORE = registerBlockWithDefaultItem("ender_ore", () -> new Block(Material.ROCK, MapColor.SAND) {
@@ -388,9 +388,9 @@ public class ModBlocks {
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    }.setHardness(0).setResistance(0).setLightLevel(15));
+    }.setHardness(0).setResistance(0).setLightLevel(1));
 
-    public static final Block BLUE_VINE_FUR = registerBlockWithDefaultItem("blue_vine_fur", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(15)
+    public static final Block BLUE_VINE_FUR = registerBlockWithDefaultItem("blue_vine_fur", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1)
 
     );
 
@@ -469,7 +469,7 @@ public class ModBlocks {
         public boolean isOpaqueCube(IBlockState state) {
             return false;
         }
-    }.setLightLevel(15));
+    }.setLightLevel(1));
 
     public static final Block BUBBLE_CORAL = registerBlockWithDefaultItem("bubble_coral", () -> new BubbleCoralBlock() {
         @Override
@@ -530,7 +530,7 @@ public class ModBlocks {
     public static final Block HYDRALUX = registerBlock("hydralux", () -> new HydraluxBlock() {
         @Override
         public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-            return state.getValue(HydraluxBlock.SHAPE).hasGlow() ? 15 : 0;
+            return state.getValue(HydraluxBlock.SHAPE).hasGlow() ? 1 : 0;
         }
     }.setHardness(0).setResistance(0));
 
@@ -576,9 +576,9 @@ public class ModBlocks {
 
     public static final Block GLOWING_PILLAR_ROOTS = registerBlock("glowing_pillar_roots", () -> new GlowingPillarRootsBlock().setHardness(0).setResistance(0));
 
-    public static final Block GLOWING_PILLAR_LUMINOPHOR = registerBlockWithDefaultItem("glowing_pillar_luminophor", () -> new GlowingPillarLuminophorBlock().setHardness(0.2f).setResistance(0.2f).setLightLevel(15));
+    public static final Block GLOWING_PILLAR_LUMINOPHOR = registerBlockWithDefaultItem("glowing_pillar_luminophor", () -> new GlowingPillarLuminophorBlock().setHardness(0.2f).setResistance(0.2f).setLightLevel(1));
 
-    public static final Block GLOWING_PILLAR_LEAVES = registerBlockWithDefaultItem("glowing_pillar_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(15));
+    public static final Block GLOWING_PILLAR_LEAVES = registerBlockWithDefaultItem("glowing_pillar_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1));
 
     public static final Block TWISTED_UMBRELLA_MOSS = registerBlockWithDefaultItem("twisted_umbrella_moss", () -> new TwistedUmbrellaMossBlock().setHardness(0).setResistance(0).setLightLevel(11));
 
@@ -599,9 +599,9 @@ public class ModBlocks {
         public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
             return SoundType.CLOTH;
         }
-    }.setHardness(0.4F).setLightLevel(15));
+    }.setHardness(0.4F).setLightLevel(1));
 
-    public static final Block NEON_CACTUS_BLOCK_STAIRS = registerBlockWithDefaultItem("neon_cactus_stairs", () -> new CustomBlockStairs(NEON_CACTUS_BLOCK.getDefaultState()).setLightLevel(15));
+    public static final Block NEON_CACTUS_BLOCK_STAIRS = registerBlockWithDefaultItem("neon_cactus_stairs", () -> new CustomBlockStairs(NEON_CACTUS_BLOCK.getDefaultState()).setLightLevel(1));
 
     public static final Block NEON_CACTUS_BLOCK_SLAB = registerBlockWithDefaultItem("neon_cactus_slab", () -> new CustomBlockSlab(Material.CACTUS){
 
@@ -609,7 +609,7 @@ public class ModBlocks {
         public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
             return SoundType.CLOTH;
         }
-    }.setHardness(0.4F).setLightLevel(15));
+    }.setHardness(0.4F).setLightLevel(1));
     // CROPS
     public static final Block SHADOW_BERRY = registerBlockWithDefaultItem("shadow_berry", () -> new ShadowBerryBlock().setHardness(0).setResistance(0).
 
@@ -674,7 +674,7 @@ public class ModBlocks {
     public static final Block DENSE_VINE = registerBlockWithDefaultItem("dense_vine", () -> new EndVineBlock(Material.PLANTS) {
         @Override
         public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 15 : 0;
+            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 1 : 0;
         }
     }.setHardness(0).setResistance(0));
 
@@ -683,7 +683,7 @@ public class ModBlocks {
     public static final Block BULB_VINE = registerBlockWithDefaultItem("bulb_vine", () -> new BulbVineBlock() {
         @Override
         public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 15 : 0;
+            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 1 : 0;
         }
     }.setHardness(0).setResistance(0));
 
@@ -712,9 +712,9 @@ public class ModBlocks {
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    }.setLightLevel(15));
+    }.setLightLevel(1));
 
-    public static final Block MOSSY_GLOWSHROOM_FUR = registerBlockWithDefaultItem("mossy_glowshroom_fur", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(15));
+    public static final Block MOSSY_GLOWSHROOM_FUR = registerBlockWithDefaultItem("mossy_glowshroom_fur", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1));
 
     public static final Block LACUGROVE_SAPLING = registerBlockWithDefaultItem("lacugrove_sapling", () -> new LacugroveSaplingBlock(Material.PLANTS).setHardness(0).setResistance(0).setTickRandomly(true));
 
@@ -752,7 +752,7 @@ public class ModBlocks {
         }
     });
 
-    public static final Block TENANEA_FLOWERS = registerBlockWithDefaultItem("tenanea_flowers", () -> new TenaneaFlowersBlock().setHardness(0).setResistance(0).setLightLevel(15));
+    public static final Block TENANEA_FLOWERS = registerBlockWithDefaultItem("tenanea_flowers", () -> new TenaneaFlowersBlock().setHardness(0).setResistance(0).setLightLevel(1));
 
     public static final Block TENANEA_OUTER_LEAVES = registerBlockWithDefaultItem("tenanea_outer_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0));
 
@@ -764,7 +764,7 @@ public class ModBlocks {
 
     public static final Block UMBRELLA_TREE_MEMBRANE = registerBlockWithDefaultItem("umbrella_tree_membrane", () -> new UmbrellaTreeMembraneBlock());
 
-    public static final Block UMBRELLA_TREE_CLUSTER = registerBlockWithDefaultItem("umbrella_tree_cluster", () -> new UmbrellaTreeClusterBlock().setHardness(1.0f).setResistance(1.0f).setLightLevel(15));
+    public static final Block UMBRELLA_TREE_CLUSTER = registerBlockWithDefaultItem("umbrella_tree_cluster", () -> new UmbrellaTreeClusterBlock().setHardness(1.0f).setResistance(1.0f).setLightLevel(1));
 
     public static final Block UMBRELLA_TREE_CLUSTER_EMPTY = registerBlockWithDefaultItem("umbrella_tree_cluster_empty", () -> new UmbrellaTreeClusterBlock().setHardness(1.0f).setResistance(1.0f).setTickRandomly(true));
 
@@ -805,9 +805,9 @@ public class ModBlocks {
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    }.setLightLevel(15));
+    }.setLightLevel(1));
 
-    public static final Block AMARANITA_FUR = registerBlockWithDefaultItem("amaranita_fur", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(15));
+    public static final Block AMARANITA_FUR = registerBlockWithDefaultItem("amaranita_fur", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1));
 
     public static final Block AMARANITA_CAP = registerBlockWithDefaultItem("amaranita_cap", () -> new Block(Material.WOOD) {
         @Nullable
@@ -863,7 +863,7 @@ public class ModBlocks {
     public static final Block RESPAWN_OBELISK = registerBlockWithDefaultItem("respawn_obelisk", () -> new RespawnObeliskBlock(){
         @Override
         public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-            return (state.getValue(RespawnObeliskBlock.SHAPE) == TripleShape.BOTTOM) ? 0 : 15;
+            return (state.getValue(RespawnObeliskBlock.SHAPE) == TripleShape.BOTTOM) ? 0 : 1;
         }
     });
 
@@ -917,7 +917,7 @@ public class ModBlocks {
         }
     });
 
-    public static final Block LUCERNIA_OUTER_LEAVES = registerBlockWithDefaultItem("lucernia_outer_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(15));
+    public static final Block LUCERNIA_OUTER_LEAVES = registerBlockWithDefaultItem("lucernia_outer_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1));
 
     public static final Block FILALUX = registerBlockWithDefaultItem("filalux", () -> new FilaluxBlock());
     public static final Block FILALUX_WINGS = registerBlockWithDefaultItem("filalux_wings", () -> new FilaluxWingsBlock());
@@ -927,7 +927,7 @@ public class ModBlocks {
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    }.setLightLevel(15));
+    }.setLightLevel(1));
 
 
     // STONE MATERIALS

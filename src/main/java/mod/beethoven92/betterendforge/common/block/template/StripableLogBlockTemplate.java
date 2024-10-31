@@ -23,6 +23,7 @@ public class StripableLogBlockTemplate extends BlockLog {
 		super();
 		this.striped = striped;
 		this.color = color;
+		this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.Y));
 	}
 
 	@Override

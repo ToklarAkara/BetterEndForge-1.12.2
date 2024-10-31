@@ -14,16 +14,6 @@ public class CrystaliteHelmetModel extends ModelBiped {
 		this.bipedHead.setRotationPoint(0.0F, 0.0F, 0.0F);
 	}
 
-	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.bipedHead.render(scale);
-	}
-
-	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
-		// Implement rotation logic if needed
-	}
-
 //	@Override
 //	protected Iterable<ModelRenderer> getHeadParts() {
 //		return Lists.newArrayList(this.bipedHead);

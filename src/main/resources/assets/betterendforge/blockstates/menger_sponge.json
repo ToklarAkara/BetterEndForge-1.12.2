@@ -2,6 +2,12 @@
   "variants": {
     "normal": {
       "model": "betterendforge:block/menger_sponge"
+    },
+    "wet=false": {
+      "model": "betterendforge:block/menger_sponge"
+    },
+    "wet=true": {
+      "model": "betterendforge:block/menger_sponge"
     }
   }
 }

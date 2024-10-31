@@ -27,6 +27,7 @@ public class StripableBarkBlockTemplate extends BarkBlockTemplate {
 		super();
 		this.striped = striped;
 		this.color = color;
+		this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.Y));
 	}
 
 	@Override

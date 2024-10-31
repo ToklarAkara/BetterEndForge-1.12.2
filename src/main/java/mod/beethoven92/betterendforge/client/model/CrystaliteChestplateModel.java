@@ -36,22 +36,6 @@ public class CrystaliteChestplateModel extends ModelBiped {
 		}
 	}
 
-	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.leftShoulder.render(scale);
-		this.rightShoulder.render(scale);
-		this.bipedBody.render(scale);
-	}
-
-	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-		this.leftShoulder.rotateAngleX = this.bipedLeftArm.rotateAngleX;
-		this.leftShoulder.rotateAngleY = this.bipedLeftArm.rotateAngleY;
-		this.leftShoulder.rotateAngleZ = this.bipedLeftArm.rotateAngleZ;
-		this.rightShoulder.rotateAngleX = this.bipedRightArm.rotateAngleX;
-		this.rightShoulder.rotateAngleY = this.bipedRightArm.rotateAngleY;
-		this.rightShoulder.rotateAngleZ = this.bipedRightArm.rotateAngleZ;
-	}
 
 	@Override
 	public void postRenderArm(float scale, EnumHandSide side) {
