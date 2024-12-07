@@ -144,6 +144,7 @@ public class SilkMothEntity extends EntityAnimal implements EntityFlying {
 
 	@Override
 	public boolean getCanSpawnHere() {
+		if(rand.nextInt(100) != 0) return false;
 		BlockPos pos = getPosition();
 		Chunk chunk = world.getChunk(pos);
 		int y = chunk.getHeightValue(pos.getX() & 15, pos.getZ() & 15);

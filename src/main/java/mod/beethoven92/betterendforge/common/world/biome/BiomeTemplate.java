@@ -16,6 +16,7 @@ import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.Con
 import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.SurfaceBuilder;
 import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraft.block.Block;
+import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -53,7 +54,7 @@ public class BiomeTemplate
 	private SoundEvent ambient;
 //	private MoodSoundAmbience mood;
 //	private SoundAdditionsAmbience additions;
-	private SoundEvent music;
+	private MusicTicker.MusicType music;
 
 //	private ParticleEffectAmbience particle;
 
@@ -185,7 +186,7 @@ public class BiomeTemplate
 //		return this;
 //	}
 
-	public BiomeTemplate setMusic(SoundEvent music)
+	public BiomeTemplate setMusic(MusicTicker.MusicType music)
 	{
 		this.music = music;
 		return this;
@@ -312,6 +313,8 @@ public class BiomeTemplate
 		biome.setGrassColor(grassColor);
 		biome.setSurface(surface);
 		biome.setFogColor(fogColor);
+		biome.setMusicType(music);
+		biome.setAmbientSound(ambient);
 
 		for (SpawnInfo info : mobs)
 		{

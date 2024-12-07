@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.entity.CubozoaEntity;
 import mod.beethoven92.betterendforge.common.entity.DragonflyEntity;
 import mod.beethoven92.betterendforge.common.entity.EndFishEntity;
@@ -25,7 +26,7 @@ public class MegalakeBiome extends BetterEndBiome
 				setWaterColor(96, 163, 255).
 				setWaterFogColor(96, 163, 255).
 				setFogDensity(1.75F).
-				setMusic(ModSoundEvents.MUSIC_WATER).
+				setMusic(BetterEndMusicType.MUSIC_WATER).
 				setAmbientSound(ModSoundEvents.AMBIENT_MEGALAKE).
 				//setSurface(ModConfiguredSurfaceBuilders.get(ModConfiguredSurfaceBuilders.MEGALAKE_SURFACE)).
 				setSurface(ModConfiguredSurfaceBuilders.MEGALAKE_SURFACE).

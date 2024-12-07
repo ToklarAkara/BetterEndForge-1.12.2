@@ -31,6 +31,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class NeonCactusPlantBlock extends Block {
 	public static final PropertyEnum<TripleShape> SHAPE = BlockProperties.TRIPLE_SHAPE;
@@ -392,8 +394,19 @@ public class NeonCactusPlantBlock extends Block {
 		return getDefaultState();
 	}//TODO META
 
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getRenderLayer()
+	{
+		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 }

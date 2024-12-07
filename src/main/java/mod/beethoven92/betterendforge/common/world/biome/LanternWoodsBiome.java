@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -16,7 +17,7 @@ public class LanternWoodsBiome extends BetterEndBiome {
 				.setWaterColor(171, 234, 226)
 				.setFoliageColor(254, 85, 57)
 				.setSurface(ModBlocks.RUTISCUS)
-				.setMusic(ModSoundEvents.MUSIC_FOREST)
+				.setMusic(BetterEndMusicType.MUSIC_FOREST)
 				//.setParticles(ModParticleTypes.GLOWING_SPHERE, 0.001F)
 				.addFeature(Decoration.LAKES, ModConfiguredFeatures.END_LAKE_NORMAL)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.FLAMAEA)

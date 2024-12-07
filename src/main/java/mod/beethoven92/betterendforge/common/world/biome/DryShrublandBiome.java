@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -16,7 +17,7 @@ public class DryShrublandBiome extends BetterEndBiome {
 				.setWaterFogColor(113, 88, 53)
 				.setFoliageColor(237, 122, 66)
 				.setSurface(ModBlocks.RUTISCUS)
-				.setMusic(ModSoundEvents.MUSIC_OPENSPACE)
+				.setMusic(BetterEndMusicType.MUSIC_OPENSPACE)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.ORANGO)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.AERIDIUM)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.LUTEBUS)

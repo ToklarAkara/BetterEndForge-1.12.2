@@ -36,6 +36,7 @@
     "ClientPlayNetHandlerMixin",
     "FogRendererMixin",
     "MinecraftMixin",
+    "MixinMusicType",
     "MusicTickerMixin",
     "SoundVolumeAccessor",
     "WorldRendererMixin"

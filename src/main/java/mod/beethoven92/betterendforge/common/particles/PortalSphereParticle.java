@@ -23,7 +23,7 @@ public class PortalSphereParticle extends ParticleSimpleAnimated
 	protected PortalSphereParticle(World world, double x, double y, double z, TextureAtlasSprite spriteWithAge)
 	{
 		super(world, x, y, z, 0, 0, 0);
-		this.setParticleTexture(spriteWithAge);
+		particleTextureIndexY = 3;
 		this.particleMaxAge = ModMathHelper.randRange(20, 80, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
 		this.setRBGColorF(0xFE, 0xBB, 0xD5);

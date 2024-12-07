@@ -18,9 +18,10 @@ public class FireflyParticle extends ParticleSimpleAnimated {
 	private double nextVY;
 	private double nextVZ;
 
-	protected FireflyParticle(World world, double x, double y, double z, TextureAtlasSprite sprite, double r, double g, double b) {
+	protected FireflyParticle(World world, double x, double y, double z, TextureAtlasSprite sprite) {
 		super(world, x, y, z, 0, 0, 0);
 		this.setParticleTexture(sprite);
+		particleTextureIndexY = 2;
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
 		this.setColorFade(15916745);
@@ -70,7 +71,7 @@ public class FireflyParticle extends ParticleSimpleAnimated {
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... parameters) {
-			return new FireflyParticle(world, x, y, z, sprite, 1, 1, 1);
+			return new FireflyParticle(world, x, y, z, sprite);
 		}
 	}
 }

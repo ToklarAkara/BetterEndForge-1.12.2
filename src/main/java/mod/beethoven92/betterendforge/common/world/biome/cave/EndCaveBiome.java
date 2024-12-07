@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome.cave;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.init.ModFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndCaveBiome;
@@ -11,7 +12,7 @@ public class EndCaveBiome extends BetterEndCaveBiome {
 	{
 		super(new BiomeTemplate("end_cave")
 				.setFogDensity(2.0F)
-				.setMusic(ModSoundEvents.MUSIC_CAVES)
+				.setMusic(BetterEndMusicType.MUSIC_CAVES)
 				.setAmbientSound(ModSoundEvents.AMBIENT_CAVES));
 
 	}

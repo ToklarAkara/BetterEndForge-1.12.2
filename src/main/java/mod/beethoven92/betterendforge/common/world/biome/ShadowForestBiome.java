@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.entity.ShadowWalkerEntity;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
@@ -23,7 +24,7 @@ public class ShadowForestBiome extends BetterEndBiome
 				setSurface(ModBlocks.SHADOW_GRASS).
 				//setParticles(ParticleTypes.MYCELIUM, 0.01F).
 				setAmbientSound(ModSoundEvents.AMBIENT_CHORUS_FOREST).
-				setMusic(ModSoundEvents.MUSIC_DARK).
+				setMusic(BetterEndMusicType.MUSIC_DARK).
 				addFeature(Decoration.UNDERGROUND_ORES, ModConfiguredFeatures.VIOLECITE_LAYER).
 				addFeature(Decoration.LAKES, ModConfiguredFeatures.END_LAKE_RARE).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.DRAGON_TREE).

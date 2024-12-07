@@ -19,7 +19,7 @@ public class GlowingSphereParticle extends ParticleSimpleAnimated {
 	private double nextVY;
 	private double nextVZ;
 
-	protected GlowingSphereParticle(World world, double x, double y, double z, TextureAtlasSprite sprite, double r, double g, double b) {
+	protected GlowingSphereParticle(World world, double x, double y, double z, TextureAtlasSprite sprite) {
 		super(world, x, y, z, 0, 0, 0);
 		this.setParticleTexture(sprite);
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
@@ -65,7 +65,7 @@ public class GlowingSphereParticle extends ParticleSimpleAnimated {
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... parameters) {
-			return new GlowingSphereParticle(world, x, y, z, this.sprite, 1, 1, 1);
+			return new GlowingSphereParticle(world, x, y, z, this.sprite);
 		}
 	}
 }

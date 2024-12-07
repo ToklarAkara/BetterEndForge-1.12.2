@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome.cave;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -17,7 +18,7 @@ public class LushSmaragdantCaveBiome extends BetterEndCaveBiome
 				.setGrassColor(0, 131, 145)
 				.setWaterColor(31, 167, 212)
 				.setWaterFogColor(31, 167, 212)
-				.setMusic(ModSoundEvents.MUSIC_CAVES)
+				.setMusic(BetterEndMusicType.MUSIC_CAVES)
 				.setAmbientSound(ModSoundEvents.AMBIENT_CAVES)
 				//.setParticles(ModParticleTypes.SMARAGDANT.get(), 0.001F)
 				.setSurface(ModBlocks.CAVE_MOSS));

@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.init.*;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
 
@@ -24,7 +25,7 @@ public class UmbraValleyBiome extends BetterEndBiome
 			.setSurface(ModConfiguredSurfaceBuilders.UMBRA_SURFACE)
 			//.setSurface(ModConfiguredSurfaceBuilders.get(ModConfiguredSurfaceBuilders.UMBRA_SURFACE))
 				//.setParticles(ModParticleTypes.AMBER_SPHERE, 0.0001F)
-			.setMusic(ModSoundEvents.AMBIENT_UMBRA_VALLEY)
+			.setMusic(BetterEndMusicType.MUSIC_UMBRA_VALLEY)
 			.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.INFLEXIA)
 			.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.FLAMMALIX)
 			.addFeature(Decoration.RAW_GENERATION, ModConfiguredFeatures.THIN_ARCH)

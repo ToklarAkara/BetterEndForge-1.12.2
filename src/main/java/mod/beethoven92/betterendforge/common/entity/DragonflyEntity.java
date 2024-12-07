@@ -119,7 +119,7 @@ public class DragonflyEntity extends EntityAnimal implements EntityFlying {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if(rand.nextInt(10) != 0) return false;
+		if(rand.nextInt(100) != 0) return false;
 		BlockPos pos = getPosition();
 		AxisAlignedBB box = new AxisAlignedBB(pos).grow(16);
 		List<DragonflyEntity> list = world.getEntitiesWithinAABB(DragonflyEntity.class, box, (entity) -> true);

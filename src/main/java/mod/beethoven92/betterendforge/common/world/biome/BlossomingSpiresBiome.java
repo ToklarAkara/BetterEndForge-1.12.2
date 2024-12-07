@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.entity.SilkMothEntity;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
@@ -21,7 +22,7 @@ public class BlossomingSpiresBiome extends BetterEndBiome
 				setCaves(false).
 				setSurface(ModBlocks.PINK_MOSS).
 				setAmbientSound(ModSoundEvents.AMBIENT_BLOSSOMING_SPIRES).
-				setMusic(ModSoundEvents.MUSIC_FOREST).
+				setMusic(BetterEndMusicType.MUSIC_FOREST).
 				addFeature(Decoration.RAW_GENERATION, ModConfiguredFeatures.SPIRE).
 				addFeature(Decoration.RAW_GENERATION, ModConfiguredFeatures.FLOATING_SPIRE).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.TENANEA).

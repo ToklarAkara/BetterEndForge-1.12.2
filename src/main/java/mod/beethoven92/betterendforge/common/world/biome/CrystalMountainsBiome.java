@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -13,7 +14,7 @@ public class CrystalMountainsBiome extends BetterEndBiome
 	{
 		super(new BiomeTemplate("crystal_mountains").setGrassColor(255, 133, 211).
 				                  setFoliageColor(255, 133, 211).
-				                  setMusic(ModSoundEvents.MUSIC_OPENSPACE).
+				                  setMusic(BetterEndMusicType.MUSIC_OPENSPACE).
 				                  setSurface(ModBlocks.CRYSTAL_MOSS).
 				                  addFeature(Decoration.RAW_GENERATION, ModConfiguredFeatures.ROUND_CAVE).
 				                  addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.CRYSTAL_GRASS).

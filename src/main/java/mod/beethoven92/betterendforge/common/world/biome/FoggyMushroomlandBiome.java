@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
 import mod.beethoven92.betterendforge.common.entity.CubozoaEntity;
 import mod.beethoven92.betterendforge.common.entity.DragonflyEntity;
 import mod.beethoven92.betterendforge.common.entity.EndFishEntity;
@@ -27,7 +28,7 @@ public class FoggyMushroomlandBiome extends BetterEndBiome
 				//setSurface(ModConfiguredSurfaceBuilders.get(ModConfiguredSurfaceBuilders.MUSHROOMLAND_SURFACE)).
 				//setParticles(ModParticleTypes.GLOWING_SPHERE, 0.001F).
 				setAmbientSound(ModSoundEvents.AMBIENT_FOGGY_MUSHROOMLAND).
-				setMusic(ModSoundEvents.MUSIC_FOREST).
+				setMusic(BetterEndMusicType.MUSIC_FOREST).
 				addFeature(Decoration.LAKES, ModConfiguredFeatures.END_LAKE).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.MOSSY_GLOWSHROOM).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.BLUE_VINE).

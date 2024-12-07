@@ -15,7 +15,7 @@ public class JungleSporeParticle extends ParticleSimpleAnimated
 	{
 		super(world, x, y, z, 0, 0, 0);
 
-		this.setParticleTexture(spriteWithAge);
+		particleTextureIndexY = 4;
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
 		this.setColorFade(15916745);

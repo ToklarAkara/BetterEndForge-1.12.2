@@ -24,7 +24,7 @@ public class TenaneaPetalParticle extends Particle
 	{
 		super(world, x, y, z, r, g, b);
 
-		this.setParticleTexture(spriteWithAge);
+		particleTextureIndexY = 7;
 
 		int color = TenaneaFlowersBlock.getBlockColor(new BlockPos(x, y, z));
 
