@@ -1,6 +1,7 @@
 package mod.beethoven92.betterendforge.common.particles;
 
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
@@ -10,11 +11,12 @@ import net.minecraft.world.World;
 
 public class JungleSporeParticle extends ParticleSimpleAnimated
 {
-	protected JungleSporeParticle(World world, double x, double y, double z, TextureAtlasSprite spriteWithAge,
-								  double r, double g, double b)
+	protected static final TextureAtlasSprite PARTICLE_ATLAS = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("betterendforge:particle/spritesheet");
+
+	protected JungleSporeParticle(World world, double x, double y, double z)
 	{
 		super(world, x, y, z, 0, 0, 0);
-
+		setParticleTexture(PARTICLE_ATLAS);
 		particleTextureIndexY = 4;
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
@@ -61,18 +63,12 @@ public class JungleSporeParticle extends ParticleSimpleAnimated
 
 	public static class Factory implements IParticleFactory
 	{
-		private final TextureAtlasSprite sprite;
-
-		public Factory(TextureAtlasSprite sprite)
-		{
-			this.sprite = sprite;
-		}
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z,
 									   double xSpeed, double ySpeed, double zSpeed, int... args)
 		{
-			return new JungleSporeParticle(world, x, y, z, this.sprite, 1, 1, 1);
+			return new JungleSporeParticle(world, x, y, z);
 		}
 	}
 }

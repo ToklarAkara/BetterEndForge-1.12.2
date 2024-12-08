@@ -418,10 +418,6 @@ public class ModBlocks {
             return false;
         }
 
-        @Override
-        public boolean isOpaqueCube(IBlockState state) {
-            return true;
-        }
 
         public int quantityDropped(Random random) {
             return 0;
@@ -433,6 +429,22 @@ public class ModBlocks {
             } else {
                 super.harvestBlock(worldIn, player, pos, state, te, stack);
             }
+        }
+
+        @SideOnly(Side.CLIENT)
+        public BlockRenderLayer getRenderLayer()
+        {
+            return BlockRenderLayer.CUTOUT_MIPPED;
+        }
+
+        @Override
+        public boolean isOpaqueCube(IBlockState state) {
+            return false;
+        }
+
+        @Override
+        public boolean isFullCube(IBlockState state) {
+            return false;
         }
     }.setHardness(0.2F).setResistance(0.2f).setTickRandomly(true));
 

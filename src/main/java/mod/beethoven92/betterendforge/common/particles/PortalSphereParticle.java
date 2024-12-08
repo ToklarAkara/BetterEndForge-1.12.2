@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.particles;
 
 import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
@@ -12,6 +13,7 @@ import net.minecraft.util.math.MathHelper;
 
 public class PortalSphereParticle extends ParticleSimpleAnimated
 {
+	protected static final TextureAtlasSprite PARTICLE_ATLAS = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("betterendforge:particle/spritesheet");
 	private int ticks;
 	private double preVX;
 	private double preVY;
@@ -20,9 +22,10 @@ public class PortalSphereParticle extends ParticleSimpleAnimated
 	private double nextVY;
 	private double nextVZ;
 
-	protected PortalSphereParticle(World world, double x, double y, double z, TextureAtlasSprite spriteWithAge)
+	protected PortalSphereParticle(World world, double x, double y, double z)
 	{
 		super(world, x, y, z, 0, 0, 0);
+		setParticleTexture(PARTICLE_ATLAS);
 		particleTextureIndexY = 3;
 		this.particleMaxAge = ModMathHelper.randRange(20, 80, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
@@ -63,18 +66,12 @@ public class PortalSphereParticle extends ParticleSimpleAnimated
 
 	public static class Factory implements IParticleFactory
 	{
-		private final TextureAtlasSprite sprite;
-
-		public Factory(TextureAtlasSprite sprite)
-		{
-			this.sprite = sprite;
-		}
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z,
 									   double xSpeed, double ySpeed, double zSpeed, int... args)
 		{
-			return new PortalSphereParticle(world, x, y, z, this.sprite);
+			return new PortalSphereParticle(world, x, y, z);
 		}
 	}
 }

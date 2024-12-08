@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.particles;
 
 import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
@@ -11,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.util.math.MathHelper;
 
 public class FireflyParticle extends ParticleSimpleAnimated {
+	protected static final TextureAtlasSprite PARTICLE_ATLAS = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("betterendforge:particle/spritesheet");
 	private double preVX;
 	private double preVY;
 	private double preVZ;
@@ -18,9 +20,9 @@ public class FireflyParticle extends ParticleSimpleAnimated {
 	private double nextVY;
 	private double nextVZ;
 
-	protected FireflyParticle(World world, double x, double y, double z, TextureAtlasSprite sprite) {
+	protected FireflyParticle(World world, double x, double y, double z) {
 		super(world, x, y, z, 0, 0, 0);
-		this.setParticleTexture(sprite);
+		this.setParticleTexture(PARTICLE_ATLAS);
 		particleTextureIndexY = 2;
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
@@ -63,15 +65,11 @@ public class FireflyParticle extends ParticleSimpleAnimated {
 	}
 
 	public static class FireflyParticleFactory implements IParticleFactory {
-		private final TextureAtlasSprite sprite;
 
-		public FireflyParticleFactory(TextureAtlasSprite sprite) {
-			this.sprite = sprite;
-		}
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... parameters) {
-			return new FireflyParticle(world, x, y, z, sprite);
+			return new FireflyParticle(world, x, y, z);
 		}
 	}
 }

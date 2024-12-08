@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndCaveBiome;
+import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import mod.beethoven92.betterendforge.common.world.feature.Mutable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -34,7 +35,7 @@ public class CaveChunkPopulatorFeature extends WorldGenerator
 		BlockPos.MutableBlockPos max = new Mutable().setPos(pos);
 		fillSets(sx, sz, world.getChunk(pos), floorPositions, ceilPositions, min, max);
 		BetterEndCaveBiome biome = supplier.get();
-		IBlockState surfaceBlock = biome.getBiome().topBlock;
+		IBlockState surfaceBlock = (biome.getBiome() instanceof ExtendedBiome)?((ExtendedBiome)biome.getBiome()).getSurface().config.getTop() :biome.getBiome().topBlock;
 		placeFloor(world, biome, floorPositions, random, surfaceBlock);
 		placeCeil(world, biome, ceilPositions, random);
 		BlockHelper.fixBlocks(world, min, max);

@@ -14,6 +14,7 @@ import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndBiome;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndCaveBiome;
+import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import mod.beethoven92.betterendforge.common.world.feature.Mutable;
 import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
 import net.minecraft.block.state.IBlockState;
@@ -86,7 +87,7 @@ public abstract class EndCaveFeature extends WorldGenerator
 						}
 					}
 				});
-				IBlockState surfaceBlock = biome.getBiome().topBlock;
+				IBlockState surfaceBlock = (biome.getBiome() instanceof ExtendedBiome)?((ExtendedBiome)biome.getBiome()).getSurface().config.getTop() :biome.getBiome().topBlock;
 				placeFloor(world, biome, floorPositions, rand, surfaceBlock);
 				placeCeil(world, biome, ceilPositions, rand);
 				placeWalls(world, biome, caveBlocks, rand);

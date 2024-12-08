@@ -9,6 +9,7 @@ import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.util.FeatureHelper;
 import mod.beethoven92.betterendforge.common.util.NbtModIdReplacer;
+import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
@@ -134,7 +135,7 @@ public abstract class NBTFeature extends WorldGenerator
 							IBlockState stateSt = world.getBlockState(mut);
 							if (!ModTags.GEN_TERRAIN.contains(stateSt.getBlock())) {
 								if (merge == TerrainMerge.SURFACE) {
-									IBlockState top = world.getBiome(mut).topBlock;
+									IBlockState top = (world.getBiome(mut) instanceof ExtendedBiome)?((ExtendedBiome)world.getBiome(mut)).getSurface().config.getTop() :world.getBiome(mut).topBlock;
 									boolean isTop = mut.getY() == surfMax && state.getMaterial().isOpaque();
 									IBlockState surfaceState = isTop ? top : world.getBiome(mut).fillerBlock;
 									BlockHelper.setWithoutUpdate(world, mut, surfaceState);

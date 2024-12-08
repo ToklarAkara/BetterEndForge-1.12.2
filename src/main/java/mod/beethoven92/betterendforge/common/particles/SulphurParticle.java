@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 
 public class SulphurParticle extends Particle
 {
+	protected static final TextureAtlasSprite PARTICLE_ATLAS = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("betterendforge:particle/spritesheet");
 	private int ticks;
 	private double preVX;
 	private double preVY;
@@ -21,12 +22,12 @@ public class SulphurParticle extends Particle
 	private double nextVZ;
 
 	protected SulphurParticle(World world, double x, double y, double z, double r,
-							  double g, double b, TextureAtlasSprite spriteWithAge)
+							  double g, double b)
 	{
 		super(world, x, y, z, r, g, b);
 
 		particleTextureIndexY = 6;
-
+		setParticleTexture(PARTICLE_ATLAS);
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
 		this.setRBGColorF(1, 1, 1);
@@ -84,18 +85,12 @@ public class SulphurParticle extends Particle
 
 	public static class Factory implements IParticleFactory
 	{
-		private final TextureAtlasSprite sprite;
-
-		public Factory(TextureAtlasSprite sprite)
-		{
-			this.sprite = sprite;
-		}
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z,
 									   double xSpeed, double ySpeed, double zSpeed, int... args)
 		{
-			return new SulphurParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, sprite);
+			return new SulphurParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
 		}
 	}
 }

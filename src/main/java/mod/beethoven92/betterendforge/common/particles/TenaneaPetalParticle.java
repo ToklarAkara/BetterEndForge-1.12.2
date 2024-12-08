@@ -3,6 +3,7 @@ package mod.beethoven92.betterendforge.common.particles;
 import mod.beethoven92.betterendforge.common.block.TenaneaFlowersBlock;
 import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -12,6 +13,7 @@ import net.minecraft.world.World;
 
 public class TenaneaPetalParticle extends Particle
 {
+	protected static final TextureAtlasSprite PARTICLE_ATLAS = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("betterendforge:particle/spritesheet");
 	private double preVX;
 	private double preVY;
 	private double preVZ;
@@ -20,10 +22,11 @@ public class TenaneaPetalParticle extends Particle
 	private double nextVZ;
 
 	protected TenaneaPetalParticle(World world, double x, double y, double z, double r,
-								   double g, double b, TextureAtlasSprite spriteWithAge)
+								   double g, double b)
 	{
 		super(world, x, y, z, r, g, b);
 
+		setParticleTexture(PARTICLE_ATLAS);
 		particleTextureIndexY = 7;
 
 		int color = TenaneaFlowersBlock.getBlockColor(new BlockPos(x, y, z));
@@ -84,18 +87,11 @@ public class TenaneaPetalParticle extends Particle
 
 	public static class Factory implements IParticleFactory
 	{
-		private final TextureAtlasSprite sprite;
-
-		public Factory(TextureAtlasSprite sprite)
-		{
-			this.sprite = sprite;
-		}
-
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z,
 									   double xSpeed, double ySpeed, double zSpeed, int... args)
 		{
-			return new TenaneaPetalParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, sprite);
+			return new TenaneaPetalParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
 		}
 	}
 }

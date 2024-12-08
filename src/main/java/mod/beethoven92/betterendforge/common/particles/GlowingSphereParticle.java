@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.particles;
 
 import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
@@ -11,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.util.math.MathHelper;
 
 public class GlowingSphereParticle extends ParticleSimpleAnimated {
+	protected static final TextureAtlasSprite PARTICLE_ATLAS = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("betterendforge:particle/spritesheet");
 	private int ticks;
 	private double preVX;
 	private double preVY;
@@ -19,9 +21,9 @@ public class GlowingSphereParticle extends ParticleSimpleAnimated {
 	private double nextVY;
 	private double nextVZ;
 
-	protected GlowingSphereParticle(World world, double x, double y, double z, TextureAtlasSprite sprite) {
+	protected GlowingSphereParticle(World world, double x, double y, double z) {
 		super(world, x, y, z, 0, 0, 0);
-		this.setParticleTexture(sprite);
+		this.setParticleTexture(PARTICLE_ATLAS);
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
 		this.particleScale = ModMathHelper.randRange(0.05F, 0.15F, rand);
 		this.setColorFade(15916745);
@@ -57,15 +59,10 @@ public class GlowingSphereParticle extends ParticleSimpleAnimated {
 	}
 
 	public static class Factory implements IParticleFactory {
-		private final TextureAtlasSprite sprite;
-
-		public Factory(TextureAtlasSprite sprite) {
-			this.sprite = sprite;
-		}
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... parameters) {
-			return new GlowingSphereParticle(world, x, y, z, this.sprite);
+			return new GlowingSphereParticle(world, x, y, z);
 		}
 	}
 }

@@ -18,9 +18,12 @@ import mod.beethoven92.betterendforge.common.init.ModItems;
 import mod.beethoven92.betterendforge.common.teleporter.EndPortals;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemMonsterPlacer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -116,5 +119,11 @@ public class ColorHandler
 		result.add(ModBlocks.PURPUR_LANTERN);
 		result.add(ModBlocks.QUARTZ_LANTERN);
 		return result.toArray(new Block[0]);
+	}
+
+	@SubscribeEvent
+	public static void registerTextures(TextureStitchEvent.Pre event) {
+		TextureMap map = event.getMap();
+		map.registerSprite(new ResourceLocation("betterendforge", "particle/spritesheet"));
 	}
 }

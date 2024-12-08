@@ -5,6 +5,7 @@ import git.jbredwards.nether_api.api.audio.impl.VanillaMusicType;
 import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.IEndBiome;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
+import mod.beethoven92.betterendforge.common.particles.FireflyParticle;
 import mod.beethoven92.betterendforge.common.particles.SulphurParticle;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.ConfiguredSurfaceBuilder;
@@ -107,6 +108,12 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
         float g = (float)(fogColor >> 8 & 255) / 255.0F;
         float b = (float)(fogColor & 255) / 255.0F;
         return new Vec3d(r,g,b);
+    }
+
+    @Nullable
+    @Override
+    public IParticleFactory[] getAmbientParticles() {
+        return new IParticleFactory[]{new FireflyParticle.FireflyParticleFactory()};
     }
 
     @Override

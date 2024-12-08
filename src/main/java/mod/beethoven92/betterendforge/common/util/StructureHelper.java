@@ -13,6 +13,7 @@ import com.google.common.collect.Sets;
 
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModTags;
+import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import mod.beethoven92.betterendforge.common.world.feature.Mutable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -392,7 +393,7 @@ public class StructureHelper {
             mut.setPos(x, 0, 0);
             for (int z = bounds.minZ; z <= bounds.maxZ; z++) {
                 mut.setPos(x, 0, z);
-                IBlockState top = world.getBiome(mut).topBlock;
+                IBlockState top = (world.getBiome(mut) instanceof ExtendedBiome)?((ExtendedBiome)world.getBiome(mut)).getSurface().config.getTop() :world.getBiome(mut).topBlock;
                 for (int y = bounds.maxY; y >= bounds.minY; y--) {
                     mut.setPos(x, y, z);
                     IBlockState state = world.getBlockState(mut);

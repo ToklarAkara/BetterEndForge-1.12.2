@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 import com.google.common.collect.Lists;
 
 import mod.beethoven92.betterendforge.BetterEnd;
+import mod.beethoven92.betterendforge.common.event.forge.BiomeModification;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.ConfiguredFeature;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
@@ -337,7 +338,7 @@ public class BiomeTemplate
 //		}else{
 //			biome.fillerBlock = Blocks.END_STONE.getDefaultState();
 //		}
-
+		BiomeModification.addFeaturesToEndBiomes(biome);
 		return biome;
 	}
 

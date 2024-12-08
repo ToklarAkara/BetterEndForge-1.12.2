@@ -6,6 +6,7 @@ import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
+import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -136,7 +137,7 @@ public class DesertLakeFeature extends WorldGenerator {
 								}
 								pos = POS.down();
 								if (ModTags.GEN_TERRAIN.contains(world.getBlockState(pos).getBlock())) {
-									state = world.getBiome(pos).topBlock;
+									state = (world.getBiome(pos) instanceof ExtendedBiome)?((ExtendedBiome)world.getBiome(pos)).getSurface().config.getTop() :world.getBiome(pos).topBlock;
 									if (y > waterLevel + 1)
 										BlockHelper.setWithoutUpdate(world, pos, state);
 									else if (y > waterLevel)
@@ -201,7 +202,7 @@ public class DesertLakeFeature extends WorldGenerator {
 								BlockHelper.setWithoutUpdate(world, POS, ModBlocks.END_MOSS);
 							} else if (y < waterLevel) {
 								if (world.isAirBlock(POS.up())) {
-									state = world.getBiome(POS).topBlock;
+									state = (world.getBiome(POS) instanceof ExtendedBiome)?((ExtendedBiome)world.getBiome(POS)).getSurface().config.getTop() :world.getBiome(POS).topBlock;
 									BlockHelper.setWithoutUpdate(world, POS,
 											random.nextBoolean() ? state : ModBlocks.ENDSTONE_DUST.getDefaultState());
 									BlockHelper.setWithoutUpdate(world, POS.down(), END_STONE);

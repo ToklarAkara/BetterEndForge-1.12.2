@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.particles;
 
 import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
@@ -12,6 +13,7 @@ import net.minecraft.world.World;
 
 public class SnowflakeParticle extends Particle
 {
+	protected static final TextureAtlasSprite PARTICLE_ATLAS = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("betterendforge:particle/spritesheet");
 	private int ticks;
 	private double preVX;
 	private double preVY;
@@ -20,11 +22,11 @@ public class SnowflakeParticle extends Particle
 	private double nextVY;
 	private double nextVZ;
 
-	protected SnowflakeParticle(World world, double x, double y, double z, double vx,
-								double vy, double vz, TextureAtlasSprite spriteWithAge)
+	protected SnowflakeParticle(World world, double x, double y, double z, double vx, double vy, double vz)
 	{
 		super(world, x, y, z, vx, vy, vz);
 
+		setParticleTexture(PARTICLE_ATLAS);
 		particleTextureIndexY = 5;
 
 		this.particleMaxAge = ModMathHelper.randRange(150, 300, rand);
@@ -80,18 +82,12 @@ public class SnowflakeParticle extends Particle
 
 	public static class Factory implements IParticleFactory
 	{
-		private final TextureAtlasSprite sprite;
-
-		public Factory(TextureAtlasSprite sprite)
-		{
-			this.sprite = sprite;
-		}
 
 		@Override
 		public Particle createParticle(int particleID, World world, double x, double y, double z,
 									   double xSpeed, double ySpeed, double zSpeed, int... args)
 		{
-			return new SnowflakeParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, sprite);
+			return new SnowflakeParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
 		}
 	}
 }

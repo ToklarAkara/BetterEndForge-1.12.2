@@ -8,6 +8,7 @@ import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndBiome;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndCaveBiome;
+import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import mod.beethoven92.betterendforge.common.world.feature.Mutable;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.block.Block;
@@ -168,7 +169,7 @@ public class TunelCaveFeature extends EndCaveFeature {
 		}
 
 		floorSets.forEach((biome, floorPositions) -> {
-			IBlockState surfaceBlock = biome.getBiome().topBlock;
+			IBlockState surfaceBlock = (biome.getBiome() instanceof ExtendedBiome)?((ExtendedBiome)biome.getBiome()).getSurface().config.getTop() :biome.getBiome().topBlock;
 			placeFloor(world, biome, floorPositions, random, surfaceBlock);
 		});
 		ceilSets.forEach((biome, ceilPositions) -> {

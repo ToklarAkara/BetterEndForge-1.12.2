@@ -1,6 +1,9 @@
 {
   "variants": {
-    "normal": {
+    "natural=true": {
+      "model": "betterendforge:block/umbrella_tree_cluster_empty"
+    },
+    "natural=false": {
       "model": "betterendforge:block/umbrella_tree_cluster_empty"
     }
   }

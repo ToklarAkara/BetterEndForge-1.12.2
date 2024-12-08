@@ -19,6 +19,10 @@ public class EndDecorator extends BiomeDecorator {
         this.list = list;
     }
 
+    public List<ConfiguredFeature<?, ?>> getFeatures(Decoration stage){
+        return list.get(stage.ordinal());
+    }
+
     public void decorate(World worldIn, Random random, Biome biome, BlockPos pos){
         if(decorating){
             EndData.getInstance().storePass(pos);
