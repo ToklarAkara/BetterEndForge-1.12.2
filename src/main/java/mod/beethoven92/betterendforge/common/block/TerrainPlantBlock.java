@@ -28,7 +28,7 @@ public class TerrainPlantBlock extends PlantBlock {
 	}
 
 	@Override
-	protected boolean canSustainBush(IBlockState state) {
+	protected boolean isTerrain(IBlockState state) {
 		for (Block block : ground) {
 			if (state.getBlock() == block) {
 				return true;

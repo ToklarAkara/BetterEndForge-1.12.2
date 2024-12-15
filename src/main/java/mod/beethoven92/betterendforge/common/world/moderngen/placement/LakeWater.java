@@ -12,7 +12,7 @@ public class LakeWater extends Placement<ChanceConfig> {
         if (p_241857_2_.nextInt(p_241857_3_.chance) == 0) {
             int i = p_241857_2_.nextInt(16) + p_241857_4_.getX();
             int j = p_241857_2_.nextInt(16) + p_241857_4_.getZ();
-            int k = p_241857_2_.nextInt(p_241857_4_.getY()); //p_241857_1_.getGenDepth());
+            int k = p_241857_2_.nextInt(world.getHeight()); //p_241857_1_.getGenDepth());
             return Stream.of(new BlockPos(i, k, j));
         } else {
             return Stream.empty();

@@ -17,7 +17,7 @@ public class PondAnemoneBlock extends PlantBlock {
 	private static final AxisAlignedBB SHAPE = new AxisAlignedBB(2.0 / 16.0, 0.0, 2.0 / 16.0, 14.0 / 16.0, 14.0 / 16.0, 14.0 / 16.0);
 
 	public PondAnemoneBlock() {
-		super(Material.WATER);
+		super(Material.PLANTS);
 		this.setHardness(0.0F);
 		this.setResistance(0.0F);
 		this.setLightLevel(0.8125F); // Equivalent to light level 13

@@ -34,7 +34,9 @@ public class EndDecorator extends BiomeDecorator {
             for(ConfiguredFeature<?, ?> feature : list.get(i)){
                 try {
                     feature.place(worldIn, random, pos);
-                }catch (Exception e){ }
+                }catch (Exception e){
+                    int err = 0;
+                }
             }
         }
         decorating = false;

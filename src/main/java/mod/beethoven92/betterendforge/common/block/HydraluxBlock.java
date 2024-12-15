@@ -17,7 +17,7 @@ public class HydraluxBlock extends BlockBush {
 	public static final PropertyEnum<HydraluxShape> SHAPE = PropertyEnum.create("shape", HydraluxShape.class);
 
 	public HydraluxBlock() {
-		super(Material.WATER);
+		super(Material.PLANTS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(SHAPE, HydraluxShape.ROOTS));
 	}
 

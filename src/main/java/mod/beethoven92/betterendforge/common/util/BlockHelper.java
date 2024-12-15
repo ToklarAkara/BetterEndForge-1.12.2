@@ -108,6 +108,7 @@ public class  BlockHelper {
 	}
 
 	public static void fixBlocks(World world, BlockPos start, BlockPos end) {
+		if(1==1)return;
 		IBlockState state;
 		Set<BlockPos> doubleCheck = Sets.newHashSet();
 		for (int x = start.getX(); x <= end.getX(); x++) {
@@ -137,7 +138,7 @@ public class  BlockHelper {
 						POS.setY(y - 1);
 						if (world.isAirBlock(POS)) {
 							POS.setY(y);
-							while ((state.getBlock()==Blocks.WATER || state.getBlock()==Blocks.FLOWING_WATER)) {
+							while ((world.getBlockState(POS).getBlock()==Blocks.WATER || world.getBlockState(POS).getBlock()==Blocks.FLOWING_WATER)) {
 								setWithoutUpdate(world, POS, AIR);
 								POS.setY(POS.getY() + 1);
 							}

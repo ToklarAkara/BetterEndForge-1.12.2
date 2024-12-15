@@ -17,7 +17,7 @@ public abstract class UnderwaterPlantBlockWithAge extends UnderwaterPlantBlock
 
 	public UnderwaterPlantBlockWithAge()
 	{
-		super(Material.WATER);
+		super(Material.PLANTS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0));
 	}
 

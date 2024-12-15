@@ -126,12 +126,12 @@ public class EndLakeFeature extends WorldGenerator
 							if (x2 + z2 <= r) 
 							{
 								state = world.getBlockState(POS);
-								if (ModTags.GEN_TERRAIN.contains(state))
+								if (ModTags.GEN_TERRAIN.contains(state.getBlock()))
 								{
 									BlockHelper.setWithoutUpdate(world, POS, Blocks.AIR.getDefaultState());
 								}
 								pos = POS.down();
-								if (ModTags.GEN_TERRAIN.contains(world.getBlockState(pos)))
+								if (ModTags.GEN_TERRAIN.contains(world.getBlockState(pos).getBlock()))
 								{
 									state = (world.getBiome(pos) instanceof ExtendedBiome)?((ExtendedBiome)world.getBiome(pos)).getSurface().config.getTop() :world.getBiome(pos).topBlock;
 									if (y > waterLevel + 1)

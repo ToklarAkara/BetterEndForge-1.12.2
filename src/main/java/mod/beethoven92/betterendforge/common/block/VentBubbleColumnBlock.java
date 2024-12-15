@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 public class VentBubbleColumnBlock extends Block {
 	public VentBubbleColumnBlock() {
-		super(Material.WATER);
+		super(Material.AIR);
 		this.setTickRandomly(true);
 	}
 

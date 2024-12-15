@@ -21,6 +21,7 @@ public class BlockProperties
 	public static final PropertyBool IS_FLOOR = PropertyBool.create("is_floor");
 
 	public static final PropertyInteger ROTATION = PropertyInteger.create("rotation", 0, 3);
+	public static final PropertyInteger CUT_ROTATION = PropertyInteger.create("rotation", 0, 2);
 	public static final PropertyInteger FULLNESS = PropertyInteger.create("fullness", 0, 3);
 	public static final PropertyInteger DESTRUCTION = PropertyInteger.create("destruction", 0, 2);
 	public static final PropertyInteger DESTRUCTION_LONG = PropertyInteger.create("destruction", 0, 8);

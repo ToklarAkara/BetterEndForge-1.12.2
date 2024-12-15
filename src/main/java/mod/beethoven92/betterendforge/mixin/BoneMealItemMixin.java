@@ -50,7 +50,7 @@ public abstract class BoneMealItemMixin {
             BlockPos offseted = blockPos.offset(facing);
             boolean endBiome = world.provider.getDimension() == 1; //world.getBiome(offseted).getCategory() == Category.THEEND;
 
-            if (ModTags.END_GROUND.contains(world.getBlockState(blockPos))) {
+            if (ModTags.END_GROUND.contains(world.getBlockState(blockPos).getBlock())) {
                 boolean consume = false;
                 if (world.getBlockState(blockPos).getBlock() == (Blocks.END_STONE)) {
                     IBlockState nylium = getNylium(world, blockPos);

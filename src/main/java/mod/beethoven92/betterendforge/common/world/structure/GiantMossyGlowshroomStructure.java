@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 
+import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.block.MossyGlowshroomCapBlock;
 import mod.beethoven92.betterendforge.common.block.template.FurBlock;
@@ -33,13 +34,18 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.ChunkGeneratorEnd;
 
 import javax.annotation.Nullable;
 
 public class GiantMossyGlowshroomStructure extends SDFStructure
 {
-	
-	public Decoration getDecorationStage() 
+
+	public GiantMossyGlowshroomStructure(INetherAPIChunkGenerator endProviderIn, int spacing, int separation, int salt) {
+		super(endProviderIn, spacing, separation, salt);
+	}
+
+	public Decoration getDecorationStage()
 	{
 		return Decoration.SURFACE_STRUCTURES;
 	}
@@ -50,11 +56,6 @@ public class GiantMossyGlowshroomStructure extends SDFStructure
 		return BetterEnd.MOD_ID + ":giant_mossy_glowshroom_structure";
 	}
 
-	@Nullable
-	@Override
-	public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
-		return BlockPos.ORIGIN;
-	}
 
 	@Override
 	protected SDF getSDF(BlockPos center, Random random) 
@@ -158,10 +159,5 @@ public class GiantMossyGlowshroomStructure extends SDFStructure
 					}
 					return info.getState();
 				});
-	}
-
-	@Override
-	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-		return true;
 	}
 }

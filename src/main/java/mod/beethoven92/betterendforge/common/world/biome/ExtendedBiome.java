@@ -13,6 +13,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
 import net.minecraft.client.particle.IParticleFactory;
+import net.minecraft.client.particle.ParticleFlame;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.SoundEvent;
@@ -110,11 +111,11 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
         return new Vec3d(r,g,b);
     }
 
-    @Nullable
-    @Override
-    public IParticleFactory[] getAmbientParticles() {
-        return new IParticleFactory[]{new FireflyParticle.FireflyParticleFactory()};
-    }
+//    @Nullable
+//    @Override
+//    public IParticleFactory[] getAmbientParticles() {
+//        return new IParticleFactory[]{new ParticleFlame.Factory()};
+//    }
 
     @Override
     public void buildSurface(@Nonnull INetherAPIChunkGenerator generator, int i, int i1, @Nonnull ChunkPrimer chunkPrimer, int x, int z, double v) {
@@ -127,6 +128,8 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
     @Nonnull
     @Override
     public IMusicType getMusicType() {
+        if(musicType==null)
+            return new VanillaMusicType(MusicTicker.MusicType.END);
         return new VanillaMusicType(musicType);
     }
 

@@ -3,6 +3,8 @@ package mod.beethoven92.betterendforge.common.world.structure;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
@@ -31,6 +33,10 @@ public class GiantIceStarStructure extends SDFStructure
 	private final float maxSize = 35;
 	private final int minCount = 25;
 	private final int maxCount = 40;
+
+	public GiantIceStarStructure(INetherAPIChunkGenerator endProviderIn, int spacing, int separation, int salt) {
+		super(endProviderIn, spacing, separation, salt);
+	}
 
 
 	public Decoration getDecorationStage()
@@ -122,17 +128,6 @@ public class GiantIceStarStructure extends SDFStructure
 	protected StructureStart getStructureStart(int chunkX, int chunkZ)
 	{
 		return new Start(this, this.world, this.rand, chunkX, chunkZ);
-	}
-
-	@Override
-	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-		return true;
-	}
-
-	@Nullable
-	@Override
-	public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
-		return BlockPos.ORIGIN;
 	}
 	
 	public static class Start extends StructureStart

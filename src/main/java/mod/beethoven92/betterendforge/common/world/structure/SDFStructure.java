@@ -2,19 +2,20 @@ package mod.beethoven92.betterendforge.common.world.structure;
 
 import java.util.Random;
 
+import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.util.sdf.SDF;
 import mod.beethoven92.betterendforge.common.world.structure.piece.VoxelPiece;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.structure.MapGenEndCity;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureStart;
 
-public abstract class SDFStructure extends MapGenStructure
+public abstract class SDFStructure extends SepMapGenStructure
 {
+	public SDFStructure(INetherAPIChunkGenerator endProviderIn, int spacing, int separation, int salt) {
+		super(endProviderIn, spacing, separation, salt);
+	}
 	
 	/*public SDFStructure() 
 	{

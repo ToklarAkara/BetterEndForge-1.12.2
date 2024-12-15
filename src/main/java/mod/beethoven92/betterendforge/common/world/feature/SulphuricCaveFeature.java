@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 import mod.beethoven92.betterendforge.common.block.BlockProperties;
+import mod.beethoven92.betterendforge.common.block.BrimstoneBlock;
 import mod.beethoven92.betterendforge.common.block.SulphurCrystalBlock;
 import mod.beethoven92.betterendforge.common.block.template.UnderwaterWallPlantBlock;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
@@ -196,7 +197,7 @@ public class SulphuricCaveFeature extends WorldGenerator
 	{
 		IBlockState state = getBrimstone(world, pos);
 		BlockHelper.setWithoutUpdate(world, pos, state);
-		if (state.getValue(BlockProperties.ACTIVATED))
+		if (state.getValue(BrimstoneBlock.ACTIVATED))
 		{
 			makeShards(world, pos, random);
 		}
@@ -208,7 +209,7 @@ public class SulphuricCaveFeature extends WorldGenerator
 		{
 			if (world.getBlockState(pos.offset(dir)).getBlock()==(Blocks.WATER))
 			{
-				return ModBlocks.BRIMSTONE.getDefaultState().withProperty(BlockProperties.ACTIVATED, true);
+				return ModBlocks.BRIMSTONE.getDefaultState().withProperty(BrimstoneBlock.ACTIVATED, true);
 			}
 		}
 		return ModBlocks.BRIMSTONE.getDefaultState();

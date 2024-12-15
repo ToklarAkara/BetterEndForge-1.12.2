@@ -1,6 +1,6 @@
 {
   "variants": {
-    "top=true,rotation=0": [
+    "rotation=0,top=true": [
       {
         "model": "betterendforge:block/twisted_umbrella_moss_top"
       },
@@ -11,10 +11,10 @@
         "model": "betterendforge:block/twisted_umbrella_moss_top_3"
       }
     ],
-    "top=false,rotation=0": {
+    "rotation=0,top=false": {
       "model": "betterendforge:block/twisted_umbrella_moss_bottom"
     },
-    "top=true,rotation=1": [
+    "rotation=1,top=true": [
       {
         "model": "betterendforge:block/twisted_umbrella_moss_top",
         "y": 90
@@ -28,11 +28,11 @@
         "y": 90
       }
     ],
-    "top=false,rotation=1": {
+    "rotation=1,top=false": {
       "model": "betterendforge:block/twisted_umbrella_moss_bottom",
       "y": 90
     },
-    "top=true,rotation=2": [
+    "rotation=2,top=true": [
       {
         "model": "betterendforge:block/twisted_umbrella_moss_top",
         "y": 180
@@ -46,11 +46,11 @@
         "y": 180
       }
     ],
-    "top=false,rotation=2": {
+    "rotation=2,top=false": {
       "model": "betterendforge:block/twisted_umbrella_moss_bottom",
       "y": 180
     },
-    "top=true,rotation=3": [
+    "rotation=3,top=true": [
       {
         "model": "betterendforge:block/twisted_umbrella_moss_top",
         "y": 270
@@ -64,7 +64,7 @@
         "y": 270
       }
     ],
-    "top=false,rotation=3": {
+    "rotation=3,top=false": {
       "model": "betterendforge:block/twisted_umbrella_moss_bottom",
       "y": 270
     }

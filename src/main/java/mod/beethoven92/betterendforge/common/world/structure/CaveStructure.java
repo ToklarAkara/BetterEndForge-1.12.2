@@ -1,24 +1,26 @@
 package mod.beethoven92.betterendforge.common.world.structure;
 
 
+import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.util.AdvMathHelper;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
 import mod.beethoven92.betterendforge.common.world.structure.piece.CavePiece;
-import mod.beethoven92.betterendforge.common.world.structure.piece.MountainPiece;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.ChunkGeneratorEnd;
 import net.minecraft.world.gen.structure.MapGenStructure;
-import net.minecraft.world.gen.structure.StructureMineshaftStart;
 import net.minecraft.world.gen.structure.StructureStart;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
-public class CaveStructure extends MapGenStructure
+public class CaveStructure extends SepMapGenStructure
 {
+
+    public CaveStructure(INetherAPIChunkGenerator endProviderIn, int spacing, int separation, int salt) {
+        super(endProviderIn, spacing, separation, salt);
+    }
 
     public Decoration getDecorationStage()
     {
@@ -29,16 +31,6 @@ public class CaveStructure extends MapGenStructure
     public String getStructureName()
     {
         return BetterEnd.MOD_ID + ":mountain_structure";
-    }
-
-    @Override
-    protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-        return true;
-    }
-    @Nullable
-    @Override
-    public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
-        return BlockPos.ORIGIN;
     }
 
     protected StructureStart getStructureStart(int chunkX, int chunkZ)

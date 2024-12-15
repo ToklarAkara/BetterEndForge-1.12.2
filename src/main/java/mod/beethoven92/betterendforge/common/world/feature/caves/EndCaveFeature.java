@@ -145,7 +145,7 @@ public abstract class EndCaveFeature extends WorldGenerator
 				if (wallBlock != null) {
 					for (Vec3i offset : SPHERE) {
 						BlockPos wallPos = pos.add(offset);
-						if (!positions.contains(wallPos) && !placed.contains(wallPos) && ModTags.GEN_TERRAIN.contains(world.getBlockState(wallPos))) {
+						if (!positions.contains(wallPos) && !placed.contains(wallPos) && ModTags.GEN_TERRAIN.contains(world.getBlockState(wallPos).getBlock())) {
 							wallBlock = biome.getWall(wallPos);
 							BlockHelper.setWithoutUpdate(world, wallPos, wallBlock);
 							placed.add(wallPos);
@@ -250,7 +250,7 @@ public abstract class EndCaveFeature extends WorldGenerator
 				end.setPos(start.getX(), start.getY(), bpos.getZ());
 			}
 		});
-		BlockHelper.fixBlocks(world, start.add(-5, -5, -5), end.add(5, 5, 5));
+		//BlockHelper.fixBlocks(world, start.add(-5, -5, -5), end.add(5, 5, 5));
 	}
 	
 	protected boolean isWaterNear(World world, BlockPos pos)

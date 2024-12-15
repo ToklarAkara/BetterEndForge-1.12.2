@@ -74,7 +74,7 @@ public class CavePiece extends BasePiece {
 					double r2 = r - 4.5;
 					double dist = xsq + ysq + zsq;
 					if (dist < r2 * r2) {
-						if (ModTags.END_GROUND.contains(world.getBlockState(pos))) {
+						if (ModTags.END_GROUND.contains(world.getBlockState(pos).getBlock())) {
 							BlockHelper.setWithoutUpdate(world, pos, Blocks.AIR);
 						}
 					}

@@ -1,6 +1,9 @@
 {
   "variants": {
-    "normal": {
+    "natural=true": {
+      "model": "betterendforge:block/glowing_pillar_luminophor"
+    },
+    "natural=false": {
       "model": "betterendforge:block/glowing_pillar_luminophor"
     }
   }

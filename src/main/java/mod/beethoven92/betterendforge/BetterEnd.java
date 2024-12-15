@@ -13,6 +13,7 @@ import mod.beethoven92.betterendforge.data.ModRecipes;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -65,9 +66,11 @@ public class BetterEnd
     @Mod.EventBusSubscriber(modid = BetterEnd.MOD_ID)
     public static class WorldGenRegistryEvents
     {
+
     	@SubscribeEvent
     	public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 			ModBiomes.register();
+			//ModStructures.registerStructures();
 			ModBiomes.getModBiomes().forEach((end_biome) -> {
 				event.getRegistry().register(end_biome.getBiome());
 				if(!ModBiomes.CAVE_BIOMES.getBiomes().contains(end_biome))

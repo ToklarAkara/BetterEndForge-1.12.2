@@ -66,7 +66,7 @@ public class CrashedShipFeature extends NBTFeature
 	@Override
 	protected boolean canSpawn(World world, BlockPos pos, Random random)
 	{
-		return pos.getY() > 58 && ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.down()));
+		return pos.getY() > 58 && ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.down()).getBlock());
 	}
 
 	protected Rotation getRotation(World world, BlockPos pos, Random random) {

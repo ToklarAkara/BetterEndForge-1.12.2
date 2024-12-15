@@ -18,7 +18,7 @@ public class SmaragdantCrystalFeature extends WorldGenerator
 	@Override
 	public boolean generate(World world, Random rand, BlockPos pos)
 	{
-		if (!ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.down())))
+		if (!ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.down()).getBlock()))
 		{
 			return false;
 		}

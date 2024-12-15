@@ -22,7 +22,7 @@ public class SurfaceVentFeature extends WorldGenerator
 	{
 		pos = FeatureHelper.getPosOnSurface(world, new BlockPos(pos.getX() + rand.nextInt(16), pos.getY(), pos.getZ() + rand.nextInt(16)));
 
-		if (!ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.down(3))))
+		if (!ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.down(3)).getBlock()))
 		{
 			return false;
 		}

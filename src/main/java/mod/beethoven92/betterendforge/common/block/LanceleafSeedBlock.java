@@ -34,16 +34,16 @@ public class LanceleafSeedBlock extends PlantBlockWithAge {
 		if (h < height + 1) {
 			return;
 		}
-		int rotation = random.nextInt(4);
+		int rotation = random.nextInt(3);
 		MutableBlockPos mut = new MutableBlockPos(pos);
-		IBlockState plant = ModBlocks.LANCELEAF.getDefaultState().withProperty(BlockProperties.ROTATION, rotation);
-		BlockHelper.setWithoutUpdate(world, mut, plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.BOTTOM));
-		BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.PRE_BOTTOM));
+		IBlockState plant = ModBlocks.LANCELEAF.getDefaultState().withProperty(LanceleafBlock.ROTATION, rotation);
+		BlockHelper.setWithUpdate(world, mut, plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.BOTTOM));
+		BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.PRE_BOTTOM));
 		for (int i = 2; i < height - 2; i++) {
-			BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.MIDDLE));
+			BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.MIDDLE));
 		}
-		BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.PRE_TOP));
-		BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.TOP));
+		BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.PRE_TOP));
+		BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), plant.withProperty(BlockProperties.PENTA_SHAPE, PentaShape.TOP));
 	}
 
 	@Override

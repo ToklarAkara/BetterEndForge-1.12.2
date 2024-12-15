@@ -197,7 +197,7 @@ public class UmbrellaTreeFeature extends WorldGenerator
 			SplineHelper.rotateSpline(branch, angle);
 			SplineHelper.scale(branch, scale);
 			Vector3f last = branch.get(branch.size() - 1);
-			if (ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.add(last.getX(), last.getY(), last.getZ()))))
+			if (ModTags.GEN_TERRAIN.contains(world.getBlockState(pos.add(last.getX(), last.getY(), last.getZ())).getBlock()))
 			{
 				SplineHelper.fillSplineForce(branch, world, wood, pos, REPLACE);
 			}

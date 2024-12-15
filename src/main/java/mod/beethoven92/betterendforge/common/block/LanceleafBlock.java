@@ -17,8 +17,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class LanceleafBlock extends PlantBlock {
-	public static final PropertyEnum<PentaShape> SHAPE = PropertyEnum.create("shape", PentaShape.class);
-	public static final PropertyInteger ROTATION = PropertyInteger.create("rotation", 0, 15);
+	public static final PropertyEnum<PentaShape> SHAPE = BlockProperties.PENTA_SHAPE;
+	public static final PropertyInteger ROTATION = BlockProperties.CUT_ROTATION;
 
 	public LanceleafBlock(Material materialIn) {
 		super(materialIn);
@@ -54,4 +54,14 @@ public class LanceleafBlock extends PlantBlock {
 			worldIn.setBlockState(pos, state);
 		}
 	}
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(ROTATION)*5+state.getValue(SHAPE).ordinal();
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return getDefaultState().withProperty(ROTATION, meta/5).withProperty(SHAPE, PentaShape.values()[meta%5]);
+    }
 }

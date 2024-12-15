@@ -1,23 +1,26 @@
 package mod.beethoven92.betterendforge.common.world.structure;
 
+import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
 import mod.beethoven92.betterendforge.common.world.structure.piece.LakePiece;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureStart;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
-public class MegaLakeSmallStructure extends MapGenStructure
+public class MegaLakeSmallStructure extends SepMapGenStructure
 {
 
 
-	public Decoration getDecorationStage() 
+	public MegaLakeSmallStructure(INetherAPIChunkGenerator endProviderIn, int spacing, int separation, int salt) {
+		super(endProviderIn, spacing, separation, salt);
+	}
+
+	public Decoration getDecorationStage()
 	{
 		return Decoration.RAW_GENERATION;
 	}
@@ -31,17 +34,6 @@ public class MegaLakeSmallStructure extends MapGenStructure
 	protected StructureStart getStructureStart(int chunkX, int chunkZ)
 	{
 		return new SDFStructureStart(this, this.world, this.rand, chunkX, chunkZ);
-	}
-
-	@Override
-	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-		return true;
-	}
-
-	@Nullable
-	@Override
-	public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
-		return BlockPos.ORIGIN;
 	}
 
 	public static class SDFStructureStart extends StructureStart

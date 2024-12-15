@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.structure;
 
+import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
@@ -8,16 +9,13 @@ import mod.beethoven92.betterendforge.common.world.structure.piece.PaintedMounta
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureStart;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
-public class PaintedMountainStructure extends MapGenStructure
+public class PaintedMountainStructure extends SepMapGenStructure
 {
 	private static final IBlockState[] VARIANTS;
 	
@@ -30,6 +28,10 @@ public class PaintedMountainStructure extends MapGenStructure
 		};
 	}
 
+	public PaintedMountainStructure(INetherAPIChunkGenerator endProviderIn, int spacing, int separation, int salt) {
+		super(endProviderIn, spacing, separation, salt);
+	}
+
 	public Decoration getDecorationStage()
 	{
 		return Decoration.RAW_GENERATION;
@@ -40,18 +42,6 @@ public class PaintedMountainStructure extends MapGenStructure
 	{
 		return BetterEnd.MOD_ID + ":painted_mountain_structure";
 	}
-
-	@Nullable
-	@Override
-	public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
-		return BlockPos.ORIGIN;
-	}
-
-	@Override
-	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
-		return true;
-	}
-
 
 
 	protected StructureStart getStructureStart(int chunkX, int chunkZ)

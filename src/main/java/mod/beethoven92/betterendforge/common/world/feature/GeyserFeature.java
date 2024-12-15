@@ -82,7 +82,7 @@ public class GeyserFeature extends WorldGenerator
 		BlockPos.MutableBlockPos bpos = new Mutable().setPos(pos);
 		bpos.setY(bpos.getY() - 1);
 		IBlockState state = world.getBlockState(bpos);
-		while (ModTags.GEN_TERRAIN.contains(state) || (state.getBlock()==Blocks.WATER || state.getBlock()==Blocks.FLOWING_WATER) && bpos.getY() > 5)
+		while (ModTags.GEN_TERRAIN.contains(state.getBlock()) || (state.getBlock()==Blocks.WATER || state.getBlock()==Blocks.FLOWING_WATER) && bpos.getY() > 5)
 		{
 			bpos.setY(bpos.getY() - 1);
 			state = world.getBlockState(bpos);

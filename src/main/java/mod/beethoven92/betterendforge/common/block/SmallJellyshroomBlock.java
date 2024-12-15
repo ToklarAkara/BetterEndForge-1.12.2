@@ -70,21 +70,21 @@ public class SmallJellyshroomBlock extends AttachedBlock implements IGrowable {
 		return state.getValue(FACING).getIndex();
 	}
 
-	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos){
-		EnumFacing direction = worldIn.getBlockState(pos).getValue(FACING);
-		BlockPos blockPos = pos.offset(direction.getOpposite());
-		IBlockState support = worldIn.getBlockState(blockPos);
-		return support.isSideSolid(worldIn, blockPos, direction) && support.getLightValue() == 0;
-	}
-
-	@Override
-	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
-	{
-		BlockPos blockPos = pos.offset(direction.getOpposite());
-		IBlockState support = worldIn.getBlockState(blockPos);
-		return support.isSideSolid(worldIn, blockPos, direction) && support.getLightValue() == 0;
-	}
+//	@Override
+//	public boolean canPlaceBlockAt(World worldIn, BlockPos pos){
+//		EnumFacing direction = worldIn.getBlockState(pos).getValue(FACING);
+//		BlockPos blockPos = pos.offset(direction.getOpposite());
+//		IBlockState support = worldIn.getBlockState(blockPos);
+//		return support.isSideSolid(worldIn, blockPos, direction) && support.getLightValue() == 0;
+//	}
+//
+//	@Override
+//	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
+//	{
+//		BlockPos blockPos = pos.offset(direction.getOpposite());
+//		IBlockState support = worldIn.getBlockState(blockPos);
+//		return support.isSideSolid(worldIn, blockPos, direction) && support.getLightValue() == 0;
+//	}
 
 	@Override
 	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {

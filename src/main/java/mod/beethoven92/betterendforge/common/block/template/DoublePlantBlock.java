@@ -8,6 +8,7 @@ import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockCactus;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -32,6 +33,7 @@ public class DoublePlantBlock extends BlockBush implements IGrowable {
 
 	public DoublePlantBlock(Material material) {
 		super(material);
+		this.setTickRandomly(true);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(TOP, false));
 	}
 
@@ -49,7 +51,7 @@ public class DoublePlantBlock extends BlockBush implements IGrowable {
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
 		IBlockState down = worldIn.getBlockState(pos.down());
 		IBlockState up = worldIn.getBlockState(pos.up());
-		return worldIn.getBlockState(pos).getValue(TOP) ? down.getBlock() == this : isTerrain(down) && up.getMaterial().isReplaceable();
+		return down.getBlock() == this || (isTerrain(down) && up.getMaterial().isReplaceable());
 	}
 
 	protected boolean isTerrain(IBlockState state) {
@@ -70,14 +72,21 @@ public class DoublePlantBlock extends BlockBush implements IGrowable {
 		BlockHelper.setWithoutUpdate(worldIn, pos.up(), bs.withProperty(TOP, true));
 	}
 
-//	@Override TODO CHECK
-//	public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, World worldIn, BlockPos currentPos, BlockPos facingPos) {
-//		if (!canStayAt(stateIn, worldIn, currentPos)) {
-//			return Blocks.AIR.getDefaultState();
-//		} else {
-//			return stateIn;
-//		}
-//	}
+	public void updateTick(World worldIn, BlockPos currentPos, IBlockState stateIn, Random rand) {
+		if (!worldIn.isAreaLoaded(currentPos, 1)) return;
+
+		if (!canStayAt(stateIn, worldIn, currentPos)) {
+			worldIn.setBlockState(currentPos, Blocks.AIR.getDefaultState());
+		}
+	}
+
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+	{
+		if (!this.canStayAt(worldIn.getBlockState(pos), worldIn, pos))
+		{
+			worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+		}
+	}
 
 	@Override
 	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {

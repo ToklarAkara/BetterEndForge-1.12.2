@@ -65,23 +65,23 @@ public class SinglePlantFeature extends ScatterFeature
 		{
 			int rot = random.nextInt(4);
 			IBlockState state = plant.getDefaultState().withProperty(DoublePlantBlock.ROTATION, rot);
-			BlockHelper.setWithoutUpdate(world, blockPos, state);
-			BlockHelper.setWithoutUpdate(world, blockPos.up(), state.withProperty(DoublePlantBlock.TOP, true));
+			BlockHelper.setWithUpdate(world, blockPos, state);
+			BlockHelper.setWithUpdate(world, blockPos.up(), state.withProperty(DoublePlantBlock.TOP, true));
 		}
 		else if (plant instanceof EndCropBlock) 
 		{
 			IBlockState state = plant.getDefaultState().withProperty(EndCropBlock.AGE, 3);
-			BlockHelper.setWithoutUpdate(world, blockPos, state);
+			BlockHelper.setWithUpdate(world, blockPos, state);
 		}
 		else if (plant instanceof PlantBlockWithAge) 
 		{
 			int age = random.nextInt(4);
 			IBlockState state = plant.getDefaultState().withProperty(PlantBlockWithAge.AGE, age);
-			BlockHelper.setWithoutUpdate(world, blockPos, state);
+			BlockHelper.setWithUpdate(world, blockPos, state);
 		}
 		else 
 		{
-			BlockHelper.setWithoutUpdate(world, blockPos, plant);
+			BlockHelper.setWithUpdate(world, blockPos, plant);
 		}
 	}
 

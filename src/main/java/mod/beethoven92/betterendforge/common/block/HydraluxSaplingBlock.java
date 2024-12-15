@@ -28,7 +28,7 @@ public class HydraluxSaplingBlock extends PlantBlock {
 	public static final PropertyEnum<HydraluxShape> SHAPE = PropertyEnum.create("shape", HydraluxShape.class);
 
 	public HydraluxSaplingBlock() {
-		super(Material.WATER);
+		super(Material.PLANTS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(SHAPE, HydraluxShape.ROOTS));
 	}
 

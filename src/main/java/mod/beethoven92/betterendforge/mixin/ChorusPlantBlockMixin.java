@@ -61,7 +61,7 @@ public abstract class ChorusPlantBlockMixin extends Block {
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
 		IBlockState plant = worldIn.getBlockState(pos);
-		if (plant.getBlock()==(Blocks.CHORUS_PLANT) && ModTags.END_GROUND.contains(worldIn.getBlockState(pos.down()))) {
+		if (plant.getBlock()==(Blocks.CHORUS_PLANT) && ModTags.END_GROUND.contains(worldIn.getBlockState(pos.down()).getBlock())) {
 			plant = plant.withProperty(BlockChorusPlant.DOWN, true);
 			worldIn.setBlockState(pos, plant);
 

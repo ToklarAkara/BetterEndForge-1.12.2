@@ -37,10 +37,4 @@ public class MengerSpongeWetBlock extends Block
 		BlockHelper.setWithUpdate(worldIn, pos, Blocks.AIR.getDefaultState());
 		super.breakBlock(worldIn, pos, state);
 	}
-
-	@Override
-	public Material getMaterial(IBlockState state)
-	{
-		return Material.WATER;
-	}
 }
