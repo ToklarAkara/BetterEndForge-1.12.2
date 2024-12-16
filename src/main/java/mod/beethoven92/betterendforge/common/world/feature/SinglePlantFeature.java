@@ -66,7 +66,9 @@ public class SinglePlantFeature extends ScatterFeature
 			int rot = random.nextInt(4);
 			IBlockState state = plant.getDefaultState().withProperty(DoublePlantBlock.ROTATION, rot);
 			BlockHelper.setWithUpdate(world, blockPos, state);
+			world.scheduleUpdate(blockPos, state.getBlock(), 1);
 			BlockHelper.setWithUpdate(world, blockPos.up(), state.withProperty(DoublePlantBlock.TOP, true));
+			world.scheduleUpdate(blockPos.up(), state.getBlock(), 1);
 		}
 		else if (plant instanceof EndCropBlock) 
 		{

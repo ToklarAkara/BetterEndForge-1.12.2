@@ -128,6 +128,11 @@ public class NeonCactusPlantBlock extends Block {
 		}
 	}
 
+	@Override
+	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		return super.getActualState(state, worldIn, pos);
+	}
+
 	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side)
 	{
 		return canPlaceBlock(worldIn, pos, side);
@@ -386,13 +391,13 @@ public class NeonCactusPlantBlock extends Block {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return 0;
+		return state.getValue(FACING).getIndex();
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState();
-	}//TODO META
+		return getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta));
+	}
 
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getRenderLayer()

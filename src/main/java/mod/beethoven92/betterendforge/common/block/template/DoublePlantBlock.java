@@ -120,4 +120,9 @@ public class DoublePlantBlock extends BlockBush implements IGrowable {
 		}
 		return i;
 	}
+
+	@Override
+	public boolean requiresUpdates() {
+		return true;
+	}
 }

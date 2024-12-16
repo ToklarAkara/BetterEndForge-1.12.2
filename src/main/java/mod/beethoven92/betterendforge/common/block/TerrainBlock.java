@@ -27,7 +27,7 @@ public class TerrainBlock extends Block {
 	private Block pathBlock;
 
 	public TerrainBlock() {
-		super(Material.GROUND);
+		super(Material.ROCK);
 		this.setTickRandomly(true);
 	}
 

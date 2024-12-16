@@ -84,6 +84,13 @@ public class AttachedBlock extends Block {
 		return false;
 	}
 
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+		if (!this.canPlaceBlock(worldIn, pos, state.getValue(FACING))) {
+			worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+		}
+	}
+
 	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
 	{
 		BlockPos blockPos = pos.offset(direction.getOpposite());
