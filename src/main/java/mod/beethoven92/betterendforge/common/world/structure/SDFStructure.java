@@ -30,7 +30,7 @@ public abstract class SDFStructure extends SepMapGenStructure
 		return new SDFStructureStart(this, this.world, this.rand, chunkX, chunkZ);
 	}
 
-	public static class SDFStructureStart extends StructureStart
+	public class SDFStructureStart extends StructureStart
 	{
 		MapGenStructure structure;
 		public SDFStructureStart()
@@ -46,8 +46,8 @@ public abstract class SDFStructure extends SepMapGenStructure
 
 		private void create(World worldIn, Random rand, int chunkX, int chunkZ)
 		{
-			int x = (chunkX << 4) | AdvMathHelper.nextInt(rand, 4, 12);
-			int z = (chunkZ << 4) | AdvMathHelper.nextInt(rand, 4, 12);
+			int x = chunkX | AdvMathHelper.nextInt(rand, 4, 12);
+			int z = chunkZ | AdvMathHelper.nextInt(rand, 4, 12);
 			int y = worldIn.getHeight(x, z);
 			if (y > 5) 
 			{

@@ -14,7 +14,7 @@ public abstract class SepMapGenStructure extends MapGenStructure {
     public int separation;
     public int salt;
 
-    private final INetherAPIChunkGenerator endProvider;
+    protected final INetherAPIChunkGenerator endProvider;
 
     public SepMapGenStructure(INetherAPIChunkGenerator provider, int spacing, int separation, int salt){
         this.spacing = spacing;
@@ -57,7 +57,7 @@ public abstract class SepMapGenStructure extends MapGenStructure {
         }
     }
 
-    private static int getYPosForStructure(int chunkX, int chunkY, INetherAPIChunkGenerator generatorIn)
+    public static int getYPosForStructure(int chunkX, int chunkY, INetherAPIChunkGenerator generatorIn)
     {
         Random random = new Random((long)(chunkX + chunkY * 10387313));
         Rotation rotation = Rotation.values()[random.nextInt(Rotation.values().length)];

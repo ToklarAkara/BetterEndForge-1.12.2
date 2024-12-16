@@ -36,7 +36,7 @@ public class MountainStructure extends SepMapGenStructure
 		return new Start(this, this.world, this.rand, chunkX, chunkZ);
 	}
 
-	public static class Start extends StructureStart
+	public class Start extends StructureStart
 	{
 		MapGenStructure structure;
 		public Start()
@@ -54,7 +54,7 @@ public class MountainStructure extends SepMapGenStructure
 		{
 			int x = (chunkX << 4) | AdvMathHelper.nextInt(rand, 4, 12);
 			int z = (chunkZ << 4) | AdvMathHelper.nextInt(rand, 4, 12);
-			int y = worldIn.getHeight(x, z);
+			int y = SepMapGenStructure.getYPosForStructure(chunkX, chunkZ, endProvider);
 			if (y > 5) 
 			{
 				float radius = AdvMathHelper.nextInt(rand, 50, 100);

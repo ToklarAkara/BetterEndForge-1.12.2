@@ -36,7 +36,7 @@ public class MegaLakeStructure extends SepMapGenStructure
 		return new SDFStructureStart(this, this.world, this.rand, chunkX, chunkZ);
 	}
 
-	public static class SDFStructureStart extends StructureStart
+	public class SDFStructureStart extends StructureStart
 	{
 		MapGenStructure structure;
 		public SDFStructureStart()
@@ -52,9 +52,9 @@ public class MegaLakeStructure extends SepMapGenStructure
 
 		private void create(World worldIn, Random rand, int chunkX, int chunkZ)
 		{
-			int x = (chunkX << 4) | ModMathHelper.randRange(4, 12, rand);
-			int z = (chunkZ << 4) | ModMathHelper.randRange(4, 12, rand);
-			int y = worldIn.getHeight(x, z);
+			int x = chunkX | ModMathHelper.randRange(4, 12, rand);
+			int z = chunkZ | ModMathHelper.randRange(4, 12, rand);
+			int y = getYPosForStructure(chunkX, chunkZ, endProvider);
 			if (y > 5) 
 			{
 				//float radius = ModMathHelper.randRange(50, 100, rand);

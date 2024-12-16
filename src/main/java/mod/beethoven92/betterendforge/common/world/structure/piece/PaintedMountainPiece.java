@@ -110,7 +110,7 @@ public class PaintedMountainPiece extends StructureComponent
 		int sx = center.getX() << 4;
 		int sz = center.getZ() << 4;
 		Mutable pos = new Mutable();
-		Chunk chunk = world.getChunk(center.getX() << 4, center.getZ() << 4);
+		Chunk chunk = world.getChunk(center.getX() >> 4, center.getZ() >> 4);
 //		Heightmap map = chunk.getHeightmap(Type.WORLD_SURFACE);
 //		Heightmap map2 = chunk.getHeightmap(Type.WORLD_SURFACE_WG);
 		for (int x = 0; x < 16; x++)
@@ -128,14 +128,14 @@ public class PaintedMountainPiece extends StructureComponent
 				if (dist < r2) {
 					pos.setZ(z);
 					dist = 1 - dist / r2;
-					int minY = world.getHeight(x, z);
+					int minY = chunk.getHeightValue(x, z);
 					pos.setY(minY - 1);
 					while (chunk.getBlockState(pos).getBlock()== Blocks.AIR && pos.getY() > 50)
 					{
 						pos.setY(minY --);
 					}
 					minY = pos.getY();
-					minY = Math.max(minY, world.getHeight(x, z));
+					minY = Math.max(minY, chunk.getHeightValue(x, z));
 					if (minY > 56)
 					{
 						float maxY = dist * height * getHeightClamp(world, 8, px, pz);

@@ -70,11 +70,8 @@ public class BetterEnd
     	@SubscribeEvent
     	public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 			ModBiomes.register();
-			//ModStructures.registerStructures();
 			ModBiomes.getModBiomes().forEach((end_biome) -> {
 				event.getRegistry().register(end_biome.getBiome());
-				if(!ModBiomes.CAVE_BIOMES.getBiomes().contains(end_biome))
-					NetherAPIRegistry.THE_END.registerBiome(end_biome.getBiome(), 80);
 			});
 		}
 

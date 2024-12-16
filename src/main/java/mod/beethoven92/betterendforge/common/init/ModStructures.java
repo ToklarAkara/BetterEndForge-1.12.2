@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.common.init;
 
+import git.jbredwards.nether_api.api.registry.INetherAPIRegistry;
 import git.jbredwards.nether_api.mod.common.registry.NetherAPIRegistry;
 import mod.beethoven92.betterendforge.common.world.structure.*;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -17,15 +18,15 @@ public class ModStructures
 //	//public static final WorldGenerator ETERNAL_PORTAL = new EternalPortalStructure(16, 6, 1289052454);
 //	public static final MapGenStructure GIANT_ICE_STAR = new GiantIceStarStructure(16, 8, 128954);
 
-	public static void registerStructures()
+	public static void registerStructures(INetherAPIRegistry registry)
     {
-		NetherAPIRegistry.THE_END.registerStructure("mountain_structure", (provider)->new MountainStructure(provider, 3, 2, 1234567890));
-		NetherAPIRegistry.THE_END.registerStructure("megalake_structure", (provider)->new MegaLakeStructure(provider, 4, 1, 1237890));
-		NetherAPIRegistry.THE_END.registerStructure("megalake_small_structure", (provider)->new MegaLakeStructure(provider, 4, 1, 1223462190));
-		NetherAPIRegistry.THE_END.registerStructure("giant_mossy_glowshroom_structure", (provider)->new GiantMossyGlowshroomStructure(provider, 16, 8, 1234560));
-		NetherAPIRegistry.THE_END.registerStructure("painted_mountain_structure", (provider)->new PaintedMountainStructure(provider, 3, 2, 12890));
-		//NetherAPIRegistry.THE_END.registerStructure("eternal_portal_structure", (provider)->new EternalPortalStructure(16, 6, 1289052454));
-		NetherAPIRegistry.THE_END.registerStructure("giant_ice_star_structure", (provider)->new GiantIceStarStructure(provider, 16, 8, 128954));
+		registry.registerStructure("mountain_structure", (provider)->new MountainStructure(provider, 3, 2, 1234567890));
+//		registry.registerStructure("megalake_structure", (provider)->new MegaLakeStructure(provider, 4, 1, 1237890));
+//		registry.registerStructure("megalake_small_structure", (provider)->new MegaLakeStructure(provider, 4, 1, 1223462190));
+//		registry.registerStructure("giant_mossy_glowshroom_structure", (provider)->new GiantMossyGlowshroomStructure(provider, 16, 8, 1234560));
+//		registry.registerStructure("painted_mountain_structure", (provider)->new PaintedMountainStructure(provider, 3, 2, 12890));
+//		//NetherAPIRegistry.THE_END.registerStructure("eternal_portal_structure", (provider)->new EternalPortalStructure(16, 6, 1289052454));
+//		registry.registerStructure("giant_ice_star_structure", (provider)->new GiantIceStarStructure(provider, 16, 8, 128954));
 
 		MapGenStructureIO.registerStructure(MountainStructure.Start.class, "mountain_structure");
 		MapGenStructureIO.registerStructure(MegaLakeStructure.SDFStructureStart.class, "megalake_structure");

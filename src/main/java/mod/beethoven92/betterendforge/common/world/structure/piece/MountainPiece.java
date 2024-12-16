@@ -100,7 +100,7 @@ public class MountainPiece extends StructureComponent
 		int sx = structureBoundingBoxIn.minX;
 		int sz = structureBoundingBoxIn.minZ;
 		Mutable pos = new Mutable();
-		Chunk chunk = world.getChunk(center.getX(), center.getZ());
+		Chunk chunk = world.getChunk(center.getX() >> 4, center.getZ() >> 4);
 		for (int x = 0; x < 16; x++) 
 		{
 			int px = x + sx;
@@ -116,7 +116,7 @@ public class MountainPiece extends StructureComponent
 				if (dist < r2) {
 					pos.setZ(z);
 					dist = 1 - (float) Math.pow(dist / r2, 0.3);
-					int minY = world.getHeight(x, z);
+					int minY = chunk.getHeightValue(x, z);
 					if (minY < 10) 
 					{
 						continue;
@@ -127,7 +127,7 @@ public class MountainPiece extends StructureComponent
 						pos.setY(pos.getY() - 1);
 					}
 					minY = pos.getY();
-					minY = Math.max(minY, world.getHeight(x, z));
+					minY = Math.max(minY, chunk.getHeightValue(x, z));
 					//if (minY > 10) 
 					//{
 						//float maxY = dist * height * getHeightClamp(world, 8, px, pz);
@@ -157,7 +157,7 @@ public class MountainPiece extends StructureComponent
 		
 		// Big crystals
 		//int count = (map.getHeight(8, 8) - 80) / 7;
-		int count = (world.getHeight(8, 8) - (center.getY() + 24)) / 7;
+		int count = (chunk.getHeightValue(8, 8) - (center.getY() + 24)) / 7;
 		count = MathHelper.clamp(count, 0, 8);
 		for (int i = 0; i < count; i++) 
 		{
@@ -165,13 +165,13 @@ public class MountainPiece extends StructureComponent
 			float fill = MathHelper.nextFloat(random, 0F, 1F);
 			int x = AdvMathHelper.nextInt(random, radius, 15 - radius);
 			int z = AdvMathHelper.nextInt(random, radius, 15 - radius);
-			int y = world.getHeight(x, z);
-			if (y > 80) 
+			int y = chunk.getHeightValue(x, z);
+			if (y > 60)
 			{
 				pos.setPos(x, y, z);
 				if (chunk.getBlockState(pos.down()).getBlock() == Blocks.END_STONE) 
 				{
-					int height = MathHelper.floor(radius * MathHelper.nextFloat(random, 1.5F, 3F) + (y - 80) * 0.3F);
+					int height = MathHelper.floor(radius * MathHelper.nextFloat(random, 1.5F, 3F) + (y - 60) * 0.3F);
 					crystal(chunk, pos, radius, height, fill, random);
 				}
 			}
@@ -179,7 +179,7 @@ public class MountainPiece extends StructureComponent
 		
 		// Small crystals
 		//count = (map.getHeight(8, 8) - 80) / 2;
-		count = (world.getHeight(8, 8) - (center.getY() + 24)) / 2;
+		count = (chunk.getHeightValue(8, 8) - (center.getY() + 24)) / 2;
 		count = MathHelper.clamp(count, 4, 8);
 		for (int i = 0; i < count; i++) 
 		{
@@ -187,13 +187,13 @@ public class MountainPiece extends StructureComponent
 			float fill = random.nextBoolean() ? 0 : 1;
 			int x = AdvMathHelper.nextInt(random, radius, 15 - radius);
 			int z = AdvMathHelper.nextInt(random, radius, 15 - radius);
-			int y = world.getHeight(x, z);
-			if (y > 80) 
+			int y = chunk.getHeightValue(x, z);
+			if (y > 60)
 			{
 				pos.setPos(x, y, z);
 				if (chunk.getBlockState(pos.down()).getBlock() == Blocks.END_STONE) 
 				{
-					int height = MathHelper.floor(radius * MathHelper.nextFloat(random, 1.5F, 3F) + (y - 80) * 0.3F);
+					int height = MathHelper.floor(radius * MathHelper.nextFloat(random, 1.5F, 3F) + (y - 60) * 0.3F);
 					crystal(chunk, pos, radius, height, fill, random);
 				}
 			}

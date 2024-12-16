@@ -50,7 +50,7 @@ public class PaintedMountainStructure extends SepMapGenStructure
 	}
 
 
-	public static class Start extends StructureStart
+	public class Start extends StructureStart
 	{
 		MapGenStructure structure;
 		public Start()
@@ -66,8 +66,8 @@ public class PaintedMountainStructure extends SepMapGenStructure
 
 		private void create(World worldIn, Random rand, int chunkX, int chunkZ)
 		{
-			int x = (chunkX << 4) | ModMathHelper.randRange(4, 12, rand);
-			int z = (chunkZ << 4) | ModMathHelper.randRange(4, 12, rand);
+			int x = chunkX | ModMathHelper.randRange(4, 12, rand);
+			int z = chunkZ | ModMathHelper.randRange(4, 12, rand);
 			int y = worldIn.getHeight(x, z);
 			if (y > 50) 
 			{
