@@ -125,16 +125,16 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
         configuredsurfacebuilder.buildSurface(generator.getRand(), chunkPrimer, this, x, z, 127, v, Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), 0, generator.getWorld().getSeed());
     }
 
-    @Nonnull
-    @Override
-    public IMusicType getMusicType() {
-        if(musicType==null)
-            return new VanillaMusicType(MusicTicker.MusicType.END);
-        return new VanillaMusicType(musicType);
-    }
+//    @Nonnull
+//    @Override
+//    public IMusicType getMusicType() {
+//        if(musicType==null)
+//            return new VanillaMusicType(MusicTicker.MusicType.END);
+//        return new VanillaMusicType(musicType);
+//    }
 
-    @Nullable
-    public SoundEvent getAmbientSound() {
-        return ambientSound;
-    }
+//    @Nullable
+//    public SoundEvent getAmbientSound() {
+//        return ambientSound;
+//    }
 }
