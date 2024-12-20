@@ -121,13 +121,13 @@ public class DragonflyEntity extends EntityAnimal implements EntityFlying {
 	public boolean getCanSpawnHere() {
 		if(rand.nextInt(100) != 0) return false;
 		BlockPos pos = getPosition();
-		AxisAlignedBB box = new AxisAlignedBB(pos).grow(16);
+		AxisAlignedBB box = new AxisAlignedBB(pos).grow(32);
 		List<DragonflyEntity> list = world.getEntitiesWithinAABB(DragonflyEntity.class, box, (entity) -> true);
 		Chunk chunk = world.getChunk(pos);
 		int y = chunk.getHeightValue(pos.getX() & 15, pos.getZ() & 15);
 
 		// FIX dragonfly spawning too much and preventing other entities to spawn
-		return y > 0 && pos.getY() >= y && list.size() < 9;
+		return y > 0 && pos.getY() >= y && list.size() < 5;
 	}
 	public class DragonflyLookHelper extends EntityLookHelper {
 		public DragonflyLookHelper(EntityLiving entity) {

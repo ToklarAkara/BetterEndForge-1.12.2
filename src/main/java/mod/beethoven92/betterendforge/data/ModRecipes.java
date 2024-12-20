@@ -345,11 +345,11 @@ public class ModRecipes
 	    ShapedRecipeBuilder.shapedRecipe(material.bark_stripped, 3).key('#', material.log_stripped).patternLine("##").patternLine("##").addCriterion("has_log_stripped", hasItem(material.log_stripped)).build(consumer);
 
 	    //ShapedRecipeBuilder.shapedRecipe(material.composter, 1).key('#', material.slab).patternLine("# #").patternLine("# #").patternLine("###").setGroup("end_composters").addCriterion("has_slabs", hasItem(material.slab)).build(consumer);
-	    ShapedRecipeBuilder.shapedRecipe(material.craftingTable, 1).key('#', material.planks).patternLine("##").patternLine("##").setGroup("end_crafting_tables").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
-	    //ShapedRecipeBuilder.shapedRecipe(material.ladder, 3).key('#', material.planks).key('I', Items.STICK).patternLine("I I").patternLine("I#I").patternLine("I I").setGroup("end_ladders").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
-	    ShapedRecipeBuilder.shapedRecipe(material.chest, 1).key('#', material.planks).patternLine("###").patternLine("# #").patternLine("###").setGroup("end_chests").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
-	    ShapedRecipeBuilder.shapedRecipe(material.sign, 3).key('#', material.planks).key('I', Items.STICK).patternLine("###").patternLine("###").patternLine(" I ").setGroup("end_signs").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
-	    ShapedRecipeBuilder.shapedRecipe(material.barrel, 1).key('#', material.planks).key('S', material.slab).patternLine("#S#").patternLine("# #").patternLine("#S#").setGroup("end_barrels").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
+//	    ShapedRecipeBuilder.shapedRecipe(material.craftingTable, 1).key('#', material.planks).patternLine("##").patternLine("##").setGroup("end_crafting_tables").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
+//	    //ShapedRecipeBuilder.shapedRecipe(material.ladder, 3).key('#', material.planks).key('I', Items.STICK).patternLine("I I").patternLine("I#I").patternLine("I I").setGroup("end_ladders").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
+//	    ShapedRecipeBuilder.shapedRecipe(material.chest, 1).key('#', material.planks).patternLine("###").patternLine("# #").patternLine("###").setGroup("end_chests").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
+//	    ShapedRecipeBuilder.shapedRecipe(material.sign, 3).key('#', material.planks).key('I', Items.STICK).patternLine("###").patternLine("###").patternLine(" I ").setGroup("end_signs").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
+//	    ShapedRecipeBuilder.shapedRecipe(material.barrel, 1).key('#', material.planks).key('S', material.slab).patternLine("#S#").patternLine("# #").patternLine("#S#").setGroup("end_barrels").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
 	    ShapedRecipeBuilder.shapedRecipe(material.shelf, 1).key('#', material.planks).key('P', Items.BOOK).patternLine("###").patternLine("PPP").patternLine("###").setGroup("end_bookshelves").addCriterion("has_planks", hasItem(material.planks)).build(consumer);
 	}
 

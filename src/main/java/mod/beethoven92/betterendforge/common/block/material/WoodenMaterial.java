@@ -58,12 +58,12 @@ public class WoodenMaterial
 	public final Block trapdoor;
 	public final Block door;
 
-	public final Block craftingTable;
-	//public final Block ladder;
-	public final Block sign;
-
-	public final Block chest;
-	public final Block barrel;
+//	public final Block craftingTable;
+//	//public final Block ladder;
+//	public final Block sign;
+//
+//	public final Block chest;
+//	public final Block barrel;
 	public final Block shelf;
 	//public final Block composter;
 
@@ -127,24 +127,24 @@ public class WoodenMaterial
 
 //		composter = registerBlockWithBurnItem(name + "_composter",
 //				() -> new BlockComposter(materialPlanksNotSolid), 300);
-		craftingTable = registerBlockWithBurnItem(name + "_crafting_table",
-				() -> new ModCraftingTableBlock(materialPlanks), 300);
+//		craftingTable = registerBlockWithBurnItem(name + "_crafting_table",
+//				() -> new ModCraftingTableBlock(materialPlanks), 300);
 //		ladder = registerBlockWithBurnItem(name + "_ladder",
 //				() -> new BlockLadder(materialPlanksNotSolid), 300);
-		chest = ModBlocks.registerBlock(name + "_chest",
-				() -> new BlockChest(BlockChest.Type.BASIC) {
-					@Nullable
-					@Override
-					public TileEntity createTileEntity(World world, IBlockState state) {
-						return new EChestTileEntity();
-					}
-				});
-		ModItems.ITEMS.add(new ItemBlock(chest).setRegistryName(chest.getRegistryName()));
+//		chest = ModBlocks.registerBlock(name + "_chest",
+//				() -> new BlockChest(BlockChest.Type.BASIC) {
+//					@Nullable
+//					@Override
+//					public TileEntity createTileEntity(World world, IBlockState state) {
+//						return new EChestTileEntity();
+//					}
+//				});
+//		ModItems.ITEMS.add(new ItemBlock(chest).setRegistryName(chest.getRegistryName()));
 
-		sign = registerBlockWithBurnItem(name + "_sign",
-				() -> new EndSignBlock(), 200);
-		barrel = registerBlockWithBurnItem(name + "_barrel",
-				() -> new EndBarrelBlock(materialPlanksNotSolid), 300);
+//		sign = registerBlockWithBurnItem(name + "_sign",
+//				() -> new EndSignBlock(), 200);
+//		barrel = registerBlockWithBurnItem(name + "_barrel",
+//				() -> new EndBarrelBlock(materialPlanksNotSolid), 300);
 		shelf = registerBlockWithBurnItem(name + "_bookshelf",
 				() -> new Block(materialPlanks) {
 					@Override

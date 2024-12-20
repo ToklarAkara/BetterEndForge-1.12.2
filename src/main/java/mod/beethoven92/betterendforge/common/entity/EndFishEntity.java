@@ -103,6 +103,10 @@ public class EndFishEntity extends EntityAnimal implements EntityFlying {
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue( 0.75);
 	}
 
+	@Override
+	public boolean canBreatheUnderwater() {
+		return true;
+	}
 
 	public int getVariant() {
 		return this.dataManager.get(VARIANT);

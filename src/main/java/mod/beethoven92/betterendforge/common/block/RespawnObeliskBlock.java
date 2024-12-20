@@ -25,6 +25,8 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RespawnObeliskBlock extends Block {
 	private static final AxisAlignedBB VOXEL_SHAPE_BOTTOM = new AxisAlignedBB(1 / 16.0, 0, 1 / 16.0, 15 / 16.0, 16 / 16.0, 15 / 16.0);
@@ -154,4 +156,20 @@ public class RespawnObeliskBlock extends Block {
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState();
 	}//TODO META
+
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getRenderLayer()
+	{
+		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 }

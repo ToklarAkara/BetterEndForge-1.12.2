@@ -32,9 +32,9 @@ public class BiomeModification {
 
 
         // Add end caves to biomes that have caves enabled
-        if (ModBiomes.getBiome(biome.getRegistryName()).hasCaves()) {
-            decorator.getFeatures(Decoration.RAW_GENERATION).add(ModConfiguredFeatures.ROUND_CAVE);
-        }
+//        if (ModBiomes.getBiome(biome.getRegistryName()).hasCaves()) {
+//            decorator.getFeatures(Decoration.RAW_GENERATION).add(ModConfiguredFeatures.ROUND_CAVE);
+//        }
 
         // Add scattered nbt structures to biomes
         if (!ModBiomes.getBiome(biome.getRegistryName()).getNBTStructures().isEmpty()) {

@@ -5,6 +5,7 @@ import git.jbredwards.nether_api.api.audio.impl.VanillaMusicType;
 import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.IEndBiome;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
+import git.jbredwards.nether_api.mod.common.world.gen.ChunkGeneratorTheEnd;
 import mod.beethoven92.betterendforge.common.particles.FireflyParticle;
 import mod.beethoven92.betterendforge.common.particles.SulphurParticle;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
@@ -122,19 +123,19 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
         ConfiguredSurfaceBuilder<?> configuredsurfacebuilder = surface;
         if (configuredsurfacebuilder == null) return;
         configuredsurfacebuilder.setSeed(generator.getWorld().getSeed());
-        configuredsurfacebuilder.buildSurface(generator.getRand(), chunkPrimer, this, x, z, 127, v, Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), 0, generator.getWorld().getSeed());
+        configuredsurfacebuilder.buildSurface(generator.getRand(), chunkPrimer, this, i*16 + x, i1*16+ z, 127, v, Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), 0, generator.getWorld().getSeed());
     }
 
-//    @Nonnull
-//    @Override
-//    public IMusicType getMusicType() {
-//        if(musicType==null)
-//            return new VanillaMusicType(MusicTicker.MusicType.END);
-//        return new VanillaMusicType(musicType);
-//    }
+    @Nonnull
+    @Override
+    public IMusicType getMusicType() {
+        if(musicType==null)
+            return new VanillaMusicType(MusicTicker.MusicType.END);
+        return new VanillaMusicType(musicType);
+    }
 
-//    @Nullable
-//    public SoundEvent getAmbientSound() {
-//        return ambientSound;
-//    }
+    @Nullable
+    public SoundEvent getAmbientSound() {
+        return ambientSound;
+    }
 }

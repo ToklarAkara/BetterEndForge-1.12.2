@@ -74,7 +74,7 @@ public class StoneMaterial
 		pedestal = ModBlocks.registerBlockWithDefaultItem(name + "_pedestal", 
 				() -> new PedestalBlock().setHardness(3.0F).setResistance(9.0F));
 		lantern = ModBlocks.registerBlockWithDefaultItem(name + "_lantern", 
-				() -> new ModLanternBlock().setHardness(3.0F).setResistance(9.0F).setLightLevel(15));
+				() -> new ModLanternBlock().setHardness(3.0F).setResistance(9.0F).setLightLevel(1));
 		
 		bricks = ModBlocks.registerBlockWithDefaultItem(name + "_bricks", 
 				() -> new Block(Material.ROCK).setHardness(3.0F).setResistance(9.0F));
@@ -85,8 +85,8 @@ public class StoneMaterial
 		brick_wall = ModBlocks.registerBlockWithDefaultItem(name + "_bricks_wall", 
 				() -> new BlockWall(bricks).setHardness(3.0F).setResistance(9.0F));
 		
-		furnace = ModBlocks.registerBlockWithDefaultItem(name + "_furnace", 
-				() -> new EndFurnaceBlock(false).setLightLevel(0));
+//		furnace = ModBlocks.registerBlockWithDefaultItem(name + "_furnace",
+//				() -> new EndFurnaceBlock(false).setLightLevel(0));
 		
 		MATERIALS.add(this);
 	}

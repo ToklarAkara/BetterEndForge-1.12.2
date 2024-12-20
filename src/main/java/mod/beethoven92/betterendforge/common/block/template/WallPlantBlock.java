@@ -180,4 +180,8 @@ public class WallPlantBlock extends PlantBlock
 	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
 		return super.getSoundType(state, world, pos, entity);
 	}
+
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand){
+
+	}
 }

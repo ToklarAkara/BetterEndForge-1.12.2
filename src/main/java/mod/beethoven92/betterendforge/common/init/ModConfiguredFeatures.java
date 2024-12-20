@@ -71,11 +71,11 @@ public class ModConfiguredFeatures
 	
 	public static final ConfiguredFeature<?, ?> FLAMAEA = 
 			new ConfiguredFeature<>(ModFeatures.FLAMAEA,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(20);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(20);
 	
 	public static final ConfiguredFeature<?, ?> POND_ANEMONE = 
 			new ConfiguredFeature<>(ModFeatures.POND_ANEMONE,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(10);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(10);
 
 	
 	// BUSHES
@@ -91,7 +91,7 @@ public class ModConfiguredFeatures
 	
 	public static final ConfiguredFeature<?, ?> LARGE_AMARANITA = 
 			new ConfiguredFeature<>(ModFeatures.LARGE_AMARANITA,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> TENANEA_BUSH = 
 			new ConfiguredFeature<>(ModFeatures.TENANEA_BUSH,IFeatureConfig.NO_FEATURE_CONFIG).
@@ -100,15 +100,15 @@ public class ModConfiguredFeatures
 	
 	public static final ConfiguredFeature<?, ?> LUCERNIA_BUSH = 
 			new ConfiguredFeature<>(ModFeatures.LUCERNIA_BUSH,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(10);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(10);
 
 	public static final ConfiguredFeature<?, ?> LUCERNIA_BUSH_RARE =
 			new ConfiguredFeature<>(ModFeatures.LUCERNIA_BUSH_RARE,IFeatureConfig.NO_FEATURE_CONFIG).
-					decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(1);
+					decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(1);
 	
 	public static final ConfiguredFeature<?, ?> NEON_CACTUS = 
 			new ConfiguredFeature<>(ModFeatures.NEON_CACTUS,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(2);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(2);
 
 	
 	// PLANTS
@@ -194,81 +194,81 @@ public class ModConfiguredFeatures
 	
 	public static final ConfiguredFeature<?, ?> LUMECORN = 
 			new ConfiguredFeature<>(ModFeatures.LUMECORN,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> BLOOMING_COOKSONIA = 
 			new ConfiguredFeature<>(ModFeatures.BLOOMING_COOKSONIA,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> SALTEAGO = 
 			new ConfiguredFeature<>(ModFeatures.SALTEAGO,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> VAIOLUSH_FERN = 
 			new ConfiguredFeature<>(ModFeatures.VAIOLUSH_FERN,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> FRACTURN = 
 			new ConfiguredFeature<>(ModFeatures.FRACTURN,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> UMBRELLA_MOSS_RARE = 
 			new ConfiguredFeature<>(ModFeatures.UMBRELLA_MOSS_RARE,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(2);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(2);
 	
 	public static final ConfiguredFeature<?, ?> CREEPING_MOSS_RARE = 
 			new ConfiguredFeature<>(ModFeatures.CREEPING_MOSS_RARE,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(2);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(2);
 	
 	public static final ConfiguredFeature<?, ?> TWISTED_UMBRELLA_MOSS_RARE = 
 			new ConfiguredFeature<>(ModFeatures.TWISTED_UMBRELLA_MOSS_RARE,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(2);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(2);
 	
 	public static final ConfiguredFeature<?, ?> SMALL_AMARANITA = 
 			new ConfiguredFeature<>(ModFeatures.SMALL_AMARANITA,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(4);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(4);
 	
 	public static final ConfiguredFeature<?, ?> GLOBULAGUS = 
 			new ConfiguredFeature<>(ModFeatures.GLOBULAGUS,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(6);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(6);
 	
 	public static final ConfiguredFeature<?, ?> CLAWFERN = 
 			new ConfiguredFeature<>(ModFeatures.CLAWFERN,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> AERIDIUM = 
 			new ConfiguredFeature<>(ModFeatures.AERIDIUM,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 	
 	public static final ConfiguredFeature<?, ?> LAMELLARIUM = 
 			new ConfiguredFeature<>(ModFeatures.LAMELLARIUM,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(6); 
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(6); 
 	
 	public static final ConfiguredFeature<?, ?> BOLUX_MUSHROOM = 
 			new ConfiguredFeature<>(ModFeatures.BOLUX_MUSHROOM,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(2); 
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(2); 
 	
 	public static final ConfiguredFeature<?, ?> ORANGO = 
 			new ConfiguredFeature<>(ModFeatures.ORANGO,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(6); 
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(6); 
 	
 	public static final ConfiguredFeature<?, ?> LUTEBUS = 
 			new ConfiguredFeature<>(ModFeatures.LUTEBUS,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 
 	public static final ConfiguredFeature<?, ?> FLAMMALIX =
 			new ConfiguredFeature<>(ModFeatures.FLAMMALIX,IFeatureConfig.NO_FEATURE_CONFIG).
-					decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(5);
+					decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(5);
 
 	public static final ConfiguredFeature<?, ?> INFLEXIA =
 			new ConfiguredFeature<>(ModFeatures.INFLEXIA,IFeatureConfig.NO_FEATURE_CONFIG).
-					decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(16);
+					decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(16);
 
 
 	// SKY PLANTS
 	public static final ConfiguredFeature<?, ?> FILALUX = 
 			new ConfiguredFeature<>(ModFeatures.FILALUX,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(1);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(1);
 
 	
 	
@@ -481,11 +481,11 @@ public class ModConfiguredFeatures
 	
 	public static final ConfiguredFeature<?, ?> GIGANTIC_AMARANITA = 
 			new ConfiguredFeature<>(ModFeatures.GIGANTIC_AMARANITA,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(1);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(1);
 	
 	public static final ConfiguredFeature<?, ?> LUCERNIA = 
 			new ConfiguredFeature<>(ModFeatures.LUCERNIA,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)).countRandom(3);
+			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(3);
 
 //	// ORES
 //	public static final ConfiguredFeature<?, ?> THALLASIUM_ORE =

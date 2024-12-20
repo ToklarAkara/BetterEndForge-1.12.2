@@ -16,6 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class LanceleafBlock extends PlantBlock {
 	public static final PropertyEnum<PentaShape> SHAPE = BlockProperties.PENTA_SHAPE;
 	public static final PropertyInteger ROTATION = BlockProperties.CUT_ROTATION;
@@ -50,9 +52,11 @@ public class LanceleafBlock extends PlantBlock {
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		if (!canPlaceBlockAt((World) worldIn, pos)) {
 			worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
-		} else {
-			worldIn.setBlockState(pos, state);
 		}
+	}
+
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand){
+
 	}
 
     @Override

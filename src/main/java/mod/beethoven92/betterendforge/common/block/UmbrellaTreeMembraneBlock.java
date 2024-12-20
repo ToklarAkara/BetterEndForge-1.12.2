@@ -53,7 +53,7 @@ public class UmbrellaTreeMembraneBlock extends BlockSlime {
 
 	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return blockState.getValue(COLOR) > 0 ? super.shouldSideBeRendered(blockState, blockAccess, pos, side) : false;
+		return blockState.getValue(COLOR) > 0 ? super.shouldSideBeRendered(blockState, blockAccess, pos, side) : true;
 	}
 
 	@Override

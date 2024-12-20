@@ -22,7 +22,7 @@ public class SulphurSpringsBiome extends BetterEndBiome
 		super(new BiomeTemplate("sulphur_springs").
 				setFogColor(207, 194, 62).
 				setFogDensity(1.5F).
-				setWaterColor(25, 90, 157).
+				setWaterColor(219, 159, 48).
 				setWaterFogColor(30, 65, 61).
 				setCaves(false).
 				setSurface(ModConfiguredSurfaceBuilders.SULPHURIC_SURFACE).

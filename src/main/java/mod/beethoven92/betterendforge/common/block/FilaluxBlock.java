@@ -11,7 +11,7 @@ public class FilaluxBlock extends EndVineBlock {
 	public FilaluxBlock() {
 		super(Material.VINE);
 		setHardness(0.0F);
-		setLightLevel(15);
+		setLightLevel(1);
 		setSoundType(SoundType.PLANT);
 	}
 

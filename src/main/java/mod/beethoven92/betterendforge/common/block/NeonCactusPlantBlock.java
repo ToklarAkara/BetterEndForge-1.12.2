@@ -15,6 +15,7 @@ import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.feature.Mutable;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockChorusPlant;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -50,7 +51,7 @@ public class NeonCactusPlantBlock extends Block {
 
 	public NeonCactusPlantBlock() {
 		super(Material.CACTUS);
-		setLightLevel(15);
+		setLightLevel(1);
 		setTickRandomly(true);
 		setDefaultState(getDefaultState().withProperty(FACING, EnumFacing.UP).withProperty(SHAPE, TripleShape.TOP));
 	}
@@ -106,7 +107,13 @@ public class NeonCactusPlantBlock extends Block {
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos){
 		if (!state.getBlock().canPlaceBlockAt(worldIn, pos)) {
 			worldIn.destroyBlock(pos, true);
+			return;
 		}
+
+//		if (!this.canSurviveAt(worldIn, pos))
+//		{
+//			worldIn.scheduleUpdate(pos, this, 1);
+//		}
 	}
 
 	@Override
@@ -157,6 +164,14 @@ public class NeonCactusPlantBlock extends Block {
 		IBlockState support = worldIn.getBlockState(supportPos);
 		return support.getBlock()==(this) || support.getBlock().isSideSolid(support, worldIn, supportPos, dir);
 	}
+
+//	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+//	{
+//		if (!this.canSurviveAt(worldIn, pos))
+//		{
+//			worldIn.destroyBlock(pos, true);
+//		}
+//	}
 
 	@Override
 	public void randomTick(World world, BlockPos pos, IBlockState state, Random random) {
@@ -388,6 +403,31 @@ public class NeonCactusPlantBlock extends Block {
 		SMALL_SHAPES_OPEN.put(EnumFacing.WEST, new AxisAlignedBB(4D/16D, 4D/16D, 4D/16D, 16D/16D, 12D/16D, 12D/16D));
 		SMALL_SHAPES_OPEN.put(EnumFacing.EAST, new AxisAlignedBB(0D/16D, 4D/16D, 4D/16D, 12D/16D, 12D/16D, 12D/16D));
 	}
+
+//	public boolean canSurviveAt(World wordIn, BlockPos pos)
+//	{
+//		boolean flag = wordIn.isAirBlock(pos.up());
+//		boolean flag1 = wordIn.isAirBlock(pos.down());
+//
+//		for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+//		{
+//			BlockPos blockpos = pos.offset(enumfacing);
+//			Block block = wordIn.getBlockState(blockpos).getBlock();
+//
+//			if (block == this)
+//			{
+//				Block block1 = wordIn.getBlockState(blockpos.down()).getBlock();
+//
+//				if (block1 == this || ModTags.END_GROUND.contains(block1))
+//				{
+//					return true;
+//				}
+//			}
+//		}
+//
+//		Block block2 = wordIn.getBlockState(pos.down()).getBlock();
+//		return block2 == this || ModTags.END_GROUND.contains(block2);
+//	}
 
 	@Override
 	public int getMetaFromState(IBlockState state) {

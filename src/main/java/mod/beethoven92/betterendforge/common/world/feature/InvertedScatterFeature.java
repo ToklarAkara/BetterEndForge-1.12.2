@@ -55,7 +55,7 @@ public abstract class InvertedScatterFeature extends WorldGenerator
 					
 					if (canGenerate(world, random, pos, POS, r)) 
 					{
-						generate(world, random, POS);
+						generateInner(world, random, POS);
 					}
 				}
 			}

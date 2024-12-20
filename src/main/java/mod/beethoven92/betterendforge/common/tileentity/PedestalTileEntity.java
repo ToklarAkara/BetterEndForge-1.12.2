@@ -78,20 +78,20 @@ public class PedestalTileEntity extends TileEntity implements ITickable
 	{
 		if (world != null && !world.isRemote)
 		{
-			IBlockState state = world.getBlockState(pos);
-			if (state.getBlock() instanceof PedestalBlock)
-			{
-				state = state.withProperty(PedestalBlock.HAS_ITEM, !isEmpty());
-				if (activeItem.getItem() == ModItems.ETERNAL_CRYSTAL)
-				{
-					state = state.withProperty(PedestalBlock.HAS_LIGHT, true);
-				}
-				else
-				{
-					state = state.withProperty(PedestalBlock.HAS_LIGHT, false);
-				}
-				world.setBlockState(pos, state);
-			}
+//			IBlockState state = world.getBlockState(pos);
+//			if (state.getBlock() instanceof PedestalBlock)
+//			{
+//				state = state.withProperty(PedestalBlock.HAS_ITEM, !isEmpty());
+//				if (activeItem.getItem() == ModItems.ETERNAL_CRYSTAL)
+//				{
+//					state = state.withProperty(PedestalBlock.HAS_LIGHT, true);
+//				}
+//				else
+//				{
+//					state = state.withProperty(PedestalBlock.HAS_LIGHT, false);
+//				}
+//				world.setBlockState(pos, state);
+//			}
 		}
 		super.markDirty();
 	}

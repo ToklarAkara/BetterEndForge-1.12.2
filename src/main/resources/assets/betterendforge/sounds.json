@@ -5,22 +5,22 @@
 			{
 				"name": "betterendforge:music/dan_henig-eternal_garden",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/dan_henig-nebular_focus",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/bobby_richards-two_moons",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/astron-peaceful_mind",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -30,22 +30,22 @@
 			{
 				"name": "betterendforge:music/jesse_gallagher-the_blue_pearl",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/jesse_gallagher-venkatesananda",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/the_tides-somnolent",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/benjamin_martins-verve",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -55,22 +55,22 @@
 			{
 				"name": "betterendforge:music/emmit_fenn-creep",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/jesse_gallagher-the_anunnaki_return",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/i_think_i_can_help_you-the_six_realms",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/jesse_gallagher-maestro_tlakaelel",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -80,22 +80,22 @@
 			{
 				"name": "betterendforge:music/godmode-melancholia",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/asher_fulero-elegy",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/the-tides-ammil",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:music/vyen-amber",
 				"volume": 0.2,
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -105,7 +105,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:ambient/foggy_mushroomland",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -114,7 +114,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:ambient/chorus_forest",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -123,7 +123,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:ambient/megalake",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -132,7 +132,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:ambient/dust_wastelands",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -141,7 +141,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:ambient/megalake_grove",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -150,7 +150,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:ambient/blossoming_spires",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -160,7 +160,7 @@
 			{
 				"name": "betterendforge:ambient/sulphur_springs",
 				"volume": 0.3,
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -170,7 +170,7 @@
 			{
 				"name": "betterendforge:ambient/umbrella_jungle",
 				"volume": 1.0,
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -180,7 +180,7 @@
 			{
 				"name": "betterendforge:ambient/glowing_grasslands",
 				"volume": 1.0,
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -218,15 +218,15 @@
 		"sounds": [
 			{
 				"name": "betterendforge:entity/dragonfly/dragonfly_1",
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:entity/dragonfly/dragonfly_2",
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:entity/dragonfly/dragonfly_3",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -235,11 +235,11 @@
 		"sounds": [
 			{
 				"name": "betterendforge:entity/shadow_walker/shadow_walker_1",
-				"stream": false
+				"stream": true
 			},
 			{
 				"name": "betterendforge:entity/shadow_walker/shadow_walker_2",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -248,7 +248,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:entity/shadow_walker/shadow_walker_damage",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -257,7 +257,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:entity/shadow_walker/shadow_walker_death",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -293,7 +293,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:records/firel-strange_and_alien",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -302,7 +302,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:records/firel-grasping_at_stars",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -311,7 +311,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:records/firel-endseeker",
-				"stream": false
+				"stream": true
 			}
 		]
 	},
@@ -320,7 +320,7 @@
 		"sounds": [
 			{
 				"name": "betterendforge:records/firel-eo_dracona",
-				"stream": false
+				"stream": true
 			}
 		]
 	}

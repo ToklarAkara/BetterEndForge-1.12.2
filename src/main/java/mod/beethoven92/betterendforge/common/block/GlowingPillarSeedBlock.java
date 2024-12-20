@@ -82,6 +82,7 @@ public class GlowingPillarSeedBlock extends PlantBlockWithAge {
 			BlockPos offsetPos = mut.offset(dir);
 			if (world.isAirBlock(offsetPos)) {
 				BlockHelper.setWithUpdate(world, offsetPos, ModBlocks.GLOWING_PILLAR_LEAVES.getDefaultState().withProperty(FurBlock.FACING, dir));
+				world.scheduleUpdate(offsetPos, ModBlocks.GLOWING_PILLAR_LEAVES, 1);
 			}
 		}
 		mut.move(EnumFacing.UP);

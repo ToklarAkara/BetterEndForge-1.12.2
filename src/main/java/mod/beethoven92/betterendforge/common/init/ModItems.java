@@ -114,7 +114,7 @@ public class ModItems
 	public final static Item GUIDE_BOOK = registerItem("guidebook", () -> new GuideBookItem().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	public final static Item FLAMAEA = registerItem("flamaea", () -> new ItemLilyPad(ModBlocks.FLAMAEA).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 	
-	public final static Item AETERNIUM_ANVIL = registerItem("aeternium_anvil", () -> new EndAnvilItem(ModBlocks.AETERNIUM_ANVIL).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+	//public final static Item AETERNIUM_ANVIL = registerItem("aeternium_anvil", () -> new EndAnvilItem(ModBlocks.AETERNIUM_ANVIL).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 
 	
 	// MUSIC DISCS

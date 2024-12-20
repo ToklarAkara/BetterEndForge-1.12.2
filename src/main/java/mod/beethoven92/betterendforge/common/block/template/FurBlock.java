@@ -1,6 +1,7 @@
 package mod.beethoven92.betterendforge.common.block.template;
 
 import java.util.EnumMap;
+import java.util.Random;
 
 import com.google.common.collect.Maps;
 
@@ -9,6 +10,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -16,9 +18,12 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 public class FurBlock extends AttachedBlock implements IShearable {
 	private static final EnumMap<EnumFacing, AxisAlignedBB> BOUNDING_SHAPES = Maps.newEnumMap(EnumFacing.class);
@@ -42,6 +47,20 @@ public class FurBlock extends AttachedBlock implements IShearable {
 		return BOUNDING_SHAPES.get(state.getValue(FACING));
 	}
 
+	public void updateTick(World worldIn, BlockPos currentPos, IBlockState stateIn, Random rand) {
+		if (!worldIn.isAreaLoaded(currentPos, 1)) return;
+
+		if (!this.canPlaceBlock(worldIn, currentPos, stateIn.getValue(FACING))) {
+			worldIn.setBlockState(currentPos, Blocks.AIR.getDefaultState());
+		}
+	}
+
+	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+		if (!this.canPlaceBlock(worldIn, pos, state.getValue(FACING))) {
+			worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+		}
+	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
@@ -85,5 +104,11 @@ public class FurBlock extends AttachedBlock implements IShearable {
 	@Override
 	public java.util.List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
 		return com.google.common.collect.Lists.newArrayList(new ItemStack(Item.getItemFromBlock(this)));
+	}
+
+	@Nullable
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+		return NULL_AABB;
 	}
 }

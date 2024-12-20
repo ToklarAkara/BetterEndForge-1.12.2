@@ -14,14 +14,21 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -147,25 +154,49 @@ public class PedestalBlock extends Block
 			PedestalTileEntity pedestal = (PedestalTileEntity) tileEntity;
 			if (pedestal.isEmpty())
 			{
-				ItemStack itemStack = player.getHeldItem(hand);
-				if (itemStack.isEmpty()) return true; //TODO CHECK CONSUME
-				pedestal.setStack(player.capabilities.isCreativeMode ? itemStack.copy().splitStack(1) : itemStack.splitStack(1));
+				final ItemStack i = player.getHeldItem(hand).copy();
+				i.setCount(1);
+				pedestal.setStack(i);
+				player.getHeldItem(hand).shrink(1);
+				if (player.getHeldItem(hand).getCount() == 0) {
+					player.setHeldItem(hand, ItemStack.EMPTY);
+				}
+				player.inventory.markDirty();
+				if(player instanceof EntityPlayerMP){
+					SPacketUpdateTileEntity spacketupdatetileentity = pedestal.getUpdatePacket();
+
+					if (spacketupdatetileentity != null)
+					{
+						((EntityPlayerMP)player).connection.sendPacket(spacketupdatetileentity);
+					}
+				}
+				worldIn.playSound((EntityPlayer)null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2f, ((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7f + 1.0f) * 1.6f);
 				//this.checkRitual(worldIn, pos);
 				return true;
 			}
 			else
 			{
-				ItemStack itemStack = pedestal.getStack();
-				if (player.addItemStackToInventory(itemStack))
-				{
-					pedestal.removeStack(worldIn, state);
-					return true;
-				}
-				return false;
+				dropItemsAtEntity(worldIn, pos, (Entity)player);
+				worldIn.playSound((EntityPlayer)null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2f, ((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7f + 1.0f) * 1.5f);
+				return true;
 			}
 		}
 		return false;
 	}
+
+	public static void dropItemsAtEntity(final World world, final BlockPos pos, final Entity entity) {
+        final TileEntity tileEntity = world.getTileEntity(pos);
+        if (!(tileEntity instanceof PedestalTileEntity) || world.isRemote) {
+            return;
+        }
+        ItemStack itemStack = ((PedestalTileEntity) tileEntity).getStack();
+        if (!itemStack.isEmpty() && itemStack.getCount() > 0) {
+            final EntityItem entityItem = new EntityItem(world, entity.posX, entity.posY + entity.getEyeHeight() / 2.0f, entity.posZ, itemStack.copy());
+            world.spawnEntity((Entity) entityItem);
+            ((PedestalTileEntity) tileEntity).removeStack();
+        }
+    }
+
 
     /*public void checkRitual(World world, BlockPos pos)
     {
@@ -186,7 +217,7 @@ public class PedestalBlock extends Block
 	@Override
 	public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
-		if (tileentity instanceof PedestalTileEntity)
+		if (tileentity instanceof PedestalTileEntity && !worldIn.isRemote)
 		{
 			PedestalTileEntity pedestal = (PedestalTileEntity) tileentity;
 			InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), pedestal.getStack());
@@ -223,10 +254,9 @@ public class PedestalBlock extends Block
 		return this.getDefaultState();
 	}
 
-
 	@Override
 	public void onBlockPlacedBy(World worldIn, BlockPos currentPos, IBlockState stateIn, EntityLivingBase placer, ItemStack stack) {
-		IBlockState updated = this.getUpdatedState(stateIn, EnumFacing.DOWN, stateIn, worldIn, currentPos, currentPos); //TODO CHECK
+		IBlockState updated = this.getUpdatedState(stateIn, EnumFacing.DOWN, worldIn.getBlockState(currentPos.offset(EnumFacing.DOWN)), worldIn, currentPos, currentPos); //TODO CHECK
 		if (updated.getBlock()!=(this)) {
 			worldIn.setBlockState(currentPos, updated);
 		}
@@ -369,6 +399,19 @@ public class PedestalBlock extends Block
 	}
 
 	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+		IBlockState updated = this.getUpdatedState(state, EnumFacing.DOWN, worldIn.getBlockState(pos.offset(EnumFacing.DOWN)), worldIn, pos, fromPos); //TODO CHECK
+		if (updated.getBlock()!=(this)) {
+			worldIn.setBlockState(pos, updated);
+		}
+		if (!this.isPlaceable(updated))
+		{
+			this.moveStoredStack(worldIn, updated, pos);
+		}
+		worldIn.setBlockState(pos, updated);
+	}
+
+	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, STATE, HAS_ITEM, HAS_LIGHT);
 	}
@@ -387,13 +430,13 @@ public class PedestalBlock extends Block
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return 0;
+		return state.getValue(STATE).ordinal();
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState();
-	} //TODO META
+		return getDefaultState().withProperty(STATE, PedestalState.values()[meta]);
+	}
 
 	@Override
 	public boolean isFullCube(IBlockState state) {

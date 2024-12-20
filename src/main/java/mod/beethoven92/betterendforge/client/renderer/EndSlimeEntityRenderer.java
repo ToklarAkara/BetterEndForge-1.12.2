@@ -58,7 +58,7 @@ public class EndSlimeEntityRenderer extends RenderLiving<EndSlimeEntity> {
 				Minecraft.getMinecraft().getTextureManager().bindTexture(getEntityTexture(entity));
 				if (entity.isLake()) {
 					this.modelLake.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-				} else if (entity.isAmber() || entity.isChorus()) {
+				} else {//if (entity.isAmber() || entity.isChorus()) {
 					this.modelOrdinal.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 				}
 				GlStateManager.disableBlend();

@@ -329,7 +329,7 @@ public class ModBlocks {
     }.setHardness(3.0f).setResistance(9.0f).setTickRandomly(true));
 
     // PLANTS
-    public static final Block UMBRELLA_MOSS = registerBlockWithDefaultItem("umbrella_moss", () -> new UmbrellaMossBlock().setHardness(0).setResistance(0).setLightLevel(11));
+    public static final Block UMBRELLA_MOSS = registerBlockWithDefaultItem("umbrella_moss", () -> new UmbrellaMossBlock().setHardness(0).setResistance(0).setLightLevel(11f/15f));
 
     public static final Block UMBRELLA_MOSS_TALL = registerBlockWithDefaultItem("umbrella_moss_tall", () -> new UmbrellaMossTallBlock() {
         @Override
@@ -338,7 +338,7 @@ public class ModBlocks {
         }
     }.setHardness(0).setResistance(0));
 
-    public static final Block CREEPING_MOSS = registerBlockWithDefaultItem("creeping_moss", () -> new GlowingMossBlock().setHardness(0).setResistance(0).setLightLevel(11));
+    public static final Block CREEPING_MOSS = registerBlockWithDefaultItem("creeping_moss", () -> new GlowingMossBlock().setHardness(0).setResistance(0).setLightLevel(11f/15f));
 
     public static final Block CHORUS_GRASS = registerBlockWithDefaultItem("chorus_grass", () -> new ChorusGrassBlock().setHardness(0).setResistance(0));
 
@@ -595,7 +595,7 @@ public class ModBlocks {
 
     public static final Block GLOWING_PILLAR_LEAVES = registerBlockWithDefaultItem("glowing_pillar_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1));
 
-    public static final Block TWISTED_UMBRELLA_MOSS = registerBlockWithDefaultItem("twisted_umbrella_moss", () -> new TwistedUmbrellaMossBlock().setHardness(0).setResistance(0).setLightLevel(11));
+    public static final Block TWISTED_UMBRELLA_MOSS = registerBlockWithDefaultItem("twisted_umbrella_moss", () -> new TwistedUmbrellaMossBlock().setHardness(0).setResistance(0).setLightLevel(11f/15f));
 
     public static final Block TWISTED_UMBRELLA_MOSS_TALL = registerBlockWithDefaultItem("twisted_umbrella_moss_tall", () -> new TwistedUmbrellaMossTallBlock(){
         @Override
@@ -658,7 +658,7 @@ public class ModBlocks {
         public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
             return SoundType.WOOD;
         }
-    }.setHardness(0.2F).setResistance(0.2f).setLightLevel(13));
+    }.setHardness(0.2F).setResistance(0.2f).setLightLevel(13f/15f));
 
     public static final Block AURANT_POLYPORE = registerBlockWithDefaultItem("aurant_polypore", () -> new WallMushroomBlock() {
         @Nullable
@@ -666,7 +666,7 @@ public class ModBlocks {
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    }.setHardness(0.2F).setResistance(0.2f).setLightLevel(13));
+    }.setHardness(0.2F).setResistance(0.2f).setLightLevel(13f/15f));
 
     public static final Block TAIL_MOSS = registerBlockWithDefaultItem("tail_moss", () -> new WallPlantBlock().setHardness(0).setResistance(0));
 
@@ -674,7 +674,7 @@ public class ModBlocks {
 
     public static final Block TWISTED_MOSS = registerBlockWithDefaultItem("twisted_moss", () -> new WallPlantBlock().setHardness(0).setResistance(0));
 
-    public static final Block BULB_MOSS = registerBlockWithDefaultItem("bulb_moss", () -> new WallPlantBlock().setHardness(0).setResistance(0).setLightLevel(12));
+    public static final Block BULB_MOSS = registerBlockWithDefaultItem("bulb_moss", () -> new WallPlantBlock().setHardness(0).setResistance(0).setLightLevel(12f/15f));
 
     public static final Block TUBE_WORM = registerBlockWithDefaultItem("tube_worm", () -> new UnderwaterWallPlantBlock().setHardness(0).setResistance(0));
 
@@ -711,7 +711,7 @@ public class ModBlocks {
     public static final Block RUBINEA = registerBlockWithDefaultItem("rubinea", () -> new EndVineBlock(Material.PLANTS).setHardness(0).setResistance(0));
 
     // TREES
-    public static final Block MOSSY_GLOWSHROOM_SAPLING = registerBlockWithDefaultItem("mossy_glowshroom_sapling", () -> new MossyGlowshroomSaplingBlock().setHardness(0).setResistance(0).setLightLevel(7).setTickRandomly(true));
+    public static final Block MOSSY_GLOWSHROOM_SAPLING = registerBlockWithDefaultItem("mossy_glowshroom_sapling", () -> new MossyGlowshroomSaplingBlock().setHardness(0).setResistance(0).setLightLevel(7f/15f).setTickRandomly(true));
 
     public static final Block MOSSY_GLOWSHROOM_CAP = registerBlockWithDefaultItem("mossy_glowshroom_cap", () -> new MossyGlowshroomCapBlock() {
         @Nullable
@@ -856,7 +856,7 @@ public class ModBlocks {
     public static final Block END_STONE_FURNACE_LIT = registerBlockWithDefaultItem("end_stone_furnace_lit", () -> new EndFurnaceBlock(true).setHardness(3.0F).setResistance(15.0F));
 
     // MISC
-    public static final Block AETERNIUM_ANVIL = registerBlock("aeternium_anvil", () -> new AeterniumAnvil().setHardness(5.0F).setResistance(1200.0F));
+//    public static final Block AETERNIUM_ANVIL = registerBlock("aeternium_anvil", () -> new AeterniumAnvil().setHardness(5.0F).setResistance(1200.0F));
 
     public static final Block DENSE_SNOW = registerBlockWithDefaultItem("dense_snow", () -> new Block(Material.SNOW).setHardness(0.2F).setResistance(0.2F));
 
@@ -873,7 +873,7 @@ public class ModBlocks {
         public int quantityDropped(Random random) {
             return 0;
         }
-    }.setTickRandomly(true).setResistance(-1.0F).setHardness(-1.0F).setLightLevel(12));
+    }.setTickRandomly(true).setResistance(-1.0F).setHardness(-1.0F).setLightLevel(12f/15f));
 
     public static final Block RESPAWN_OBELISK = registerBlockWithDefaultItem("respawn_obelisk", () -> new RespawnObeliskBlock(){
         @Override
@@ -932,7 +932,7 @@ public class ModBlocks {
         }
     });
 
-    public static final Block LUCERNIA_OUTER_LEAVES = registerBlockWithDefaultItem("lucernia_outer_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1));
+    public static final Block LUCERNIA_OUTER_LEAVES = registerBlockWithDefaultItem("lucernia_outer_leaves", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0));
 
     public static final Block FILALUX = registerBlockWithDefaultItem("filalux", () -> new FilaluxBlock());
     public static final Block FILALUX_WINGS = registerBlockWithDefaultItem("filalux_wings", () -> new FilaluxWingsBlock());

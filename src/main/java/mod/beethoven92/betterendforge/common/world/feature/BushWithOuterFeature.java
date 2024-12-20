@@ -3,6 +3,7 @@ package mod.beethoven92.betterendforge.common.world.feature;
 import java.util.Random;
 import java.util.function.Function;
 
+import mod.beethoven92.betterendforge.common.block.template.AttachedBlock;
 import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
@@ -65,7 +66,7 @@ public class BushWithOuterFeature extends WorldGenerator {
 				ModMathHelper.shuffle(DIRECTIONS, random);
 				for (EnumFacing dir : DIRECTIONS) {
 					if (info.getState(dir).getBlock()== Blocks.AIR) {
-						info.setBlockPos(info.getPos().offset(dir), outerLeaves.getDefaultState());
+						info.setBlockPos(info.getPos().offset(dir), outerLeaves.getDefaultState().withProperty(AttachedBlock.FACING, dir));
 					}
 				}
 			}

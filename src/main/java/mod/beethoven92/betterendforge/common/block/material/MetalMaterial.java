@@ -122,7 +122,7 @@ public class MetalMaterial
 		//ModBlocks.registerBlockWithDefaultItem(slab, name + "_slab");
 //		ModBlocks.registerBlockWithDefaultItem(door, name + "_door");
 		ModBlocks.registerBlockWithDefaultItem(trapdoor, name + "_trapdoor");
-		ModBlocks.registerBlockWithDefaultItem(anvil, name + "_anvil");
+//		ModBlocks.registerBlockWithDefaultItem(anvil, name + "_anvil");
 		ModBlocks.registerBlockWithDefaultItem(bars, name + "_bars");
 		ModBlocks.registerBlockWithDefaultItem(chain, name + "_chain");
 		ModBlocks.registerBlockWithDefaultItem(pressure_plate, name + "_pressure_plate");

@@ -90,4 +90,8 @@ public class PlantBlock extends BlockBush implements IGrowable, IShearable {
 	public java.util.List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
 		return com.google.common.collect.Lists.newArrayList(new ItemStack(Item.getItemFromBlock(this)));
 	}
+
+	protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state){
+
+	}
 }

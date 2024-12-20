@@ -121,7 +121,6 @@ public class EndSlimeEntity extends EntitySlime {
 			}
 		}
 		this.isDead = true;
-		super.setDead();
 	}
 
 	public int getSlimeType() {

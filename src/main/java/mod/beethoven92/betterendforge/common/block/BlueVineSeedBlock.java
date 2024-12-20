@@ -65,6 +65,7 @@ public class BlueVineSeedBlock extends PlantBlockWithAge
 		if (world.isAirBlock(pos.up()))
 		{
 			BlockHelper.setWithoutUpdate(world, pos.up(), ModBlocks.BLUE_VINE_FUR.getDefaultState().withProperty(FurBlock.FACING, EnumFacing.UP));
+			world.scheduleUpdate(pos.up(), ModBlocks.BLUE_VINE_FUR, 1);
 		}
 	}
 
