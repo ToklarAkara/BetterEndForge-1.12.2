@@ -39,6 +39,7 @@ public class DoublePlantFeature extends ScatterFeature
 			world.scheduleUpdate(blockPos.up(), state.getBlock(), 1);
 		} else {
 			BlockHelper.setWithoutUpdate(world, blockPos, plant.getDefaultState());
+			world.scheduleUpdate(blockPos.up(), plant, 1);
 		}
 	}
 }

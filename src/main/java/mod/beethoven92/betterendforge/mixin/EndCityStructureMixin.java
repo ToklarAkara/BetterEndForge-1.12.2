@@ -1,54 +1,33 @@
 package mod.beethoven92.betterendforge.mixin;
 
-import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
-import net.minecraft.client.model.ModelDragon;
-import net.minecraft.entity.item.EntityEnderCrystal;
-import net.minecraft.world.gen.ChunkGeneratorEnd;
-import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.structure.MapGenEndCity;
-import net.minecraft.world.gen.structure.MapGenStructure;
-import org.spongepowered.asm.mixin.Final;
+import net.minecraft.entity.item.EntityItemFrame;
+import net.minecraft.entity.monster.EntityShulker;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.StructureBoundingBox;
+import net.minecraft.world.gen.structure.StructureEndCityPieces;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
 
-@Mixin(MapGenEndCity.class)
-public abstract class EndCityStructureMixin extends MapGenStructure
+@Mixin(StructureEndCityPieces.CityTemplate.class)
+public abstract class EndCityStructureMixin
 {
-	@Shadow @Final private ChunkGeneratorEnd endProvider;
-
-	@Inject(method = "canSpawnStructureAtCoords", at = @At("HEAD"), cancellable = true)
-	protected void canSpawnStructureAtCoords(int i, int j, CallbackInfoReturnable<Boolean> info)
-	{
-//		if (GeneratorOptions.useNewGenerator())
-//		{
-//			Random random = this.world.setRandomSeed(i, j, 10387313);
-//			int chance = GeneratorOptions.getEndCityFailChance();
-//			if (chance == 0)
-//			{
-//				info.setReturnValue(getYPosForStructure(i, j, endProvider) >= 60);
-//				info.cancel();
-//			}
-//			else if (random.nextInt(chance) == 0)
-//			{
-//				info.setReturnValue(getYPosForStructure(i, j, endProvider) >= 60);
-//				info.cancel();
-//			}
-//			else
-//			{
-//				info.setReturnValue(false);
-//				info.cancel();
-//			}
-//		}
-	}
-	
-	@Shadow
-	private static int getYPosForStructure(int chunkX, int chunkY, ChunkGeneratorEnd generatorIn)
-	{
-		return 0;
+	@Inject(method = "handleDataMarker", at=@At("HEAD"), cancellable = true)
+	protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb, CallbackInfo ci){
+		if (function.startsWith("Sentry"))
+		{
+			if(!worldIn.getEntitiesWithinAABB(EntityShulker.class, new AxisAlignedBB(pos).expand(1, 1, 1)).isEmpty())
+				ci.cancel();
+		}
+		else if (function.startsWith("Elytra"))
+		{
+			if(!worldIn.getEntitiesWithinAABB(EntityItemFrame.class, new AxisAlignedBB(pos).expand(1, 1, 1)).isEmpty())
+				ci.cancel();
+		}
 	}
 }

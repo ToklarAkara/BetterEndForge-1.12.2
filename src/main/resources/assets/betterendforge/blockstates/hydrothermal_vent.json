@@ -1,6 +1,57 @@
 {
   "variants": {
-    "normal": [
+    "activated=false,waterlogged=false": [
+      {
+        "model": "betterendforge:block/hydrothermal_vent"
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 90
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 180
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 270
+      }
+    ],
+    "activated=false,waterlogged=true": [
+      {
+        "model": "betterendforge:block/hydrothermal_vent"
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 90
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 180
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 270
+      }
+    ],
+    "activated=true,waterlogged=false": [
+      {
+        "model": "betterendforge:block/hydrothermal_vent"
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 90
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 180
+      },
+      {
+        "model": "betterendforge:block/hydrothermal_vent",
+        "y": 270
+      }
+    ],
+    "activated=true,waterlogged=true": [
       {
         "model": "betterendforge:block/hydrothermal_vent"
       },

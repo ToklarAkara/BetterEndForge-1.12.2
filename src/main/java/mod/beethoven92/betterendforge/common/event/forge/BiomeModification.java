@@ -7,6 +7,7 @@ import mod.beethoven92.betterendforge.common.world.biome.ExtendedBiome;
 import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.EndDecorator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
@@ -15,7 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BiomeModification {
-    public static void addFeaturesToEndBiomes(Biome biome) {
+    public static void addFeaturesToEndBiomes(ResourceLocation location, Biome biome) {
         EndDecorator decorator = (EndDecorator) biome.decorator;
 //			// Add surface structures to biomes
 //			if (!event.getName().getPath().contains("mountain") &&
@@ -23,12 +24,13 @@ public class BiomeModification {
 //			{
 //			    event.getGeneration().getStructures().add(() -> ModConfiguredStructures.ETERNAL_PORTAL);
 //			}
-        decorator.getFeatures(Decoration.SURFACE_STRUCTURES).add(ModConfiguredFeatures.CRASHED_SHIP);
-        decorator.getFeatures(Decoration.LOCAL_MODIFICATIONS).add(ModConfiguredFeatures.TUNEL_CAVE);
+        //decorator.getFeatures(Decoration.SURFACE_STRUCTURES).add(ModConfiguredFeatures.CRASHED_SHIP);
+        if(ModBiomes.getBiome(location).hasCaves() && !location.getPath().equals("ice_starfield") && !location.getPath().equals("crystal_mountains") && !location.getPath().equals("dry_shrubland")  && !location.getPath().equals("umbra_valley")  && !location.getPath().equals("glowing_grasslands"))
+            decorator.getFeatures(Decoration.LOCAL_MODIFICATIONS).add(ModConfiguredFeatures.TUNEL_CAVE);
 //        // Add ores to all biomes
 //            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.THALLASIUM_ORE);
 //            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.ENDER_ORE);
-        decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.FLAVOLITE_LAYER);
+        //decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.FLAVOLITE_LAYER);
 
 
         // Add end caves to biomes that have caves enabled
@@ -37,9 +39,9 @@ public class BiomeModification {
 //        }
 
         // Add scattered nbt structures to biomes
-        if (!ModBiomes.getBiome(biome.getRegistryName()).getNBTStructures().isEmpty()) {
-            decorator.getFeatures(Decoration.SURFACE_STRUCTURES).add(ModConfiguredFeatures.NBT_STRUCTURES);
-        }
+//        if (!ModBiomes.getBiome(biome.getRegistryName()).getNBTStructures().isEmpty()) {
+//            decorator.getFeatures(Decoration.SURFACE_STRUCTURES).add(ModConfiguredFeatures.NBT_STRUCTURES);
+//        }
     }
 //
 //	@SubscribeEvent(priority = EventPriority.NORMAL)

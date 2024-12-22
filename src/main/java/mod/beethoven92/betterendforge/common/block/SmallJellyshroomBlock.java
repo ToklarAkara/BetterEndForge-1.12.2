@@ -136,4 +136,10 @@ public class SmallJellyshroomBlock extends AttachedBlock implements IGrowable {
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
+
+	@Nullable
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+		return NULL_AABB;
+	}
 }

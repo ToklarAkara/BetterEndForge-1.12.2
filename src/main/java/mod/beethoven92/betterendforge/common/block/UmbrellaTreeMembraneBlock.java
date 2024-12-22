@@ -56,15 +56,15 @@ public class UmbrellaTreeMembraneBlock extends BlockSlime {
 		return blockState.getValue(COLOR) > 0 ? super.shouldSideBeRendered(blockState, blockAccess, pos, side) : true;
 	}
 
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return state.getValue(COLOR) <= 0;
-	}
-
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getRenderLayer()
 	{
-		return BlockRenderLayer.CUTOUT_MIPPED;
+		return BlockRenderLayer.TRANSLUCENT;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
 	}
 
 	@Override

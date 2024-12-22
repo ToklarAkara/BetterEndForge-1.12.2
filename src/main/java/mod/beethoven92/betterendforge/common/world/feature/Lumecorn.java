@@ -33,26 +33,26 @@ public class Lumecorn extends WorldGenerator {
 		IBlockState bottom = ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.LIGHT_BOTTOM);
 		IBlockState top = ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.LIGHT_TOP);
 		if (height == 4) {
-			BlockHelper.setWithoutUpdate(world, mut, ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.BOTTOM_SMALL));
-			BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), bottom);
-			BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), topMiddle);
-			BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), top);
+			BlockHelper.setWithUpdate(world, mut, ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.BOTTOM_SMALL));
+			BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), bottom);
+			BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), topMiddle);
+			BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), top);
 			return true;
 		}
 		if (random.nextBoolean()) {
-			BlockHelper.setWithoutUpdate(world, mut, ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.BOTTOM_SMALL));
+			BlockHelper.setWithUpdate(world, mut, ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.BOTTOM_SMALL));
 		}
 		else {
-			BlockHelper.setWithoutUpdate(world, mut, ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.BOTTOM_BIG));
-			BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.MIDDLE));
+			BlockHelper.setWithUpdate(world, mut, ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.BOTTOM_BIG));
+			BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), ModBlocks.LUMECORN.getDefaultState().withProperty(LumecornBlock.SHAPE, LumecornShape.MIDDLE));
 			height --;
 		}
-		BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), bottom);
+		BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), bottom);
 		for (int i = 4; i < height; i++) {
-			BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), middle);
+			BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), middle);
 		}
-		BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), topMiddle);
-		BlockHelper.setWithoutUpdate(world, mut.move(EnumFacing.UP), top);
+		BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), topMiddle);
+		BlockHelper.setWithUpdate(world, mut.move(EnumFacing.UP), top);
 		return false;
 	}
 }

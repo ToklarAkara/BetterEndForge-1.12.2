@@ -8,7 +8,6 @@ import com.google.gson.JsonObject;
 import mod.beethoven92.betterendforge.common.util.JsonFactory;
 import mod.beethoven92.betterendforge.common.world.biome.*;
 import mod.beethoven92.betterendforge.common.world.biome.cave.*;
-import mod.beethoven92.betterendforge.common.world.generator.BiomeMap;
 import mod.beethoven92.betterendforge.common.world.generator.BiomePicker;
 import mod.beethoven92.betterendforge.common.world.generator.EndBiomeType;
 import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
@@ -33,7 +32,6 @@ public class ModBiomes
 	private static final HashMap<ResourceLocation, BetterEndBiome> ID_MAP = Maps.newHashMap();
 	private static final HashMap<Biome, BetterEndBiome> CLIENT = Maps.newHashMap();
 	private static final Set<ResourceLocation> SUBBIOMES_UNMUTABLES = Sets.newHashSet();
-	private static BiomeMap caveBiomeMap;
 	
 	public static final BiomePicker LAND_BIOMES = new BiomePicker();
 	public static final BiomePicker VOID_BIOMES = new BiomePicker();
@@ -84,9 +82,6 @@ public class ModBiomes
 	public static void onWorldLoad(long seed, IForgeRegistry<Biome> registry) {
 		CAVE_BIOMES.getBiomes().forEach(biome -> biome.updateActualBiomes(registry));
 		CAVE_BIOMES.rebuild();
-		if (caveBiomeMap == null || caveBiomeMap.getSeed() != seed) {
-			caveBiomeMap = new BiomeMap(seed, GeneratorOptions.getBiomeSizeCaves(), CAVE_BIOMES);
-		}
 	}
 	
 	public static void mutateRegistry(IForgeRegistry<Biome> biomeRegistry)

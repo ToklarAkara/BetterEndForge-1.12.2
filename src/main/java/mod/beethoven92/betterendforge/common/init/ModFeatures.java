@@ -59,6 +59,7 @@ import mod.beethoven92.betterendforge.common.world.feature.WallPlantOnLogFeature
 import mod.beethoven92.betterendforge.common.world.feature.*;
 import mod.beethoven92.betterendforge.common.world.feature.caves.RoundCaveFeature;
 import mod.beethoven92.betterendforge.common.world.feature.caves.TunelCaveFeature;
+import mod.beethoven92.betterendforge.common.world.surfacebuilder.UmbraSurfaceBuilder;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.*;
@@ -188,7 +189,7 @@ public class ModFeatures
 	public static final WorldGenerator OBSIDIAN_BOULDER = new ObsidianBoulderFeature();
 	public static final WorldGenerator TUNEL_CAVE = new TunelCaveFeature();
 	public static final WorldGenerator THIN_ARCH = new ThinArchFeature(ModBlocks.UMBRALITH.stone);
-	public static final WorldGenerator UMBRALITH_ARCH = new ArchFeature(ModBlocks.UMBRALITH.stone, (pos)->ModBlocks.UMBRALITH.stone.getDefaultState()); //UmbraSurfaceBuilder::getSurfaceState);
+	public static final WorldGenerator UMBRALITH_ARCH = new ArchFeature(ModBlocks.UMBRALITH.stone, UmbraSurfaceBuilder::getSurfaceState);
 
 
 	// TREES

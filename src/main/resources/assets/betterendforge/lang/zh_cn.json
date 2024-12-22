@@ -99,8 +99,8 @@
     "item.betterendforge.shadow_berry_jelly": "暗影浆果果冻",
 
     "block.betterendforge.respawn_obelisk": "重生碑",
-    "message.betterendforge.set_spawn": "\u00A7b\u00A7l你的重生点已设置为此处",
-    "message.betterendforge.fail_spawn": "\u00A7c\u00A7l你需要手持6个琥珀石来设定重生点",
+    "message.betterendforge.set_spawn": "你的重生点已设置为此处",
+    "message.betterendforge.fail_spawn": "你需要手持6个琥珀石来设定重生点",
 
     "block.betterendforge.dragon_tree_composter": "龙鳞木堆肥桶",
     "block.betterendforge.end_lotus_composter": "末地莲堆肥桶",

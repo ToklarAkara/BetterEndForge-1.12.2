@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
+
 public class LumecornBlock extends Block {
 	public static final PropertyEnum<LumecornShape> SHAPE = PropertyEnum.create("shape", LumecornShape.class);
 	private static final AxisAlignedBB SHAPE_BOTTOM = new AxisAlignedBB(6D/16D, 0D/16D, 6D/16D, 10D/16D, 16D/16D, 10D/16D);
@@ -61,13 +63,13 @@ public class LumecornBlock extends Block {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return 0;
+		return state.getValue(SHAPE).ordinal();
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState();
-	}//TODO META
+		return getDefaultState().withProperty(SHAPE, LumecornShape.values()[meta]);
+	}
 
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getRenderLayer()
@@ -83,5 +85,11 @@ public class LumecornBlock extends Block {
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
+	}
+
+	@Nullable
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+		return NULL_AABB;
 	}
 }

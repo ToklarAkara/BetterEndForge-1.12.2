@@ -94,4 +94,12 @@ public class PlantBlock extends BlockBush implements IGrowable, IShearable {
 	protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state){
 
 	}
+
+	public void updateTick(World worldIn, BlockPos currentPos, IBlockState stateIn, Random rand) {
+		if (!worldIn.isAreaLoaded(currentPos, 1)) return;
+
+		if (!canPlaceBlockAt(worldIn, currentPos)) {
+			worldIn.setBlockState(currentPos, Blocks.AIR.getDefaultState());
+		}
+	}
 }

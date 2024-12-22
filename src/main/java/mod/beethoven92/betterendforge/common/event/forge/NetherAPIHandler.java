@@ -5,6 +5,7 @@ import git.jbredwards.nether_api.mod.common.registry.NetherAPIRegistry;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.init.ModBiomes;
 import mod.beethoven92.betterendforge.common.init.ModStructures;
+import mod.beethoven92.betterendforge.config.Configs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -20,7 +21,8 @@ public class NetherAPIHandler {
         //ModStructures.registerStructures(event.registry);
         ModBiomes.getModBiomes().forEach((end_biome) -> {
             if(!ModBiomes.CAVE_BIOMES.getBiomes().contains(end_biome))
-                event.registry.registerBiome(end_biome.getBiome(), 80);
+                event.registry.registerBiome(end_biome.getBiome(), Configs.BIOME_CONFIG.getInt(end_biome.getID(), "netherapi_weight", 80));
         });
+        Configs.BIOME_CONFIG.saveChanges();
     }
 }

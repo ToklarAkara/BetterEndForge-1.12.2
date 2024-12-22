@@ -338,7 +338,7 @@ public class BiomeTemplate
 //		}else{
 //			biome.fillerBlock = Blocks.END_STONE.getDefaultState();
 //		}
-		BiomeModification.addFeaturesToEndBiomes(biome);
+		BiomeModification.addFeaturesToEndBiomes(id, biome);
 		return biome;
 	}
 

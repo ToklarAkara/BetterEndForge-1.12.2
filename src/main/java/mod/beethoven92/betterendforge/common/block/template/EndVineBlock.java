@@ -4,6 +4,7 @@ import java.util.Random;
 
 import mod.beethoven92.betterendforge.common.block.BlockProperties;
 import mod.beethoven92.betterendforge.common.block.BlockProperties.TripleShape;
+import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
@@ -58,7 +59,7 @@ public class EndVineBlock extends Block implements IGrowable, IShearable {
 
 	protected boolean isValidSupport(IBlockState state, IBlockAccess world, BlockPos pos) {
 		IBlockState up = world.getBlockState(pos.up());
-		return up.getBlock() == this || up.getBlock().isLeaves(up, world, pos.up()) || up.isSideSolid(world, pos.up(), EnumFacing.DOWN);
+		return up.getBlock() == this || up.getBlock().isLeaves(up, world, pos.up()) || up.isSideSolid(world, pos.up(), EnumFacing.DOWN) || up.getBlock() == ModBlocks.UMBRELLA_TREE_MEMBRANE;
 	}
 
 	@Override
