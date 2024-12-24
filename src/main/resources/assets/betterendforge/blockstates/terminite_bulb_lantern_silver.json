@@ -11,6 +11,9 @@
     },
     "hanging=true,waterlogged=true": {
       "model": "betterendforge:block/terminite_bulb_lantern_colored_ceil"
+    },
+    "inventory": {
+      "model": "betterendforge:block/terminite_bulb_lantern_colored_ceil"
     }
   }
 }

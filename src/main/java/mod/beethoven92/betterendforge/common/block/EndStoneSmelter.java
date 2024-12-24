@@ -78,7 +78,7 @@ public class EndStoneSmelter extends Block
 		TileEntity tileEntity = worldIn.getTileEntity(pos);
 		if (tileEntity instanceof EndStoneSmelterTileEntity)
 		{
-			player.displayGUIChest((EndStoneSmelterTileEntity) tileEntity);
+			//player.displayGUIChest((EndStoneSmelterTileEntity) tileEntity);
 		}
 	}
 

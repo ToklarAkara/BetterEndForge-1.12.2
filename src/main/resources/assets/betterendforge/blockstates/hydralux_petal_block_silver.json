@@ -2,6 +2,9 @@
   "variants": {
     "normal": {
       "model": "betterendforge:block/block_petal_colored"
+    },
+    "inventory": {
+      "model": "betterendforge:block/block_petal_colored"
     }
   }
 }

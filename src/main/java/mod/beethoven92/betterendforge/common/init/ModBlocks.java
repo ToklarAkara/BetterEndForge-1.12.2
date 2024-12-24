@@ -853,7 +853,7 @@ public class ModBlocks {
     }.setHardness(4F).setResistance(100F));
 
     public static final Block END_STONE_FURNACE = registerBlockWithDefaultItem("end_stone_furnace", () -> new EndFurnaceBlock(false).setHardness(3.0F).setResistance(15.0F));
-    public static final Block END_STONE_FURNACE_LIT = registerBlockWithDefaultItem("end_stone_furnace_lit", () -> new EndFurnaceBlock(true).setHardness(3.0F).setResistance(15.0F));
+    //public static final Block END_STONE_FURNACE_LIT = registerBlockWithDefaultItem("end_stone_furnace_lit", () -> new EndFurnaceBlock(true).setHardness(3.0F).setResistance(15.0F));
 
     // MISC
 //    public static final Block AETERNIUM_ANVIL = registerBlock("aeternium_anvil", () -> new AeterniumAnvil().setHardness(5.0F).setResistance(1200.0F));

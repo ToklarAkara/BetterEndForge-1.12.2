@@ -111,7 +111,7 @@ public class ModItems
 	// MISC ITEMS
 	public final static Item BUCKET_END_FISH = registerItem("bucket_end_fish", () -> new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	public final static Item BUCKET_CUBOZOA = registerItem("bucket_cubozoa", () -> new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
-	public final static Item GUIDE_BOOK = registerItem("guidebook", () -> new GuideBookItem().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
+	//public final static Item GUIDE_BOOK = registerItem("guidebook", () -> new GuideBookItem().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	public final static Item FLAMAEA = registerItem("flamaea", () -> new ItemLilyPad(ModBlocks.FLAMAEA).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 	
 	//public final static Item AETERNIUM_ANVIL = registerItem("aeternium_anvil", () -> new EndAnvilItem(ModBlocks.AETERNIUM_ANVIL).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));

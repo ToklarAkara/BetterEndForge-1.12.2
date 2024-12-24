@@ -55,7 +55,7 @@ public class TunelCaveFeature extends EndCaveFeature {
 		float d = hasCaves(world, new BlockPos(x2, 0, z2)) ? 1F : 0F;
 
 		Chunk chunk = world.getChunk(cx, cz);
-		IntStream.range(0, 256).parallel().forEach(index -> {
+		IntStream.range(0, 256).forEach(index -> {
 			Mutable pos = new Mutable();
 			int x = index & 15;
 			int z = index >> 4;

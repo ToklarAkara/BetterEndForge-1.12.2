@@ -35,7 +35,7 @@ public class EndFurnaceBlock extends BlockFurnace {
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 		if (tileentity instanceof EndFurnaceTileEntity) {
-			playerIn.displayGUIChest((EndFurnaceTileEntity)tileentity);
+			//playerIn.displayGUIChest((EndFurnaceTileEntity)tileentity);
 			playerIn.addStat(StatList.FURNACE_INTERACTION);
 		}
 		return true;

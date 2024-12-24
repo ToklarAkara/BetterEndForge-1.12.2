@@ -25,8 +25,8 @@ public class BiomeModification {
 //			    event.getGeneration().getStructures().add(() -> ModConfiguredStructures.ETERNAL_PORTAL);
 //			}
         //decorator.getFeatures(Decoration.SURFACE_STRUCTURES).add(ModConfiguredFeatures.CRASHED_SHIP);
-        if(ModBiomes.getBiome(location).hasCaves() && !location.getPath().equals("ice_starfield") && !location.getPath().equals("crystal_mountains") && !location.getPath().equals("dry_shrubland")  && !location.getPath().equals("umbra_valley")  && !location.getPath().equals("glowing_grasslands"))
-            decorator.getFeatures(Decoration.LOCAL_MODIFICATIONS).add(ModConfiguredFeatures.TUNEL_CAVE);
+        //if(ModBiomes.getBiome(location).hasCaves() && !location.getPath().equals("ice_starfield") && !location.getPath().equals("crystal_mountains") && !location.getPath().equals("dry_shrubland")  && !location.getPath().equals("umbra_valley")  && !location.getPath().equals("glowing_grasslands"))
+        decorator.getFeatures(Decoration.LOCAL_MODIFICATIONS).add(ModConfiguredFeatures.TUNEL_CAVE);
 //        // Add ores to all biomes
 //            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.THALLASIUM_ORE);
 //            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.ENDER_ORE);

@@ -83,7 +83,12 @@ public class StoneMaterial
 		brick_slab = ModBlocks.registerBlockWithDefaultItem(name + "_bricks_slab",
 				() -> new CustomBlockSlab(Material.ROCK).setHardness(3.0F).setResistance(9.0F));
 		brick_wall = ModBlocks.registerBlockWithDefaultItem(name + "_bricks_wall", 
-				() -> new BlockWall(bricks).setHardness(3.0F).setResistance(9.0F));
+				() -> new BlockWall(bricks){
+					public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
+					{
+						items.add(new ItemStack(this));
+					}
+				}.setHardness(3.0F).setResistance(9.0F));
 		
 //		furnace = ModBlocks.registerBlockWithDefaultItem(name + "_furnace",
 //				() -> new EndFurnaceBlock(false).setLightLevel(0));

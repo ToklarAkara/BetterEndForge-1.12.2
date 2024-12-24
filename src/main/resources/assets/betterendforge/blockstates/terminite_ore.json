@@ -2,6 +2,9 @@
   "variants": {
     "normal": {
       "model": "betterendforge:block/ender_ore"
+    },
+    "inventory": {
+      "model": "betterendforge:block/ender_ore"
     }
   }
 }
