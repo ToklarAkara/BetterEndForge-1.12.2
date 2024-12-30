@@ -19,8 +19,7 @@ public class HelixTreeSaplingBlock extends EndSaplingBlock {
 
 	@Override
 	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-		return worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.END_MOSS
-				|| worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.ENDSTONE_DUST;
+		return worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.AMBER_MOSS;
 	}
 
 	@Override

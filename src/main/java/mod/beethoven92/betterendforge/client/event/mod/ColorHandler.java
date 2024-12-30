@@ -12,6 +12,7 @@ import mod.beethoven92.betterendforge.common.block.ModLanternBlock;
 import mod.beethoven92.betterendforge.common.block.RespawnObeliskBlock;
 import mod.beethoven92.betterendforge.common.block.TenaneaFlowersBlock;
 import mod.beethoven92.betterendforge.common.block.material.ColoredMaterial;
+import mod.beethoven92.betterendforge.common.block.material.IColoredBlock;
 import mod.beethoven92.betterendforge.common.block.material.StoneMaterial;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModItems;
@@ -98,13 +99,13 @@ public class ColorHandler
 	private static void registerColoredMaterialBlocks(ColorHandlerEvent.Block event, ColoredMaterial material)
 	{
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) ->
-				state.getMaterial().getMaterialMapColor().colorValue, material.getBlocks());
+				((IColoredBlock)state.getBlock()).getColor().getColorValue(), material.getBlocks());
 	}
 
 	private static void registerColoredMaterialItems(ColorHandlerEvent.Item event, ColoredMaterial material)
 	{
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) ->
-				((ItemBlock)stack.getItem()).getBlock().getMaterial(null).getMaterialMapColor().colorValue, material.getBlocks());
+				((IColoredBlock)((ItemBlock)stack.getItem()).getBlock()).getColor().getColorValue(), material.getBlocks());
 	}
 
 	private static Block[] getLanterns() {

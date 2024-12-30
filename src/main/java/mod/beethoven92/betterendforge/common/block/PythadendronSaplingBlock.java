@@ -1,7 +1,10 @@
 package mod.beethoven92.betterendforge.common.block;
 
+import mod.beethoven92.betterendforge.common.block.template.EndSaplingBlock;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModFeatures;
+import mod.beethoven92.betterendforge.common.world.feature.DragonTreeFeature;
+import mod.beethoven92.betterendforge.common.world.feature.PythadendronFeature;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockSapling;
@@ -13,33 +16,23 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class PythadendronSaplingBlock extends BlockBush {
-	public PythadendronSaplingBlock() {
+public class PythadendronSaplingBlock extends EndSaplingBlock
+{
+	public PythadendronSaplingBlock()
+	{
 		super(Material.PLANTS);
 		this.setTickRandomly(true);
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
+	{
 		return worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.CHORUS_NYLIUM;
 	}
 
 	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (!worldIn.isRemote) {
-			super.updateTick(worldIn, pos, state, rand);
-			if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0) {
-				this.grow(worldIn, rand, pos, state);
-			}
-		}
-	}
-
-	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
-		if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-		WorldGenerator generator = ModFeatures.PYTHADENDRON;
-		worldIn.setBlockToAir(pos);
-		if (!generator.generate(worldIn, rand, pos)) {
-			worldIn.setBlockState(pos, this.getDefaultState(), 4);
-		}
+	protected WorldGenerator getFeature()
+	{
+		return new PythadendronFeature(true);
 	}
 }

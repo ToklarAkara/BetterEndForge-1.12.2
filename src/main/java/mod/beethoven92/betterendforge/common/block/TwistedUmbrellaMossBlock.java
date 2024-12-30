@@ -31,6 +31,11 @@ public class TwistedUmbrellaMossBlock extends PlantBlock {
 	}
 
 	@Override
+	protected boolean isTerrain(IBlockState state) {
+		return state.getBlock() == ModBlocks.END_MOSS || state.getBlock() == ModBlocks.END_MYCELIUM || state.getBlock() == ModBlocks.JUNGLE_MOSS;
+	}
+
+	@Override
 	public float getAmbientOcclusionLightValue(IBlockState state) {
 		return 1.0F;
 	}

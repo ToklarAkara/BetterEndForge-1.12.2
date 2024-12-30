@@ -15,6 +15,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumFacing.Axis;
 import net.minecraft.util.Mirror;
@@ -24,11 +25,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EndLotusStemBlock extends Block implements IShearable
 {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing");
-	public static final PropertyBool WATERLOGGED = PropertyBool.create("waterlogged");
 	public static final PropertyBool LEAF = PropertyBool.create("leaf");
 	public static final PropertyEnum<TripleShape> SHAPE = PropertyEnum.create("shape", TripleShape.class);
 	private static final Map<Axis, AxisAlignedBB> SHAPES = Maps.newEnumMap(Axis.class);
@@ -43,13 +45,13 @@ public class EndLotusStemBlock extends Block implements IShearable
 	public EndLotusStemBlock(Material materialIn)
 	{
 		super(materialIn);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(WATERLOGGED, false).withProperty(SHAPE, TripleShape.MIDDLE).withProperty(LEAF, false).withProperty(FACING, EnumFacing.UP));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(SHAPE, TripleShape.MIDDLE).withProperty(LEAF, false).withProperty(FACING, EnumFacing.UP));
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState()
 	{
-		return new BlockStateContainer(this, FACING, LEAF, WATERLOGGED, SHAPE);
+		return new BlockStateContainer(this, FACING, LEAF, SHAPE);
 	}
 
 	@Override
@@ -61,7 +63,7 @@ public class EndLotusStemBlock extends Block implements IShearable
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
 	{
-		return this.getDefaultState().withProperty(WATERLOGGED, world.getBlockState(pos).getMaterial() == Material.WATER).withProperty(FACING, facing);
+		return this.getDefaultState().withProperty(FACING, facing);
 	}
 
 	@Override
@@ -79,10 +81,10 @@ public class EndLotusStemBlock extends Block implements IShearable
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
 	{
-		if (state.getValue(WATERLOGGED))
-		{
-			worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn));
-		}
+//		if (state.getValue(WATERLOGGED))
+//		{
+//			worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn));
+//		}
 	}
 
 	@Override public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) { return true; }
@@ -100,4 +102,20 @@ public class EndLotusStemBlock extends Block implements IShearable
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState();
 	}//TODO META
+
+	@SideOnly(Side.CLIENT)
+	public BlockRenderLayer getRenderLayer()
+	{
+		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
 }

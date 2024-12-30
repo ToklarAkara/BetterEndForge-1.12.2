@@ -1,9 +1,9 @@
 {
   "variants": {
-    "hanging=false,waterlogged=false": {
+    "hanging=false": {
       "model": "betterendforge:block/end_stone_lantern_floor"
     },
-    "hanging=true,waterlogged=false": {
+    "hanging=true": {
       "model": "betterendforge:block/end_stone_lantern_ceil"
     },
     "hanging=false,waterlogged=true": {

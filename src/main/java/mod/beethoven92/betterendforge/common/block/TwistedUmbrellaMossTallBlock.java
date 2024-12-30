@@ -26,6 +26,11 @@ public class TwistedUmbrellaMossTallBlock extends DoublePlantBlock {
 	}
 
 	@Override
+	protected boolean isTerrain(IBlockState state) {
+		return state.getBlock() == ModBlocks.END_MOSS || state.getBlock() == ModBlocks.END_MYCELIUM || state.getBlock() == ModBlocks.JUNGLE_MOSS;
+	}
+
+	@Override
 	protected boolean canSustainBush(IBlockState state) {
 		return state.getBlock() == ModBlocks.END_MOSS || state.getBlock() == ModBlocks.END_MYCELIUM || state.getBlock() == ModBlocks.JUNGLE_MOSS;
 	}

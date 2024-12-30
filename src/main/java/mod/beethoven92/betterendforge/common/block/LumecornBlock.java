@@ -87,9 +87,4 @@ public class LumecornBlock extends Block {
 		return false;
 	}
 
-	@Nullable
-	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-		return NULL_AABB;
-	}
 }

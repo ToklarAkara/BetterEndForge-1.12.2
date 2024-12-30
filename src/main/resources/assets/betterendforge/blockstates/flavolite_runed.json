@@ -1,6 +1,6 @@
 {
   "variants": {
-    "active=false": [
+    "activated=false": [
       {
         "model": "betterendforge:block/flavolite_runed_1",
         "uvlock": true
@@ -221,7 +221,7 @@
         "y": 270
       }
     ],
-    "active=true": [
+    "activate=true": [
       {
         "model": "betterendforge:block/flavolite_runed_active_1",
         "uvlock": true

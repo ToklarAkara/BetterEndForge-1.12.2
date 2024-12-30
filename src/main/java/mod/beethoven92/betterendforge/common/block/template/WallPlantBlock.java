@@ -72,7 +72,7 @@ public class WallPlantBlock extends PlantBlock
 
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
 	{
-		for (EnumFacing enumfacing : EnumFacing.values())
+		for (EnumFacing enumfacing : EnumFacing.HORIZONTALS)
 		{
 			if (canPlaceBlock(worldIn, pos, enumfacing))
 			{
@@ -85,6 +85,15 @@ public class WallPlantBlock extends PlantBlock
 
 	protected boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
 	{
+		boolean isHorizontal = false;
+		for (EnumFacing enumfacing : EnumFacing.HORIZONTALS)
+		{
+			if(direction == enumfacing){
+				isHorizontal = true;
+				break;
+			}
+		}
+		if(!isHorizontal) return false;
 		BlockPos blockPos = pos.offset(direction.getOpposite());
 		IBlockState blockState = worldIn.getBlockState(blockPos);
 		return isValidSupport(worldIn, blockPos, blockState, direction);
@@ -99,18 +108,7 @@ public class WallPlantBlock extends PlantBlock
 	@Override
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, net.minecraft.entity.EntityLivingBase placer)
 	{
-		IBlockState blockState = this.getDefaultState();
-		EnumFacing[] directions = EnumFacing.HORIZONTALS;
-		for (EnumFacing direction : directions)
-		{
-			EnumFacing direction2 = direction.getOpposite();
-			blockState = blockState.withProperty(FACING, direction2);
-			if (canPlaceBlock(worldIn, pos, direction2))
-			{
-				return blockState;
-			}
-		}
-		return null;
+		return this.getDefaultState().withProperty(FACING, facing);
 	}
 
 	@Override

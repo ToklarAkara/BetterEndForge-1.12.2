@@ -29,27 +29,11 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class GlowingPillarSeedBlock extends PlantBlockWithAge {
-	public static final PropertyEnum<TripleShape> SHAPE = PropertyEnum.create("shape", TripleShape.class);
 
 	public GlowingPillarSeedBlock() {
 		super(Material.PLANTS);
 		setSoundType(SoundType.PLANT);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(SHAPE, TripleShape.BOTTOM));
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, AGE, SHAPE);
-	}
-
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(SHAPE, TripleShape.values()[meta]);
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return state.getValue(SHAPE).ordinal();
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0));
 	}
 
 	@Override
@@ -57,6 +41,11 @@ public class GlowingPillarSeedBlock extends PlantBlockWithAge {
 		if (!worldIn.isRemote) {
 			this.growAdult(worldIn, rand, pos);
 		}
+	}
+
+	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+		return worldIn.getBlockState(pos.down()).getBlock()==ModBlocks.AMBER_MOSS;
 	}
 
 	public void growAdult(World world, Random random, BlockPos pos) {
@@ -69,12 +58,12 @@ public class GlowingPillarSeedBlock extends PlantBlockWithAge {
 		MutableBlockPos mut = new MutableBlockPos(pos);
 		IBlockState roots = ModBlocks.GLOWING_PILLAR_ROOTS.getDefaultState();
 		if (height < 2) {
-			BlockHelper.setWithUpdate(world, mut, roots.withProperty(SHAPE, TripleShape.MIDDLE));
+			BlockHelper.setWithUpdate(world, mut, roots.withProperty(GlowingPillarRootsBlock.SHAPE, TripleShape.MIDDLE));
 			mut.move(EnumFacing.UP);
 		} else {
-			BlockHelper.setWithUpdate(world, mut, roots.withProperty(SHAPE, TripleShape.BOTTOM));
+			BlockHelper.setWithUpdate(world, mut, roots.withProperty(GlowingPillarRootsBlock.SHAPE, TripleShape.BOTTOM));
 			mut.move(EnumFacing.UP);
-			BlockHelper.setWithUpdate(world, mut, roots.withProperty(SHAPE, TripleShape.TOP));
+			BlockHelper.setWithUpdate(world, mut, roots.withProperty(GlowingPillarRootsBlock.SHAPE, TripleShape.TOP));
 			mut.move(EnumFacing.UP);
 		}
 		BlockHelper.setWithUpdate(world, mut, ModBlocks.GLOWING_PILLAR_LUMINOPHOR.getDefaultState().withProperty(BlockProperties.NATURAL, true));

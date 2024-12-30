@@ -25,7 +25,7 @@ public class BlueVineLanternBlock extends Block
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
 	{
 		IBlockState state = worldIn.getBlockState(pos);
-		return state.getValue(NATURAL) ? worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.BLUE_VINE : true;
+		return state.getBlock() != this || !state.getValue(NATURAL) || worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.BLUE_VINE;
 	}
 
 	@Override

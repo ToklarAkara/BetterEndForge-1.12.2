@@ -1,123 +1,123 @@
 {
   "variants": {
-    "leaf=false,shape=top,facing=north": {
+    "facing=north,leaf=false,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top"
     },
-    "leaf=false,shape=top,facing=south": {
+    "facing=south,leaf=false,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top"
     },
-    "leaf=false,shape=top,facing=east": {
+    "facing=east,leaf=false,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top"
     },
-    "leaf=false,shape=top,facing=west": {
+    "facing=west,leaf=false,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top"
     },
-    "leaf=false,shape=top,facing=up": {
+    "facing=up,leaf=false,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top"
     },
-    "leaf=false,shape=top,facing=down": {
+    "facing=down,leaf=false,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top"
     },
-    "leaf=false,shape=bottom,facing=north": {
+    "facing=north,leaf=false,shape=bottom": {
       "model": "betterendforge:block/end_lotus_roots"
     },
-    "leaf=false,shape=bottom,facing=south": {
+    "facing=south,leaf=false,shape=bottom": {
       "model": "betterendforge:block/end_lotus_roots"
     },
-    "leaf=false,shape=bottom,facing=east": {
+    "facing=east,leaf=false,shape=bottom": {
       "model": "betterendforge:block/end_lotus_roots"
     },
-    "leaf=false,shape=bottom,facing=west": {
+    "facing=west,leaf=false,shape=bottom": {
       "model": "betterendforge:block/end_lotus_roots"
     },
-    "leaf=false,shape=bottom,facing=up": {
+    "facing=up,leaf=false,shape=bottom": {
       "model": "betterendforge:block/end_lotus_roots"
     },
-    "leaf=false,shape=bottom,facing=down": {
+    "facing=down,leaf=false,shape=bottom": {
       "model": "betterendforge:block/end_lotus_roots"
     },
-    "leaf=false,shape=middle,facing=north": {
+    "facing=north,leaf=false,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem",
       "x": 90
     },
-    "leaf=false,shape=middle,facing=south": {
+    "facing=south,leaf=false,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem",
       "x": 90
     },
-    "leaf=false,shape=middle,facing=east": {
+    "facing=east,leaf=false,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem",
       "x": 90,
       "y": 90
     },
-    "leaf=false,shape=middle,facing=west": {
+    "facing=west,leaf=false,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem",
       "x": 90,
       "y": 90
     },
-    "leaf=false,shape=middle,facing=up": {
+    "facing=up,leaf=false,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=false,shape=middle,facing=down": {
+    "facing=down,leaf=false,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=middle,facing=north": {
+    "facing=north,leaf=true,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem_leaf",
       "y": 180
     },
-    "leaf=true,shape=middle,facing=south": {
+    "facing=south,leaf=true,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem_leaf"
     },
-    "leaf=true,shape=middle,facing=east": {
+    "facing=east,leaf=true,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem_leaf",
       "y": 270
     },
-    "leaf=true,shape=middle,facing=west": {
+    "facing=west,leaf=true,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem_leaf",
       "y": 90
     },
-    "leaf=true,shape=middle,facing=up": {
+    "facing=up,leaf=true,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=middle,facing=down": {
+    "facing=down,leaf=true,shape=middle": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=top,facing=north": {
+    "facing=north,leaf=true,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top_leaf",
       "y": 180
     },
-    "leaf=true,shape=top,facing=east": {
+    "facing=east,leaf=true,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top_leaf",
       "y": 270
     },
-    "leaf=true,shape=top,facing=south": {
+    "facing=south,leaf=true,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top_leaf"
     },
-    "leaf=true,shape=top,facing=west": {
+    "facing=west,leaf=true,shape=top": {
       "model": "betterendforge:block/end_lotus_stem_top_leaf",
       "y": 90
     },
-    "leaf=true,shape=top,facing=up": {
+    "facing=up,leaf=true,shape=top": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=top,facing=down": {
+    "facing=down,leaf=true,shape=top": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=bottom,facing=north": {
+    "facing=north,leaf=true,shape=bottom": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=bottom,facing=east": {
+    "facing=east,leaf=true,shape=bottom": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=bottom,facing=south": {
+    "facing=south,leaf=true,shape=bottom": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=bottom,facing=west": {
+    "facing=west,leaf=true,shape=bottom": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=bottom,facing=up": {
+    "facing=up,leaf=true,shape=bottom": {
       "model": "betterendforge:block/end_lotus_stem"
     },
-    "leaf=true,shape=bottom,facing=down": {
+    "facing=down,leaf=true,shape=bottom": {
       "model": "betterendforge:block/end_lotus_stem"
     }
   }

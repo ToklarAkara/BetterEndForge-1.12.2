@@ -76,4 +76,10 @@ public class UmbrellaMossBlock extends PlantBlock {
 			super.harvestBlock(worldIn, player, pos, state, te, stack);
 		}
 	}
+
+	@Override
+	protected boolean isTerrain(IBlockState state)
+	{
+		return state.getBlock() == ModBlocks.END_MOSS || state.getBlock() == ModBlocks.END_MYCELIUM;
+	}
 }

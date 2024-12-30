@@ -1,6 +1,7 @@
 package mod.beethoven92.betterendforge.common.block.material;
 
 import mod.beethoven92.betterendforge.common.block.BulbVineLanternBlock;
+import mod.beethoven92.betterendforge.common.block.template.ChainBlock;
 import mod.beethoven92.betterendforge.common.block.template.ChandelierBlock;
 import mod.beethoven92.betterendforge.common.block.template.EndAnvilBlock;
 import mod.beethoven92.betterendforge.common.block.template.MetalPaneBlock;
@@ -86,7 +87,7 @@ public class MetalMaterial
 		trapdoor = new CustomBlockTrapDoor(blockMaterial);
 		anvil = new EndAnvilBlock(0);
 		bars = new MetalPaneBlock(blockMaterial, true);
-		chain = new Block(Material.IRON).setHardness(5.0F).setResistance(10.0F);
+		chain = new ChainBlock().setHardness(5.0F).setResistance(10.0F);
 		pressure_plate = new CustomPressurePlate(Material.IRON, BlockPressurePlate.Sensitivity.EVERYTHING);
 
 		chandelier = new ChandelierBlock(blockMaterial);

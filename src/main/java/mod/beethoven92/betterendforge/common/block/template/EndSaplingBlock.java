@@ -33,7 +33,7 @@ public abstract class EndSaplingBlock extends BlockBush implements IGrowable {
 
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return ModTags.END_GROUND.contains(worldIn.getBlockState(pos.down()).getBlock());
+		return ModTags.END_GROUND.contains(worldIn.getBlockState(pos.down()).getBlock()) && canBlockStay(worldIn, pos, this.getDefaultState());
 	}
 
 	@Override
