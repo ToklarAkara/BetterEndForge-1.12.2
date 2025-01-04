@@ -3,6 +3,7 @@ package mod.beethoven92.betterendforge.common.block;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
@@ -27,6 +28,7 @@ public class HelixTreeLeavesBlock extends Block {
 
     public HelixTreeLeavesBlock(Material leaves, MapColor adobe) {
         super(leaves, adobe);
+		setSoundType(SoundType.PLANT);
     }
 
     @Override

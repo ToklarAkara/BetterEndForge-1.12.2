@@ -57,6 +57,13 @@ public class PlantBlock extends BlockBush implements IGrowable, IShearable {
 	}
 
 	@Override
+	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+		if (!this.canPlaceBlockAt(worldIn, pos)) {
+			worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+		}
+	}
+
+	@Override
 	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
 		return false;
 	}

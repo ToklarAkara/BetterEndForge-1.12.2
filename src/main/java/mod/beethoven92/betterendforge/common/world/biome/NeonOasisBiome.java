@@ -1,16 +1,12 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
-import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
-import mod.beethoven92.betterendforge.common.init.ModBlocks;
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredSurfaceBuilders;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.init.Blocks;
-
-import java.util.AbstractMap;
 
 public class NeonOasisBiome extends BetterEndBiome {
 	public NeonOasisBiome() {
@@ -20,7 +16,7 @@ public class NeonOasisBiome extends BetterEndBiome {
 				.setSurface(ModConfiguredSurfaceBuilders.NEON_OASUS_SURFACE)
 				//.setParticles(ParticleTypes.WHITE_ASH, 0.01F)
 				.setAmbientSound(ModSoundEvents.AMBIENT_DUST_WASTELANDS)
-				.setMusic(BetterEndMusicType.MUSIC_OPENSPACE)
+				.setMusic(BetterEndMusicNames.MUSIC_OPENSPACE)
 				.addFeature(Decoration.LAKES, ModConfiguredFeatures.DESERT_LAKE)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.NEON_CACTUS)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.UMBRELLA_MOSS)

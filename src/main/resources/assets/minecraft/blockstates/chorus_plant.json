@@ -8,10 +8,6 @@
 	  "apply": { "model": "betterendforge:block/chorus_plant_center" }
     },
 	{
-      "when": {"roots": "true"},
-      "apply": { "model": "betterendforge:block/chorus_plant_roots" }
-    },
-	{
       "when": {"north": "true"},
       "apply": [
 		{ "model": "betterendforge:block/chorus_plant_stem", "x": 90, "y": 180 },

@@ -38,13 +38,12 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
 
     private ConfiguredSurfaceBuilder<?> surface;
 
-    private MusicTicker.MusicType musicType;
+    private String musicType;
 
     private SoundEvent ambientSound;
 
     public ExtendedBiome(BiomeProperties p_i46713_1_) {
         super(p_i46713_1_);
-        musicType = MusicTicker.MusicType.END;
     }
 
     @Override
@@ -76,7 +75,7 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
         this.surface = surface;
     }
 
-    public void setMusicType(MusicTicker.MusicType musicType) {
+    public void setMusicType(String musicType) {
         this.musicType = musicType;
     }
 
@@ -128,10 +127,11 @@ public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
 
     @Nonnull
     @Override
+    @SideOnly(Side.CLIENT)
     public IMusicType getMusicType() {
-        if(musicType==null)
-            return new VanillaMusicType(MusicTicker.MusicType.END);
-        return new VanillaMusicType(musicType);
+        if(musicType==null || musicType.isEmpty())
+            return IEndBiome.super.getMusicType();
+        return new VanillaMusicType(MusicTicker.MusicType.valueOf(musicType));
     }
 
     @Nullable

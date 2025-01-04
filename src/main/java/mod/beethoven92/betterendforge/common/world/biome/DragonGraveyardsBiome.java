@@ -1,6 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
-import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -15,7 +15,7 @@ public class DragonGraveyardsBiome extends BetterEndBiome {
 				.setFogColor(244, 46, 79)
 				.setFogDensity(1.3F)
 				//.setParticles(ModParticleTypes.FIREFLY, 0.0007F)
-				.setMusic(BetterEndMusicType.MUSIC_OPENSPACE)
+				.setMusic(BetterEndMusicNames.MUSIC_OPENSPACE)
 				.setAmbientSound(ModSoundEvents.AMBIENT_GLOWING_GRASSLANDS)
 				.setSurface(ModBlocks.SANGNUM)
 				.setWaterFogColor(203, 59, 167).setFoliageColor(244, 46, 79)

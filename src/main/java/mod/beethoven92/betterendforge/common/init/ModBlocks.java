@@ -1,26 +1,19 @@
 package mod.beethoven92.betterendforge.common.init;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
 import com.google.common.collect.ImmutableList;
 
+import com.google.common.collect.Lists;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.block.*;
 import mod.beethoven92.betterendforge.common.block.BlockProperties.TripleShape;
 import mod.beethoven92.betterendforge.common.block.material.*;
-import mod.beethoven92.betterendforge.common.block.template.ChandelierBlock;
-import mod.beethoven92.betterendforge.common.block.template.EndCropBlock;
-import mod.beethoven92.betterendforge.common.block.template.EndFurnaceBlock;
-import mod.beethoven92.betterendforge.common.block.template.EndVineBlock;
-import mod.beethoven92.betterendforge.common.block.template.FurBlock;
-import mod.beethoven92.betterendforge.common.block.template.PedestalBlock;
-import mod.beethoven92.betterendforge.common.block.template.PlantBlockWithAge;
-import mod.beethoven92.betterendforge.common.block.template.UnderwaterWallPlantBlock;
-import mod.beethoven92.betterendforge.common.block.template.WallMushroomBlock;
-import mod.beethoven92.betterendforge.common.block.template.WallPlantBlock;
+import mod.beethoven92.betterendforge.common.block.template.*;
 import mod.beethoven92.betterendforge.common.item.ModArmorMaterial;
 import mod.beethoven92.betterendforge.common.item.ModItemTier;
 import net.minecraft.block.*;
@@ -446,6 +439,11 @@ public class ModBlocks {
         public boolean isFullCube(IBlockState state) {
             return false;
         }
+
+        @Override
+        public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
+            return SoundType.PLANT;
+        }
     }.setHardness(0.2F).setResistance(0.2f).setTickRandomly(true));
 
 
@@ -631,11 +629,41 @@ public class ModBlocks {
             setTickRandomly(true));
 
 
-    public static final Block BLOSSOM_BERRY = registerBlockWithDefaultItem("blossom_berry_seed", () -> new EndCropBlock(Material.PLANTS, PINK_MOSS).setHardness(0).setResistance(0).setTickRandomly(true));
+    public static final Block BLOSSOM_BERRY = registerBlockWithDefaultItem("blossom_berry_seed", () -> new EndCropBlock(Material.PLANTS, PINK_MOSS){
+        @Override
+        public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+            if(state.getValue(EndCropBlock.AGE)==3){
+                ArrayList<ItemStack> drops = new ArrayList<>();
+                drops.add(new ItemStack(ModItems.BLOSSOM_BERRY, 1, 0));
+                return drops;
+            }
+            return super.getDrops(world, pos, state, fortune);
+        }
+    }.setHardness(0).setResistance(0).setTickRandomly(true));
 
-    public static final Block AMBER_ROOT = registerBlockWithDefaultItem("amber_root_seed", () -> new EndCropBlock(Material.PLANTS, AMBER_MOSS).setHardness(0).setResistance(0).setTickRandomly(true));
+    public static final Block AMBER_ROOT = registerBlockWithDefaultItem("amber_root_seed", () -> new EndCropBlock(Material.PLANTS, AMBER_MOSS){
+        @Override
+        public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+            if(state.getValue(EndCropBlock.AGE)==3){
+                ArrayList<ItemStack> drops = new ArrayList<>();
+                drops.add(new ItemStack(ModItems.AMBER_ROOT_RAW, 1, 0));
+                return drops;
+            }
+            return super.getDrops(world, pos, state, fortune);
+        }
+    }.setHardness(0).setResistance(0).setTickRandomly(true));
 
-    public static final Block CHORUS_MUSHROOM = registerBlockWithDefaultItem("chorus_mushroom_seed", () -> new EndCropBlock(Material.PLANTS, CHORUS_NYLIUM).setHardness(0).setResistance(0).setTickRandomly(true));
+    public static final Block CHORUS_MUSHROOM = registerBlockWithDefaultItem("chorus_mushroom_seed", () -> new EndCropBlock(Material.PLANTS, CHORUS_NYLIUM){
+        @Override
+        public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+            if(state.getValue(EndCropBlock.AGE)==3){
+                ArrayList<ItemStack> drops = new ArrayList<>();
+                drops.add(new ItemStack(ModItems.CHORUS_MUSHROOM_RAW, 1, 0));
+                return drops;
+            }
+            return super.getDrops(world, pos, state, fortune);
+        }
+    }.setHardness(0).setResistance(0).setTickRandomly(true));
 
 //	public static final Block PEARLBERRY = registerBlockWithDefaultItem("pearlberry_seed",
 //			() -> new EndCropBlock(Material.PLANTS).
@@ -689,7 +717,7 @@ public class ModBlocks {
     public static final Block DENSE_VINE = registerBlockWithDefaultItem("dense_vine", () -> new EndVineBlock(Material.PLANTS) {
         @Override
         public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 1 : 0;
+            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 15 : 0;
         }
     }.setHardness(0).setResistance(0));
 
@@ -698,7 +726,7 @@ public class ModBlocks {
     public static final Block BULB_VINE = registerBlockWithDefaultItem("bulb_vine", () -> new BulbVineBlock() {
         @Override
         public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 1 : 0;
+            return state.getValue(EndVineBlock.SHAPE) == TripleShape.BOTTOM ? 15 : 0;
         }
     }.setHardness(0).setResistance(0));
 
@@ -858,12 +886,21 @@ public class ModBlocks {
     // MISC
 //    public static final Block AETERNIUM_ANVIL = registerBlock("aeternium_anvil", () -> new AeterniumAnvil().setHardness(5.0F).setResistance(1200.0F));
 
-    public static final Block DENSE_SNOW = registerBlockWithDefaultItem("dense_snow", () -> new Block(Material.SNOW).setHardness(0.2F).setResistance(0.2F));
+    public static final Block DENSE_SNOW = registerBlockWithDefaultItem("dense_snow", () -> new CustomBlock(Material.SNOW).setSoundType(SoundType.SNOW).setHardness(0.2F).setResistance(0.2F));
 
     public static final Block EMERALD_ICE = registerBlockWithDefaultItem("emerald_ice", () -> new EmeraldIceBlock().setHardness(0.5F).setLightOpacity(3));
 
-    public static final Block DENSE_EMERALD_ICE = registerBlockWithDefaultItem("dense_emerald_ice", () -> new Block(Material.ICE){
-        //TODO SLIPERINESS
+    public static final Block DENSE_EMERALD_ICE = registerBlockWithDefaultItem("dense_emerald_ice", () -> new CustomBlock(Material.ICE){
+
+        @Override
+        public float getSlipperiness(IBlockState state, IBlockAccess world, BlockPos pos, @Nullable Entity entity) {
+            return 0.98f;
+        }
+
+        @Override
+        public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
+            return SoundType.GLASS;
+        }
     }.setHardness(0.5f));
 
     public static final Block ANCIENT_EMERALD_ICE = registerBlockWithDefaultItem("ancient_emerald_ice", () -> new AncientEmeraldIceBlock().setTickRandomly(true));
@@ -977,7 +1014,14 @@ public class ModBlocks {
 
     public static final ColoredMaterial IRON_BULB_LANTERN_COLORED = new ColoredMaterial("iron_bulb_lantern", () -> new BulbVineLanternBlock(), IRON_BULB_LANTERN, false);
 
-
+    public final static Item FLAMAEA_ITEM = ModItems.registerItem("flamaea", () -> new ItemLilyPad(ModBlocks.FLAMAEA).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+    public final static Item CHARCOAL_BLOCK_ITEM = ModItems.registerItem("charcoal_block", () -> new ItemBlock(ModBlocks.CHARCOAL_BLOCK)
+    {
+        @Override
+        public int getItemBurnTime(ItemStack itemStack) {
+            return 14400;
+        }
+    }.setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 
     //////////////////////////////////////////////////////
     //
@@ -995,6 +1039,13 @@ public class ModBlocks {
         T block = (T) blockSupplier.get().setRegistryName(BetterEnd.MOD_ID, name).setTranslationKey(BetterEnd.MOD_ID+"."+name).setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
         BLOCKS.add(block);
         ModItems.ITEMS.add(new ItemBlock(block).setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setRegistryName(BetterEnd.MOD_ID, name).setTranslationKey(BetterEnd.MOD_ID+"."+name));
+        return block;
+    }
+
+    public static <T extends Block> T registerBlockWithDoorItem(String name, Supplier<? extends T> blockSupplier) {
+        T block = (T) blockSupplier.get().setRegistryName(BetterEnd.MOD_ID, name).setTranslationKey(BetterEnd.MOD_ID+"."+name).setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+        BLOCKS.add(block);
+        ModItems.ITEMS.add(new ItemDoor(block).setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setRegistryName(BetterEnd.MOD_ID, name).setTranslationKey(BetterEnd.MOD_ID+"."+name));
         return block;
     }
 

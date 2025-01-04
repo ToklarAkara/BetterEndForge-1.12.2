@@ -353,7 +353,7 @@ public class ModConfiguredFeatures
 	
 	public static final ConfiguredFeature<?, ?> JUNGLE_VINE = 
 			new ConfiguredFeature<>(ModFeatures.JUNGLE_VINE,IFeatureConfig.NO_FEATURE_CONFIG).
-			decorated(Placement.SQUARE.configure(NoPlacementConfig.NO_PLACEMENT_CONFIG).count(5));
+			decorated(Placement.SQUARE.configure(NoPlacementConfig.NO_PLACEMENT_CONFIG).count(25));
 	
 	// CEIL PLANTS
 	public static final ConfiguredFeature<?, ?> SMALL_JELLYSHROOM_CEIL = 

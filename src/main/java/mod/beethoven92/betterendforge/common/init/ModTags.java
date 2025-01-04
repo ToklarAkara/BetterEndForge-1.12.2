@@ -33,7 +33,11 @@ public class ModTags
 			"betterendforge:amber_moss",
 			"betterendforge:jungle_moss",
 			"betterendforge:rutiscus",
-			"betterendforge:sangnum"};
+			"betterendforge:sangnum",
+			"betterendforge:pallidium_full",
+			"betterendforge:pallidium_heavy",
+			"betterendforge:pallidium_thin",
+			"betterendforge:pallidium_tiny"};
 
 	public static final String[] GEN_TERRAIN_STRS = new String[]{"minecraft:end_stone",
 			"betterendforge:endstone_dust",

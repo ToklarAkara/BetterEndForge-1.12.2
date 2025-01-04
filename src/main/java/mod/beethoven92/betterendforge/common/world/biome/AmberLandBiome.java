@@ -1,6 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
-import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -16,7 +16,7 @@ public class AmberLandBiome extends BetterEndBiome {
 				.setFoliageColor(219, 115, 38)
 				.setGrassColor(219, 115, 38)
 				.setWaterFogColor(145, 108, 72)
-				.setMusic(BetterEndMusicType.MUSIC_FOREST)
+				.setMusic(BetterEndMusicNames.MUSIC_FOREST)
 				.setAmbientSound(ModSoundEvents.AMBIENT_AMBER_LAND)
 				//.setParticles(ModParticleTypes.AMBER_SPHERE, 0.001F)
 				.setSurface(ModBlocks.AMBER_MOSS)

@@ -13,6 +13,7 @@ import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFScale3D;
 import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFSubtraction;
 import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFTranslate;
 import mod.beethoven92.betterendforge.common.util.sdf.primitive.SDFSphere;
+import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -65,7 +66,7 @@ public class BushWithOuterFeature extends WorldGenerator {
 			if (info.getState().getBlock() instanceof BlockLeaves) {
 				ModMathHelper.shuffle(DIRECTIONS, random);
 				for (EnumFacing dir : DIRECTIONS) {
-					if (info.getState(dir).getBlock()== Blocks.AIR) {
+					if (info.getState(dir).getBlock()== Blocks.AIR && GeneratorOptions.getGenerateOuterLeaves()) {
 						info.setBlockPos(info.getPos().offset(dir), outerLeaves.getDefaultState().withProperty(AttachedBlock.FACING, dir));
 					}
 				}

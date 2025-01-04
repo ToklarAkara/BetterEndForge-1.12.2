@@ -122,7 +122,7 @@ public class WoodenMaterial
 				() -> new CustomPressurePlate(materialPlanks, BlockPressurePlate.Sensitivity.EVERYTHING));
 		trapdoor = ModBlocks.registerBlockWithDefaultItem(name + "_trapdoor",
 				() -> new CustomBlockTrapDoor(materialPlanksNotSolid));
-		door = ModBlocks.registerBlockWithDefaultItem(name + "_door",
+		door = ModBlocks.registerBlockWithDoorItem(name + "_door",
 				() -> new CustomBlockDoor(materialPlanksNotSolid));
 
 //		composter = registerBlockWithBurnItem(name + "_composter",

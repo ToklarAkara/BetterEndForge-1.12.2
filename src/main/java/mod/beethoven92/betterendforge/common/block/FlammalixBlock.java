@@ -13,20 +13,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class FlammalixBlock extends BlockBush {
+public class FlammalixBlock extends TerrainPlantBlock {
 	private static final AxisAlignedBB SHAPE = new AxisAlignedBB(2D/16D, 0D/16D, 2D/16D, 14D/16D, 14D/16D, 14D/16D);
 
 	public FlammalixBlock() {
-		super(Material.ROCK);
+		super(ModBlocks.PALLIDIUM_FULL, ModBlocks.PALLIDIUM_HEAVY, ModBlocks.PALLIDIUM_THIN, ModBlocks.PALLIDIUM_TINY);
 		this.setSoundType(SoundType.STONE);
-	}
-
-	@Override
-	protected boolean canSustainBush(IBlockState state) {
-		return state.getBlock() == ModBlocks.PALLIDIUM_FULL ||
-				state.getBlock() == ModBlocks.PALLIDIUM_HEAVY ||
-				state.getBlock() == ModBlocks.PALLIDIUM_THIN ||
-				state.getBlock() == ModBlocks.PALLIDIUM_TINY;
+		setLightLevel(12f/15f);
 	}
 
 	@Override

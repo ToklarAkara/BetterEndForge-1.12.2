@@ -30,6 +30,7 @@ public class ChandelierBlock extends AttachedBlock {
 
 	public ChandelierBlock(Material material) {
 		super(material);
+		setLightLevel(1);
 	}
 
 	@Override

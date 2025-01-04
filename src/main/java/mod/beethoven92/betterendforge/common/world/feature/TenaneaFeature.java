@@ -21,6 +21,7 @@ import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFSubtraction;
 import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFTranslate;
 import mod.beethoven92.betterendforge.common.util.sdf.primitive.SDFSphere;
 import mod.beethoven92.betterendforge.common.util.sdf.vector.Vector3f;
+import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -151,7 +152,7 @@ public class TenaneaFeature extends WorldGenerator
 			ModMathHelper.shuffle(DIRECTIONS, random);
 			for (EnumFacing d: DIRECTIONS)
 			{
-				if (info.getState(d).getBlock()==Blocks.AIR)
+				if (info.getState(d).getBlock()==Blocks.AIR && GeneratorOptions.getGenerateOuterLeaves())
 				{
 					info.setBlockPos(info.getPos().offset(d), outer.withProperty(FurBlock.FACING, d));
 				}

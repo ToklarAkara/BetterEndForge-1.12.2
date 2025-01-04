@@ -42,7 +42,7 @@ public class SilkMothNestBlock extends Block {
 	public SilkMothNestBlock() {
 		super(Material.CLOTH);
 		setSoundType(SoundType.CLOTH);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(ACTIVE, false).withProperty(FACING, EnumFacing.NORTH).withProperty(FULLNESS, 0));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(ACTIVE, true).withProperty(FACING, EnumFacing.NORTH).withProperty(FULLNESS, 0));
 		this.setTickRandomly(true);
 	}
 
@@ -105,12 +105,12 @@ public class SilkMothNestBlock extends Block {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return 0;
+		return state.getValue(ACTIVE) ?1:0;
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState();
+		return getDefaultState().withProperty(ACTIVE, meta==1);
 	}
 
 

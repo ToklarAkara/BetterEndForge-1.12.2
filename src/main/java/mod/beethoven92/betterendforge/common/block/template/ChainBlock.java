@@ -1,6 +1,7 @@
 package mod.beethoven92.betterendforge.common.block.template;
 
 import net.minecraft.block.BlockRotatedPillar;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
@@ -18,6 +19,7 @@ public class ChainBlock extends BlockRotatedPillar {
 
     public ChainBlock() {
         super(Material.IRON);
+        setSoundType(SoundType.METAL);
         this.setDefaultState(getDefaultState().withProperty(AXIS, EnumFacing.Axis.Y));
     }
 

@@ -1,6 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome.cave;
 
-import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.init.ModFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndCaveBiome;
@@ -12,7 +12,7 @@ public class EmptyEndCaveBiome extends BetterEndCaveBiome
 	{
 		super(new BiomeTemplate("empty_end_cave")
 				.setFogDensity(2.0F)
-				.setMusic(BetterEndMusicType.MUSIC_CAVES)
+				.setMusic(BetterEndMusicNames.MUSIC_CAVES)
 				.setAmbientSound(ModSoundEvents.AMBIENT_CAVES));
 		
 		this.addFloorFeature(ModFeatures.END_STONE_STALAGMITE, 1);

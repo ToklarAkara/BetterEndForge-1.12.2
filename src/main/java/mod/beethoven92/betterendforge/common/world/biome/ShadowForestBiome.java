@@ -1,10 +1,9 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
-import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.entity.ShadowWalkerEntity;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
-import mod.beethoven92.betterendforge.common.init.ModEntityTypes;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.Decoration;
 import net.minecraft.entity.EnumCreatureType;
@@ -24,7 +23,7 @@ public class ShadowForestBiome extends BetterEndBiome
 				setSurface(ModBlocks.SHADOW_GRASS).
 				//setParticles(ParticleTypes.MYCELIUM, 0.01F).
 				setAmbientSound(ModSoundEvents.AMBIENT_CHORUS_FOREST).
-				setMusic(BetterEndMusicType.MUSIC_DARK).
+				setMusic(BetterEndMusicNames.MUSIC_DARK).
 				addFeature(Decoration.UNDERGROUND_ORES, ModConfiguredFeatures.VIOLECITE_LAYER).
 				addFeature(Decoration.LAKES, ModConfiguredFeatures.END_LAKE_RARE).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.DRAGON_TREE).
@@ -34,7 +33,7 @@ public class ShadowForestBiome extends BetterEndBiome
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.NEEDLEGRASS).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.TWISTED_VINE).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.SHADOW_BERRY).
-				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.PURPLE_POLYPORE_DENSE).
+				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.PURPLE_POLYPORE).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.TAIL_MOSS).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.TAIL_MOSS_WOOD).
 				addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.CHARNIA_PURPLE).

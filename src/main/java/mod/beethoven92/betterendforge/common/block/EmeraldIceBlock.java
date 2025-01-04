@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockIce;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -23,6 +24,7 @@ public class EmeraldIceBlock extends BlockIce
 		super();
 		this.slipperiness = 0.98F;
 		this.setTickRandomly(true);
+		setSoundType(SoundType.GLASS);
 	}
 
 	@Override

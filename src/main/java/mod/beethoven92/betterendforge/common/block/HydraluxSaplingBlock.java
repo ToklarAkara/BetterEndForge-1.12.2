@@ -4,6 +4,7 @@ import java.util.Random;
 
 import mod.beethoven92.betterendforge.common.block.BlockProperties.HydraluxShape;
 import mod.beethoven92.betterendforge.common.block.template.PlantBlock;
+import mod.beethoven92.betterendforge.common.block.template.UnderwaterPlantBlockWithAge;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
@@ -24,27 +25,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class HydraluxSaplingBlock extends PlantBlock {
+public class HydraluxSaplingBlock extends UnderwaterPlantBlockWithAge {
 	public static final PropertyEnum<HydraluxShape> SHAPE = PropertyEnum.create("shape", HydraluxShape.class);
 
 	public HydraluxSaplingBlock() {
-		super(Material.PLANTS);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(SHAPE, HydraluxShape.ROOTS));
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, SHAPE);
-	}
-
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(SHAPE, HydraluxShape.values()[meta]);
-	}
-
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return state.getValue(SHAPE).ordinal();
+		super();
 	}
 
 	@Override

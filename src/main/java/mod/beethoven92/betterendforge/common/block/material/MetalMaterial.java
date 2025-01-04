@@ -1,10 +1,7 @@
 package mod.beethoven92.betterendforge.common.block.material;
 
 import mod.beethoven92.betterendforge.common.block.BulbVineLanternBlock;
-import mod.beethoven92.betterendforge.common.block.template.ChainBlock;
-import mod.beethoven92.betterendforge.common.block.template.ChandelierBlock;
-import mod.beethoven92.betterendforge.common.block.template.EndAnvilBlock;
-import mod.beethoven92.betterendforge.common.block.template.MetalPaneBlock;
+import mod.beethoven92.betterendforge.common.block.template.*;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModCreativeTabs;
 import mod.beethoven92.betterendforge.common.init.ModItems;
@@ -78,17 +75,17 @@ public class MetalMaterial
 		this.hasOre = hasOre;
 		this.name = name;
 
-		ore = hasOre ? new Block(Material.ROCK).setHardness(3.0F).setResistance(5.0F) : new Block(Material.ROCK, MapColor.SAND).setHardness(3.0F).setResistance(15.0F);
-		block = new Block(blockMaterial).setHardness(5.0F).setResistance(10.0F);
-		tile = new Block(blockMaterial).setHardness(5.0F).setResistance(10.0F);
-		stairs = new CustomBlockStairs(block.getDefaultState());
+		ore = hasOre ? new Block(Material.ROCK).setHardness(3.0F).setResistance(5.0F) : null;
+		block = new CustomBlock(blockMaterial).setSoundType(SoundType.METAL).setHardness(5.0F).setResistance(10.0F);
+		tile = new CustomBlock(blockMaterial).setSoundType(SoundType.METAL).setHardness(5.0F).setResistance(10.0F);
+		stairs = new CustomBlockStairs(block.getDefaultState()).setSoundType(SoundType.METAL);
 //		slab = new BlockSlab(blockMaterial);
 //		door = new BlockDoor(blockMaterial);
-		trapdoor = new CustomBlockTrapDoor(blockMaterial);
+		trapdoor = new CustomBlockTrapDoor(blockMaterial).setSoundType(SoundType.METAL);
 		anvil = new EndAnvilBlock(0);
 		bars = new MetalPaneBlock(blockMaterial, true);
 		chain = new ChainBlock().setHardness(5.0F).setResistance(10.0F);
-		pressure_plate = new CustomPressurePlate(Material.IRON, BlockPressurePlate.Sensitivity.EVERYTHING);
+		pressure_plate = new CustomPressurePlate(Material.IRON, BlockPressurePlate.Sensitivity.EVERYTHING).setSoundType(SoundType.METAL);
 
 		chandelier = new ChandelierBlock(blockMaterial);
 		bulb_lantern = new BulbVineLanternBlock(EnumDyeColor.WHITE);//blockMaterial);
@@ -107,7 +104,7 @@ public class MetalMaterial
 		shovel = new ItemSpade(material);
 		sword = new ItemSword(material);
 		pickaxe = new ItemPickaxe(material){};
-		axe = new ItemAxe(material, material.getAttackDamage(), material.getEfficiency()){};
+		axe = new ItemAxe(material, material.getAttackDamage(), -3){};
 		hoe = new ItemHoe(material);
 		hammer = new HammerItem(material,  material.getAttackDamage(), -3.2F, 0.2D);
 
@@ -116,7 +113,9 @@ public class MetalMaterial
 		leggings = new ItemArmor(armor, 0, EntityEquipmentSlot.LEGS);
 		boots = new ItemArmor(armor, 0, EntityEquipmentSlot.FEET);
 
-		ModBlocks.registerBlockWithDefaultItem (ore, name + "_ore");
+		if(ore!=null){
+			ModBlocks.registerBlockWithDefaultItem (ore, name + "_ore");
+		}
 		ModBlocks.registerBlockWithDefaultItem(block, name + "_block");
 		ModBlocks.registerBlockWithDefaultItem(tile, name + "_tile");
 		ModBlocks.registerBlockWithDefaultItem(stairs, name + "_stairs");

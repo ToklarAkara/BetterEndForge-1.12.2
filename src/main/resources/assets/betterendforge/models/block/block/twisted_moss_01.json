@@ -3,7 +3,7 @@
 	"textures": {
 		"texture": "betterendforge:block/twisted_moss",
 		"texture2": "betterendforge:block/twisted_moss_2",
-		"particle": "#texture"
+		"particle": "betterendforge:block/twisted_moss"
 	},
 	"elements": [ 	 
 		{

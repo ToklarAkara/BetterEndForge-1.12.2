@@ -18,6 +18,7 @@ import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFScale3D;
 import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFSubtraction;
 import mod.beethoven92.betterendforge.common.util.sdf.operator.SDFTranslate;
 import mod.beethoven92.betterendforge.common.util.sdf.primitive.SDFSphere;
+import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.material.Material;
@@ -74,7 +75,7 @@ public class TenaneaBushFeature extends WorldGenerator
 					ModMathHelper.shuffle(DIRECTIONS, rand);
 					for (EnumFacing d: DIRECTIONS)
 					{
-						if (info.getState(d).getBlock()== Blocks.AIR)
+						if (info.getState(d).getBlock()== Blocks.AIR && GeneratorOptions.getGenerateOuterLeaves())
 						{
 							info.setBlockPos(info.getPos().offset(d), ModBlocks.TENANEA_OUTER_LEAVES.getDefaultState().withProperty(FurBlock.FACING, d));
 						}

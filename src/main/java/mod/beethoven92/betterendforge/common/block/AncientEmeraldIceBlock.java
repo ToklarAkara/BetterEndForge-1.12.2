@@ -6,6 +6,7 @@ import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -20,6 +21,7 @@ public class AncientEmeraldIceBlock extends Block
 		super(Material.ICE);
 		slipperiness = 0.98f;
 		this.setTickRandomly(true);
+		setSoundType(SoundType.GLASS);
 	}
 
 	@Override

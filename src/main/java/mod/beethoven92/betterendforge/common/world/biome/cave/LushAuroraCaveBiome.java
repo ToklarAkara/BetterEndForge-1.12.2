@@ -1,6 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome.cave;
 
-import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.block.BlockProperties;
 import mod.beethoven92.betterendforge.common.block.BlockProperties.TripleShape;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
@@ -22,7 +22,7 @@ public class LushAuroraCaveBiome extends BetterEndCaveBiome
 				.setGrassColor(108, 25, 46)
 				.setWaterColor(186, 77, 237)
 				.setWaterFogColor(186, 77, 237)
-				.setMusic(BetterEndMusicType.MUSIC_CAVES)
+				.setMusic(BetterEndMusicNames.MUSIC_CAVES)
 				.setAmbientSound(ModSoundEvents.AMBIENT_CAVES)
 				//.setParticles(ModParticleTypes.GLOWING_SPHERE, 0.001F)
 				.setSurface(ModBlocks.CAVE_MOSS));

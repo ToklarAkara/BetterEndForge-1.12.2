@@ -11,9 +11,9 @@ public class ClientOptions {
 	
 	public static void init() {
 		customSky = Configs.CLIENT_CONFIG.getBooleanRoot("customSky", true);
-		useFogDensity = Configs.CLIENT_CONFIG.getBooleanRoot("useFogDensity", true);
-		blendBiomeMusic = Configs.CLIENT_CONFIG.getBooleanRoot("blendBiomeMusic", true);
-		sulfurWaterColor = Configs.CLIENT_CONFIG.getBooleanRoot("sulfurWaterColor", true);
+		//useFogDensity = Configs.CLIENT_CONFIG.getBooleanRoot("useFogDensity", true);
+		//blendBiomeMusic = Configs.CLIENT_CONFIG.getBooleanRoot("blendBiomeMusic", true);
+		//sulfurWaterColor = Configs.CLIENT_CONFIG.getBooleanRoot("sulfurWaterColor", true);
 		Configs.CLIENT_CONFIG.saveChanges();
 	}
 	

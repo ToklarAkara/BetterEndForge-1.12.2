@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 public class MossyObsidianBlock extends Block {
 	public MossyObsidianBlock() {
 		super(Material.ROCK);
-		this.setHardness(3.0f);
+		this.setHardness(50.0F).setResistance(2000.0F);
 		this.setTickRandomly(true);
 	}
 

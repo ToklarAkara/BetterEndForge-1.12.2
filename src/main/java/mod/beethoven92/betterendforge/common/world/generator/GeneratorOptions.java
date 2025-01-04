@@ -14,16 +14,16 @@ public class GeneratorOptions {
 	private static int biomeSizeVoid;
 	private static int biomeSizeCaves;
 	private static boolean hasPortal;
-	private static boolean hasPillars;
-	private static boolean hasDragonFights;
-	private static boolean swapOverworldToEnd;
-	private static boolean changeChorusPlant;
-	private static boolean removeChorusFromVanillaBiomes;
-	private static boolean newGenerator;
-	private static boolean noRingVoid;
-	private static boolean generateCentralIsland;
-	private static boolean generateObsidianPlatform;
-	private static int endCityFailChance;
+	private static boolean hasPillars = true;
+	private static boolean hasDragonFights = true;
+	private static boolean swapOverworldToEnd = false;
+	private static boolean changeChorusPlant = true;
+	private static boolean removeChorusFromVanillaBiomes = false;
+	private static boolean newGenerator = true;
+	private static boolean noRingVoid = false;
+	private static boolean generateCentralIsland = true;
+	private static boolean generateObsidianPlatform = true;
+	private static int endCityFailChance = 5;
 	public static LayerOptions bigOptions;
 	public static LayerOptions mediumOptions;
 	public static LayerOptions smallOptions;
@@ -35,83 +35,85 @@ public class GeneratorOptions {
 	private static long islandDistBlock;
 	private static int islandDistChunk;
 	private static boolean directSpikeHeight;
+	private static boolean generateOuterLeaves = true;
 
 	public static void init() {
 
-		biomeSizeLand = Configs.GENERATOR_CONFIG.getInt("biomeMap", "biomeSizeLand", 256);
-		biomeSizeVoid = Configs.GENERATOR_CONFIG.getInt("biomeMap", "biomeSizeVoid", 256);
-		biomeSizeCaves = Configs.GENERATOR_CONFIG.getInt("biomeMap", "biomeSizeCaves", 32);
-		hasPortal = Configs.GENERATOR_CONFIG.getBoolean("portal", "hasPortal", true);
-		hasPillars = Configs.GENERATOR_CONFIG.getBoolean("spikes", "hasSpikes", true);
-		hasDragonFights = Configs.GENERATOR_CONFIG.getBooleanRoot("hasDragonFights", true);
-		swapOverworldToEnd = Configs.GENERATOR_CONFIG.getBooleanRoot("swapOverworldToEnd", false	);
-		changeChorusPlant = Configs.GENERATOR_CONFIG.getBoolean("chorusPlant", "changeChorusPlant", true);
-		removeChorusFromVanillaBiomes = Configs.GENERATOR_CONFIG.getBoolean(
-			"chorusPlant",
-			"removeChorusFromVanillaBiomes",
-			false
-		);
-		vanillaEndIntegration = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "vanillaEndIntegration", true);
-		newGenerator = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "useNewGenerator", true);
-		noRingVoid = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "noRingVoid", false);
-		generateCentralIsland = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "generateCentralIsland", true);
-		endCityFailChance = Configs.GENERATOR_CONFIG.getInt("customGenerator", "endCityFailChance", 5);
-		generateObsidianPlatform = Configs.GENERATOR_CONFIG.getBooleanRoot("generateObsidianPlatform", true);
-		bigOptions = new LayerOptions(
-			"customGenerator.layers.bigIslands",
-				Configs.GENERATOR_CONFIG,
-			300,
-			200,
-			70,
-			10,
-			false
-		);
-		mediumOptions = new LayerOptions(
-			"customGenerator.layers.mediumIslands",
-				Configs.GENERATOR_CONFIG,
-			150,
-			100,
-			70,
-			20,
-			true
-		);
-		smallOptions = new LayerOptions(
-			"customGenerator.layers.smallIslands",
-				Configs.GENERATOR_CONFIG,
-			60,
-			50,
-			70,
-			30,
-			false
-		);
-		changeSpawn = Configs.GENERATOR_CONFIG.getBoolean("spawn", "changeSpawn", false);
-		spawn = new BlockPos(
-			Configs.GENERATOR_CONFIG.getInt("spawn.point", "x", 20),
-			Configs.GENERATOR_CONFIG.getInt("spawn.point", "y", 65),
-			Configs.GENERATOR_CONFIG.getInt("spawn.point", "z", 0)
-		);
-		replacePortal = Configs.GENERATOR_CONFIG.getBoolean("portal", "customEndPortal", true);
-		replacePillars = Configs.GENERATOR_CONFIG.getBoolean("spikes", "customObsidianSpikes", true);
-		int circleRadius = Configs.GENERATOR_CONFIG.getInt("customGenerator", "voidRingSize", 1000);
+//		biomeSizeLand = Configs.GENERATOR_CONFIG.getInt("biomeMap", "biomeSizeLand", 256);
+//		biomeSizeVoid = Configs.GENERATOR_CONFIG.getInt("biomeMap", "biomeSizeVoid", 256);
+//		biomeSizeCaves = Configs.GENERATOR_CONFIG.getInt("biomeMap", "biomeSizeCaves", 32);
+//		hasPortal = Configs.GENERATOR_CONFIG.getBoolean("portal", "hasPortal", true);
+//		hasPillars = Configs.GENERATOR_CONFIG.getBoolean("spikes", "hasSpikes", true);
+//		hasDragonFights = Configs.GENERATOR_CONFIG.getBooleanRoot("hasDragonFights", true);
+//		swapOverworldToEnd = Configs.GENERATOR_CONFIG.getBooleanRoot("swapOverworldToEnd", false	);
+//		changeChorusPlant = Configs.GENERATOR_CONFIG.getBoolean("chorusPlant", "changeChorusPlant", true);
+//		removeChorusFromVanillaBiomes = Configs.GENERATOR_CONFIG.getBoolean(
+//			"chorusPlant",
+//			"removeChorusFromVanillaBiomes",
+//			false
+//		);
+//		vanillaEndIntegration = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "vanillaEndIntegration", true);
+//		newGenerator = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "useNewGenerator", true);
+//		noRingVoid = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "noRingVoid", false);
+//		generateCentralIsland = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "generateCentralIsland", true);
+//		endCityFailChance = Configs.GENERATOR_CONFIG.getInt("customGenerator", "endCityFailChance", 5);
+//		generateObsidianPlatform = Configs.GENERATOR_CONFIG.getBooleanRoot("generateObsidianPlatform", true);
+//		bigOptions = new LayerOptions(
+//			"customGenerator.layers.bigIslands",
+//				Configs.GENERATOR_CONFIG,
+//			300,
+//			200,
+//			70,
+//			10,
+//			false
+//		);
+//		mediumOptions = new LayerOptions(
+//			"customGenerator.layers.mediumIslands",
+//				Configs.GENERATOR_CONFIG,
+//			150,
+//			100,
+//			70,
+//			20,
+//			true
+//		);
+//		smallOptions = new LayerOptions(
+//			"customGenerator.layers.smallIslands",
+//				Configs.GENERATOR_CONFIG,
+//			60,
+//			50,
+//			70,
+//			30,
+//			false
+//		);
+//		changeSpawn = Configs.GENERATOR_CONFIG.getBoolean("spawn", "changeSpawn", false);
+//		spawn = new BlockPos(
+//			Configs.GENERATOR_CONFIG.getInt("spawn.point", "x", 20),
+//			Configs.GENERATOR_CONFIG.getInt("spawn.point", "y", 65),
+//			Configs.GENERATOR_CONFIG.getInt("spawn.point", "z", 0)
+//		);
+//		replacePortal = Configs.GENERATOR_CONFIG.getBoolean("portal", "customEndPortal", true);
+		replacePillars = true;//Configs.GENERATOR_CONFIG.getBoolean("spikes", "customObsidianSpikes", true);
+		int circleRadius = 1000;//Configs.GENERATOR_CONFIG.getInt("customGenerator", "voidRingSize", 1000);
 		islandDistBlock = (long) circleRadius * (long) circleRadius;
 		islandDistChunk = (circleRadius >> 3); // Twice bigger than normal
+		generateOuterLeaves = Configs.GENERATOR_CONFIG.getBoolean("customGenerator", "generateOuterLeaves", true);
 	}
 
-	public static int getBiomeSizeLand() {
-		return MathHelper.clamp(biomeSizeLand, 1, 8192);
-	}
-
-	public static int getBiomeSizeVoid() {
-		return MathHelper.clamp(biomeSizeVoid, 1, 8192);
-	}
-
-	public static int getBiomeSizeCaves() {
-		return MathHelper.clamp(biomeSizeCaves, 1, 8192);
-	}
-
-	public static boolean hasPortal() {
-		return hasPortal;
-	}
+//	public static int getBiomeSizeLand() {
+//		return MathHelper.clamp(biomeSizeLand, 1, 8192);
+//	}
+//
+//	public static int getBiomeSizeVoid() {
+//		return MathHelper.clamp(biomeSizeVoid, 1, 8192);
+//	}
+//
+//	public static int getBiomeSizeCaves() {
+//		return MathHelper.clamp(biomeSizeCaves, 1, 8192);
+//	}
+//
+//	public static boolean hasPortal() {
+//		return hasPortal;
+//	}
 
 	public static boolean hasPillars() {
 		return hasPillars;
@@ -128,21 +130,21 @@ public class GeneratorOptions {
 	public static boolean changeChorusPlant() {
 		return changeChorusPlant;
 	}
-
-	public static boolean removeChorusFromVanillaBiomes() {
-		return removeChorusFromVanillaBiomes;
-	}
+//
+//	public static boolean removeChorusFromVanillaBiomes() {
+//		return removeChorusFromVanillaBiomes;
+//	}
 
 	public static boolean noRingVoid() {
 		return noRingVoid;
 	}
 
 	public static boolean useNewGenerator() {
-		return newGenerator;
+		return true;
 	}
 
 	public static boolean hasCentralIsland() {
-		return generateCentralIsland;
+		return true;
 	}
 
 	public static boolean generateObsidianPlatform() {
@@ -200,4 +202,7 @@ public class GeneratorOptions {
 		return height;
 	}
 
+	public static boolean getGenerateOuterLeaves(){
+		return generateOuterLeaves;
+	}
 }

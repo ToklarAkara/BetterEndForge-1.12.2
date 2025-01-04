@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.block.template;
 
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import net.minecraft.block.BlockPane;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -13,15 +14,16 @@ import net.minecraft.world.IBlockAccess;
 public class MetalPaneBlock extends BlockPane {
 	public MetalPaneBlock(Material material, boolean canDrop) {
 		super(material, canDrop);
+		setSoundType(SoundType.METAL);
 	}
 
 	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		IBlockState adjacentBlockState = blockAccess.getBlockState(pos.offset(side));
-		if (side.getAxis().isVertical() && adjacentBlockState.getBlock() == this && adjacentBlockState != blockState) {
-			return false;
-		}
-		return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+//		IBlockState adjacentBlockState = blockAccess.getBlockState(pos.offset(side));
+//		if (side.getAxis().isVertical() && adjacentBlockState.getBlock() == this && adjacentBlockState != blockState) {
+//			return false;
+//		}
+		return true;
 	}
 
 	@Override

@@ -26,6 +26,11 @@ public class PathBlock extends Block
 		this.setResistance(block.getExplosionResistance(null));
 		this.setSoundType(block.getSoundType());
 		this.setTickRandomly(block.getTickRandomly());
+		if (block instanceof TerrainBlock)
+		{
+			TerrainBlock terrain = (TerrainBlock)block;
+			terrain.setPathBlock(this);
+		}
 	}
 
 	@Override

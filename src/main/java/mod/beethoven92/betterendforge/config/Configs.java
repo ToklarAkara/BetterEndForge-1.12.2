@@ -13,22 +13,22 @@ import mod.beethoven92.betterendforge.config.jsons.JsonPathConfig;
 //import ru.betterend.BetterEnd;
 
 public class Configs {
-	public static final JsonPathConfig ENTITY_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "entities");
-	public static final JsonPathConfig BLOCK_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "blocks");
-	public static final JsonPathConfig ITEM_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "items");
+	//public static final JsonPathConfig ENTITY_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "entities");
+	//public static final JsonPathConfig BLOCK_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "blocks");
+	//public static final JsonPathConfig ITEM_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "items");
 	public static final JsonIdConfig BIOME_CONFIG = new JsonEntryConfig(BetterEnd.MOD_ID, "biomes");
 	public static final JsonPathConfig GENERATOR_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "generator", false);
-	public static final JsonPathConfig RECIPE_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "recipes");
+	//public static final JsonPathConfig RECIPE_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "recipes");
 
 	public static final JsonPathConfig CLIENT_CONFIG = new JsonPathConfig(BetterEnd.MOD_ID, "client", false);
 	
 	public static void saveConfigs() {
-		ENTITY_CONFIG.saveChanges();
-		BLOCK_CONFIG.saveChanges();
+		//ENTITY_CONFIG.saveChanges();
+		//BLOCK_CONFIG.saveChanges();
 		BIOME_CONFIG.saveChanges();
-		ITEM_CONFIG.saveChanges();
+		//ITEM_CONFIG.saveChanges();
 		GENERATOR_CONFIG.saveChanges();
-		RECIPE_CONFIG.saveChanges();
+		//RECIPE_CONFIG.saveChanges();
 
 		if (BetterEnd.isClient()) {
 			CLIENT_CONFIG.saveChanges();

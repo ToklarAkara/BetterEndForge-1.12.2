@@ -55,7 +55,7 @@ public class BiomeTemplate
 	private SoundEvent ambient;
 //	private MoodSoundAmbience mood;
 //	private SoundAdditionsAmbience additions;
-	private MusicTicker.MusicType music;
+	private String music;
 
 //	private ParticleEffectAmbience particle;
 
@@ -187,7 +187,7 @@ public class BiomeTemplate
 //		return this;
 //	}
 
-	public BiomeTemplate setMusic(MusicTicker.MusicType music)
+	public BiomeTemplate setMusic(String music)
 	{
 		this.music = music;
 		return this;

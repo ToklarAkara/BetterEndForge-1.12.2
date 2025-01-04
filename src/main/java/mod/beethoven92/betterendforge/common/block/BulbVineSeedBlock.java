@@ -33,6 +33,12 @@ public class BulbVineSeedBlock extends PlantBlockWithAge
 	}
 
 	@Override
+	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+		IBlockState up = worldIn.getBlockState(pos.up());
+		return ModTags.GEN_TERRAIN.contains(up.getBlock()) || up.getBlock() instanceof BlockLog || up.getBlock() instanceof BlockLeaves;
+	}
+
+	@Override
 	public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
 	{
 		IBlockState up = worldIn.getBlockState(pos.up());

@@ -26,6 +26,8 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
+
 
 @Mod(modid = BetterEnd.MOD_ID)
 public class BetterEnd
@@ -43,7 +45,7 @@ public class BetterEnd
 		ModStructurePieces.registerAllPieces();
 
 		ModEntityTypes.registryEntities();
-		JsonConfigWriter.MOD_CONFIG_DIR = event.getModConfigurationDirectory();
+		JsonConfigWriter.MOD_CONFIG_DIR = new File(event.getModConfigurationDirectory(), BetterEnd.MOD_ID);
 		if (!JsonConfigWriter.MOD_CONFIG_DIR.exists()) JsonConfigWriter.MOD_CONFIG_DIR.mkdir();
 		GeneratorOptions.init();
 		ClientOptions.init();

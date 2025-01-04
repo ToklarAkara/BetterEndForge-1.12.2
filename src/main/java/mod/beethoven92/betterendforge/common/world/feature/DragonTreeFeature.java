@@ -256,11 +256,11 @@ public class DragonTreeFeature extends WorldGenerator
 					}
 				}
 				if (place) {
-					BlockHelper.setWithoutUpdate(world, p, ModBlocks.DRAGON_TREE.bark);
+					setBlockAndNotifyAdequately(world, p, ModBlocks.DRAGON_TREE.bark.getDefaultState());
 				}
 			}
 		}
-		
-		BlockHelper.setWithoutUpdate(world, pos, ModBlocks.DRAGON_TREE.bark);
+
+		setBlockAndNotifyAdequately(world, pos, ModBlocks.DRAGON_TREE.bark.getDefaultState());
 	}
 }

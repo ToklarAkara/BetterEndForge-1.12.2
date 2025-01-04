@@ -57,14 +57,27 @@ public class EndVineBlock extends Block implements IGrowable, IShearable {
 		return isValidSupport(worldIn.getBlockState(pos.up()), worldIn, pos);
 	}
 
-	protected boolean isValidSupport(IBlockState state, IBlockAccess world, BlockPos pos) {
-		IBlockState up = world.getBlockState(pos.up());
+	protected boolean isValidSupport(IBlockState up, IBlockAccess world, BlockPos pos) {
 		return up.getBlock() == this || up.getBlock().isLeaves(up, world, pos.up()) || up.isSideSolid(world, pos.up(), EnumFacing.DOWN) || up.getBlock() == ModBlocks.UMBRELLA_TREE_MEMBRANE;
 	}
 
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
+	}
+
+	@Override
+	public void neighborChanged(IBlockState stateIn, World worldIn, BlockPos currentPos, Block blockIn, BlockPos fromPos) {
+		if (!canPlaceBlockAt(worldIn, currentPos)) {
+			worldIn.setBlockState(currentPos, Blocks.AIR.getDefaultState());
+		} else {
+			if (worldIn.getBlockState(currentPos.down()).getBlock() != this)
+				worldIn.setBlockState(currentPos, stateIn.withProperty(SHAPE, TripleShape.BOTTOM));
+			else if (worldIn.getBlockState(currentPos.up()).getBlock() != this)
+				worldIn.setBlockState(currentPos, stateIn.withProperty(SHAPE, TripleShape.TOP));
+			else
+				worldIn.setBlockState(currentPos, stateIn.withProperty(SHAPE, TripleShape.MIDDLE));
+		}
 	}
 
 	@Override
@@ -76,7 +89,8 @@ public class EndVineBlock extends Block implements IGrowable, IShearable {
 				worldIn.setBlockState(currentPos, stateIn.withProperty(SHAPE, TripleShape.BOTTOM));
 			else if (worldIn.getBlockState(currentPos.up()).getBlock() != this)
 				worldIn.setBlockState(currentPos, stateIn.withProperty(SHAPE, TripleShape.TOP));
-			worldIn.setBlockState(currentPos, stateIn.withProperty(SHAPE, TripleShape.MIDDLE));
+			else
+				worldIn.setBlockState(currentPos, stateIn.withProperty(SHAPE, TripleShape.MIDDLE));
 		}
 	}
 

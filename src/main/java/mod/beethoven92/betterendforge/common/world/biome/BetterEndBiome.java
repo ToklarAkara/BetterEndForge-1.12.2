@@ -46,9 +46,9 @@ public class BetterEndBiome
 		biome = template.build();
 		
 		id = template.getID();
-		fogDensity = Configs.BIOME_CONFIG.getFloat(id, "fog_density", template.getFogDensity());
-		genChanceUnmutable = Configs.BIOME_CONFIG.getFloat(id, "generation_chance", template.getGenChance());
-		hasCaves = Configs.BIOME_CONFIG.getBoolean(id, "has_caves", template.hasCaves());
+		fogDensity = 0;//Configs.BIOME_CONFIG.getFloat(id, "fog_density", template.getFogDensity());
+		genChanceUnmutable = 0;//Configs.BIOME_CONFIG.getFloat(id, "generation_chance", template.getGenChance());
+		hasCaves = true;//Configs.BIOME_CONFIG.getBoolean(id, "has_caves", template.hasCaves());
 		this.readNBTStructureList();
 	}
 	
@@ -56,9 +56,9 @@ public class BetterEndBiome
 	{
 		this.biome = biome;
 		this.id = id;
-		this.fogDensity = Configs.BIOME_CONFIG.getFloat(id, "fog_density", fogDensity);
-		this.genChanceUnmutable = Configs.BIOME_CONFIG.getFloat(id, "generation_chance", genChance);
-		this.hasCaves = Configs.BIOME_CONFIG.getBoolean(id, "has_caves", hasCaves);
+		this.fogDensity = 0;//Configs.BIOME_CONFIG.getFloat(id, "fog_density", fogDensity);
+		this.genChanceUnmutable = 0;//Configs.BIOME_CONFIG.getFloat(id, "generation_chance", genChance);
+		this.hasCaves = true;//Configs.BIOME_CONFIG.getBoolean(id, "has_caves", hasCaves);
 		this.readNBTStructureList();
 	}
 	

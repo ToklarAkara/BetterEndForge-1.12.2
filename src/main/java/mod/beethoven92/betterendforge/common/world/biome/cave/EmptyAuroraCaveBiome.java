@@ -1,6 +1,6 @@
 package mod.beethoven92.betterendforge.common.world.biome.cave;
 
-import mod.beethoven92.betterendforge.client.audio.BetterEndMusicType;
+import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.init.ModFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
 import mod.beethoven92.betterendforge.common.world.biome.BetterEndCaveBiome;
@@ -17,7 +17,7 @@ public class EmptyAuroraCaveBiome extends BetterEndCaveBiome
 				.setFoliageColor(108, 25, 46)
 				.setWaterColor(186, 77, 237)
 				.setWaterFogColor(186, 77, 237)
-				.setMusic(BetterEndMusicType.MUSIC_CAVES)
+				.setMusic(BetterEndMusicNames.MUSIC_CAVES)
 				.setAmbientSound(ModSoundEvents.AMBIENT_CAVES));
 				//.setParticles(ModParticleTypes.GLOWING_SPHERE, 0.001F));
 		

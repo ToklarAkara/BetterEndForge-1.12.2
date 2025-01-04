@@ -2,7 +2,7 @@
 	"textures": {
 		"flowers": "betterendforge:block/tenanea_flowers",
 		"vine": "betterendforge:block/tenanea_flowers_stem",
-		"particle": "#flowers"
+		"particle": "betterendforge:block/tenanea_flowers_bottom"
 	},
 	"elements": [ 	 
 		{

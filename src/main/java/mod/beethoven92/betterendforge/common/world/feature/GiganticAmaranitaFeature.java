@@ -93,16 +93,16 @@ public class GiganticAmaranitaFeature extends WorldGenerator {
 			}
 			for (int x = -1; x < 2; x++) {
 				for (int z = -1; z < 2; z++) {
-					mut.setPos(pos).add(x, 0, z);
-					//if (world.getBlockState(mut).getMaterial().isReplaceable()) {
+					mut = new Mutable(mut.setPos(pos).add(x, 0, z));
+					if (world.getBlockState(mut).getMaterial().isReplaceable()) {
 						BlockHelper.setWithoutUpdate(world, mut, ModBlocks.AMARANITA_LANTERN);
 						mut.move(EnumFacing.DOWN);
 						BlockHelper.setWithoutUpdate(world, mut, ModBlocks.AMARANITA_LANTERN);
 						mut.move(EnumFacing.DOWN);
-						//if (world.getBlockState(mut).getMaterial().isReplaceable()) {
+						if (world.getBlockState(mut).getMaterial().isReplaceable()) {
 							BlockHelper.setWithoutUpdate(world, mut, ModBlocks.AMARANITA_FUR.getDefaultState().withProperty(AttachedBlock.FACING, EnumFacing.DOWN));
-						//}
-					//}
+						}
+					}
 				}
 			}
 			
@@ -153,8 +153,8 @@ public class GiganticAmaranitaFeature extends WorldGenerator {
 			}
 			for (int x = -1; x < 3; x++) {
 				for (int z = -1; z < 3; z++) {
-					mut.setPos(pos).add(x, 0, z);
-					//if (world.getBlockState(mut).getMaterial().isReplaceable()) {
+					mut = new Mutable(mut.setPos(pos).add(x, 0, z));
+					if (world.getBlockState(mut).getMaterial().isReplaceable()) {
 						BlockHelper.setWithoutUpdate(world, mut, ModBlocks.AMARANITA_LANTERN);
 						mut.move(EnumFacing.DOWN);
 						if ((x >> 1) == 0 || (z >> 1) == 0) {
@@ -162,16 +162,16 @@ public class GiganticAmaranitaFeature extends WorldGenerator {
 							EnumFacing.Axis axis = x < 0 || x > 1 ? EnumFacing.Axis.X : EnumFacing.Axis.Z;
 							int distance = axis == EnumFacing.Axis.X ? x < 0 ? -1 : 1 : z < 0 ? -1 : 1;
 							BlockPos offseted = mut.offset(EnumFacing.getFacingFromAxis(EnumFacing.AxisDirection.POSITIVE, axis), distance);
-							//if (world.getBlockState(offseted).getMaterial().isReplaceable()) {
+							if (world.getBlockState(offseted).getMaterial().isReplaceable()) {
 								EnumFacing dir = EnumFacing.getFacingFromAxis(distance < 0 ? EnumFacing.AxisDirection.NEGATIVE : EnumFacing.AxisDirection.POSITIVE, axis);
 								BlockHelper.setWithoutUpdate(world, offseted, ModBlocks.AMARANITA_FUR.getDefaultState().withProperty(AttachedBlock.FACING, dir));
-							//}
+							}
 							mut.move(EnumFacing.DOWN);
 						}
-						//if (world.getBlockState(mut).getMaterial().isReplaceable()) {
+						if (world.getBlockState(mut).getMaterial().isReplaceable()) {
 							BlockHelper.setWithoutUpdate(world, mut, ModBlocks.AMARANITA_FUR.getDefaultState().withProperty(AttachedBlock.FACING, EnumFacing.DOWN));
-						//}
-					//}
+						}
+					}
 				}
 			}
 			
@@ -264,7 +264,7 @@ public class GiganticAmaranitaFeature extends WorldGenerator {
 			
 			for (int x = -2; x < 3; x++) {
 				for (int z = -2; z < 3; z++) {
-					mut.setPos(pos).add(x, 0, z);
+					mut = new Mutable(mut.setPos(pos).add(x, 0, z));
 					if (world.getBlockState(mut).getMaterial().isReplaceable()) {
 						BlockHelper.setWithoutUpdate(world, mut, ModBlocks.AMARANITA_LANTERN);
 						mut.move(EnumFacing.DOWN);

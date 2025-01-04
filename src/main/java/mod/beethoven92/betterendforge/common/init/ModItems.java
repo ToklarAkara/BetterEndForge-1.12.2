@@ -74,7 +74,7 @@ public class ModItems
 	public static final Item AETERNIUM_PICKAXE = registerItem("aeternium_pickaxe", () -> new ItemPickaxe(ModItemTier.AETERNIUM){
 
 	}.setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
-	public static final Item AETERNIUM_AXE = registerItem("aeternium_axe", () -> new ItemAxe(ModItemTier.AETERNIUM, ModItemTier.AETERNIUM.getAttackDamage(), ModItemTier.AETERNIUM.getEfficiency()){
+	public static final Item AETERNIUM_AXE = registerItem("aeternium_axe", () -> new ItemAxe(ModItemTier.AETERNIUM, ModItemTier.AETERNIUM.getAttackDamage(), -3){
 
 	}.setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 	public static final Item AETERNIUM_HOE = registerItem("aeternium_hoe", () -> new ItemHoe(ModItemTier.AETERNIUM).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
@@ -112,7 +112,7 @@ public class ModItems
 	public final static Item BUCKET_END_FISH = registerItem("bucket_end_fish", () -> new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	public final static Item BUCKET_CUBOZOA = registerItem("bucket_cubozoa", () -> new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	//public final static Item GUIDE_BOOK = registerItem("guidebook", () -> new GuideBookItem().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
-	public final static Item FLAMAEA = registerItem("flamaea", () -> new ItemLilyPad(ModBlocks.FLAMAEA).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+
 	
 	//public final static Item AETERNIUM_ANVIL = registerItem("aeternium_anvil", () -> new EndAnvilItem(ModBlocks.AETERNIUM_ANVIL).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 
@@ -123,13 +123,7 @@ public class ModItems
 	public final static Item MUSIC_DISC_ENDSEEKER = registerItem("music_disc_endseeker", () -> new ItemRecord("endseeker", ModSoundEvents.RECORD_ENDSEEKER){}.setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	public final static Item MUSIC_DISC_EO_DRACONA = registerItem("music_disc_eo_dracona", () -> new ItemRecord("eo_dracona", ModSoundEvents.RECORD_EO_DRACONA){}.setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 
-	public final static Item CHARCOAL_BLOCK = registerItem("charcoal_block", () -> new ItemBlock(ModBlocks.CHARCOAL_BLOCK)
-	{
-		@Override
-		public int getItemBurnTime(ItemStack itemStack) {
-			return 14400;
-		}
-	}.setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+
 
 
 	//////////////////////////////////////////////////////

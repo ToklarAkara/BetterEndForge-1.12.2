@@ -102,4 +102,14 @@ public class LargeAmaranitaBlock extends PlantBlock {
 			super.harvestBlock(worldIn, player, pos, state, te, stack);
 		}
 	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return state.getValue(SHAPE).ordinal();
+	}
+
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return getDefaultState().withProperty(SHAPE, TripleShape.values()[meta]);
+	}
 }

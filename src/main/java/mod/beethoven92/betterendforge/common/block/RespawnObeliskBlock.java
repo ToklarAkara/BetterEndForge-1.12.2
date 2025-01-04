@@ -95,13 +95,16 @@ public class RespawnObeliskBlock extends Block {
 
 	@Override
 	public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
-		if (player.isCreative()) {
-			TripleShape shape = state.getValue(SHAPE);
-			if (shape == TripleShape.MIDDLE) {
-				BlockHelper.setWithUpdate(worldIn, pos.down(), Blocks.AIR.getDefaultState());
-			} else if (shape == TripleShape.TOP) {
-				BlockHelper.setWithUpdate(worldIn, pos.down(2), Blocks.AIR.getDefaultState());
-			}
+		TripleShape shape = state.getValue(SHAPE);
+		if (shape == TripleShape.MIDDLE) {
+			BlockHelper.setWithUpdate(worldIn, pos.down(), Blocks.AIR.getDefaultState());
+			BlockHelper.setWithUpdate(worldIn, pos.up(), Blocks.AIR.getDefaultState());
+		} else if (shape == TripleShape.TOP) {
+			BlockHelper.setWithUpdate(worldIn, pos.down(), Blocks.AIR.getDefaultState());
+			BlockHelper.setWithUpdate(worldIn, pos.down(2), Blocks.AIR.getDefaultState());
+		} else if (shape == TripleShape.BOTTOM) {
+			BlockHelper.setWithUpdate(worldIn, pos.up(), Blocks.AIR.getDefaultState());
+			BlockHelper.setWithUpdate(worldIn, pos.up(2), Blocks.AIR.getDefaultState());
 		}
 		super.onBlockHarvested(worldIn, pos, state, player);
 	}
