@@ -152,13 +152,13 @@ public class RespawnObeliskBlock extends Block {
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return 0;
+		return state.getValue(SHAPE).ordinal();
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState();
-	}//TODO META
+		return getDefaultState().withProperty(SHAPE, TripleShape.values()[meta]);
+	}
 
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getRenderLayer()

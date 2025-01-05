@@ -29,7 +29,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 
 
-@Mod(modid = BetterEnd.MOD_ID)
+@Mod(modid = BetterEnd.MOD_ID, name = "BetterEndForge", version = "1.1.1", dependencies = "required-after:nether_api@[1.3.0,)")
 public class BetterEnd
 {
 	public static final String MOD_ID = "betterendforge";

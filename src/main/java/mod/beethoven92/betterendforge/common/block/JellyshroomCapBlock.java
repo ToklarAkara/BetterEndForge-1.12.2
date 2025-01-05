@@ -76,11 +76,11 @@ public class JellyshroomCapBlock extends BlockSlime
 
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return 0;
+		return state.getValue(COLOR);
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState();
-	}//TODO META
+		return getDefaultState().withProperty(COLOR, meta);
+	}
 }

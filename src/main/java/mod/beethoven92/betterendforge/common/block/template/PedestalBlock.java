@@ -177,6 +177,14 @@ public class PedestalBlock extends Block
 			else
 			{
 				dropItemsAtEntity(worldIn, pos, (Entity)player);
+				if(player instanceof EntityPlayerMP){
+					SPacketUpdateTileEntity spacketupdatetileentity = pedestal.getUpdatePacket();
+
+					if (spacketupdatetileentity != null)
+					{
+						((EntityPlayerMP)player).connection.sendPacket(spacketupdatetileentity);
+					}
+				}
 				worldIn.playSound((EntityPlayer)null, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.2f, ((worldIn.rand.nextFloat() - worldIn.rand.nextFloat()) * 0.7f + 1.0f) * 1.5f);
 				return true;
 			}

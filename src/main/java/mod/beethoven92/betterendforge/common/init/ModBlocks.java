@@ -809,7 +809,7 @@ public class ModBlocks {
 
     public static final Block UMBRELLA_TREE_CLUSTER = registerBlockWithDefaultItem("umbrella_tree_cluster", () -> new UmbrellaTreeClusterBlock().setHardness(1.0f).setResistance(1.0f).setLightLevel(1));
 
-    public static final Block UMBRELLA_TREE_CLUSTER_EMPTY = registerBlockWithDefaultItem("umbrella_tree_cluster_empty", () -> new UmbrellaTreeClusterBlock().setHardness(1.0f).setResistance(1.0f).setTickRandomly(true));
+    public static final Block UMBRELLA_TREE_CLUSTER_EMPTY = registerBlockWithDefaultItem("umbrella_tree_cluster_empty", () -> new UmbrellaTreeClusterEmptyBlock().setHardness(1.0f).setResistance(1.0f).setTickRandomly(true));
 
     public static final Block SMALL_AMARANITA_MUSHROOM = registerBlockWithDefaultItem("small_amaranita_mushroom", () -> new SmallAmaranitaBlock());
 

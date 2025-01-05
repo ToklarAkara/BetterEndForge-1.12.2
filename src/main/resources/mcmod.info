@@ -1,0 +1,16 @@
+[{
+
+  "modid": "betterendforge",
+  "name": "BetterEndForge",
+  "description": "This mod adds new content to the end dimension that vastly improves and expands your end game.",
+  "mcversion": "1.12.2",
+  "version": "1.1.1",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/betterend-forge-port",
+  "updateUrl": "",
+  "authorList": [ "SomeoneElse", "Paulevs", "Beethoven92", "Vemerion","Goodbird (Ported the mod to 1.12.2)" ],
+  "credits": "All the artistic rights and credits, except for 1.12.2 ported code, go to the original authors of the BetterEnd mod for the Fabric mod loader",
+  "logoFile": "",
+  "screenshots": [],
+  "parent":"",
+  "dependencies": [ "nether_api"]
+}]

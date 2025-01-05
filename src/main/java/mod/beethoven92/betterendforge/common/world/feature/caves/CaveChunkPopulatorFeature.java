@@ -53,7 +53,7 @@ public class CaveChunkPopulatorFeature extends WorldGenerator
 				mut.setZ(z);
 				mut2.setZ(z);
 				mut2.setY(0);
-				for (int y = 1; y < 256; y++) { //TODO CHECK
+				for (int y = 1; y < 256; y++) {
 					mut.setY(y);
 					IBlockState top = chunk.getBlockState(mut);
 					IBlockState bottom = chunk.getBlockState(mut2);

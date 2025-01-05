@@ -53,7 +53,7 @@ public class FloatingSpireFeature extends SpireFeature
 					support.add(info.getPos().up());
 				}
 				Biome biome = world.getBiome(info.getPos());
-				return (biome instanceof ExtendedBiome)?((ExtendedBiome)biome).getSurface().config.getTop() :biome.topBlock;
+				return (biome instanceof ExtendedBiome)?((ExtendedBiome)biome).getSurface().config.getTop() :(biome.topBlock.getBlock()==Blocks.DIRT?Blocks.END_STONE.getDefaultState():biome.topBlock);
 			}
 			else if (info.getState(EnumFacing.UP, 3).getBlock()==Blocks.AIR)
 			{
