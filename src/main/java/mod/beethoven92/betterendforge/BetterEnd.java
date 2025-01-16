@@ -1,6 +1,6 @@
 package mod.beethoven92.betterendforge;
 
-import git.jbredwards.nether_api.mod.common.registry.NetherAPIRegistry;
+import mod.beethoven92.betterendforge.betterendforge.Tags;
 import mod.beethoven92.betterendforge.client.ClientOptions;
 import mod.beethoven92.betterendforge.client.PhysicalClientSide;
 import mod.beethoven92.betterendforge.common.init.*;
@@ -13,7 +13,6 @@ import mod.beethoven92.betterendforge.data.ModRecipes;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -27,15 +26,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-@Mod(modid = BetterEnd.MOD_ID)
-public class BetterEnd
-{
-	public static final String MOD_ID = "betterendforge";
+@Mod(modid = BetterEnd.MOD_ID, name = BetterEnd.MOD_NAME, version = BetterEnd.VERSION, dependencies = BetterEnd.DEPENDENCIES)
+public class BetterEnd {
 
+	public static final String MOD_ID = Tags.MOD_ID;
+	public static final String MOD_NAME = Tags.MOD_NAME;
+	public static final String VERSION = Tags.VERSION;
     public static final Logger LOGGER = LogManager.getLogger();
+	public static final String DEPENDENCIES = "required-after:nether_api@[1.3.0,);";
 
-
-	@Mod.Instance(MOD_ID)
+	@Mod.Instance(Tags.MOD_ID)
 	public static BetterEnd instance;
 
 	@Mod.EventHandler
@@ -63,7 +63,7 @@ public class BetterEnd
 		ModTags.initTags();
 	}
     
-    @Mod.EventBusSubscriber(modid = BetterEnd.MOD_ID)
+    @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
     public static class WorldGenRegistryEvents
     {
 
@@ -106,7 +106,7 @@ public class BetterEnd
     // Registration helper
     public static <T extends IForgeRegistryEntry<T>> T register(IForgeRegistry<T> registry, T entry, String registryKey) 
     {
-        entry.setRegistryName(new ResourceLocation(BetterEnd.MOD_ID, registryKey));
+        entry.setRegistryName(new ResourceLocation(Tags.MOD_ID, registryKey));
         registry.register(entry);
         return entry;
     }
@@ -117,7 +117,7 @@ public class BetterEnd
 	}
 
 	public static ResourceLocation makeID(String path) {
-		return new ResourceLocation(MOD_ID, path);
+		return new ResourceLocation(Tags.MOD_ID, path);
 	}
 
 }
