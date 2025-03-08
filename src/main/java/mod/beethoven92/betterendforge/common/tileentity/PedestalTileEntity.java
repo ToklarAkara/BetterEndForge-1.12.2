@@ -63,6 +63,7 @@ public class PedestalTileEntity extends TileEntity implements ITickable
 		world.setBlockState(pos, state.withProperty(PedestalBlock.HAS_ITEM, false).withProperty(PedestalBlock.HAS_LIGHT, false));
 		this.activeItem = ItemStack.EMPTY;
 		this.markDirty();
+		this.world.notifyBlockUpdate(this.pos, this.world.getBlockState(this.pos), this.world.getBlockState(this.pos), 3);
 	}
 
 	public ItemStack removeStack()

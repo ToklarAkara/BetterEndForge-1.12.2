@@ -19,6 +19,9 @@ public interface IDecoratable<R> {
     default R countRandom(int p_242732_1_) {
         return this.count(FeatureSpread.of(0, p_242732_1_));
     }
+    default R range(int p_242733_1_) {
+        return (R)this.decorated(Placement.RANGE.configure(new TopSolidRangeConfig(0, 0, p_242733_1_)));
+    }
     default R squared() {
         return this.decorated(Placement.SQUARE.configure(NoPlacementConfig.INSTANCE));
     }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "betterendforge:block/end_stone_furnace_on"
+    },
+    "facing=south": {
+      "model": "betterendforge:block/end_stone_furnace_on",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "betterendforge:block/end_stone_furnace_on",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "betterendforge:block/end_stone_furnace_on",
+      "y": 90
+    }
+  }
+}

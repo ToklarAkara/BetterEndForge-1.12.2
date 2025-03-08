@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 public class CustomBlockTrapDoor extends BlockTrapDoor {
     protected CustomBlockTrapDoor(Material materialIn) {
         super(materialIn);
+        setHardness(3.0F);
     }
 
     @Override

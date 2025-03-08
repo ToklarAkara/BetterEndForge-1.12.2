@@ -1,9 +1,11 @@
 package mod.beethoven92.betterendforge.common.recipes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -58,10 +60,20 @@ public class InfusionRecipe implements IRecipe {
 		boolean valid = this.input.apply(inv.getStackInSlot(0));
 		if (!valid)
 			return false;
-		for (int i = 0; i < 8; i++) {
-			valid &= this.catalysts[i].apply(inv.getStackInSlot(i + 1));
+
+		ArrayList<Ingredient> ingredients = Lists.newArrayList(this.catalysts);
+
+		for(int i=1;i<=8;i++){
+			ItemStack pedestalContents = inv.getStackInSlot(i);
+			for (int j = 0; j < 8; j++) {
+				if(ingredients.get(j).apply(pedestalContents)){
+					ingredients.remove(j);
+					break;
+				}
+			}
 		}
-		return valid;
+
+		return ingredients.isEmpty();
 	}
 
 	@Override
@@ -174,9 +186,12 @@ public class InfusionRecipe implements IRecipe {
 			return this;
 		}
 
-		public void build(Consumer<IRecipe> consumerIn, ResourceLocation id) {
+		public void build(Consumer<InfusionRecipe> consumerIn, ResourceLocation id) {
 			validate(id);
-			consumerIn.accept(new Result(id, input, output, time, catalysts));
+			InfusionRecipe recipe = new InfusionRecipe(id, input, output);
+			recipe.catalysts = catalysts;
+			recipe.time = time;
+			consumerIn.accept(recipe);
 		}
 
 		private void validate(ResourceLocation id) {
@@ -197,59 +212,5 @@ public class InfusionRecipe implements IRecipe {
 		private void Illegal(String s, ResourceLocation id) {
 			throw new IllegalArgumentException(String.format(s, id.toString()));
 		}
-
-		public static class Result implements IRecipe {
-			private ResourceLocation id;
-			private final Ingredient input;
-			private final ItemStack output;
-			private final int time;
-			private final Ingredient[] catalysts;
-
-			public Result(ResourceLocation id, Ingredient input, ItemStack output, int time, Ingredient[] catalysts) {
-				this.id = id;
-				this.input = input;
-				this.output = output;
-				this.time = time;
-				this.catalysts = catalysts;
-			}
-
-			@Override
-			public boolean matches(InventoryCrafting inv, World worldIn) {
-				// Implement your matching logic here
-				return false;
-			}
-
-			@Override
-			public ItemStack getCraftingResult(InventoryCrafting inv) {
-				return output.copy();
-			}
-
-			@Override
-			public boolean canFit(int width, int height) {
-				return width * height >= 1;
-			}
-
-			@Override
-			public ItemStack getRecipeOutput() {
-				return output;
-			}
-
-			@Override
-			public ResourceLocation getRegistryName() {
-				return id;
-			}
-
-			@Override
-			public IRecipe setRegistryName(ResourceLocation name) {
-				this.id = name;
-				return this;
-			}
-
-			@Override
-			public Class<IRecipe> getRegistryType() {
-				return IRecipe.class;
-			}
-		}
-
 	}
 }

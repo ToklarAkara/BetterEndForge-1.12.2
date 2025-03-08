@@ -88,6 +88,9 @@ public abstract class EndCaveFeature extends WorldGenerator
 					}
 				});
 				IBlockState surfaceBlock = (biome.getBiome() instanceof ExtendedBiome)?((ExtendedBiome)biome.getBiome()).getSurface().config.getTop() :biome.getBiome().topBlock;
+				if(surfaceBlock.getBlock()==Blocks.GRASS || surfaceBlock.getBlock()==Blocks.DIRT){
+					surfaceBlock = Blocks.END_STONE.getDefaultState();
+				}
 				placeFloor(world, biome, floorPositions, rand, surfaceBlock);
 				placeCeil(world, biome, ceilPositions, rand);
 				placeWalls(world, biome, caveBlocks, rand);

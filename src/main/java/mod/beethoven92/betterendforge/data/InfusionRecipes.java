@@ -1,5 +1,6 @@
 package mod.beethoven92.betterendforge.data;
 
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 import com.google.common.collect.ImmutableMap;
@@ -8,6 +9,7 @@ import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModItems;
 import mod.beethoven92.betterendforge.common.recipes.InfusionRecipe;
+import mod.beethoven92.betterendforge.common.rituals.InfusionRitual;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.init.Blocks;
@@ -17,14 +19,31 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
 public class InfusionRecipes {
+
+	private static ArrayList<InfusionRecipe> recipes;
+
+	public static void init(){
+		recipes = new ArrayList<>();
+		registerRecipes(recipes::add);
+	}
+
+	public static InfusionRecipe findRecipe(InfusionRitual ritual, World world){
+		for(InfusionRecipe recipe: recipes){
+			if(recipe.matches(ritual.getInvCrafting(), world)){
+				return recipe;
+			}
+		}
+		return null;
+	}
 
 	private static ResourceLocation rl(String s) {
 		return new ResourceLocation(BetterEnd.MOD_ID, s);
 	}
 
-	public static void registerRecipes(Consumer<IRecipe> consumer) {
+	public static void registerRecipes(Consumer<InfusionRecipe> consumer) {
 		InfusionRecipe.Builder.create().
         setInput(Items.BOOK).
         setOutput(enchBook(Enchantments.PROTECTION, 1)).

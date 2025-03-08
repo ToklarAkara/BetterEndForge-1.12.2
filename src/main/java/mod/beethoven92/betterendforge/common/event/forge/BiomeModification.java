@@ -28,11 +28,9 @@ public class BiomeModification {
         //if(ModBiomes.getBiome(location).hasCaves() && !location.getPath().equals("ice_starfield") && !location.getPath().equals("crystal_mountains") && !location.getPath().equals("dry_shrubland")  && !location.getPath().equals("umbra_valley")  && !location.getPath().equals("glowing_grasslands"))
         decorator.getFeatures(Decoration.LOCAL_MODIFICATIONS).add(ModConfiguredFeatures.TUNEL_CAVE);
 //        // Add ores to all biomes
-//            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.THALLASIUM_ORE);
-//            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.ENDER_ORE);
+            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.THALLASIUM_ORE);
+            decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.ENDER_ORE);
         //decorator.getFeatures(Decoration.UNDERGROUND_ORES).add(ModConfiguredFeatures.FLAVOLITE_LAYER);
-
-
         // Add end caves to biomes that have caves enabled
 //        if (ModBiomes.getBiome(biome.getRegistryName()).hasCaves()) {
 //            decorator.getFeatures(Decoration.RAW_GENERATION).add(ModConfiguredFeatures.ROUND_CAVE);

@@ -13,7 +13,7 @@ public abstract class Placement<DC extends IPlacementConfig> {
     public static final Placement<ChanceConfig> WATER_LAKE = register("water_lake", new LakeWater());
     public static final Placement<DecoratedPlacementConfig> DECORATED = register("decorated", new DecoratedPlacement());
     public static final Placement<NoPlacementConfig> HEIGHTMAP = register("heightmap", new SimpleHeightmapBasedPlacement());
-
+    public static final Placement<TopSolidRangeConfig> RANGE = register("range", new RangePlacement());
     private static <T extends IPlacementConfig, G extends Placement<T>> G register(String p_214999_0_, G p_214999_1_) {
         return p_214999_1_;
     }

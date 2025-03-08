@@ -30,6 +30,7 @@ public class ModLanternBlock extends Block {
 
 	public ModLanternBlock() {
 		super(Material.IRON);
+		setHardness(3.0f);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(HANGING, true));
 	}
 

@@ -3,38 +3,28 @@ package mod.beethoven92.betterendforge.common.block.material;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-import mod.beethoven92.betterendforge.BetterEnd;
-import mod.beethoven92.betterendforge.client.renderer.ChestItemTileEntityRenderer;
-import mod.beethoven92.betterendforge.common.block.EndBarrelBlock;
 import mod.beethoven92.betterendforge.common.block.EndSignBlock;
-import mod.beethoven92.betterendforge.common.block.ModCraftingTableBlock;
 import mod.beethoven92.betterendforge.common.block.template.BarkBlockTemplate;
-import mod.beethoven92.betterendforge.common.block.template.PillarBlockTemplate;
 import mod.beethoven92.betterendforge.common.block.template.StripableBarkBlockTemplate;
 import mod.beethoven92.betterendforge.common.block.template.StripableLogBlockTemplate;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModCreativeTabs;
 import mod.beethoven92.betterendforge.common.init.ModItems;
 import mod.beethoven92.betterendforge.common.init.ModTags;
-import mod.beethoven92.betterendforge.common.init.ModTileEntityTypes;
+import mod.beethoven92.betterendforge.common.item.EndSignItem;
 import mod.beethoven92.betterendforge.common.tileentity.EChestTileEntity;
+import mod.beethoven92.betterendforge.common.tileentity.ESignTileEntity;
+import mod.beethoven92.betterendforge.common.tileentity.EndSignTileEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.oredict.OreDictionary;
-
-import javax.annotation.Nullable;
 
 // TO DO? Make all wooden blocks flammable so they can take and spread fire
 public class WoodenMaterial
@@ -59,13 +49,15 @@ public class WoodenMaterial
 	public final Block door;
 
 //	public final Block craftingTable;
-//	//public final Block ladder;
-//	public final Block sign;
+	public final Block ladder;
+	public final Block sign_standing;
+	public final Block sign_wall;
 //
-//	public final Block chest;
+	public final Block chest;
 //	public final Block barrel;
 	public final Block shelf;
 	//public final Block composter;
+	public final Block craftingTable;
 
 	public final ArrayList<Block> logBlockTag;
 	public final ArrayList<Item> logItemTag;
@@ -77,8 +69,8 @@ public class WoodenMaterial
 		logBlockTag = ModTags.makeModBlockTag(name + "_logs");
 		logItemTag = ModTags.makeModItemTag(name + "_logs");
 
-		Material materialPlanks = new Material(woodColor);
-		Material materialPlanksNotSolid = new Material(planksColor);
+		Material materialPlanks = Material.WOOD;
+		Material materialPlanksNotSolid = Material.WOOD;
 
 		log_stripped = ModBlocks.registerBlockWithDefaultItem(name + "_stripped_log",
 				() -> new BlockLog(){
@@ -97,52 +89,65 @@ public class WoodenMaterial
 						return state.getValue(LOG_AXIS).ordinal();
 					}
 
-				});
+				}.setHardness(3.0F));
 		bark_stripped = ModBlocks.registerBlockWithDefaultItem(name + "_stripped_bark",
-				() -> new BarkBlockTemplate());
+				() -> new BarkBlockTemplate().setHardness(3.0F));
 
 		log = ModBlocks.registerBlockWithDefaultItem(name + "_log",
-				() -> new StripableLogBlockTemplate(woodColor, log_stripped));
+				() -> new StripableLogBlockTemplate(woodColor, log_stripped).setHardness(3.0F));
 		bark = ModBlocks.registerBlockWithDefaultItem(name + "_bark",
-				() -> new StripableBarkBlockTemplate(woodColor, bark_stripped));
+				() -> new StripableBarkBlockTemplate(woodColor, bark_stripped).setHardness(3.0F));
 
 		planks = ModBlocks.registerBlockWithDefaultItem(name + "_planks",
-				() -> new Block(materialPlanks));
+				() -> new Block(materialPlanks).setHardness(3.0F));
 		stairs = ModBlocks.registerBlockWithDefaultItem(name + "_stairs",
-				() -> new CustomBlockStairs(planks.getDefaultState()));
+				() -> new CustomBlockStairs(planks.getDefaultState()).setHardness(3.0F));
 		slab = ModBlocks.registerBlockWithDefaultItem(name + "_slab",
-				() -> new CustomBlockSlab(Material.WOOD));
+				() -> new CustomBlockSlab(Material.WOOD).setHardness(3.0F));
 		fence = ModBlocks.registerBlockWithDefaultItem(name + "_fence",
-				() -> new BlockFence(materialPlanks, planksColor));
+				() -> new BlockFence(materialPlanks, planksColor).setHardness(3.0F));
 //		gate = registerBlockWithDefaultItem(name + "_gate",
 //				() -> new BlockFenceGate(materialPlanks, planksColor));
 //		button = registerBlockWithDefaultItem(name + "_button",
 //				() -> new BlockButtonWood());
 		pressurePlate = ModBlocks.registerBlockWithDefaultItem(name + "_pressure_plate",
-				() -> new CustomPressurePlate(materialPlanks, BlockPressurePlate.Sensitivity.EVERYTHING));
+				() -> new CustomPressurePlate(materialPlanks, BlockPressurePlate.Sensitivity.EVERYTHING).setHardness(3.0F));
 		trapdoor = ModBlocks.registerBlockWithDefaultItem(name + "_trapdoor",
-				() -> new CustomBlockTrapDoor(materialPlanksNotSolid));
+				() -> new CustomBlockTrapDoor(materialPlanksNotSolid).setHardness(3.0F));
 		door = ModBlocks.registerBlockWithDoorItem(name + "_door",
 				() -> new CustomBlockDoor(materialPlanksNotSolid));
 
 //		composter = registerBlockWithBurnItem(name + "_composter",
 //				() -> new BlockComposter(materialPlanksNotSolid), 300);
-//		craftingTable = registerBlockWithBurnItem(name + "_crafting_table",
-//				() -> new ModCraftingTableBlock(materialPlanks), 300);
-//		ladder = registerBlockWithBurnItem(name + "_ladder",
-//				() -> new BlockLadder(materialPlanksNotSolid), 300);
-//		chest = ModBlocks.registerBlock(name + "_chest",
-//				() -> new BlockChest(BlockChest.Type.BASIC) {
-//					@Nullable
-//					@Override
-//					public TileEntity createTileEntity(World world, IBlockState state) {
-//						return new EChestTileEntity();
-//					}
-//				});
-//		ModItems.ITEMS.add(new ItemBlock(chest).setRegistryName(chest.getRegistryName()));
+		craftingTable = registerBlockWithBurnItem(name + "_crafting_table",
+				() -> new BlockWorkbench().setHardness(3.0F), 300);
+		ladder = registerBlockWithBurnItem(name + "_ladder",
+				() -> new BlockLadder().setHardness(3.0F), 300);
+		chest = ModBlocks.registerBlock(name + "_chest",
+				() -> new BlockChest(BlockChest.Type.BASIC) {
+					@Override
+					public TileEntity createTileEntity(World world, IBlockState state) {
+						return new EChestTileEntity();
+					}
+				}.setHardness(3.0F));
+		ModItems.ITEMS.add(new ItemBlock(chest).setRegistryName(chest.getRegistryName()));
 
-//		sign = registerBlockWithBurnItem(name + "_sign",
-//				() -> new EndSignBlock(), 200);
+		sign_standing = ModBlocks.registerBlock(name + "_sign_standing",
+				() -> new BlockStandingSign() {
+					@Override
+					public TileEntity createTileEntity(World world, IBlockState state) {
+						return new EndSignTileEntity();
+					}
+				}.setHardness(3.0F));
+
+		sign_wall = ModBlocks.registerBlock(name + "_sign_wall",
+				() -> new BlockWallSign() {
+					@Override
+					public TileEntity createTileEntity(World world, IBlockState state) {
+						return new EndSignTileEntity();
+					}
+				}.setHardness(3.0F));
+		ModItems.ITEMS.add(new EndSignItem(sign_standing, sign_wall).setRegistryName(name + "_sign").setTranslationKey(name + "_sign").setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 //		barrel = registerBlockWithBurnItem(name + "_barrel",
 //				() -> new EndBarrelBlock(materialPlanksNotSolid), 300);
 		shelf = registerBlockWithBurnItem(name + "_bookshelf",
@@ -151,7 +156,7 @@ public class WoodenMaterial
 					public float getEnchantPowerBonus(World world, BlockPos pos) {
 						return 1;
 					}
-				}, 300);
+				}, 300).setHardness(3.0F);
 	}
 
 	public boolean isTreeLog(Block block) {

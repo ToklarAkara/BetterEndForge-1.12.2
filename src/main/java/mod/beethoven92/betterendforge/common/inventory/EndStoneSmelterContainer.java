@@ -2,8 +2,6 @@ package mod.beethoven92.betterendforge.common.inventory;
 
 import mod.beethoven92.betterendforge.common.inventory.slot.SmelterFuelSlot;
 import mod.beethoven92.betterendforge.common.inventory.slot.SmelterOutputSlot;
-import mod.beethoven92.betterendforge.common.recipes.AlloyingRecipe;
-import mod.beethoven92.betterendforge.common.recipes.ModRecipeManager;
 import mod.beethoven92.betterendforge.common.tileentity.EndStoneSmelterTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -12,18 +10,17 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EndStoneSmelterContainer extends Container
 {
-	private int cookTime;
-	private int totalCookTime;
-	private int furnaceBurnTime;
-	private int currentItemBurnTime;
-	private final IInventory inventory;
+	public int cookTime;
+	public int totalCookTime;
+	public int furnaceBurnTime;
+	public int currentItemBurnTime;
+	public final IInventory inventory;
 	protected final World world;
 	
 	public EndStoneSmelterContainer(InventoryPlayer playerInventory, IInventory inventory)

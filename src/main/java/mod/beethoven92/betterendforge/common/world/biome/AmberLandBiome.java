@@ -20,7 +20,7 @@ public class AmberLandBiome extends BetterEndBiome {
 				.setAmbientSound(ModSoundEvents.AMBIENT_AMBER_LAND)
 				//.setParticles(ModParticleTypes.AMBER_SPHERE, 0.001F)
 				.setSurface(ModBlocks.AMBER_MOSS)
-				//.addFeature(Decoration.UNDERGROUND_ORES, ModConfiguredFeatures.AMBER_ORE)
+				.addFeature(Decoration.UNDERGROUND_ORES, ModConfiguredFeatures.AMBER_ORE)
 				.addFeature(Decoration.LAKES, ModConfiguredFeatures.END_LAKE_RARE)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.HELIX_TREE)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.LANCELEAF)

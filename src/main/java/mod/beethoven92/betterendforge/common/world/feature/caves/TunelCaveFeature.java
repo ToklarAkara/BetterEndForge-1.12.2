@@ -169,7 +169,7 @@ public class TunelCaveFeature extends EndCaveFeature {
 		}
 
 		floorSets.forEach((biome, floorPositions) -> {
-			IBlockState surfaceBlock = biome.getBiome().topBlock.getBlock()==Blocks.GRASS?Blocks.END_STONE.getDefaultState():biome.getBiome().topBlock;
+			IBlockState surfaceBlock = (biome.getBiome().topBlock.getBlock()==Blocks.GRASS || biome.getBiome().topBlock.getBlock()==Blocks.DIRT)?Blocks.END_STONE.getDefaultState():biome.getBiome().topBlock;
 			if(biome.getBiome() instanceof ExtendedBiome && ((ExtendedBiome)biome.getBiome()).getSurface()!=null){
 				surfaceBlock = ((ExtendedBiome)biome.getBiome()).getSurface().config.getTop();
 			}

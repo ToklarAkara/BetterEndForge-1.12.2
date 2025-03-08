@@ -9,6 +9,7 @@ import mod.beethoven92.betterendforge.common.block.EndStoneSmelter;
 import mod.beethoven92.betterendforge.common.init.ModTileEntityTypes;
 import mod.beethoven92.betterendforge.common.inventory.EndStoneSmelterContainer;
 import mod.beethoven92.betterendforge.common.recipes.AlloyingRecipe;
+import mod.beethoven92.betterendforge.data.AlloyingRecipes;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -162,12 +163,13 @@ public class EndStoneSmelterTileEntity extends TileEntityLockable implements ITi
 			}
 			else
 			{
-				ItemStack recipe = FurnaceRecipes.instance().getSmeltingResult(this.items.get(0));
-				if (recipe == null)
-				{
-					recipe = FurnaceRecipes.instance().getSmeltingResult(this.items.get(1));
-				}
-				boolean accepted = true;//this.canAcceptRecipeOutput(recipe);
+				AlloyingRecipe recipe = AlloyingRecipes.findRecipe(this.items.get(0), this.items.get(1), world);
+				//ItemStack recipe = FurnaceRecipes.instance().getSmeltingResult(this.items.get(0));
+//				if (recipe == null)
+//				{
+//					recipe = FurnaceRecipes.instance().getSmeltingResult(this.items.get(1));
+//				}
+				boolean accepted = this.canAcceptRecipeOutput(recipe);
 				if (!burning && accepted)
 				{
 					this.burnTime = this.getBurnTime(fuel);
@@ -215,35 +217,54 @@ public class EndStoneSmelterTileEntity extends TileEntityLockable implements ITi
 	}
 
 
-	private void craftRecipe(ItemStack recipe)
+	private void craftRecipe(AlloyingRecipe recipe)
 	{
-//		if (recipe == null || !canAcceptRecipeOutput(recipe)) return;
-//
-//		ItemStack result = recipe.getRecipeOutput();
-//		ItemStack output = this.items.get(3);
-//		if (output.isEmpty())
-//		{
-//			this.items.set(3, result.copy());
-//		}
-//		else if (output.getItem() == result.getItem())
-//		{
-//			output.grow(result.getCount());
-//		}
-//
-//		if (!this.world.isRemote)
-//		{
-//			this.setRecipeUsed(recipe);
-//		}
-//
-//		if (!this.items.get(0).isEmpty())
-//		{
-//			this.items.get(0).shrink(1);
-//		}
-//		else
-//		{
-//			this.items.get(1).shrink(1);
-//		}
+		if (recipe == null || !canAcceptRecipeOutput(recipe)) return;
+
+		ItemStack result = recipe.getRecipeOutput();
+		ItemStack output = this.items.get(3);
+		if (output.isEmpty())
+		{
+			this.items.set(3, result.copy());
+		}
+		else if (output.getItem() == result.getItem())
+		{
+			output.grow(result.getCount());
+		}
+
+		if (!this.world.isRemote)
+		{
+			this.setRecipeUsed(recipe);
+		}
+
+		if (recipe instanceof AlloyingRecipe)
+		{
+			this.items.get(0).shrink(1);
+			this.items.get(1).shrink(1);
+		}
+		else
+		{
+			if (!this.items.get(0).isEmpty())
+			{
+				this.items.get(0).shrink(1);
+			}
+			else
+			{
+				this.items.get(1).shrink(1);
+			}
+		}
 	}
+
+
+	public void setRecipeUsed(AlloyingRecipe recipe)
+	{
+		if (recipe != null)
+		{
+			ResourceLocation recipeId = recipe.getRegistryName();
+			this.recipesUsed.addTo(recipeId, 1);
+		}
+	}
+
 
 	@Override
 	public int getSizeInventory()
@@ -446,6 +467,54 @@ public class EndStoneSmelterTileEntity extends TileEntityLockable implements ITi
 		{
 			AVAILABLE_FUELS.put(fuel, time);
 		}
+	}
+
+	protected boolean canAcceptRecipeOutput(AlloyingRecipe recipe)
+	{
+		if (recipe == null) return false;
+		boolean validInput = false;
+		if (recipe instanceof AlloyingRecipe)
+		{
+			validInput = !items.get(0).isEmpty() &&
+					!items.get(1).isEmpty();
+		}
+		else
+		{
+			validInput = !items.get(0).isEmpty() ||
+					!items.get(1).isEmpty();
+		}
+		if (validInput)
+		{
+			ItemStack result = recipe.getRecipeOutput();
+			if (result.isEmpty())
+			{
+				return false;
+			}
+			else
+			{
+				ItemStack output = this.items.get(3);
+				int outCount = output.getCount();
+				int total = outCount + result.getCount();
+				if (output.isEmpty())
+				{
+					return true;
+				}
+				else if (!output.isItemEqualIgnoreDurability(result))
+				{
+					return false;
+				}
+				else if (outCount < this.getInventoryStackLimit() && outCount < output.getMaxStackSize())
+				{
+					return this.getInventoryStackLimit() >= total;
+				}
+				else
+				{
+					return output.getCount() < result.getMaxStackSize();
+				}
+			}
+		}
+
+		return false;
 	}
 
 	public static Map<Item, Integer> getAvailableFuels()

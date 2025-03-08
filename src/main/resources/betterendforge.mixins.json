@@ -13,6 +13,7 @@
     "EndSpikeFeatureMixin",
     "EndSpikeMixin",
     "EntityMixin",
+    "MixinContainerWorkbench",
     "MixinPlayerChunkMapEntry",
     "PlayerEntityMixin",
     "ServerPlayNetHandlerMixin"

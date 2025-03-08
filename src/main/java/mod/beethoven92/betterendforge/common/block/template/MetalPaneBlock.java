@@ -15,6 +15,7 @@ public class MetalPaneBlock extends BlockPane {
 	public MetalPaneBlock(Material material, boolean canDrop) {
 		super(material, canDrop);
 		setSoundType(SoundType.METAL);
+		setHardness(5.0F);
 	}
 
 	@Override

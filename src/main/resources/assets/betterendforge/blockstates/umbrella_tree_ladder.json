@@ -1,32 +1,17 @@
 {
   "variants": {
-    "facing=north,waterlogged=false": {
+    "facing=north": {
       "model": "betterendforge:block/umbrella_tree_ladder"
     },
-    "facing=south,waterlogged=false": {
+    "facing=south": {
       "model": "betterendforge:block/umbrella_tree_ladder",
       "y": 180
     },
-    "facing=west,waterlogged=false": {
+    "facing=west": {
       "model": "betterendforge:block/umbrella_tree_ladder",
       "y": 270
     },
-    "facing=east,waterlogged=false": {
-      "model": "betterendforge:block/umbrella_tree_ladder",
-      "y": 90
-    },
-    "facing=north,waterlogged=true": {
-      "model": "betterendforge:block/umbrella_tree_ladder"
-    },
-    "facing=south,waterlogged=true": {
-      "model": "betterendforge:block/umbrella_tree_ladder",
-      "y": 180
-    },
-    "facing=west,waterlogged=true": {
-      "model": "betterendforge:block/umbrella_tree_ladder",
-      "y": 270
-    },
-    "facing=east,waterlogged=true": {
+    "facing=east": {
       "model": "betterendforge:block/umbrella_tree_ladder",
       "y": 90
     }

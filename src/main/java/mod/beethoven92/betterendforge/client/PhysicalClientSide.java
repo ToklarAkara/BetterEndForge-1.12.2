@@ -11,21 +11,13 @@ public class PhysicalClientSide
 	
 	public static void clientSetup()
 	{
-		registerRenderers();
+		registerEntityRenderers();
 		//registerGUIs();
 		setRenderLayers();
 	}
-		
-	private static void registerRenderers()
-	{
-		// Tile entity renderers
 
-		ClientRegistry.bindTileEntitySpecialRenderer(EternalPedestalTileEntity.class, new PedestalRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(InfusionPedestalTileEntity.class, new PedestalRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(PedestalTileEntity.class, new PedestalRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(EChestTileEntity.class, new EndChestTileEntityRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(ESignTileEntity.class, new EndSignTileEntityRenderer());
-		
+	public static void registerEntityRenderers()
+	{
 		// Entity renderers
 		RenderingRegistry.registerEntityRenderingHandler(EndFishEntity.class, EndFishEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(DragonflyEntity.class, DragonflyEntityRenderer::new);
@@ -33,6 +25,17 @@ public class PhysicalClientSide
 		RenderingRegistry.registerEntityRenderingHandler(EndSlimeEntity.class, EndSlimeEntityRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(CubozoaEntity.class, CubozoaRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(SilkMothEntity.class, SilkMothEntityRenderer::new);
+	}
+		
+	public static void registerTileRenderers()
+	{
+		// Tile entity renderers
+
+		ClientRegistry.bindTileEntitySpecialRenderer(EternalPedestalTileEntity.class, new PedestalRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(InfusionPedestalTileEntity.class, new PedestalRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(PedestalTileEntity.class, new PedestalRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(EChestTileEntity.class, new EndChestTileEntityRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(EndSignTileEntity.class, new EndSignTESR());
 	}
 	
 //	private void registerGUIs()

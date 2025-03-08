@@ -59,6 +59,9 @@ import mod.beethoven92.betterendforge.common.world.feature.WallPlantOnLogFeature
 import mod.beethoven92.betterendforge.common.world.feature.*;
 import mod.beethoven92.betterendforge.common.world.feature.caves.RoundCaveFeature;
 import mod.beethoven92.betterendforge.common.world.feature.caves.TunelCaveFeature;
+import mod.beethoven92.betterendforge.common.world.moderngen.decorator.OreFeature;
+import mod.beethoven92.betterendforge.common.world.moderngen.decorator.OreFeatureConfig;
+import mod.beethoven92.betterendforge.common.world.moderngen.rule.BlockMatchRuleTest;
 import mod.beethoven92.betterendforge.common.world.surfacebuilder.UmbraSurfaceBuilder;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -205,9 +208,12 @@ public class ModFeatures
 	public static final WorldGenerator LUCERNIA = new LucerniaFeature();
 	
 	// ORES
-//	public static final Feature<OreFeatureConfig> ENDER_ORE = new OreFeature(OreFeatureConfig.CODEC);
-//	public static final Feature<OreFeatureConfig> AMBER_ORE = new OreFeature(OreFeatureConfig.CODEC);
-//	public static final Feature<OreFeatureConfig> THALLASIUM_ORE = new OreFeature(OreFeatureConfig.CODEC);
+	public static final WorldGenerator ENDER_ORE = new OreFeature(new OreFeatureConfig(
+			new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_ORE.getDefaultState(), 3));
+	public static final WorldGenerator AMBER_ORE = new OreFeature(new OreFeatureConfig(
+			new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.AMBER_ORE.getDefaultState(), 6));
+	public static final WorldGenerator THALLASIUM_ORE = new OreFeature(new OreFeatureConfig(
+			new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.THALLASIUM.ore.getDefaultState(), 6));
 	public static final WorldGenerator FLAVOLITE_LAYER = new OreLayerFeature(ModBlocks.FLAVOLITE.stone.getDefaultState(), 12, 4, 96);
 	public static final WorldGenerator VIOLECITE_LAYER = new OreLayerFeature(ModBlocks.VIOLECITE.stone.getDefaultState(), 15, 4, 96);
 	

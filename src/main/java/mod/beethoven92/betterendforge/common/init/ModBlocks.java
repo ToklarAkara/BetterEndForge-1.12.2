@@ -143,7 +143,7 @@ public class ModBlocks {
     public static final BlockStairs DRAGON_BONE_STAIRS = registerBlockWithDefaultItem("dragon_bone_stairs", () -> new CustomBlockStairs(DRAGON_BONE_BLOCK.getDefaultState()));
 
 	public static final Block DRAGON_BONE_SLAB = registerBlockWithDefaultItem("dragon_bone_slab",
-			() -> new CustomBlockSlab(Material.ROCK));
+			() -> new CustomBlockSlab(Material.ROCK).setHardness(2.0f).setResistance(2.0F));
 
     public static final Block MOSSY_DRAGON_BONE = registerBlockWithDefaultItem("mossy_dragon_bone", () -> new MossyDragonBoneBlock());
 
@@ -881,7 +881,7 @@ public class ModBlocks {
     }.setHardness(4F).setResistance(100F));
 
     public static final Block END_STONE_FURNACE = registerBlockWithDefaultItem("end_stone_furnace", () -> new EndFurnaceBlock(false).setHardness(3.0F).setResistance(15.0F));
-    //public static final Block END_STONE_FURNACE_LIT = registerBlockWithDefaultItem("end_stone_furnace_lit", () -> new EndFurnaceBlock(true).setHardness(3.0F).setResistance(15.0F));
+    public static final Block END_STONE_FURNACE_LIT = registerBlock("end_stone_furnace_lit", () -> new EndFurnaceBlock(true).setHardness(3.0F).setResistance(15.0F));
 
     // MISC
 //    public static final Block AETERNIUM_ANVIL = registerBlock("aeternium_anvil", () -> new AeterniumAnvil().setHardness(5.0F).setResistance(1200.0F));
@@ -1042,10 +1042,12 @@ public class ModBlocks {
         return block;
     }
 
-    public static <T extends Block> T registerBlockWithDoorItem(String name, Supplier<? extends T> blockSupplier) {
+    public static <T extends CustomBlockDoor> T registerBlockWithDoorItem(String name, Supplier<? extends T> blockSupplier) {
         T block = (T) blockSupplier.get().setRegistryName(BetterEnd.MOD_ID, name).setTranslationKey(BetterEnd.MOD_ID+"."+name).setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
         BLOCKS.add(block);
-        ModItems.ITEMS.add(new ItemDoor(block).setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setRegistryName(BetterEnd.MOD_ID, name).setTranslationKey(BetterEnd.MOD_ID+"."+name));
+        ItemDoor itemDoor = (ItemDoor) new ItemDoor(block).setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setRegistryName(BetterEnd.MOD_ID, name).setTranslationKey(BetterEnd.MOD_ID+"."+name);
+        ModItems.ITEMS.add(itemDoor);
+        block.setDoorItem(itemDoor);
         return block;
     }
 

@@ -21,6 +21,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeEnd;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraftforge.fml.relauncher.Side;
@@ -30,7 +31,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class ExtendedBiome extends Biome implements IEndBiome, IAmbienceBiome {
+public class ExtendedBiome extends BiomeEnd implements IEndBiome, IAmbienceBiome {
 
     private int grassColor;
     private int foliageColor;

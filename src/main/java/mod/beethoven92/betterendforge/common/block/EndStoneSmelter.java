@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.block;
 
 import java.util.Random;
 
+import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.init.ModTileEntityTypes;
 import mod.beethoven92.betterendforge.common.tileentity.EndStoneSmelterTileEntity;
 import net.minecraft.block.Block;
@@ -78,6 +79,7 @@ public class EndStoneSmelter extends Block
 		TileEntity tileEntity = worldIn.getTileEntity(pos);
 		if (tileEntity instanceof EndStoneSmelterTileEntity)
 		{
+			player.openGui(BetterEnd.instance, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
 			//player.displayGUIChest((EndStoneSmelterTileEntity) tileEntity);
 		}
 	}

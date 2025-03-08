@@ -4,14 +4,9 @@ import java.util.ArrayList;
 import java.util.function.Supplier;
 
 import mod.beethoven92.betterendforge.BetterEnd;
-import mod.beethoven92.betterendforge.common.item.CrystaliteArmor;
-import mod.beethoven92.betterendforge.common.item.EnchantedPetalItem;
-import mod.beethoven92.betterendforge.common.item.EndAnvilItem;
-import mod.beethoven92.betterendforge.common.item.GuideBookItem;
-import mod.beethoven92.betterendforge.common.item.HammerItem;
-import mod.beethoven92.betterendforge.common.item.ModArmorMaterial;
-import mod.beethoven92.betterendforge.common.item.ModItemTier;
-import mod.beethoven92.betterendforge.common.item.UmbrellaClusterJuiceItem;
+import mod.beethoven92.betterendforge.common.entity.CubozoaEntity;
+import mod.beethoven92.betterendforge.common.entity.EndFishEntity;
+import mod.beethoven92.betterendforge.common.item.*;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -109,8 +104,8 @@ public class ModItems
 	public final static Item UMBRELLA_CLUSTER_JUICE = registerItem("umbrella_cluster_juice", () -> new UmbrellaClusterJuiceItem().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	
 	// MISC ITEMS
-	public final static Item BUCKET_END_FISH = registerItem("bucket_end_fish", () -> new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
-	public final static Item BUCKET_CUBOZOA = registerItem("bucket_cubozoa", () -> new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
+	public final static Item BUCKET_END_FISH = registerItem("bucket_end_fish", () -> new FishBucketItem<>(EndFishEntity.class).setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
+	public final static Item BUCKET_CUBOZOA = registerItem("bucket_cubozoa", () -> new FishBucketItem<>(CubozoaEntity.class).setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 	//public final static Item GUIDE_BOOK = registerItem("guidebook", () -> new GuideBookItem().setCreativeTab(ModCreativeTabs.CREATIVE_TAB).setMaxStackSize(1));
 
 	

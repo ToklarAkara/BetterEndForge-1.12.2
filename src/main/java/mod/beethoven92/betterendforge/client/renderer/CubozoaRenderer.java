@@ -5,9 +5,11 @@ import mod.beethoven92.betterendforge.client.model.CubozoaModel;
 import mod.beethoven92.betterendforge.common.entity.CubozoaEntity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.entity.layers.LayerSpiderEyes;
 import net.minecraft.util.ResourceLocation;
 
 public class CubozoaRenderer extends RenderLiving<CubozoaEntity> {
@@ -25,7 +27,17 @@ public class CubozoaRenderer extends RenderLiving<CubozoaEntity> {
 				GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 				GlStateManager.depthMask(!entity.isInvisible());
 				GlStateManager.pushMatrix();
-				//renderManager.getEntityRenderObject(entity).doRender(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+				int lvt_9_1_ = 61680;
+				int lvt_10_1_ = lvt_9_1_ % 65536;
+				int lvt_11_1_ = lvt_9_1_ / 65536;
+				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lvt_10_1_, (float)lvt_11_1_);
+				GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+				((CubozoaRenderer)(Object)renderManager.getEntityRenderObject(entity)).mainModel.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+
+				lvt_9_1_ = entity.getBrightnessForRender();
+				lvt_10_1_ = lvt_9_1_ % 65536;
+				lvt_11_1_ = lvt_9_1_ / 65536;
+				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)lvt_10_1_, (float)lvt_11_1_);
 				GlStateManager.popMatrix();
 				GlStateManager.depthMask(true);
 				GlStateManager.disableBlend();

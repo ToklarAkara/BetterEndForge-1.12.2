@@ -95,7 +95,7 @@ public class InfusionPedestal extends PedestalBlock
 			result = super.onBlockActivated(worldIn, pos, state, player, hand, facing, hitX, hitY, hitZ);
 		}
 
-		if (result == true)
+		if (result)
 		{
 			if (pedestal != null)
 			{

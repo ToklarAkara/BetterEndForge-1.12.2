@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
+import org.lwjgl.opengl.GL11;
 
 public class CubozoaModel extends ModelBase {
 	private final ModelRenderer model;
@@ -83,8 +84,10 @@ public class CubozoaModel extends ModelBase {
 		tentacle_2.rotateAngleX = sin * 0.15F;
 		tentacle_3.rotateAngleX = sin * 0.15F;
 		tentacle_4.rotateAngleX = sin * 0.15F;
-
+		GL11.glPushMatrix();
+		GL11.glScaled(scaleXZ, scaleY, scaleXZ);
 		model.render(scale);
+		GL11.glPopMatrix();
 	}
 
 	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

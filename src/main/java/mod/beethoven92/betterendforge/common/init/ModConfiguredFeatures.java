@@ -3,7 +3,9 @@ package mod.beethoven92.betterendforge.common.init;
 import mod.beethoven92.betterendforge.BetterEnd;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.ConfiguredFeature;
 import mod.beethoven92.betterendforge.common.world.moderngen.decorator.IFeatureConfig;
+import mod.beethoven92.betterendforge.common.world.moderngen.decorator.OreFeatureConfig;
 import mod.beethoven92.betterendforge.common.world.moderngen.placement.*;
+import mod.beethoven92.betterendforge.common.world.moderngen.rule.BlockMatchRuleTest;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 public class ModConfiguredFeatures 
@@ -487,24 +489,18 @@ public class ModConfiguredFeatures
 			new ConfiguredFeature<>(ModFeatures.LUCERNIA,IFeatureConfig.NO_FEATURE_CONFIG).
 			decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).squared()).countRandom(3);
 
-//	// ORES
-//	public static final ConfiguredFeature<?, ?> THALLASIUM_ORE =
-//			new ConfiguredFeature<>(ModFeatures.THALLASIUM_ORE,
-//					new OreFeatureConfig(
-//							new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.THALLASIUM.ore.getDefaultState(), 6)).
-//			range(96).square().count(20);
-//
-//	public static final ConfiguredFeature<?, ?> ENDER_ORE =
-//			new ConfiguredFeature<>(ModFeatures.ENDER_ORE,
-//					new OreFeatureConfig(
-//							new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_ORE.getDefaultState(), 3)).
-//			range(96).square().count(20);
-//
-//	public static final ConfiguredFeature<?, ?> AMBER_ORE =
-//			new ConfiguredFeature<>(ModFeatures.AMBER_ORE,
-//					new OreFeatureConfig(
-//							new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.AMBER_ORE.getDefaultState(), 6)).
-//			range(96).square().count(20);
+	// ORES
+	public static final ConfiguredFeature<?, ?> THALLASIUM_ORE =
+			new ConfiguredFeature<>(ModFeatures.THALLASIUM_ORE,IFeatureConfig.NO_FEATURE_CONFIG
+					).range(96).squared().count(20);
+
+	public static final ConfiguredFeature<?, ?> ENDER_ORE =
+			new ConfiguredFeature<>(ModFeatures.ENDER_ORE,IFeatureConfig.NO_FEATURE_CONFIG
+					).range(96).squared().count(20);
+
+	public static final ConfiguredFeature<?, ?> AMBER_ORE =
+			new ConfiguredFeature<>(ModFeatures.AMBER_ORE,IFeatureConfig.NO_FEATURE_CONFIG).range(96)
+					.squared().count(20);
 	
 	public static final ConfiguredFeature<?, ?> FLAVOLITE_LAYER = 
 			new ConfiguredFeature<>(ModFeatures.FLAVOLITE_LAYER,IFeatureConfig.NO_FEATURE_CONFIG).

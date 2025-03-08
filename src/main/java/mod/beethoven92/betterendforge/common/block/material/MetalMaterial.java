@@ -78,17 +78,17 @@ public class MetalMaterial
 		ore = hasOre ? new Block(Material.ROCK).setHardness(3.0F).setResistance(5.0F) : null;
 		block = new CustomBlock(blockMaterial).setSoundType(SoundType.METAL).setHardness(5.0F).setResistance(10.0F);
 		tile = new CustomBlock(blockMaterial).setSoundType(SoundType.METAL).setHardness(5.0F).setResistance(10.0F);
-		stairs = new CustomBlockStairs(block.getDefaultState()).setSoundType(SoundType.METAL);
+		stairs = new CustomBlockStairs(block.getDefaultState()).setSoundType(SoundType.METAL).setHardness(3.0F);
 //		slab = new BlockSlab(blockMaterial);
 //		door = new BlockDoor(blockMaterial);
-		trapdoor = new CustomBlockTrapDoor(blockMaterial).setSoundType(SoundType.METAL);
-		anvil = new EndAnvilBlock(0);
-		bars = new MetalPaneBlock(blockMaterial, true);
+		trapdoor = new CustomBlockTrapDoor(blockMaterial).setSoundType(SoundType.METAL).setHardness(3.0F);
+		anvil = new EndAnvilBlock(0).setHardness(3.0F);
+		bars = new MetalPaneBlock(blockMaterial, true).setHardness(3.0F);
 		chain = new ChainBlock().setHardness(5.0F).setResistance(10.0F);
-		pressure_plate = new CustomPressurePlate(Material.IRON, BlockPressurePlate.Sensitivity.EVERYTHING).setSoundType(SoundType.METAL);
+		pressure_plate = new CustomPressurePlate(Material.IRON, BlockPressurePlate.Sensitivity.EVERYTHING).setSoundType(SoundType.METAL).setHardness(3.0F);
 
-		chandelier = new ChandelierBlock(blockMaterial);
-		bulb_lantern = new BulbVineLanternBlock(EnumDyeColor.WHITE);//blockMaterial);
+		chandelier = new ChandelierBlock(blockMaterial).setHardness(3.0F);
+		bulb_lantern = new BulbVineLanternBlock(EnumDyeColor.WHITE).setHardness(3.0F);//blockMaterial);
 		bulb_lantern_colored = new ColoredMaterial(name + "_bulb_lantern", ()->new BulbVineLanternBlock(), bulb_lantern, false);
 
 		nugget = new Item();

@@ -8,11 +8,14 @@ import mod.beethoven92.betterendforge.common.tileentity.PedestalTileEntity;
 import mod.beethoven92.betterendforge.data.InfusionRecipes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
@@ -76,7 +79,7 @@ public class InfusionRitual implements IInventory
 	public boolean checkRecipe() 
 	{
 		if (!isValid()) return false;
-		InfusionRecipe recipe = null; //this.world.getRecipeManager().getRecipe(InfusionRecipe.TYPE, this, world).orElse(null); TODO RECIPE
+		InfusionRecipe recipe = InfusionRecipes.findRecipe(this, world);
 		if (hasRecipe()) 
 		{
 			if (recipe == null) 
@@ -132,7 +135,7 @@ public class InfusionRitual implements IInventory
 		{
 			IBlockState inputState = world.getBlockState(input.getPos());
 			this.input.removeStack(world, inputState);
-			//this.input.setStack(activeRecipe.getCraftingResult(this)); TODO RECIPE
+			this.input.setStack(activeRecipe.output.copy());
 			for (PedestalTileEntity catalyst : catalysts) 
 			{
 				catalyst.removeStack(world, world.getBlockState(catalyst.getPos()));
@@ -155,7 +158,7 @@ public class InfusionRitual implements IInventory
 					double sx = start.getX() + 0.5;
 					double sy = start.getY() + 1.25;
 					double sz = start.getZ() + 0.5;					
-					//world.spawnParticle(new InfusionParticleData(stack), sx, sy, sz, 0, tx - sx, ty - sy, tz - sz, 0.5); TODO PARTICLE
+					world.spawnParticle(EnumParticleTypes.SPELL_WITCH, sx, sy, sz, 0, tx - sx, ty - sy, tz - sz, 0.5);
 				}
 			}
 		}		
@@ -342,5 +345,24 @@ public class InfusionRitual implements IInventory
 	@Override
 	public ITextComponent getDisplayName() {
 		return null;
+	}
+
+	public InventoryCrafting getInvCrafting(){
+		InventoryCrafting inventoryCrafting = new InventoryCrafting(new Container()
+		{
+			public boolean canInteractWith(EntityPlayer playerIn)
+			{
+				return false;
+			}
+		}, 9, 1);
+
+		inventoryCrafting.setInventorySlotContents(0, input.getStack());
+		for(int i=0;i<8;i++){
+			if(catalysts[i]!=null && catalysts[i].getStack()!=null) {
+				inventoryCrafting.setInventorySlotContents(i + 1, catalysts[i].getStack());
+			}
+		}
+
+		return inventoryCrafting;
 	}
 }

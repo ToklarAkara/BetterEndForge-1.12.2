@@ -42,7 +42,7 @@ public class BiomeTemplate
 
 	private float depth = 0.1F;
     private float scale = 0.2F;
-    private float temperature = 2.0F;
+    private float temperature = 0.5F;
     private float downfall = 0.0F;
 
 	private float fogDensity = 1F;;
@@ -295,9 +295,28 @@ public class BiomeTemplate
 //	}
 
 
+	public static String convertToTitleCase(String input) {
+		if (input == null || input.isEmpty()) {
+			return input;
+		}
+
+		String[] words = input.split("_");
+		StringBuilder result = new StringBuilder();
+
+		for (String word : words) {
+			if (!word.isEmpty()) {
+				result.append(word.substring(0, 1).toUpperCase())
+						.append(word.substring(1).toLowerCase())
+						.append(" ");
+			}
+		}
+		return result.toString().trim();
+	}
+
+
 	public Biome build(){
 		ExtendedBiome biome = new ExtendedBiome(
-				new Biome.BiomeProperties(id.getPath())
+				new Biome.BiomeProperties(convertToTitleCase(id.getPath()))
 						.setWaterColor(waterColor)
 						.setTemperature(temperature)
 						.setRainfall(downfall)
