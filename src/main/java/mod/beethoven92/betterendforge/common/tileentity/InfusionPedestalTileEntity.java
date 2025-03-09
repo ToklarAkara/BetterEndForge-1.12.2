@@ -58,6 +58,7 @@ public class InfusionPedestalTileEntity extends PedestalTileEntity implements IT
 		{
 			this.linkedRitual.tick();
 		}
+		super.update();
 	}
 
 	@Override

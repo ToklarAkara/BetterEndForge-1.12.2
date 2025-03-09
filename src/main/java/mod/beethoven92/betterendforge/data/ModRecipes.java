@@ -242,7 +242,11 @@ public class ModRecipes
 	    ShapedRecipeBuilder.shapedRecipe(Items.ENDER_EYE).key('S', ModItems.CRYSTAL_SHARDS).key('A', ModItems.AMBER_GEM).key('P', Items.ENDER_PEARL).patternLine("SAS").patternLine("APA").patternLine("SAS").addCriterion("has_amber_gem", hasItem(ModItems.AMBER_GEM)).build(consumer, rl("ender_eye_from_amber_gem"));
 	    ShapedRecipeBuilder.shapedRecipe(Items.STRING, 6).key('#', ModItems.SILK_FIBER).patternLine("#").patternLine("#").patternLine("#").addCriterion("has_silk_fiber", hasItem(ModItems.SILK_FIBER)).build(consumer, rl("fiber_string"));
 
-	    // LANTERNS
+		ShapelessRecipeBuilder.shapelessRecipe(ModItems.AETERNIUM_HELMET, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(ModBlocks.TERMINITE.helmet).build(consumer, rl("aeternium_helmet"));
+		ShapelessRecipeBuilder.shapelessRecipe(ModItems.AETERNIUM_CHESTPLATE, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(ModBlocks.TERMINITE.chestplate).build(consumer, rl("aeternium_chestplate"));
+		ShapelessRecipeBuilder.shapelessRecipe(ModItems.AETERNIUM_LEGGINGS, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(ModBlocks.TERMINITE.leggings).build(consumer, rl("aeternium_leggings"));
+		ShapelessRecipeBuilder.shapelessRecipe(ModItems.AETERNIUM_BOOTS, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(ModBlocks.TERMINITE.boots).build(consumer, rl("aeternium_boots"));
+		// LANTERNS
 //	    registerLantern(ModBlocks.ANDESITE_LANTERN, Blocks.ANDESITE_SLAB, "andesite");
 //	    registerLantern(ModBlocks.DIORITE_LANTERN, Blocks.DIORITE_SLAB, "diorite");
 //	    registerLantern(ModBlocks.GRANITE_LANTERN, Blocks.GRANITE_SLAB, "granite");
@@ -268,6 +272,8 @@ public class ModRecipes
 		GameRegistry.addSmelting(ModBlocks.ENDSTONE_DUST, new ItemStack(Blocks.GLASS, 1, 0), 0.35F);
 		GameRegistry.addSmelting(ModBlocks.JELLYSHROOM_CAP_PURPLE, new ItemStack(Items.SLIME_BALL, 1, 0), 0.35F);
 		GameRegistry.addSmelting(ModBlocks.MENGER_SPONGE_WET, new ItemStack(ModBlocks.MENGER_SPONGE, 1, 0), 0.35F);
+		GameRegistry.addSmelting(ModItems.ENDER_SHARD, new ItemStack(ModItems.ENDER_DUST, 1, 0), 0.35F);
+
 		// ARMORS AND TOOLS
 		makeIngotAndBlockRecipes(ModBlocks.AETERNIUM_BLOCK, ModItems.AETERNIUM_INGOT, "aeternium");
 

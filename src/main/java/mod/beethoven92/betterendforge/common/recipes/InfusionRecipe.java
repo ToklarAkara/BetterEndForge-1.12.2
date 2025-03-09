@@ -65,7 +65,7 @@ public class InfusionRecipe implements IRecipe {
 
 		for(int i=1;i<=8;i++){
 			ItemStack pedestalContents = inv.getStackInSlot(i);
-			for (int j = 0; j < 8; j++) {
+			for (int j = 0; j < ingredients.size(); j++) {
 				if(ingredients.get(j).apply(pedestalContents)){
 					ingredients.remove(j);
 					break;

@@ -26,12 +26,13 @@ public class EndStoneSmelterScreen extends GuiContainer// implements IRecipeShow
 
 	//public final GuiRecipeBook recipeBook;
 	private boolean narrow;
-
+	private InventoryPlayer player;
 	public EndStoneSmelterScreen(InventoryPlayer playerInv, EndStoneSmelterContainer container)
 	{
 		super(container);
 		//this.recipeBook = new GuiRecipeBook();
 		this.ySize = 166;
+		this.player = playerInv;
 	}
 
 	@Override
@@ -71,6 +72,13 @@ public class EndStoneSmelterScreen extends GuiContainer// implements IRecipeShow
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		this.renderHoveredToolTip(mouseX, mouseY);
 		//this.recipeBook.renderTooltip(this.guiLeft, this.guiTop, mouseX, mouseY);
+	}
+
+	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
+	{
+		String s = "End Stone Smelter";
+		this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
+		this.fontRenderer.drawString(this.player.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	@Override

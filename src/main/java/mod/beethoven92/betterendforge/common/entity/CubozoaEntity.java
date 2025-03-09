@@ -5,7 +5,9 @@ import java.util.Random;
 
 import mod.beethoven92.betterendforge.common.init.ModBiomes;
 import mod.beethoven92.betterendforge.common.init.ModItems;
+import mod.beethoven92.betterendforge.common.world.biome.BetterEndBiome;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,6 +30,8 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
+import javax.annotation.Nullable;
+
 public class CubozoaEntity extends EntityWaterMob {
 	public static final int VARIANTS = 2;
 	private static final DataParameter<Byte> VARIANT = EntityDataManager.createKey(CubozoaEntity.class, DataSerializers.BYTE);
@@ -36,6 +40,17 @@ public class CubozoaEntity extends EntityWaterMob {
 	public CubozoaEntity(World worldIn) {
 		super(worldIn);
 		this.setSize(0.6F, 1F);
+	}
+
+	@Nullable
+	@Override
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
+		IEntityLivingData data = super.onInitialSpawn(difficulty, livingdata);
+		BetterEndBiome biome = ModBiomes.getFromBiome(world.getBiome(getPosition()));
+		if (biome == ModBiomes.SULPHUR_SPRINGS) {
+			this.dataManager.set(VARIANT, (byte) 1);
+		}
+		return data;
 	}
 
 	@Override

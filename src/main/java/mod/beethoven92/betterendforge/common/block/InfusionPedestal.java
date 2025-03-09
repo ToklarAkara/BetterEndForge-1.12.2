@@ -82,9 +82,11 @@ public class InfusionPedestal extends PedestalBlock
 					pedestal.getRitual().stop();
 					return true;
 				}
-				else if (pedestal.getRitual().checkRecipe())
-				{
-					return true;
+				else {
+					pedestal.getRitual().configure();
+					if (pedestal.getRitual().checkRecipe()) {
+						return true;
+					}
 				}
 			}
 		}

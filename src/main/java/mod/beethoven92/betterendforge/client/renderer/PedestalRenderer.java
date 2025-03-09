@@ -9,14 +9,17 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.entity.RenderEnderCrystal;
 import net.minecraft.client.renderer.tileentity.TileEntityBeaconRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import org.lwjgl.util.vector.Vector3f;
+import scala.collection.parallel.ParIterableLike;
 
 public class PedestalRenderer extends TileEntitySpecialRenderer<PedestalTileEntity> {
 	@Override
@@ -55,7 +58,13 @@ public class PedestalRenderer extends TileEntitySpecialRenderer<PedestalTileEnti
 		}
 
 		if (activeItem.getItem() == Items.END_CRYSTAL) {
-			EndCrystalRenderer.render(age, tileEntity.getMaxAge(), partialTicks);
+			EntityEnderCrystal entityEnderCrystal = new EntityEnderCrystal(getWorld());
+			entityEnderCrystal.ticksExisted = 0;
+			entityEnderCrystal.innerRotation = age;
+			GlStateManager.pushMatrix();
+			GlStateManager.scale(0.3, 0.3, 0.3);
+			minecraft.getRenderManager().getEntityRenderObject(entityEnderCrystal).doRender(entityEnderCrystal, 0, 0, 0, 0, partialTicks);
+			GlStateManager.popMatrix();
 		} else if (activeItem.getItem() == ModItems.ETERNAL_CRYSTAL) {
 			EternalCrystalRenderer.render(age, partialTicks, (float) x, (float) y, (float) z);
 		} else {

@@ -116,7 +116,7 @@ public class EndChestTileEntityRenderer extends TileEntitySpecialRenderer<EChest
 	{
         if (worldIn!=null && worldIn.getBlockState(pos).getBlock() instanceof BlockChest) {
             for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL) {
-                if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() instanceof BlockChest) {
+                if (worldIn.getBlockState(pos.offset(enumfacing)).getBlock() == worldIn.getBlockState(pos).getBlock()) {
                     return enumfacing;
                 }
             }
