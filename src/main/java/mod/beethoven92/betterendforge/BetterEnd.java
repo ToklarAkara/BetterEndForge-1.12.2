@@ -1,6 +1,7 @@
 package mod.beethoven92.betterendforge;
 
 import git.jbredwards.nether_api.mod.common.registry.NetherAPIRegistry;
+import mod.beethoven92.betterendforge.betterendforge.Tags;
 import mod.beethoven92.betterendforge.client.ClientOptions;
 import mod.beethoven92.betterendforge.client.PhysicalClientSide;
 import mod.beethoven92.betterendforge.client.gui.GuiHandler;
@@ -34,15 +35,16 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 
 
-@Mod(modid = BetterEnd.MOD_ID, name = "BetterEndForge", version = "1.1.1", dependencies = "required-after:nether_api@[1.3.0,)")
-public class BetterEnd
-{
-	public static final String MOD_ID = "betterendforge";
+@Mod(modid = BetterEnd.MOD_ID, name = BetterEnd.MOD_NAME, version = BetterEnd.VERSION, dependencies = BetterEnd.DEPENDENCIES)
+public class BetterEnd {
 
+	public static final String MOD_ID = Tags.MOD_ID;
+	public static final String MOD_NAME = Tags.MOD_NAME;
+	public static final String VERSION = Tags.VERSION;
     public static final Logger LOGGER = LogManager.getLogger();
+	public static final String DEPENDENCIES = "required-after:nether_api@[1.3.0,);";
 
-
-	@Mod.Instance(MOD_ID)
+	@Mod.Instance(Tags.MOD_ID)
 	public static BetterEnd instance;
 
 	@Mod.EventHandler
@@ -80,7 +82,7 @@ public class BetterEnd
 		AlloyingRecipes.init();
 	}
     
-    @Mod.EventBusSubscriber(modid = BetterEnd.MOD_ID)
+    @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
     public static class WorldGenRegistryEvents
     {
 
@@ -123,7 +125,7 @@ public class BetterEnd
     // Registration helper
     public static <T extends IForgeRegistryEntry<T>> T register(IForgeRegistry<T> registry, T entry, String registryKey) 
     {
-        entry.setRegistryName(new ResourceLocation(BetterEnd.MOD_ID, registryKey));
+        entry.setRegistryName(new ResourceLocation(Tags.MOD_ID, registryKey));
         registry.register(entry);
         return entry;
     }
@@ -134,7 +136,7 @@ public class BetterEnd
 	}
 
 	public static ResourceLocation makeID(String path) {
-		return new ResourceLocation(MOD_ID, path);
+		return new ResourceLocation(Tags.MOD_ID, path);
 	}
 
 }
