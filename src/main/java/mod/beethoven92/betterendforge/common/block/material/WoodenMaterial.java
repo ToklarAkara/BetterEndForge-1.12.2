@@ -52,6 +52,7 @@ public class WoodenMaterial
 	public final Block ladder;
 	public final Block sign_standing;
 	public final Block sign_wall;
+	public final Item sign;
 //
 	public final Block chest;
 //	public final Block barrel;
@@ -147,7 +148,8 @@ public class WoodenMaterial
 						return new EndSignTileEntity();
 					}
 				}.setHardness(3.0F));
-		ModItems.ITEMS.add(new EndSignItem(sign_standing, sign_wall).setRegistryName(name + "_sign").setTranslationKey(name + "_sign").setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+		sign = new EndSignItem(sign_standing, sign_wall).setRegistryName(name + "_sign").setTranslationKey(name + "_sign").setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+		ModItems.ITEMS.add(sign);
 //		barrel = registerBlockWithBurnItem(name + "_barrel",
 //				() -> new EndBarrelBlock(materialPlanksNotSolid), 300);
 		shelf = registerBlockWithBurnItem(name + "_bookshelf",

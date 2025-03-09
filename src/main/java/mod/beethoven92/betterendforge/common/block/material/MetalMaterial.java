@@ -91,15 +91,15 @@ public class MetalMaterial
 		bulb_lantern = new BulbVineLanternBlock(EnumDyeColor.WHITE).setHardness(3.0F);//blockMaterial);
 		bulb_lantern_colored = new ColoredMaterial(name + "_bulb_lantern", ()->new BulbVineLanternBlock(), bulb_lantern, false);
 
-		nugget = new Item();
-		ingot = new Item();
+		nugget = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+		ingot = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
 
-		shovelHead = new Item();
-		pickaxeHead = new Item();
-		axeHead = new Item();
-		hoeHead = new Item();
-		swordHandle = new Item();
-		swordBlade = new Item();
+		shovelHead = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+		pickaxeHead = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+		axeHead = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+		hoeHead = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+		swordHandle = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
+		swordBlade = new Item().setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
 
 		shovel = new ItemSpade(material);
 		sword = new ItemSword(material);

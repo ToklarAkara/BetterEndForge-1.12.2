@@ -5,8 +5,8 @@ import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.objects.Object2IntMap.Entry;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
-import mod.beethoven92.betterendforge.common.block.EndStoneSmelter;
 import mod.beethoven92.betterendforge.common.init.ModTileEntityTypes;
+import mod.beethoven92.betterendforge.common.block.EndStoneSmelter;
 import mod.beethoven92.betterendforge.common.inventory.EndStoneSmelterContainer;
 import mod.beethoven92.betterendforge.common.recipes.AlloyingRecipe;
 import mod.beethoven92.betterendforge.data.AlloyingRecipes;
@@ -211,6 +211,8 @@ public class EndStoneSmelterTileEntity extends TileEntityLockable implements ITi
 			if (initialBurning != burning)
 			{
 				this.world.setBlockState(pos, world.getBlockState(pos).withProperty(EndStoneSmelter.LIT, burning), 3);
+				this.validate();
+				world.setTileEntity(this.pos, this);
 				this.markDirty();
 			}
 		}
@@ -392,14 +394,39 @@ public class EndStoneSmelterTileEntity extends TileEntityLockable implements ITi
 		return true;
 	}
 
-	@Override
-	public int getField(int id) {
-		return 0;
+	public int getField(int id)
+	{
+		switch (id)
+		{
+			case 0:
+				return this.burnTime;
+			case 1:
+				return this.fuelTime;
+			case 2:
+				return this.smeltTime;
+			case 3:
+				return this.smeltTimeTotal;
+			default:
+				return 0;
+		}
 	}
 
-	@Override
-	public void setField(int id, int value) {
-
+	public void setField(int id, int value)
+	{
+		switch (id)
+		{
+			case 0:
+				this.burnTime = value;
+				break;
+			case 1:
+				this.fuelTime = value;
+				break;
+			case 2:
+				this.smeltTime = value;
+				break;
+			case 3:
+				this.smeltTimeTotal = value;
+		}
 	}
 
 	@Override

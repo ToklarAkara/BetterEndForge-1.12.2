@@ -78,11 +78,20 @@ public class AlloyingRecipes {
         );
         consumer.accept(
                 new AlloyingRecipe(
+                        rl("terminite_ingot"), "",
+                        Ingredient.fromItem(ModItems.ENDER_DUST),
+                        Ingredient.fromItem(Items.IRON_INGOT),
+                        new ItemStack(ModBlocks.TERMINITE.ingot, 1),
+                        4.5f, 600
+                )
+        );
+        consumer.accept(
+                new AlloyingRecipe(
                         rl("aeternium_ingot"), "",
                         Ingredient.fromItem(ModBlocks.TERMINITE.ingot),
                         Ingredient.fromItem(Items.DIAMOND),
-                        new ItemStack(ModItems.AETERNIUM_INGOT, 3),
-                        4.5f, 600
+                        new ItemStack(ModItems.AETERNIUM_INGOT, 1),
+                        2.5f, 450
                 )
         );
     }
