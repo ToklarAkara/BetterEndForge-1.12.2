@@ -1,7 +1,5 @@
 package mod.beethoven92.betterendforge.client.audio;
 
-import net.minecraft.client.audio.MusicTicker;
-
 public class BetterEndMusicNames {
     public static String MUSIC_FOREST = "MUSIC_FOREST";
     public static String MUSIC_WATER = "MUSIC_WATER";

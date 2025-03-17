@@ -1,9 +1,8 @@
 package mod.beethoven92.betterendforge;
 
-import git.jbredwards.nether_api.mod.common.registry.NetherAPIRegistry;
-import mod.beethoven92.betterendforge.betterendforge.Tags;
 import mod.beethoven92.betterendforge.client.ClientOptions;
 import mod.beethoven92.betterendforge.client.PhysicalClientSide;
+import mod.beethoven92.betterendforge.client.audio.MusicRegister;
 import mod.beethoven92.betterendforge.client.gui.GuiHandler;
 import mod.beethoven92.betterendforge.common.init.*;
 import mod.beethoven92.betterendforge.common.teleporter.EndPortals;
@@ -17,7 +16,6 @@ import mod.beethoven92.betterendforge.data.ModRecipes;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -72,6 +70,7 @@ public class BetterEnd {
 		ModTags.initTags();
 		if(event.getSide()==Side.CLIENT) {
 			PhysicalClientSide.registerTileRenderers();
+			MusicRegister.INSTANCE.registerMusic();
 		}
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}
