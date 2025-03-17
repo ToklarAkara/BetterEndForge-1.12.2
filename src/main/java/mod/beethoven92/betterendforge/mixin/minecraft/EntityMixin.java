@@ -1,33 +1,31 @@
-package mod.beethoven92.betterendforge.mixin;
+package mod.beethoven92.betterendforge.mixin.minecraft;
 
-import mod.beethoven92.betterendforge.common.util.sdf.vector.Vector3d;
-import net.minecraft.world.WorldServer;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import mod.beethoven92.betterendforge.common.interfaces.TeleportingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Entity.class)
-public abstract class EntityMixin implements TeleportingEntity
-{	
-	private BlockPos exitPos;
-	private long cooldown;
-	
-	@Shadow
-	public float rotationYaw;
-	@Shadow
-	public float rotationPitch;
-	@Shadow
-	public World world;
-	
+public abstract class EntityMixin implements TeleportingEntity {
+    @Unique
+    private BlockPos betterEndForge_1_12_2$exitPos;
+
+    @Unique
+    private long betterEndForge_1_12_2$cooldown;
+
+    @Shadow
+    public float rotationYaw;
+
+    @Shadow
+    public float rotationPitch;
+
+    @Shadow
+    public World world;
+
 //	@Final
 //	@Shadow
 //	public abstract void detach();
@@ -36,7 +34,8 @@ public abstract class EntityMixin implements TeleportingEntity
 //	public abstract Vector3d getMotion();
 //
 
-	@Shadow public boolean isDead;
+    @Shadow
+    public boolean isDead;
 
 //	@Inject(method = "changeDimension", at = @At("HEAD"), cancellable = true) TODO
 //	public void changeDimension(ServerWorld destination, CallbackInfoReturnable<Entity> info)
@@ -89,40 +88,34 @@ public abstract class EntityMixin implements TeleportingEntity
 //			this.cooldown--;
 //		}
 //	}
-	
-	@Override
-	public long beGetCooldown()
-	{
-		return this.cooldown;
-	}
 
-	@Override
-	public void beSetCooldown(long time)
-	{
-		this.cooldown = time;
-	}
+    @Override
+    public long beGetCooldown() {
+        return this.betterEndForge_1_12_2$cooldown;
+    }
 
-	@Override
-	public void beSetExitPos(BlockPos pos)
-	{
-		this.exitPos = pos.toImmutable();
-	}
+    @Override
+    public void beSetCooldown(long time) {
+        this.betterEndForge_1_12_2$cooldown = time;
+    }
 
-	@Override
-	public BlockPos beGetExitPos()
-	{
-		return this.exitPos;
-	}
-	
-	@Override
-	public void beResetExitPos()
-	{
-		this.exitPos = null;
-	}
-	
-	@Override
-	public boolean beCanTeleport()
-	{
-		return this.exitPos != null;
-	}
+    @Override
+    public void beSetExitPos(BlockPos pos) {
+        this.betterEndForge_1_12_2$exitPos = pos.toImmutable();
+    }
+
+    @Override
+    public BlockPos beGetExitPos() {
+        return this.betterEndForge_1_12_2$exitPos;
+    }
+
+    @Override
+    public void beResetExitPos() {
+        this.betterEndForge_1_12_2$exitPos = null;
+    }
+
+    @Override
+    public boolean beCanTeleport() {
+        return this.betterEndForge_1_12_2$exitPos != null;
+    }
 }

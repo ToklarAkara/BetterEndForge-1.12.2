@@ -1,7 +1,6 @@
-package mod.beethoven92.betterendforge.mixin;
+package mod.beethoven92.betterendforge.mixin.minecraft;
 
 import mod.beethoven92.betterendforge.common.capability.EndData;
-import mod.beethoven92.betterendforge.config.Configs;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.management.PlayerChunkMapEntry;
 import net.minecraft.util.math.BlockPos;
@@ -19,7 +18,9 @@ import javax.annotation.Nullable;
 @Mixin(PlayerChunkMapEntry.class)
 public class MixinPlayerChunkMapEntry {
 
-    @Shadow @Nullable private Chunk chunk;
+    @Shadow
+    @Nullable
+    private Chunk chunk;
 
     @Inject(method = "sendToPlayer", at = @At(value = "HEAD"))
     private void sendToPlayerMixin(EntityPlayerMP p_187278_1_, CallbackInfo ci) {
@@ -37,12 +38,16 @@ public class MixinPlayerChunkMapEntry {
     }
 
     @Unique
-    private void betterEndForge$doDecoration(){
-        if(chunk==null) return;
-        if(chunk.getWorld().provider.getDimension()!=1) return;
+    private void betterEndForge$doDecoration() {
+        if (chunk == null) {
+            return;
+        }
+        if (chunk.getWorld().provider.getDimension() != 1) {
+            return;
+        }
         EndData data = EndData.getInstance();
-        BlockPos pos = new BlockPos(chunk.x * 16,0, chunk.z * 16);
-        if(data!=null && data.hasPass(pos)) {
+        BlockPos pos = new BlockPos(chunk.x * 16, 0, chunk.z * 16);
+        if (data != null && data.hasPass(pos)) {
             data.removePass(pos);
             chunk.getWorld().getBiome(pos.add(16, 0, 16)).decorate(chunk.getWorld(), chunk.getWorld().rand, pos);
         }

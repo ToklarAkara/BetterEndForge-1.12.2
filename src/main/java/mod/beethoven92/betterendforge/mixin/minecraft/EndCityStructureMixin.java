@@ -1,4 +1,4 @@
-package mod.beethoven92.betterendforge.mixin;
+package mod.beethoven92.betterendforge.mixin.minecraft;
 
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.entity.monster.EntityShulker;
@@ -15,19 +15,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Random;
 
 @Mixin(StructureEndCityPieces.CityTemplate.class)
-public abstract class EndCityStructureMixin
-{
-	@Inject(method = "handleDataMarker", at=@At("HEAD"), cancellable = true)
-	protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb, CallbackInfo ci){
-		if (function.startsWith("Sentry"))
-		{
-			if(!worldIn.getEntitiesWithinAABB(EntityShulker.class, new AxisAlignedBB(pos).expand(1, 1, 1)).isEmpty())
+public abstract class EndCityStructureMixin {
+    @Inject(method = "handleDataMarker", at = @At("HEAD"), cancellable = true)
+    protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb, CallbackInfo ci) {
+        if (function.startsWith("Sentry")) {
+			if (!worldIn.getEntitiesWithinAABB(EntityShulker.class, new AxisAlignedBB(pos).expand(1, 1, 1)).isEmpty()) {
 				ci.cancel();
-		}
-		else if (function.startsWith("Elytra"))
-		{
-			if(!worldIn.getEntitiesWithinAABB(EntityItemFrame.class, new AxisAlignedBB(pos).expand(1, 1, 1)).isEmpty())
+			}
+        } else if (function.startsWith("Elytra")) {
+			if (!worldIn.getEntitiesWithinAABB(EntityItemFrame.class, new AxisAlignedBB(pos).expand(1, 1, 1)).isEmpty()) {
 				ci.cancel();
-		}
-	}
+			}
+        }
+    }
 }

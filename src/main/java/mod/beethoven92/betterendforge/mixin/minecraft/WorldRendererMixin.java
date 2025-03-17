@@ -1,4 +1,4 @@
-package mod.beethoven92.betterendforge.mixin;
+package mod.beethoven92.betterendforge.mixin.minecraft;
 
 import mod.beethoven92.betterendforge.WorldRendererHelper;
 import mod.beethoven92.betterendforge.client.ClientOptions;
