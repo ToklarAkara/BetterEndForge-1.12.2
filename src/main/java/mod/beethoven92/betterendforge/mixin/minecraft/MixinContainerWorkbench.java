@@ -1,4 +1,4 @@
-package mod.beethoven92.betterendforge.mixin;
+package mod.beethoven92.betterendforge.mixin.minecraft;
 
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,14 +14,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ContainerWorkbench.class)
 public class MixinContainerWorkbench {
-    @Shadow @Final private World world;
+    @Shadow
+    @Final
+    private World world;
 
-    @Shadow @Final private BlockPos pos;
+    @Shadow
+    @Final
+    private BlockPos pos;
 
     @Inject(method = "canInteractWith", at = @At("HEAD"), cancellable = true)
-    public void canInteractWith(EntityPlayer playerIn, CallbackInfoReturnable<Boolean> cir){
+    public void canInteractWith(EntityPlayer playerIn, CallbackInfoReturnable<Boolean> cir) {
         if (this.world.getBlockState(this.pos).getBlock() instanceof BlockWorkbench) {
-            cir.setReturnValue(playerIn.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D);
+            cir.setReturnValue(playerIn.getDistanceSq((double) this.pos.getX() + 0.5D, (double) this.pos.getY() + 0.5D, (double) this.pos.getZ() + 0.5D) <= 64.0D);
         }
     }
 }

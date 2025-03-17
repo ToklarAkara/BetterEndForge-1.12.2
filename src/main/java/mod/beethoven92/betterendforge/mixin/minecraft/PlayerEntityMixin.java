@@ -1,23 +1,7 @@
-package mod.beethoven92.betterendforge.mixin;
+package mod.beethoven92.betterendforge.mixin.minecraft;
 
-import java.util.Optional;
-
-import mod.beethoven92.betterendforge.common.util.sdf.vector.Vector3d;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.world.WorldServer;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import mod.beethoven92.betterendforge.common.block.BlockProperties;
-import mod.beethoven92.betterendforge.common.block.BlockProperties.TripleShape;
-import mod.beethoven92.betterendforge.common.init.ModBlocks;
-import mod.beethoven92.betterendforge.common.util.BlockHelper;
-import mod.beethoven92.betterendforge.common.util.ModMathHelper;
-import net.minecraft.util.math.BlockPos;
 
 @Mixin(EntityPlayer.class)
 public abstract class PlayerEntityMixin {
