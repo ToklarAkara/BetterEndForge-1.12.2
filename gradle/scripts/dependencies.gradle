@@ -66,6 +66,8 @@ dependencies {
     //     transitive = false
     // }
 
+    implementation rfg.deobf("curse.maven:fermiumbooter-968474:5672830")
+
     implementation "com.cleanroommc:configanytime:3.0"
     implementation "mezz:jei:4.26.1" // HEI
     implementation rfg.deobf("maven.modrinth:nether-api:1m3gvzYh")
