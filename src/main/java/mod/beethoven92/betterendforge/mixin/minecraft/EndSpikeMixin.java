@@ -18,6 +18,7 @@ public abstract class EndSpikeMixin {
     @Shadow
     private int height;
 
+    //Used to return the appropriate height of the replaced pillars
     @Inject(method = "getHeight", at = @At("HEAD"), cancellable = true)
     private void be_getSpikeHeight(CallbackInfoReturnable<Integer> info) {
 

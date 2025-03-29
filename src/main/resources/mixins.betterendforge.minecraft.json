@@ -6,26 +6,17 @@
 	"minVersion": "0.8.5",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"AnvilBlockMixin",
-		"BoneMealItemMixin",
 		"ChorusFlowerBlockMixin",
 		"ChorusPlantBlockMixin",
 		"EndCityStructureMixin",
-		"EndDragonFightMixin",
 		"EndermanEntityMixin",
 		"EndSpikeFeatureMixin",
 		"EndSpikeMixin",
-		"EntityMixin",
 		"MixinContainerWorkbench",
-		"MixinPlayerChunkMapEntry",
-		"PlayerEntityMixin",
-		"ServerLevelMixin",
-		"ServerPlayNetHandlerMixin"
+		"MixinPlayerChunkMapEntry"
 	],
 	"server": [],
 	"client": [
-		"ClientPlayNetHandlerMixin",
-		"SoundVolumeAccessor",
 		"WorldRendererMixin"
 	]
 }

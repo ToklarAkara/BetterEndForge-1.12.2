@@ -22,6 +22,7 @@ public class MixinContainerWorkbench {
     @Final
     private BlockPos pos;
 
+    //Allows to open custom workbenched
     @Inject(method = "canInteractWith", at = @At("HEAD"), cancellable = true)
     public void canInteractWith(EntityPlayer playerIn, CallbackInfoReturnable<Boolean> cir) {
         if (this.world.getBlockState(this.pos).getBlock() instanceof BlockWorkbench) {

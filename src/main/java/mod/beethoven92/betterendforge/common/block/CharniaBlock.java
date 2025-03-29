@@ -21,7 +21,7 @@ import java.util.Random;
 public class CharniaBlock extends UnderwaterPlantBlock {
 
 	public CharniaBlock() {
-		super(Material.WATER);
+		super(Material.PLANTS);
 		this.setTickRandomly(true);
 	}
 

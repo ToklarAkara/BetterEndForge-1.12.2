@@ -26,6 +26,7 @@ import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+//Allowing chorus plants to spawn on chorus nylium and end ground blocks
 @Mixin(value = BlockChorusFlower.class, priority = 100)
 public abstract class ChorusFlowerBlockMixin extends Block {
     @Unique

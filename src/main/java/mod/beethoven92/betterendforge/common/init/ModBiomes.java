@@ -79,7 +79,7 @@ public class ModBiomes
 
 	public static void register() {}
 
-	public static void onWorldLoad(long seed, IForgeRegistry<Biome> registry) {
+	public static void onWorldLoad(IForgeRegistry<Biome> registry) {
 		CAVE_BIOMES.getBiomes().forEach(biome -> biome.updateActualBiomes(registry));
 		CAVE_BIOMES.rebuild();
 	}

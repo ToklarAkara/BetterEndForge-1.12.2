@@ -2,7 +2,6 @@ package mod.beethoven92.betterendforge.client.renderer;
 
 import com.google.common.collect.Maps;
 import mod.beethoven92.betterendforge.BetterEnd;
-import mod.beethoven92.betterendforge.common.block.EndSignBlock;
 import mod.beethoven92.betterendforge.common.init.ModItems;
 import mod.beethoven92.betterendforge.common.item.EndSignItem;
 import net.minecraft.block.Block;

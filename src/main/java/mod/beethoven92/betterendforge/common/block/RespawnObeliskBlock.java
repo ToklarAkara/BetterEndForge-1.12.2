@@ -122,7 +122,8 @@ public class RespawnObeliskBlock extends Block {
 			return false;
 		} else if (!worldIn.isRemote) {
 			EntityPlayerMP serverPlayerEntity = (EntityPlayerMP) player;
-			serverPlayerEntity.setSpawnPoint(pos, false);
+			serverPlayerEntity.setSpawnPoint(pos.up(3), true);
+			serverPlayerEntity.setSpawnDimension(worldIn.provider.getDimension());
 			serverPlayerEntity.sendMessage(new TextComponentTranslation("message.betterendforge.set_spawn"));
 			double px = pos.getX() + 0.5;
 			double py = pos.getY() + 0.5;

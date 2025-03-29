@@ -3,7 +3,6 @@ package mod.beethoven92.betterendforge.common.block.material;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-import mod.beethoven92.betterendforge.common.block.EndSignBlock;
 import mod.beethoven92.betterendforge.common.block.template.BarkBlockTemplate;
 import mod.beethoven92.betterendforge.common.block.template.StripableBarkBlockTemplate;
 import mod.beethoven92.betterendforge.common.block.template.StripableLogBlockTemplate;
@@ -13,7 +12,6 @@ import mod.beethoven92.betterendforge.common.init.ModItems;
 import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.item.EndSignItem;
 import mod.beethoven92.betterendforge.common.tileentity.EChestTileEntity;
-import mod.beethoven92.betterendforge.common.tileentity.ESignTileEntity;
 import mod.beethoven92.betterendforge.common.tileentity.EndSignTileEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;

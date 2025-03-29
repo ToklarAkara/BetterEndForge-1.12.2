@@ -39,6 +39,7 @@ public abstract class EndSpikeFeatureMixin {
     @Shadow
     private WorldGenSpikes.EndSpike spike;
 
+    //Used to replace the default end pillars with the custom ones
     @Inject(method = "generate", at = @At("HEAD"), cancellable = true)
     private void beGenerateSpike(World worldIn, Random rand, BlockPos position, CallbackInfoReturnable<Boolean> cir) {
         if (GeneratorOptions.hasPillars()) {
@@ -84,8 +85,6 @@ public abstract class EndSpikeFeatureMixin {
             PlacementSettings data = new PlacementSettings();
             base.addBlocksToWorld(world, pos1, data);
             top.addBlocksToWorld(world, pos2, data);
-            //base.func_237146_a_(world, pos1, pos1, data, random, 2);
-            //top.func_237146_a_(world, pos2, pos2, data, random, 2);
 
             int r2 = radius * radius + 1;
             Mutable mut = new Mutable();

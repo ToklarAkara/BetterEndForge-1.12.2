@@ -15,6 +15,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 
 @Mixin(EntityEnderman.class)
 public abstract class EndermanEntityMixin {
+    //Used to make endermen not attack you if you are using EndVeil effect/enchant
     @Inject(at = @At("HEAD"), method = "shouldAttackPlayer", cancellable = true)
     private void shouldAttackPlayer(EntityPlayer player, CallbackInfoReturnable<Boolean> info) {
         if (player.isCreative()

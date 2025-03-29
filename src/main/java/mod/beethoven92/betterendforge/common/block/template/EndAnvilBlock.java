@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.block.template;
 
 import mod.beethoven92.betterendforge.common.inventory.ModContainerRepair;
 import net.minecraft.block.BlockAnvil;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -31,6 +32,18 @@ public class EndAnvilBlock extends BlockAnvil {
         }
         return true;
     }
+
+	@Override
+	public void onEndFalling(World worldIn, BlockPos pos, IBlockState fallingState, IBlockState hitState) {
+		PropertyInteger destruction = BlockAnvil.DAMAGE;
+		int destructionLevel = fallingState.getValue(destruction);
+		try {
+			IBlockState state = fallingState.withProperty(destruction, destructionLevel + 1);
+			worldIn.setBlockState(pos, state);
+		} catch (Exception ex) {
+			worldIn.setBlockState(pos, Blocks.END_STONE.getDefaultState());
+		}
+	}
 
 	public static class Anvil implements IInteractionObject {
 		private final World world;

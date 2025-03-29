@@ -24,6 +24,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -79,6 +80,7 @@ public class BetterEnd {
 	public static void postInit(FMLPostInitializationEvent event) {
 		InfusionRecipes.init();
 		AlloyingRecipes.init();
+		ModBiomes.onWorldLoad(ForgeRegistries.BIOMES);
 	}
     
     @Mod.EventBusSubscriber(modid = Tags.MOD_ID)

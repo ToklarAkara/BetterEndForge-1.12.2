@@ -20,6 +20,7 @@ import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+//Allowing chorus plants to spawn on chorus nylium and end ground blocks
 @Mixin(value = BlockChorusPlant.class, priority = 100)
 public abstract class ChorusPlantBlockMixin extends Block {
 
@@ -35,16 +36,6 @@ public abstract class ChorusPlantBlockMixin extends Block {
         }
         return plant;
     }
-
-//	@Inject(method = "makeConnections", at = @At("RETURN"), cancellable = true)
-//	private void beConnectionProperties(IBlockReader blockGetter, BlockPos blockPos, CallbackInfoReturnable<BlockState> info)
-//	{
-//		BlockState plant = info.getReturnValue();
-//		if (plant.isIn(Blocks.CHORUS_PLANT) && blockGetter.getBlockState(blockPos.down()).isIn(ModTags.END_GROUND)) {
-//			info.setReturnValue(plant.with(BlockStateProperties.DOWN, true));
-//		}
-//
-//	}
 
     @Inject(method = "canPlaceBlockAt", at = @At("HEAD"), cancellable = true)
     private void isValidPosition(World world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {

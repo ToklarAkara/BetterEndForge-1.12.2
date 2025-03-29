@@ -37,6 +37,7 @@ public class MixinPlayerChunkMapEntry {
         betterEndForge$doDecoration();
     }
 
+    //Used to overcome the cascading worldgen issue
     @Unique
     private void betterEndForge$doDecoration() {
         if (chunk == null) {

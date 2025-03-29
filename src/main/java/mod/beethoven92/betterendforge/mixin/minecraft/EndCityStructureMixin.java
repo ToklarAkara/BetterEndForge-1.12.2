@@ -16,6 +16,8 @@ import java.util.Random;
 
 @Mixin(StructureEndCityPieces.CityTemplate.class)
 public abstract class EndCityStructureMixin {
+
+    //Fixing the NetherAPI double entity bug
     @Inject(method = "handleDataMarker", at = @At("HEAD"), cancellable = true)
     protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand, StructureBoundingBox sbb, CallbackInfo ci) {
         if (function.startsWith("Sentry")) {

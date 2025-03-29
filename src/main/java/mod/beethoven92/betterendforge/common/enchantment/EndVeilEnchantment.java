@@ -9,6 +9,7 @@ public class EndVeilEnchantment extends Enchantment
 	public EndVeilEnchantment(Rarity rarityIn, EnumEnchantmentType typeIn, EntityEquipmentSlot[] slots)
 	{
 		super(rarityIn, typeIn, slots);
+		this.name = "end_veil";
 	}
 
 	@Override

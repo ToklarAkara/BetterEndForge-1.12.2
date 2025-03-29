@@ -22,6 +22,7 @@ public abstract class WorldRendererMixin {
         //directOpenGL = ModList.get().isLoaded("optifine") || ModList.get().isLoaded("immersive_portals");
     }
 
+    //Used to render custom end skybox
     @Inject(method = "renderSkyEnd", at = @At("HEAD"), cancellable = true)
     private void renderSkyEnd(CallbackInfo ci) {
         WorldRendererHelper.renderSkyEnd(cloudTickCounter);
