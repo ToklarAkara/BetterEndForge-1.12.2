@@ -20,7 +20,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.fml.common.Optional;
 
+@Optional.Interface(iface = "git.jbredwards.fluidlogged_api.api.block.IFluidloggable", modid = "fluidlogged_api", striprefs = true)
 public class UnderwaterPlantBlock extends BlockBush implements IGrowable, IShearable {
 	private static final AxisAlignedBB SHAPE = new AxisAlignedBB(4D/16D, 0D/16D, 4D/16D, 12D/16D, 14D/16D, 12D/16D);
 

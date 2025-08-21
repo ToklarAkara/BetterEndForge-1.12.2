@@ -9,7 +9,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.common.Optional;
 
+@Optional.Interface(iface = "git.jbredwards.fluidlogged_api.api.block.IFluidloggable", modid = "fluidlogged_api", striprefs = true)
 public class UnderwaterWallPlantBlock extends WallPlantBlock
 {
 	public static final PropertyBool WATERLOGGED = PropertyBool.create("waterlogged");
