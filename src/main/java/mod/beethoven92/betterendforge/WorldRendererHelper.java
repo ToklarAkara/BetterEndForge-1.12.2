@@ -72,8 +72,8 @@ public class WorldRendererHelper {
 
             //if (directOpenGL)
             {
-                GL11.glEnable(GL11.GL_ALPHA_TEST);
-                GL11.glAlphaFunc(516, 0.0F);
+                //GL11.glEnable(GL11.GL_ALPHA_TEST);
+                GL11.glAlphaFunc(516, 0.0F);//1073741760
                 GL11.glEnable(GL11.GL_BLEND);
                 GlStateManager.depthMask(false);
             }
@@ -145,6 +145,8 @@ public class WorldRendererHelper {
             }
 
             GlStateManager.enableTexture2D();
+            GL11.glDisable(GL11.GL_BLEND);
+            GL11.glAlphaFunc(516, 0.5F);
             GlStateManager.depthMask(true);
 
             //ci.cancel();
