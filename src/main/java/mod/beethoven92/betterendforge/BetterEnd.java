@@ -16,6 +16,7 @@ import mod.beethoven92.betterendforge.data.ModRecipes;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -92,6 +93,7 @@ public class BetterEnd {
 			ModBiomes.register();
 			ModBiomes.getModBiomes().forEach((end_biome) -> {
 				event.getRegistry().register(end_biome.getBiome());
+				BiomeDictionary.addTypes(end_biome.getBiome(), BiomeDictionary.Type.COLD, BiomeDictionary.Type.DRY, BiomeDictionary.Type.END);
 			});
 		}
 

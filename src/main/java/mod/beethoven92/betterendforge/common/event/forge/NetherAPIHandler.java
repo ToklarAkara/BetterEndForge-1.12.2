@@ -23,7 +23,6 @@ public class NetherAPIHandler {
         ModBiomes.getModBiomes().forEach((end_biome) -> {
             if(!ModBiomes.CAVE_BIOMES.getBiomes().contains(end_biome))
                 event.registry.registerBiome(end_biome.getBiome(), Configs.BIOME_CONFIG.getInt(end_biome.getID(), "netherapi_weight", 80));
-            BiomeDictionary.addTypes(end_biome.getBiome(), BiomeDictionary.Type.COLD, BiomeDictionary.Type.DRY, BiomeDictionary.Type.END);
         });
         Configs.BIOME_CONFIG.saveChanges();
     }
