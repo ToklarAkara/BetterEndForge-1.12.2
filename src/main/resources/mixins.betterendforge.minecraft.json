@@ -1,22 +1,26 @@
 {
-	"package": "mod.beethoven92.betterendforge.mixin.minecraft",
-	"required": true,
-	"refmap": "mixins.betterendforge.refmap.json",
-	"target": "@env(DEFAULT)",
-	"minVersion": "0.8.5",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": [
-		"ChorusFlowerBlockMixin",
-		"ChorusPlantBlockMixin",
-		"EndCityStructureMixin",
-		"EndermanEntityMixin",
-		"EndSpikeFeatureMixin",
-		"EndSpikeMixin",
-		"MixinContainerWorkbench",
-		"MixinPlayerChunkMapEntry"
-	],
-	"server": [],
-	"client": [
-		"WorldRendererMixin"
+  "package": "mod.beethoven92.betterendforge.mixin.minecraft",
+  "required": true,
+  "refmap": "mixins.betterendforge.refmap.json",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8.5",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BlockFurnaceAccessor",
+    "BlockLadderAccessor",
+    "BlockWorkbenchAccessor",
+    "ChorusFlowerBlockMixin",
+    "ChorusPlantBlockMixin",
+    "EndCityStructureMixin",
+    "EndermanEntityMixin",
+    "EndSpikeFeatureMixin",
+    "EndSpikeMixin",
+    "MixinContainerWorkbench",
+    "MixinPlayerChunkMapEntry",
+    "TileEntityFurnaceAccessor"
+  ],
+  "server": [],
+  "client": [
+    "WorldRendererMixin"
 	]
 }

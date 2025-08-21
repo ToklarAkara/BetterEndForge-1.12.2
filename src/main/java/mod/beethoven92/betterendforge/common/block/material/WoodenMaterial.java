@@ -13,6 +13,8 @@ import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.item.EndSignItem;
 import mod.beethoven92.betterendforge.common.tileentity.EChestTileEntity;
 import mod.beethoven92.betterendforge.common.tileentity.EndSignTileEntity;
+import mod.beethoven92.betterendforge.mixin.minecraft.BlockLadderAccessor;
+import mod.beethoven92.betterendforge.mixin.minecraft.BlockWorkbenchAccessor;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MapColor;
@@ -119,9 +121,9 @@ public class WoodenMaterial
 //		composter = registerBlockWithBurnItem(name + "_composter",
 //				() -> new BlockComposter(materialPlanksNotSolid), 300);
 		craftingTable = registerBlockWithBurnItem(name + "_crafting_table",
-				() -> new BlockWorkbench().setHardness(3.0F), 300);
+				() -> BlockWorkbenchAccessor.constructNew().setHardness(3.0F), 300);
 		ladder = registerBlockWithBurnItem(name + "_ladder",
-				() -> new BlockLadder().setHardness(3.0F), 300);
+				() -> BlockLadderAccessor.constructNew().setHardness(3.0F), 300);
 		chest = ModBlocks.registerBlock(name + "_chest",
 				() -> new BlockChest(BlockChest.Type.BASIC) {
 					@Override
