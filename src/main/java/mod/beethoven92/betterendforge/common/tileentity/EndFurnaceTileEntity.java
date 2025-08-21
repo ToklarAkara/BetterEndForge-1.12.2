@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.tileentity;
 
 import mod.beethoven92.betterendforge.common.block.template.EndFurnaceBlock;
 import mod.beethoven92.betterendforge.common.init.ModTileEntityTypes;
+import mod.beethoven92.betterendforge.mixin.minecraft.TileEntityFurnaceAccessor;
 import net.minecraft.block.BlockFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -25,24 +26,26 @@ public class EndFurnaceTileEntity extends TileEntityFurnace implements ITickable
 
 	public void update()
 	{
+		//TODO: comment by nischi, instead of all the private accessors this could probably easily be done with a small mixin instead
+		TileEntityFurnaceAccessor thisFurnace = (TileEntityFurnaceAccessor) this;
 		boolean flag = this.isBurning();
 		boolean flag1 = false;
 
 		if (this.isBurning())
 		{
-			--this.furnaceBurnTime;
+			thisFurnace.setFurnaceBurnTime(thisFurnace.getFurnaceBurnTime()-1);
 		}
 
 		if (!this.world.isRemote)
 		{
-			ItemStack itemstack = this.furnaceItemStacks.get(1);
+			ItemStack itemstack = thisFurnace.getFurnaceItemStacks().get(1);
 
-			if (this.isBurning() || !itemstack.isEmpty() && !((ItemStack)this.furnaceItemStacks.get(0)).isEmpty())
+			if (this.isBurning() || !itemstack.isEmpty() && !((ItemStack)thisFurnace.getFurnaceItemStacks().get(0)).isEmpty())
 			{
-				if (!this.isBurning() && this.canSmelt())
+				if (!this.isBurning() && thisFurnace.invokeCanSmelt())
 				{
-					this.furnaceBurnTime = getItemBurnTime(itemstack);
-					this.currentItemBurnTime = this.furnaceBurnTime;
+					thisFurnace.setFurnaceBurnTime(getItemBurnTime(itemstack));
+					thisFurnace.setCurrentItemBurnTime(thisFurnace.getFurnaceBurnTime());
 
 					if (this.isBurning())
 					{
@@ -56,32 +59,32 @@ public class EndFurnaceTileEntity extends TileEntityFurnace implements ITickable
 							if (itemstack.isEmpty())
 							{
 								ItemStack item1 = item.getContainerItem(itemstack);
-								this.furnaceItemStacks.set(1, item1);
+								thisFurnace.getFurnaceItemStacks().set(1, item1);
 							}
 						}
 					}
 				}
 
-				if (this.isBurning() && this.canSmelt())
+				if (this.isBurning() && thisFurnace.invokeCanSmelt())
 				{
-					++this.cookTime;
+					thisFurnace.setCookTime(thisFurnace.getCookTime()+1);
 
-					if (this.cookTime == this.totalCookTime)
+					if (thisFurnace.getCookTime() == thisFurnace.getTotalCookTime())
 					{
-						this.cookTime = 0;
-						this.totalCookTime = this.getCookTime(this.furnaceItemStacks.get(0));
+						thisFurnace.setCookTime(0);
+						thisFurnace.setTotalCookTime(this.getCookTime(thisFurnace.getFurnaceItemStacks().get(0)));
 						this.smeltItem();
 						flag1 = true;
 					}
 				}
 				else
 				{
-					this.cookTime = 0;
+					thisFurnace.setCookTime(0);
 				}
 			}
-			else if (!this.isBurning() && this.cookTime > 0)
+			else if (!this.isBurning() && thisFurnace.getCookTime() > 0)
 			{
-				this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
+				thisFurnace.setCookTime(MathHelper.clamp(thisFurnace.getCookTime() - 2, 0, thisFurnace.getTotalCookTime()));
 			}
 
 			if (flag != this.isBurning())
