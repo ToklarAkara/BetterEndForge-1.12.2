@@ -40,10 +40,8 @@ public class AlloyingRecipeWrapper implements IRecipeWrapper {
 
     @Override
     public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-        // Отрисовка стрелки прогресса
         category.getArrow(recipe).draw(minecraft, 47, 18);
 
-        // Отрисовка опыта
         float experience = recipe.getExperience();
         if (experience > 0) {
             String experienceString = I18n.format("gui.jei.category.alloying.experience", experience);
@@ -52,7 +50,6 @@ public class AlloyingRecipeWrapper implements IRecipeWrapper {
             fontRenderer.drawString(experienceString, recipeWidth - stringWidth, 0, Color.GRAY.getRGB());
         }
 
-        // Отрисовка времени плавки
         int smeltTime = recipe.getSmeltTime();
         if (smeltTime > 0) {
             int smeltTimeSeconds = smeltTime / 20;

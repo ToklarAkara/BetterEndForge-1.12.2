@@ -39,7 +39,6 @@ public class BetterEndJeiPlugin implements IModPlugin {
         List<InfusionRecipe> infusionRecipes = InfusionRecipes.getRecipes();
         registry.addRecipes(infusionRecipes, InfusionRecipeCategory.UID);
 
-        // --- Регистрация катализаторов ---
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.END_STONE_SMELTER), AlloyingRecipeCategory.UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.INFUSION_PEDESTAL), InfusionRecipeCategory.UID);
 
