@@ -1,6 +1,7 @@
 package mod.beethoven92.betterendforge.data;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 import com.google.common.collect.ImmutableMap;
@@ -659,4 +660,8 @@ public class InfusionRecipes {
 		EnchantmentHelper.setEnchantments(ImmutableMap.of(enchantment, level), book);
 		return book;
 	}
+
+    public static List<InfusionRecipe> getRecipes() {
+		return recipes;
+    }
 }

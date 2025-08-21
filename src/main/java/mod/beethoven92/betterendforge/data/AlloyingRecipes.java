@@ -95,4 +95,8 @@ public class AlloyingRecipes {
                 )
         );
     }
+
+    public static ArrayList<AlloyingRecipe> getRecipes() {
+        return recipes;
+    }
 }
