@@ -65,7 +65,7 @@ dependencies {
     implementation fg.deobf("CraftTweaker2:CraftTweaker2-API:${zs_version}")
     implementation fg.deobf("curse.maven:mtlib-${mtlib_version}")
     implementation "maven.modrinth:nether-api:${netherapi_version}"
-    implementation fg.deobf('curse.maven:groovyscript-687577:5789690')
+    compileOnly fg.deobf('curse.maven:groovyscript-687577:5789690')
 }
 
 mixin {
