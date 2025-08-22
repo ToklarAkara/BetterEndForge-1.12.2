@@ -26,7 +26,7 @@ public class BubbleCoralBlock extends UnderwaterPlantBlock
 
 	public BubbleCoralBlock()
 	{
-		super(Material.WATER);
+		super(Material.PLANTS);
 		this.setTickRandomly(true);
 	}
 
