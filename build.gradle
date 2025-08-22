@@ -100,22 +100,22 @@ processResources {
 
 jar {
     manifest {
-        attributes([
-                'Specification-Title'     : mod_name,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1',
-                'Implementation-Title'    : mod_name,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Version'  : mod_version,
-                'Implementation-Credits'  : mod_credits,
-                'Implementation-URL'      : mod_url,
-                'Implementation-LogoPath' : mod_logo_path,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'FMLCorePlugin': mixin_loader_class,
-                'FMLCorePluginContainsFMLMod': 'true',
-                //'ForceLoadAsMod': 'true', //comment out for dev environment, uncomment if production
-                'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker'
-        ])
+        def attr = [:]
+        attr['Specification-Title']         = mod_name
+        attr['Specification-Vendor']        = mod_authors
+        attr['Specification-Version']       = '1'
+        attr['Implementation-Title']        = mod_name
+        attr['Implementation-Vendor']       = mod_authors
+        attr['Implementation-Version']      = mod_version
+        attr['Implementation-Timestamp']    = new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        attr['FMLCorePlugin']               = mixin_loader_class
+        attr['FMLCorePluginContainsFMLMod'] = 'true'
+        attr['TweakClass']                  = 'org.spongepowered.asm.launch.MixinTweaker'
+
+        def currentTasks = gradle.startParameter.taskNames
+        if (currentTasks[0] == 'build' || currentTasks[0] == 'assemble')
+            attr['ForceLoadAsMod'] = "true"
+        attributes(attr)
     }
 
     archiveClassifier.set('1.12.2-THIN')
