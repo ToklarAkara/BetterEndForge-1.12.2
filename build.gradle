@@ -3,7 +3,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version "${forge_gradle_version}"
     id 'org.spongepowered.mixin' version "${mixin_gradle_version}"
-    id 'com.github.johnrengelman.shadow' version "${shadow_gradle_version}"
+    id 'wtf.gofancy.fancygradle' version "${fancy_gradle_version}"
 }
 
 version = mod_version
@@ -14,6 +14,33 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
     mappings channel: mappings_channel, version: mappings_version
+
+    runs {
+        client {
+            args "--username=InDev"
+
+            jvmArg "-Dfml.coreMods.load=${mixin_loader_class}"
+            jvmArg "-Dmixin.hotSwap=true"
+            jvmArg "-Dmixin.checks.interfaces=true"
+
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+
+            jvmArg "-Dfml.coreMods.load=${mixin_loader_class}"
+            jvmArg "-Dmixin.hotSwap=true"
+            jvmArg "-Dmixin.checks.interfaces=true"
+
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -26,17 +53,27 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    shadow "org.spongepowered:mixin:${mixin_version}"
+    implementation "org.spongepowered:mixin:${mixin_version}"
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
-    shadow "io.github.llamalad7:mixinextras-common:${mixin_extras_version}"
+    implementation "io.github.llamalad7:mixinextras-common:${mixin_extras_version}"
     annotationProcessor "io.github.llamalad7:mixinextras-common:${mixin_extras_version}"
 
     implementation fg.deobf("curse.maven:jei-${jei_version}")
-    implementation "maven.modrinth:nether-api:${netherapi_version}"
+    implementation "curse.maven:crafttweaker2-${ct_version}" //cant deobfuscate
+    implementation fg.deobf("maven.modrinth:nether-api:${netherapi_version}")
 }
 
 mixin {
     add sourceSets.main, "mixins.${mod_id}.refmap.json"
+}
+
+fancyGradle {
+    patches {
+        resources
+        coremods
+        asm
+        mergetool
+    }
 }
 
 processResources {
@@ -61,21 +98,6 @@ processResources {
     rename '(.+_at.cfg)', 'META-INF/$1'
 }
 
-shadowJar {
-    configurations = [project.configurations.shadow]
-    mergeServiceFiles()
-
-    exclude 'org/spongepowered/asm/launch/MixinLaunchPlugin*'
-    exclude 'org/spongepowered/asm/launch/MixinTransformationService*'
-    exclude 'org/spongepowered/asm/launch/platform/container/ContainerHandleModLauncherEx*'
-
-    archiveClassifier.set('1.12.2')
-}
-
-reobf {
-    shadowJar {}
-}
-
 jar {
     manifest {
         attributes([
@@ -91,7 +113,7 @@ jar {
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                 'FMLCorePlugin': mixin_loader_class,
                 'FMLCorePluginContainsFMLMod': 'true',
-                'ForceLoadAsMod': 'true',
+                //'ForceLoadAsMod': 'true', //comment out for dev environment, uncomment if production
                 'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker'
         ])
     }
@@ -99,5 +121,4 @@ jar {
     archiveClassifier.set('1.12.2-THIN')
 }
 
-build.dependsOn(shadowJar)
 jar.finalizedBy('reobfJar')
