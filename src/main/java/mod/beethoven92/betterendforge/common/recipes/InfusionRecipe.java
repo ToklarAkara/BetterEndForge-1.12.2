@@ -127,6 +127,11 @@ public class InfusionRecipe implements IRecipe {
 			return this;
 		}
 
+		public Builder setInput(Ingredient input) {
+			this.input = input;
+			return this;
+		}
+
 		public Builder setOutput(Item output) {
 			this.output = new ItemStack(output, 1);
 			return this;
@@ -168,6 +173,14 @@ public class InfusionRecipe implements IRecipe {
 				return this;
 
 			this.catalysts[slot] = Ingredient.fromStacks(new ItemStack(item, 1));
+			return this;
+		}
+
+		public Builder addCatalyst(int slot, Ingredient item) {
+			if (slot > 7)
+				return this;
+
+			this.catalysts[slot] = item;
 			return this;
 		}
 

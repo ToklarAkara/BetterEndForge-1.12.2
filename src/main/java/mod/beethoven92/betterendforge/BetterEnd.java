@@ -79,8 +79,6 @@ public class BetterEnd {
 
 	@Mod.EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
-		InfusionRecipes.init();
-		AlloyingRecipes.init();
 		ModBiomes.onWorldLoad(ForgeRegistries.BIOMES);
 	}
     
@@ -100,6 +98,8 @@ public class BetterEnd {
 		@SubscribeEvent
 		public static void registerRecipes(RegistryEvent.Register<IRecipe> event){
 			ModRecipes.registerRecipes();
+			InfusionRecipes.init();
+			AlloyingRecipes.init();
 			//InfusionRecipes.registerRecipes();
 		}
 
