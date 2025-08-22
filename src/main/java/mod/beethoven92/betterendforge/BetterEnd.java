@@ -5,6 +5,7 @@ import mod.beethoven92.betterendforge.client.PhysicalClientSide;
 import mod.beethoven92.betterendforge.client.audio.MusicRegister;
 import mod.beethoven92.betterendforge.client.gui.GuiHandler;
 import mod.beethoven92.betterendforge.common.init.*;
+import mod.beethoven92.betterendforge.common.integration.vanilla.OreDictRegistry;
 import mod.beethoven92.betterendforge.common.teleporter.EndPortals;
 import mod.beethoven92.betterendforge.common.world.feature.BiomeNBTStructures;
 import mod.beethoven92.betterendforge.common.world.generator.GeneratorOptions;
@@ -70,6 +71,7 @@ public class BetterEnd {
 		ModEntityTypes.registerEntitySpawns();
 		BiomeNBTStructures.loadStructures();
 		ModTags.initTags();
+		OreDictRegistry.registerOres();
 		if(event.getSide()==Side.CLIENT) {
 			PhysicalClientSide.registerTileRenderers();
 			MusicRegister.INSTANCE.registerMusic();
