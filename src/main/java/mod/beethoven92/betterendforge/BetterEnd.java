@@ -20,6 +20,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -63,6 +64,15 @@ public class BetterEnd {
 		if(event.getSide()==Side.CLIENT) {
 			PhysicalClientSide.clientSetup();
 		}
+		if (Loader.isModLoaded("tconstruct")) {
+			try {
+				Class.forName("mod.beethoven92.betterendforge.common.integration.tconstruct.TinkersIntegration")
+						.getMethod("setupMaterialStats", FMLPreInitializationEvent.class)
+						.invoke(null, event);
+			}catch (Exception e){
+
+			}
+		}
 	}
 
 	@Mod.EventHandler
@@ -76,6 +86,16 @@ public class BetterEnd {
 			PhysicalClientSide.registerTileRenderers();
 			MusicRegister.INSTANCE.registerMusic();
 		}
+		if (Loader.isModLoaded("tconstruct")) {
+			try {
+				Class.forName("mod.beethoven92.betterendforge.common.integration.tconstruct.TinkersIntegration")
+						.getMethod("setupMaterials", FMLInitializationEvent.class)
+						.invoke(null, event);
+			}catch (Exception e){
+
+			}
+		}
+
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}
 

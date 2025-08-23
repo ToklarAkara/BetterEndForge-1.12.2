@@ -779,3 +779,6 @@ tile.betterendforge.pallidium_heavy.name=Heavy Pallidium Cover
 tile.betterendforge.pallidium_thin.name=Thin Pallidium Cover
 tile.betterendforge.pallidium_tiny.name=Tiny Pallidium Cover
 tile.betterendforge.charcoal_block.name=Charcoal Block
+material.betterend_thallasium.name=Thallasium
+material.betterend_aeternium.name=Aeternium
+material.betterend_terminite.name=Terminite

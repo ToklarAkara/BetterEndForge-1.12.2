@@ -46,6 +46,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { url = "https://dvs1.progwml6.com/files/maven" }
     maven { url = 'https://www.cursemaven.com' }
     maven { url = 'https://api.modrinth.com/maven' }
     maven { url = 'https://maven.blamejared.com' }
@@ -66,6 +67,11 @@ dependencies {
     implementation fg.deobf("curse.maven:mtlib-${mtlib_version}")
     implementation "maven.modrinth:nether-api:${netherapi_version}"
     compileOnly fg.deobf('curse.maven:groovyscript-687577:5789690')
+
+
+    implementation fg.deobf("slimeknights.mantle:Mantle:1.12-${mantle_version}")
+    implementation fg.deobf("slimeknights:TConstruct:${minecraft_version}-${ticon_version}")
+    implementation fg.deobf('curse.maven:groovyscript-287683:3174535')
 }
 
 mixin {
