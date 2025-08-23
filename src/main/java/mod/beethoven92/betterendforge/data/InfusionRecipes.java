@@ -50,14 +50,14 @@ public class InfusionRecipes {
 		InfusionRecipe.Builder.create().
 				setInput(Items.END_CRYSTAL).
 				setOutput(ModItems.ETERNAL_CRYSTAL).
-				setTime(300).
+				setTime(250).
 				addCatalyst(0, ModItems.ENDER_SHARD).
-				addCatalyst(1, ModItems.ENDER_SHARD).
 				addCatalyst(2, ModItems.ENDER_SHARD).
-				addCatalyst(3, ModItems.ENDER_SHARD).
-				addCatalyst(4, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(4, ModItems.ENDER_SHARD).
+				addCatalyst(6, ModItems.ENDER_SHARD).
+				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(3, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(5, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(6, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(7, ModItems.CRYSTAL_SHARDS).
 
 				build(consumer, rl("eternal_crystal"));
@@ -67,58 +67,58 @@ public class InfusionRecipes {
 				setOutput(ModItems.ENCHANTED_PETAL).
 				setTime(300).
 				addCatalyst(0, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(2, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(3, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(4, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(6, ModItems.CRYSTAL_SHARDS).
 				build(consumer, rl("enchanted_petal"));
 
 		InfusionRecipe.Builder.create().
 				setInput(Item.getItemFromBlock(ModBlocks.FLAVOLITE.polished)).
 				setOutput(Item.getItemFromBlock(ModBlocks.FLAVOLITE_RUNED)).
-				setTime(300).
+				setTime(100).
 				addCatalyst(0, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(2, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(3, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(4, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(6, ModItems.CRYSTAL_SHARDS).
 				build(consumer, rl("runed_flavolite"));
 
 		InfusionRecipe.Builder.create().
 				setInput(ModBlocks.TERMINITE.chestplate).
 				setOutput(ModItems.CRYSTALITE_CHESTPLATE).
 				setTime(300).
-				addCatalyst(0, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(2, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(3, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(4, ModItems.AMBER_GEM).
+				addCatalyst(5, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(7, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(0, ModItems.AMBER_GEM).
 				build(consumer, rl("crystal_chestplate"));
 
 		InfusionRecipe.Builder.create().
 				setInput(ModBlocks.TERMINITE.leggings).
 				setOutput(ModItems.CRYSTALITE_LEGGINGS).
-				setTime(300).
-				addCatalyst(0, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
+				setTime(225).
 				addCatalyst(2, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(4, ModItems.AMBER_GEM).
+				addCatalyst(4, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(6, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(0, ModItems.AMBER_GEM).
 				build(consumer, rl("crystal_leggings"));
 
 		InfusionRecipe.Builder.create().
 				setInput(ModBlocks.TERMINITE.helmet).
 				setOutput(ModItems.CRYSTALITE_HELMET).
-				setTime(300).
-				addCatalyst(0, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(4, ModItems.AMBER_GEM).
+				setTime(150).
+				addCatalyst(2, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(6, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(0, ModItems.AMBER_GEM).
 				build(consumer, rl("crystal_helmet"));
 
 		InfusionRecipe.Builder.create().
 				setInput(ModBlocks.TERMINITE.boots).
 				setOutput(ModItems.CRYSTALITE_BOOTS).
-				setTime(300).
-				addCatalyst(0, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
-				addCatalyst(4, ModItems.AMBER_GEM).
+				setTime(150).
+				addCatalyst(2, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(6, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(0, ModItems.AMBER_GEM).
 				build(consumer, rl("crystal_boots"));
 
 		InfusionRecipe.Builder.create().
