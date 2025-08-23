@@ -6,6 +6,7 @@
   "minVersion": "0.8.5",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BlockAccessor",
     "BlockFurnaceAccessor",
     "BlockLadderAccessor",
     "BlockWorkbenchAccessor",
@@ -17,6 +18,7 @@
     "EndSpikeMixin",
     "MixinContainerWorkbench",
     "MixinPlayerChunkMapEntry",
+    "TileEntityChestMixin",
     "TileEntityFurnaceAccessor"
   ],
   "server": [],

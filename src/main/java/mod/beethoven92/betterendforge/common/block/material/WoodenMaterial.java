@@ -13,6 +13,7 @@ import mod.beethoven92.betterendforge.common.init.ModTags;
 import mod.beethoven92.betterendforge.common.item.EndSignItem;
 import mod.beethoven92.betterendforge.common.tileentity.EChestTileEntity;
 import mod.beethoven92.betterendforge.common.tileentity.EndSignTileEntity;
+import mod.beethoven92.betterendforge.mixin.minecraft.BlockAccessor;
 import mod.beethoven92.betterendforge.mixin.minecraft.BlockLadderAccessor;
 import mod.beethoven92.betterendforge.mixin.minecraft.BlockWorkbenchAccessor;
 import net.minecraft.block.*;
@@ -69,12 +70,11 @@ public class WoodenMaterial
 
 		logBlockTag = ModTags.makeModBlockTag(name + "_logs");
 		logItemTag = ModTags.makeModItemTag(name + "_logs");
-
 		Material materialPlanks = Material.WOOD;
 		Material materialPlanksNotSolid = Material.WOOD;
 
 		log_stripped = ModBlocks.registerBlockWithDefaultItem(name + "_stripped_log",
-				() -> new BlockLog(){
+				() -> ((BlockAccessor)new BlockLog(){
 					@Override
 					protected BlockStateContainer createBlockState() {
 						return new BlockStateContainer(this, LOG_AXIS);
@@ -90,75 +90,75 @@ public class WoodenMaterial
 						return state.getValue(LOG_AXIS).ordinal();
 					}
 
-				}.setHardness(3.0F));
+				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		bark_stripped = ModBlocks.registerBlockWithDefaultItem(name + "_stripped_bark",
-				() -> new BarkBlockTemplate().setHardness(3.0F));
+				() -> ((BlockAccessor)new BarkBlockTemplate().setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 
 		log = ModBlocks.registerBlockWithDefaultItem(name + "_log",
-				() -> new StripableLogBlockTemplate(woodColor, log_stripped).setHardness(3.0F));
+				() -> ((BlockAccessor)new StripableLogBlockTemplate(woodColor, log_stripped).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		bark = ModBlocks.registerBlockWithDefaultItem(name + "_bark",
-				() -> new StripableBarkBlockTemplate(woodColor, bark_stripped).setHardness(3.0F));
+				() -> ((BlockAccessor)new StripableBarkBlockTemplate(woodColor, bark_stripped).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 
 		planks = ModBlocks.registerBlockWithDefaultItem(name + "_planks",
-				() -> new Block(materialPlanks).setHardness(3.0F));
+				() -> ((BlockAccessor)new Block(materialPlanks).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		stairs = ModBlocks.registerBlockWithDefaultItem(name + "_stairs",
-				() -> new CustomBlockStairs(planks.getDefaultState()).setHardness(3.0F));
+				() -> ((BlockAccessor)new CustomBlockStairs(planks.getDefaultState()).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		slab = ModBlocks.registerBlockWithDefaultItem(name + "_slab",
-				() -> new CustomBlockSlab(Material.WOOD).setHardness(3.0F));
+				() -> ((BlockAccessor)new CustomBlockSlab(Material.WOOD).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		fence = ModBlocks.registerBlockWithDefaultItem(name + "_fence",
-				() -> new BlockFence(materialPlanks, planksColor).setHardness(3.0F));
+				() -> ((BlockAccessor)new BlockFence(materialPlanks, planksColor).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 //		gate = registerBlockWithDefaultItem(name + "_gate",
 //				() -> new BlockFenceGate(materialPlanks, planksColor));
 //		button = registerBlockWithDefaultItem(name + "_button",
 //				() -> new BlockButtonWood());
 		pressurePlate = ModBlocks.registerBlockWithDefaultItem(name + "_pressure_plate",
-				() -> new CustomPressurePlate(materialPlanks, BlockPressurePlate.Sensitivity.EVERYTHING).setHardness(3.0F));
+				() -> ((BlockAccessor)new CustomPressurePlate(materialPlanks, BlockPressurePlate.Sensitivity.EVERYTHING).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		trapdoor = ModBlocks.registerBlockWithDefaultItem(name + "_trapdoor",
-				() -> new CustomBlockTrapDoor(materialPlanksNotSolid).setHardness(3.0F));
+				() -> ((BlockAccessor)new CustomBlockTrapDoor(materialPlanksNotSolid).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		door = ModBlocks.registerBlockWithDoorItem(name + "_door",
-				() -> new CustomBlockDoor(materialPlanksNotSolid));
+				() -> (CustomBlockDoor) ((BlockAccessor)new CustomBlockDoor(materialPlanksNotSolid)).invokeSetSoundType(SoundType.WOOD));
 
 //		composter = registerBlockWithBurnItem(name + "_composter",
 //				() -> new BlockComposter(materialPlanksNotSolid), 300);
 		craftingTable = registerBlockWithBurnItem(name + "_crafting_table",
-				() -> BlockWorkbenchAccessor.constructNew().setHardness(3.0F), 300);
+				() -> ((BlockAccessor)BlockWorkbenchAccessor.constructNew().setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD), 300);
 		ladder = registerBlockWithBurnItem(name + "_ladder",
-				() -> BlockLadderAccessor.constructNew().setHardness(3.0F), 300);
+				() -> ((BlockAccessor)BlockLadderAccessor.constructNew().setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD), 300);
 		chest = ModBlocks.registerBlock(name + "_chest",
-				() -> new BlockChest(BlockChest.Type.BASIC) {
+				() -> ((BlockAccessor)new BlockChest(BlockChest.Type.BASIC) {
 					@Override
 					public TileEntity createTileEntity(World world, IBlockState state) {
 						return new EChestTileEntity();
 					}
-				}.setHardness(3.0F));
+				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		ModItems.ITEMS.add(new ItemBlock(chest).setRegistryName(chest.getRegistryName()));
 
 		sign_standing = ModBlocks.registerBlock(name + "_sign_standing",
-				() -> new BlockStandingSign() {
+				() ->((BlockAccessor) new BlockStandingSign() {
 					@Override
 					public TileEntity createTileEntity(World world, IBlockState state) {
 						return new EndSignTileEntity();
 					}
-				}.setHardness(3.0F));
+				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 
 		sign_wall = ModBlocks.registerBlock(name + "_sign_wall",
-				() -> new BlockWallSign() {
+				() -> ((BlockAccessor)new BlockWallSign() {
 					@Override
 					public TileEntity createTileEntity(World world, IBlockState state) {
 						return new EndSignTileEntity();
 					}
-				}.setHardness(3.0F));
+				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
 		sign = new EndSignItem(sign_standing, sign_wall).setRegistryName(name + "_sign").setTranslationKey(name + "_sign").setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
 		ModItems.ITEMS.add(sign);
 //		barrel = registerBlockWithBurnItem(name + "_barrel",
 //				() -> new EndBarrelBlock(materialPlanksNotSolid), 300);
-		shelf = registerBlockWithBurnItem(name + "_bookshelf",
+		shelf = ((BlockAccessor)registerBlockWithBurnItem(name + "_bookshelf",
 				() -> new Block(materialPlanks) {
 					@Override
 					public float getEnchantPowerBonus(World world, BlockPos pos) {
 						return 1;
 					}
-				}, 300).setHardness(3.0F);
+				}, 300).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD);
 	}
 
 	public boolean isTreeLog(Block block) {
