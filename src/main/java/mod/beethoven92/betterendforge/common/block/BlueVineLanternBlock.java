@@ -2,6 +2,7 @@ package mod.beethoven92.betterendforge.common.block;
 
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -21,6 +22,7 @@ public class BlueVineLanternBlock extends Block
 	public BlueVineLanternBlock(Material mat)
 	{
 		super(mat);
+		setSoundType(SoundType.PLANT);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(NATURAL, false));
 	}
 
