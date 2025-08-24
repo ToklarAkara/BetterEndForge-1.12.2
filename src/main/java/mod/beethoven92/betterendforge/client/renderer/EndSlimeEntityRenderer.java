@@ -55,6 +55,7 @@ public class EndSlimeEntityRenderer extends RenderLiving<EndSlimeEntity> {
 		public void doRenderLayer(T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 			if (!entity.isInvisible()) {
 				GlStateManager.enableBlend();
+				GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 				Minecraft.getMinecraft().getTextureManager().bindTexture(getEntityTexture(entity));
 				if (entity.isLake()) {
 					this.modelLake.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
