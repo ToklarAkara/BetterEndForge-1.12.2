@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by Paulevs with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"particle": "betterendforge:block/lumecorn_bark",
+		"particle": "betterendforge:block/lumecorn_roots",
 		"texture": "betterendforge:block/lumecorn_bark",
 		"leaf_2": "betterendforge:block/lumecorn_leaf_2",
 		"leaf_1": "betterendforge:block/lumecorn_leaf_1"

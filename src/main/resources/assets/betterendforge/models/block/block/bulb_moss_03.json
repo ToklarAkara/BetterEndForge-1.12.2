@@ -3,7 +3,7 @@
 	"textures": {
 		"texture": "betterendforge:block/bulb_moss_leaves",
 		"texture2": "betterendforge:block/bulb_moss_bulbs",
-		"particle": "#texture"
+		"particle": "betterendforge:block/bulb_moss_leaves"
 	},
 	"elements": [ 	 
 		{

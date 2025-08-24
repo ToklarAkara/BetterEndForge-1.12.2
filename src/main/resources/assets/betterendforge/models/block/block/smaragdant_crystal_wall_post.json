@@ -3,7 +3,7 @@
 	"textures": {
 		"side": "betterendforge:block/smaragdant_crystal_side",
 		"top": "betterendforge:block/smaragdant_crystal_top",
-		"particle": "#side"
+		"particle": "betterendforge:block/smaragdant_crystal_side"
 	},
 	"elements": [ 	 
 		{

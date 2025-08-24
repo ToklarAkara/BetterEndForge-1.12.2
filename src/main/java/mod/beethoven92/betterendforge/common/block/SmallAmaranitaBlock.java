@@ -8,6 +8,7 @@ import mod.beethoven92.betterendforge.common.init.ModFeatures;
 import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -24,7 +25,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import javax.annotation.Nullable;
 
-public class SmallAmaranitaBlock extends BlockBush {
+public class SmallAmaranitaBlock extends BlockBush implements IGrowable {
 
 	private static final AxisAlignedBB SHAPE = new AxisAlignedBB(4.0 / 16.0, 0.0, 4.0 / 16.0, 12.0 / 16.0, 10.0 / 16.0, 12.0 / 16.0);
 
@@ -53,6 +54,16 @@ public class SmallAmaranitaBlock extends BlockBush {
 				this.grow(worldIn, rand, pos, state);
 			}
 		}
+	}
+
+	@Override
+	public boolean canGrow(World world, BlockPos blockPos, IBlockState iBlockState, boolean b) {
+		return true;
+	}
+
+	@Override
+	public boolean canUseBonemeal(World world, Random random, BlockPos blockPos, IBlockState iBlockState) {
+		return true;
 	}
 
 	public void grow(World world, Random random, BlockPos pos, IBlockState state) {

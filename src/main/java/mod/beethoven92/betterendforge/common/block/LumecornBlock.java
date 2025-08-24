@@ -1,15 +1,21 @@
 package mod.beethoven92.betterendforge.common.block;
 
 import mod.beethoven92.betterendforge.common.block.BlockProperties.LumecornShape;
+import mod.beethoven92.betterendforge.common.init.ModBlocks;
+import mod.beethoven92.betterendforge.common.init.ModItems;
 import mod.beethoven92.betterendforge.common.init.ModTags;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCactus;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -18,6 +24,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class LumecornBlock extends Block {
 	public static final PropertyEnum<LumecornShape> SHAPE = PropertyEnum.create("shape", LumecornShape.class);
@@ -55,7 +62,7 @@ public class LumecornBlock extends Block {
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
 		if (!canPlaceBlockAt((World) worldIn, pos)) {
-			worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+			worldIn.destroyBlock(pos, true);
 		} else {
 			worldIn.setBlockState(pos, state);
 		}
@@ -87,4 +94,19 @@ public class LumecornBlock extends Block {
 		return false;
 	}
 
+	@Override
+	public void getDrops(NonNullList<ItemStack> p_getDrops_1_, IBlockAccess p_getDrops_2_, BlockPos p_getDrops_3_, IBlockState p_getDrops_4_, int p_getDrops_5_) {
+		super.getDrops(p_getDrops_1_, p_getDrops_2_, p_getDrops_3_, p_getDrops_4_, p_getDrops_5_);
+	}
+
+	@Override
+	public Item getItemDropped(IBlockState p_180660_1_, Random p_180660_2_, int p_180660_3_) {
+		if(p_180660_1_.getValue(SHAPE)!=LumecornShape.BOTTOM_SMALL && p_180660_1_.getValue(SHAPE)!=LumecornShape.BOTTOM_BIG && p_180660_1_.getValue(SHAPE)!=LumecornShape.MIDDLE){
+			return ModItems.LUMECORN_ROD;
+		}
+		if(p_180660_2_.nextInt(2)==0){
+			return Item.getItemFromBlock(ModBlocks.LUMECORN_SEED);
+		}
+		return super.getItemDropped(p_180660_1_, p_180660_2_, p_180660_3_);
+	}
 }

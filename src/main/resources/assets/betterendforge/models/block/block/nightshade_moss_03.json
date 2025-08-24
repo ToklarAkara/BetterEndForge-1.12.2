@@ -2,7 +2,7 @@
 	"__comment": "Designed by Paulevs with Cubik Studio - https://cubik.studio",
 	"textures": {
 		"texture": "betterendforge:block/nightshade_moss",
-		"particle": "#texture"
+		"particle": "betterendforge:block/nightshade_moss"
 	},
 	"elements": [ 	 
 		{

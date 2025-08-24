@@ -2,7 +2,7 @@
 	"__comment": "Designed by Paulevs with Cubik Studio - https://cubik.studio",
 	"textures": {
 		"texture": "betterendforge:block/glowing_pillar_leaves",
-		"particle": "#texture"
+		"particle": "betterendforge:block/glowing_pillar_leaves"
 	},
 	"elements": [ 	 
 		{

@@ -2,7 +2,7 @@
 	"__comment": "Designed by Paulevs with Cubik Studio - https://cubik.studio",
 	"textures": {
 		"texture": "betterendforge:block/lumecorn_light_bottom",
-		"particle": "#texture"
+		"particle": "betterendforge:block/lumecorn_light_bottom"
 	},
 	"elements": [ 	 
 		{

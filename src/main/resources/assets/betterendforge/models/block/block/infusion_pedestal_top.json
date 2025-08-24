@@ -4,7 +4,7 @@
 		"top": "betterendforge:block/infusion_pedestal_top",
 		"base": "betterendforge:block/infusion_pedestal_base",
 		"pillar": "betterendforge:block/infusion_pedestal_pillar",
-		"particle": "#base"
+		"particle": "betterendforge:block/infusion_pedestal_base"
 	},
 	"elements": [
 		{

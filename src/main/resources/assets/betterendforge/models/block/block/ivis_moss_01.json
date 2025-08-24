@@ -2,7 +2,7 @@
 	"__comment": "Designed by Paulevs with Cubik Studio - https://cubik.studio",
 	"textures": {
 		"texture": "betterendforge:block/ivis_moss",
-		"particle": "#texture"
+		"particle": "betterendforge:block/ivis_moss"
 	},
 	"elements": [ 	 
 		{
