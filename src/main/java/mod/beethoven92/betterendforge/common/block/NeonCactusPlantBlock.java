@@ -16,6 +16,7 @@ import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.feature.Mutable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChorusPlant;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -51,6 +52,7 @@ public class NeonCactusPlantBlock extends Block {
 
 	public NeonCactusPlantBlock() {
 		super(Material.CACTUS);
+		setSoundType(SoundType.PLANT);
 		setLightLevel(1);
 		setTickRandomly(true);
 		setDefaultState(getDefaultState().withProperty(FACING, EnumFacing.UP).withProperty(SHAPE, TripleShape.TOP));

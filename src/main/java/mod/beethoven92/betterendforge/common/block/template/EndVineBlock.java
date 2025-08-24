@@ -9,6 +9,7 @@ import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -39,6 +40,7 @@ public class EndVineBlock extends Block implements IGrowable, IShearable {
 
 	public EndVineBlock(Material material) {
 		super(material);
+		setSoundType(SoundType.PLANT);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(SHAPE, TripleShape.BOTTOM));
 	}
 
