@@ -200,6 +200,7 @@ public class ModFeatures
 	public static final WorldGenerator LACUGROVE = new LacugroveFeature();
 	public static final WorldGenerator PYTHADENDRON = new PythadendronFeature();
 	public static final WorldGenerator DRAGON_TREE = new DragonTreeFeature();
+	public static final WorldGenerator CHORUS = new ChorusPlantFeature();
 	public static final WorldGenerator TENANEA = new TenaneaFeature();
 	public static final WorldGenerator HELIX_TREE = new HelixTreeFeature();
 	public static final WorldGenerator UMBRELLA_TREE = new UmbrellaTreeFeature();

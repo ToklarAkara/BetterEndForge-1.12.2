@@ -460,6 +460,9 @@ public class ModConfiguredFeatures
 			new ConfiguredFeature<>(ModFeatures.DRAGON_TREE,IFeatureConfig.NO_FEATURE_CONFIG).
 			decorated(Placement.TOP_SOLID_HEIGHTMAP.configure(NoPlacementConfig.NO_PLACEMENT_CONFIG).
 			decorated(Placement.SQUARE.configure(NoPlacementConfig.NO_PLACEMENT_CONFIG)));
+
+	public static final ConfiguredFeature<?, ?> CHORUS_PLANT =
+			new ConfiguredFeature<>(ModFeatures.CHORUS,IFeatureConfig.NO_FEATURE_CONFIG).decorated(Placement.HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG).decorated(Placement.SQUARE.configure(NoPlacementConfig.INSTANCE))).countRandom(4);
 	
 	public static final ConfiguredFeature<?, ?> TENANEA = 
 			new ConfiguredFeature<>(ModFeatures.TENANEA,IFeatureConfig.NO_FEATURE_CONFIG).
