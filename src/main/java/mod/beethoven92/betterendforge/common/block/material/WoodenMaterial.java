@@ -90,47 +90,47 @@ public class WoodenMaterial
 						return state.getValue(LOG_AXIS).ordinal();
 					}
 
-				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				}.setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		bark_stripped = ModBlocks.registerBlockWithDefaultItem(name + "_stripped_bark",
-				() -> ((BlockAccessor)new BarkBlockTemplate().setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new BarkBlockTemplate().setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 
 		log = ModBlocks.registerBlockWithDefaultItem(name + "_log",
-				() -> ((BlockAccessor)new StripableLogBlockTemplate(woodColor, log_stripped).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new StripableLogBlockTemplate(woodColor, log_stripped).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		bark = ModBlocks.registerBlockWithDefaultItem(name + "_bark",
-				() -> ((BlockAccessor)new StripableBarkBlockTemplate(woodColor, bark_stripped).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new StripableBarkBlockTemplate(woodColor, bark_stripped).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 
 		planks = ModBlocks.registerBlockWithDefaultItem(name + "_planks",
-				() -> ((BlockAccessor)new Block(materialPlanks).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new Block(materialPlanks).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		stairs = ModBlocks.registerBlockWithDefaultItem(name + "_stairs",
-				() -> ((BlockAccessor)new CustomBlockStairs(planks.getDefaultState()).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new CustomBlockStairs(planks.getDefaultState()).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		slab = ModBlocks.registerBlockWithDefaultItem(name + "_slab",
-				() -> ((BlockAccessor)new CustomBlockSlab(Material.WOOD).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new CustomBlockSlab(Material.WOOD).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		fence = ModBlocks.registerBlockWithDefaultItem(name + "_fence",
-				() -> ((BlockAccessor)new BlockFence(materialPlanks, planksColor).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new BlockFence(materialPlanks, planksColor).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 //		gate = registerBlockWithDefaultItem(name + "_gate",
 //				() -> new BlockFenceGate(materialPlanks, planksColor));
 //		button = registerBlockWithDefaultItem(name + "_button",
 //				() -> new BlockButtonWood());
 		pressurePlate = ModBlocks.registerBlockWithDefaultItem(name + "_pressure_plate",
-				() -> ((BlockAccessor)new CustomPressurePlate(materialPlanks, BlockPressurePlate.Sensitivity.EVERYTHING).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new CustomPressurePlate(materialPlanks, BlockPressurePlate.Sensitivity.EVERYTHING).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		trapdoor = ModBlocks.registerBlockWithDefaultItem(name + "_trapdoor",
-				() -> ((BlockAccessor)new CustomBlockTrapDoor(materialPlanksNotSolid).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				() -> ((BlockAccessor)new CustomBlockTrapDoor(materialPlanksNotSolid).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		door = ModBlocks.registerBlockWithDoorItem(name + "_door",
 				() -> (CustomBlockDoor) ((BlockAccessor)new CustomBlockDoor(materialPlanksNotSolid)).invokeSetSoundType(SoundType.WOOD));
 
 //		composter = registerBlockWithBurnItem(name + "_composter",
 //				() -> new BlockComposter(materialPlanksNotSolid), 300);
 		craftingTable = registerBlockWithBurnItem(name + "_crafting_table",
-				() -> ((BlockAccessor)BlockWorkbenchAccessor.constructNew().setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD), 300);
+				() -> ((BlockAccessor)BlockWorkbenchAccessor.constructNew().setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD), 300);
 		ladder = registerBlockWithBurnItem(name + "_ladder",
-				() -> ((BlockAccessor)BlockLadderAccessor.constructNew().setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD), 300);
+				() -> ((BlockAccessor)BlockLadderAccessor.constructNew().setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD), 300);
 		chest = ModBlocks.registerBlock(name + "_chest",
 				() -> ((BlockAccessor)new BlockChest(BlockChest.Type.BASIC) {
 					@Override
 					public TileEntity createTileEntity(World world, IBlockState state) {
 						return new EChestTileEntity();
 					}
-				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				}.setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		ModItems.ITEMS.add(new ItemBlock(chest).setRegistryName(chest.getRegistryName()));
 
 		sign_standing = ModBlocks.registerBlock(name + "_sign_standing",
@@ -139,7 +139,7 @@ public class WoodenMaterial
 					public TileEntity createTileEntity(World world, IBlockState state) {
 						return new EndSignTileEntity();
 					}
-				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				}.setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 
 		sign_wall = ModBlocks.registerBlock(name + "_sign_wall",
 				() -> ((BlockAccessor)new BlockWallSign() {
@@ -147,7 +147,7 @@ public class WoodenMaterial
 					public TileEntity createTileEntity(World world, IBlockState state) {
 						return new EndSignTileEntity();
 					}
-				}.setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD));
+				}.setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD));
 		sign = new EndSignItem(sign_standing, sign_wall).setRegistryName(name + "_sign").setTranslationKey(name + "_sign").setCreativeTab(ModCreativeTabs.CREATIVE_TAB);
 		ModItems.ITEMS.add(sign);
 //		barrel = registerBlockWithBurnItem(name + "_barrel",
@@ -158,7 +158,7 @@ public class WoodenMaterial
 					public float getEnchantPowerBonus(World world, BlockPos pos) {
 						return 1;
 					}
-				}, 300).setHardness(3.0F)).invokeSetSoundType(SoundType.WOOD);
+				}, 300).setHardness(2.0F)).invokeSetSoundType(SoundType.WOOD);
 	}
 
 	public boolean isTreeLog(Block block) {
