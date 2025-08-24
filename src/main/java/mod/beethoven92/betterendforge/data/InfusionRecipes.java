@@ -65,7 +65,7 @@ public class InfusionRecipes {
 		InfusionRecipe.Builder.create().
 				setInput(ModItems.HYDRALUX_PETAL).
 				setOutput(ModItems.ENCHANTED_PETAL).
-				setTime(300).
+				setTime(75).
 				addCatalyst(0, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(2, ModItems.CRYSTAL_SHARDS).
 				addCatalyst(4, ModItems.CRYSTAL_SHARDS).

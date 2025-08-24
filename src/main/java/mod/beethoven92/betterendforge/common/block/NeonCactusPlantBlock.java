@@ -52,7 +52,7 @@ public class NeonCactusPlantBlock extends Block {
 
 	public NeonCactusPlantBlock() {
 		super(Material.CACTUS);
-		setSoundType(SoundType.PLANT);
+		setSoundType(SoundType.CLOTH);
 		setLightLevel(1);
 		setTickRandomly(true);
 		setDefaultState(getDefaultState().withProperty(FACING, EnumFacing.UP).withProperty(SHAPE, TripleShape.TOP));

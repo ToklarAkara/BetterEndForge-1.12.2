@@ -46,6 +46,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import static mod.beethoven92.betterendforge.common.block.HelixTreeLeavesBlock.rnd;
+
 @Mod.EventBusSubscriber(modid = BetterEnd.MOD_ID)
 public class ModBlocks {
     public static final ArrayList<Block> BLOCKS = new ArrayList<>(); //DeferredRegister.create(ForgeRegistries.BLOCKS, BetterEnd.MOD_ID);
@@ -747,13 +749,21 @@ public class ModBlocks {
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    });
+    }.setHardness(2.0f));
 
     public static final Block MOSSY_GLOWSHROOM_HYMENOPHORE = registerBlockWithDefaultItem("mossy_glowshroom_hymenophore", () -> new Block(Material.WOOD) {
         @Nullable
         @Override
         public String getHarvestTool(IBlockState state) {
             return "axe";
+        }
+
+        @Override
+        public void getDrops(NonNullList<ItemStack> p_getDrops_1_, IBlockAccess p_getDrops_2_, BlockPos p_getDrops_3_, IBlockState p_getDrops_4_, int p_getDrops_5_) {
+            super.getDrops(p_getDrops_1_, p_getDrops_2_, p_getDrops_3_, p_getDrops_4_, p_getDrops_5_);
+            if(rnd.nextInt(10)==0){
+                p_getDrops_1_.add(new ItemStack(ModBlocks.MOSSY_GLOWSHROOM_SAPLING));
+            }
         }
     }.setLightLevel(1));
 
@@ -886,7 +896,7 @@ public class ModBlocks {
     // MISC
 //    public static final Block AETERNIUM_ANVIL = registerBlock("aeternium_anvil", () -> new AeterniumAnvil().setHardness(5.0F).setResistance(1200.0F));
 
-    public static final Block DENSE_SNOW = registerBlockWithDefaultItem("dense_snow", () -> new CustomBlock(Material.SNOW).setSoundType(SoundType.SNOW).setHardness(0.2F).setResistance(0.2F));
+    public static final Block DENSE_SNOW = registerBlockWithDefaultItem("dense_snow", () -> new CustomBlock(Material.CRAFTED_SNOW).setSoundType(SoundType.SNOW).setHardness(0.2F).setResistance(0.2F));
 
     public static final Block EMERALD_ICE = registerBlockWithDefaultItem("emerald_ice", () -> new EmeraldIceBlock().setHardness(0.5F).setLightOpacity(3));
 
