@@ -73,6 +73,7 @@ dependencies {
     implementation fg.deobf("slimeknights.mantle:Mantle:1.12-${mantle_version}")
     implementation fg.deobf("slimeknights:TConstruct:${minecraft_version}-${ticon_version}")
     implementation fg.deobf('curse.maven:groovyscript-287683:3174535')
+    implementation fg.deobf("curse.maven:mixinbootstrap-357178:3437402")
 }
 
 mixin {
