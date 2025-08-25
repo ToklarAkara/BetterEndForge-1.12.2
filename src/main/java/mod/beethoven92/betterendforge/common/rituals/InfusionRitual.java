@@ -134,8 +134,10 @@ public class InfusionRitual implements IInventory
 		if (progress == time) 
 		{
 			IBlockState inputState = world.getBlockState(input.getPos());
+			ItemStack result = activeRecipe.output.copy();
+			result.setTagCompound(input.getStack().getTagCompound());
 			this.input.removeStack(world, inputState);
-			this.input.setStack(activeRecipe.output.copy());
+			this.input.setStack(result);
 			for (PedestalTileEntity catalyst : catalysts) 
 			{
 				catalyst.removeStack(world, world.getBlockState(catalyst.getPos()));
