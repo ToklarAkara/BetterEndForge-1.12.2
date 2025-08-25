@@ -12,6 +12,7 @@ import mod.beethoven92.betterendforge.common.util.BlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -46,6 +47,7 @@ public class SmallJellyshroomBlock extends AttachedBlock implements IGrowable {
 
 	public SmallJellyshroomBlock() {
 		super(Material.PLANTS);
+		setSoundType(SoundType.PLANT);
 		this.setTickRandomly(true);
 	}
 

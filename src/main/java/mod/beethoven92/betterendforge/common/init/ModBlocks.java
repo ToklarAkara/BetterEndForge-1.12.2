@@ -16,6 +16,7 @@ import mod.beethoven92.betterendforge.common.block.material.*;
 import mod.beethoven92.betterendforge.common.block.template.*;
 import mod.beethoven92.betterendforge.common.item.ModArmorMaterial;
 import mod.beethoven92.betterendforge.common.item.ModItemTier;
+import mod.beethoven92.betterendforge.mixin.minecraft.BlockAccessor;
 import net.minecraft.block.*;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.MapColor;
@@ -150,9 +151,9 @@ public class ModBlocks {
     public static final Block MOSSY_DRAGON_BONE = registerBlockWithDefaultItem("mossy_dragon_bone", () -> new MossyDragonBoneBlock());
 
     // MATERIALS
-    public static final Block AETERNIUM_BLOCK = registerBlockWithDefaultItem("aeternium_block", () -> new Block(Material.IRON, MapColor.GRAY).setHardness(65F).setResistance(1200F));
+    public static final Block AETERNIUM_BLOCK = registerBlockWithDefaultItem("aeternium_block", () -> ((BlockAccessor)new Block(Material.IRON, MapColor.GRAY)).invokeSetSoundType(SoundType.METAL).setHardness(65F).setResistance(1200F));
 
-    public static final Block ENDER_BLOCK = registerBlockWithDefaultItem("ender_block", () -> new Block(Material.ROCK).setHardness(5F).setResistance(6F));
+    public static final Block ENDER_BLOCK = registerBlockWithDefaultItem("ender_block", () -> ((BlockAccessor)new Block(Material.ROCK)).invokeSetSoundType(SoundType.METAL).setHardness(5F).setResistance(6F));
 
     public static final Block AURORA_CRYSTAL = registerBlockWithDefaultItem("aurora_crystal", () -> new AuroraCrystalBlock() {
         @Nullable
@@ -177,7 +178,7 @@ public class ModBlocks {
         }
     }.setHardness(1f).setResistance(1f).setLightLevel(1));
 
-    public static final Block AMBER_BLOCK = registerBlockWithDefaultItem("amber_block", () -> new Block(Material.IRON, MapColor.YELLOW).
+    public static final Block AMBER_BLOCK = registerBlockWithDefaultItem("amber_block", () -> ((BlockAccessor)new Block(Material.IRON, MapColor.YELLOW)).invokeSetSoundType(SoundType.METAL).
 
             setHardness(5.0F).setResistance(6.0F));
 
@@ -502,7 +503,7 @@ public class ModBlocks {
 
     public static final Block NEEDLEGRASS = registerBlockWithDefaultItem("needlegrass", () -> new NeedlegrassBlock(Material.PLANTS).setHardness(0).setResistance(0));
 
-    public static final Block MENGER_SPONGE = registerBlockWithDefaultItem("menger_sponge", () -> new MengerSpongeBlock() {
+    public static final Block MENGER_SPONGE = ((BlockAccessor)registerBlockWithDefaultItem("menger_sponge", () -> new MengerSpongeBlock() {
         @Override
         public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side) {
             return false;
@@ -512,9 +513,9 @@ public class ModBlocks {
         public boolean isTopSolid(IBlockState state) {
             return false;
         }
-    }.setHardness(0.6F));
+    }.setHardness(0.6F))).invokeSetSoundType(SoundType.PLANT);
 
-    public static final Block MENGER_SPONGE_WET = registerBlockWithDefaultItem("menger_sponge_wet", () -> new MengerSpongeWetBlock() {
+    public static final Block MENGER_SPONGE_WET = ((BlockAccessor)registerBlockWithDefaultItem("menger_sponge_wet", () -> new MengerSpongeWetBlock() {
         @Override
         public boolean isSideSolid(IBlockState base_state, IBlockAccess world, BlockPos pos, EnumFacing side) {
             return false;
@@ -524,7 +525,7 @@ public class ModBlocks {
         public boolean isTopSolid(IBlockState state) {
             return false;
         }
-    }.setHardness(0.6F));
+    }.setHardness(0.6F))).invokeSetSoundType(SoundType.PLANT);
 
     public static final Block CHARNIA_RED = registerBlockWithDefaultItem("charnia_red", () -> new CharniaBlock().setHardness(0).setResistance(0));
 
@@ -608,23 +609,23 @@ public class ModBlocks {
 
     public static final Block NEON_CACTUS = registerBlockWithDefaultItem("neon_cactus", () -> new NeonCactusPlantBlock());
 
-    public static final Block NEON_CACTUS_BLOCK = registerBlockWithDefaultItem("neon_cactus_block", () -> new BlockRotatedPillar(Material.CACTUS){
+    public static final Block NEON_CACTUS_BLOCK = ((BlockAccessor)registerBlockWithDefaultItem("neon_cactus_block", () -> new BlockRotatedPillar(Material.CACTUS){
 
         @Override
         public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
             return SoundType.CLOTH;
         }
-    }.setHardness(0.4F).setLightLevel(1));
+    }.setHardness(0.4F)).setLightLevel(1)).invokeSetSoundType(SoundType.CLOTH);
 
-    public static final Block NEON_CACTUS_BLOCK_STAIRS = registerBlockWithDefaultItem("neon_cactus_stairs", () -> new CustomBlockStairs(NEON_CACTUS_BLOCK.getDefaultState()).setLightLevel(1));
+    public static final Block NEON_CACTUS_BLOCK_STAIRS = registerBlockWithDefaultItem("neon_cactus_stairs", () -> ((BlockAccessor)new CustomBlockStairs(NEON_CACTUS_BLOCK.getDefaultState())).invokeSetSoundType(SoundType.CLOTH).setLightLevel(1));
 
-    public static final Block NEON_CACTUS_BLOCK_SLAB = registerBlockWithDefaultItem("neon_cactus_slab", () -> new CustomBlockSlab(Material.CACTUS){
+    public static final Block NEON_CACTUS_BLOCK_SLAB = ((BlockAccessor)registerBlockWithDefaultItem("neon_cactus_slab", () -> new CustomBlockSlab(Material.CACTUS){
 
         @Override
         public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity) {
             return SoundType.CLOTH;
         }
-    }.setHardness(0.4F).setLightLevel(1));
+    }.setHardness(0.4F)).setLightLevel(1)).invokeSetSoundType(SoundType.CLOTH);
     // CROPS
     public static final Block SHADOW_BERRY = registerBlockWithDefaultItem("shadow_berry", () -> new ShadowBerryBlock().setHardness(0).setResistance(0).
 

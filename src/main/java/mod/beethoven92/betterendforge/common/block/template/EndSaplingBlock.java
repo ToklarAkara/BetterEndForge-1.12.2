@@ -6,6 +6,7 @@ import mod.beethoven92.betterendforge.common.init.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -26,6 +27,7 @@ public abstract class EndSaplingBlock extends BlockBush implements IGrowable {
 
 	public EndSaplingBlock(Material material) {
 		super(material);
+		setSoundType(SoundType.PLANT);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0));
 	}
 
