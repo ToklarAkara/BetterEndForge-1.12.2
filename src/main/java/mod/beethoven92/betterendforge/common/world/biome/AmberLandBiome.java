@@ -1,6 +1,7 @@
 package mod.beethoven92.betterendforge.common.world.biome;
 
 import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
+import mod.beethoven92.betterendforge.common.entity.EndSlimeEntity;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -32,6 +33,7 @@ public class AmberLandBiome extends BetterEndBiome {
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.CHARNIA_ORANGE)
 				.addFeature(Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.CHARNIA_RED)
 				//.addStructure(new MapGenEndCity())
+				.addMobSpawn(EnumCreatureType.MONSTER, EndSlimeEntity.class, 10, 1, 2)
 				.addMobSpawn(EnumCreatureType.MONSTER, EntityEnderman.class, 50, 1, 4));
 	}
 }

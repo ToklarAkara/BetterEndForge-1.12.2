@@ -4,6 +4,7 @@ import mod.beethoven92.betterendforge.client.audio.BetterEndMusicNames;
 import mod.beethoven92.betterendforge.common.entity.CubozoaEntity;
 import mod.beethoven92.betterendforge.common.entity.DragonflyEntity;
 import mod.beethoven92.betterendforge.common.entity.EndFishEntity;
+import mod.beethoven92.betterendforge.common.entity.EndSlimeEntity;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import mod.beethoven92.betterendforge.common.init.ModConfiguredFeatures;
 import mod.beethoven92.betterendforge.common.init.ModSoundEvents;
@@ -41,6 +42,7 @@ public class MegalakeGroveBiome extends BetterEndBiome
 				addMobSpawn(EnumCreatureType.AMBIENT, DragonflyEntity.class, 20, 1, 3).
 				addMobSpawn(EnumCreatureType.AMBIENT, EndFishEntity.class, 20, 3, 8).
 				addMobSpawn(EnumCreatureType.AMBIENT, CubozoaEntity.class, 50, 3, 8).
+				addMobSpawn(EnumCreatureType.MONSTER, EndSlimeEntity.class, 10, 1, 2).
 				addMobSpawn(EnumCreatureType.MONSTER, EntityEnderman.class, 10, 1, 2));
 	}
 }
