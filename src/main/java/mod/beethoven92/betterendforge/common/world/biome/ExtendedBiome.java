@@ -45,11 +45,11 @@ public class ExtendedBiome extends BiomeEnd implements IEndBiome, IAmbienceBiome
 
     private SoundEvent ambientSound;
 
-    private ResourceLocation id;
+    private boolean fogEnabled;
 
     public ExtendedBiome(ResourceLocation id, BiomeProperties p_i46713_1_) {
         super(p_i46713_1_);
-        this.id = id;
+        fogEnabled = Configs.BIOME_CONFIG.getBoolean(id, "fogEnabled", true);
     }
 
     @Override
@@ -114,7 +114,7 @@ public class ExtendedBiome extends BiomeEnd implements IEndBiome, IAmbienceBiome
         float r = (float)(fogColor >> 16 & 255) / 255.0F;
         float g = (float)(fogColor >> 8 & 255) / 255.0F;
         float b = (float)(fogColor & 255) / 255.0F;
-        if(Configs.BIOME_CONFIG.getBoolean(id, "fogEnabled", true))
+        if(fogEnabled)
             return new Vec3d(r,g,b);
         return IEndBiome.super.getFogColor(celestialAngle, partialTicks);
     }
