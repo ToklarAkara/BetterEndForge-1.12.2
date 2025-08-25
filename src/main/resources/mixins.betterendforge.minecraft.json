@@ -28,7 +28,6 @@
   "server": [],
   "client": [
     "WorldRendererMixin",
-    "elytra.MixinAbstractPlayer",
     "elytra.MixinEntitySP",
     "elytra.MixinLayerElytra"
   ]
