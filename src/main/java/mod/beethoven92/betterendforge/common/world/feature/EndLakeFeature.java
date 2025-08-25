@@ -34,8 +34,8 @@ public class EndLakeFeature extends WorldGenerator
 		int bott = ModMathHelper.floor(depth);
 		
 		blockPos = FeatureHelper.getPosOnSurfaceWG(world, blockPos);
-		if (blockPos.getY() < 10) return false;
-		
+		if (blockPos.getY() < 10 || blockPos.getY() > 70) return false;
+
 		int waterLevel = blockPos.getY();
 		
 		BlockPos pos = FeatureHelper.getPosOnSurfaceRaycast(world, blockPos.north(dist).up(10), 20);
