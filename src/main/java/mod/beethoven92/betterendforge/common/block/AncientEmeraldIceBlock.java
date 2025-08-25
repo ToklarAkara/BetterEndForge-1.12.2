@@ -21,6 +21,7 @@ public class AncientEmeraldIceBlock extends Block
 		super(Material.ICE);
 		slipperiness = 0.98f;
 		this.setTickRandomly(true);
+		setHardness(50.0F);
 		setSoundType(SoundType.GLASS);
 	}
 
