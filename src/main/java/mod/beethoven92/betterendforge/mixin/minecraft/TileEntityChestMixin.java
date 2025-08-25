@@ -19,7 +19,7 @@ public abstract class TileEntityChestMixin extends TileEntityLockable {
             cir.setReturnValue(false);
         } else {
             TileEntity tile = this.world.getTileEntity(p_174912_1_);
-            cir.setReturnValue(!(tile instanceof EChestTileEntity));
+            cir.setReturnValue(!(tile instanceof EChestTileEntity) || ((Object)this) instanceof EChestTileEntity);
         }
     }
 }
