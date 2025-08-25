@@ -782,3 +782,5 @@ tile.betterendforge.charcoal_block.name=Charcoal Block
 material.betterend_thallasium.name=Thallasium
 material.betterend_aeternium.name=Aeternium
 material.betterend_terminite.name=Terminite
+item.betterendforge.armored_elytra.name=Armored Elytra
+item.betterendforge.crystal_elytra.name=Crystalite Elytra

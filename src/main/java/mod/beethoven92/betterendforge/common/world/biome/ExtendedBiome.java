@@ -10,6 +10,7 @@ import mod.beethoven92.betterendforge.common.particles.FireflyParticle;
 import mod.beethoven92.betterendforge.common.particles.SulphurParticle;
 import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.moderngen.surfacebuilders.ConfiguredSurfaceBuilder;
+import mod.beethoven92.betterendforge.config.Configs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MusicTicker;
@@ -17,6 +18,7 @@ import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.ParticleFlame;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -43,8 +45,11 @@ public class ExtendedBiome extends BiomeEnd implements IEndBiome, IAmbienceBiome
 
     private SoundEvent ambientSound;
 
-    public ExtendedBiome(BiomeProperties p_i46713_1_) {
+    private ResourceLocation id;
+
+    public ExtendedBiome(ResourceLocation id, BiomeProperties p_i46713_1_) {
         super(p_i46713_1_);
+        this.id = id;
     }
 
     @Override
@@ -109,7 +114,9 @@ public class ExtendedBiome extends BiomeEnd implements IEndBiome, IAmbienceBiome
         float r = (float)(fogColor >> 16 & 255) / 255.0F;
         float g = (float)(fogColor >> 8 & 255) / 255.0F;
         float b = (float)(fogColor & 255) / 255.0F;
-        return new Vec3d(r,g,b);
+        if(Configs.BIOME_CONFIG.getBoolean(id, "fogEnabled", true))
+            return new Vec3d(r,g,b);
+        return IEndBiome.super.getFogColor(celestialAngle, partialTicks);
     }
 
 //    @Nullable

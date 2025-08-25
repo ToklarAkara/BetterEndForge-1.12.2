@@ -246,6 +246,7 @@ public class ModRecipes
 		ShapelessRecipeBuilder.shapelessRecipe(ModItems.AETERNIUM_CHESTPLATE, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(ModBlocks.TERMINITE.chestplate).build(consumer, rl("aeternium_chestplate"));
 		ShapelessRecipeBuilder.shapelessRecipe(ModItems.AETERNIUM_LEGGINGS, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(ModBlocks.TERMINITE.leggings).build(consumer, rl("aeternium_leggings"));
 		ShapelessRecipeBuilder.shapelessRecipe(ModItems.AETERNIUM_BOOTS, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(ModBlocks.TERMINITE.boots).build(consumer, rl("aeternium_boots"));
+		ShapelessRecipeBuilder.shapelessRecipe(ModItems.ARMORED_ELYTRA, 1).addIngredient(ModItems.AETERNIUM_INGOT).addIngredient(Items.ELYTRA).build(consumer, rl("armored_elytra"));
 		// LANTERNS
 //	    registerLantern(ModBlocks.ANDESITE_LANTERN, Blocks.ANDESITE_SLAB, "andesite");
 //	    registerLantern(ModBlocks.DIORITE_LANTERN, Blocks.DIORITE_SLAB, "diorite");

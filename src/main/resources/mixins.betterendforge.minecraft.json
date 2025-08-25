@@ -19,10 +19,17 @@
     "MixinContainerWorkbench",
     "MixinPlayerChunkMapEntry",
     "TileEntityChestMixin",
-    "TileEntityFurnaceAccessor"
+    "TileEntityFurnaceAccessor",
+    "elytra.MixinEntityLiving",
+    "elytra.MixinEntityLivingBase",
+    "elytra.MixinEntityPlayer",
+    "elytra.MixinNetHandlerServer"
   ],
   "server": [],
   "client": [
-    "WorldRendererMixin"
-	]
+    "WorldRendererMixin",
+    "elytra.MixinAbstractPlayer",
+    "elytra.MixinEntitySP",
+    "elytra.MixinLayerElytra"
+  ]
 }

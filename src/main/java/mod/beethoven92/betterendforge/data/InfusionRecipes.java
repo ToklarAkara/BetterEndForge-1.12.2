@@ -94,6 +94,20 @@ public class InfusionRecipes {
 				build(consumer, rl("crystal_chestplate"));
 
 		InfusionRecipe.Builder.create().
+				setInput(Items.ELYTRA).
+				setOutput(ModItems.CRYSTAL_ELYTRA).
+				setTime(500).
+				addCatalyst(1, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(3, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(5, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(7, ModItems.CRYSTAL_SHARDS).
+				addCatalyst(2, Items.FEATHER).
+				addCatalyst(4, Items.FEATHER).
+				addCatalyst(6, Items.FEATHER).
+				addCatalyst(0, ModItems.AMBER_GEM).
+				build(consumer, rl("crystal_elytra"));
+
+		InfusionRecipe.Builder.create().
 				setInput(ModBlocks.TERMINITE.leggings).
 				setOutput(ModItems.CRYSTALITE_LEGGINGS).
 				setTime(225).

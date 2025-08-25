@@ -63,6 +63,9 @@ public class ModItems
 	public static final Item CRYSTALITE_LEGGINGS = registerItem("crystalite_leggings", () -> new CrystaliteArmor(ModArmorMaterial.CRYSTALITE,0, EntityEquipmentSlot.LEGS).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 	public static final Item CRYSTALITE_BOOTS = registerItem("crystalite_boots", () -> new CrystaliteArmor(ModArmorMaterial.CRYSTALITE,0, EntityEquipmentSlot.FEET).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 
+	public static final Item ARMORED_ELYTRA = registerItem("armored_elytra", () -> new CustomElytraItem(ModArmorMaterial.AETERNIUM, 0, EntityEquipmentSlot.CHEST).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+	public static final Item CRYSTAL_ELYTRA = registerItem("crystal_elytra", () -> new CustomElytraItem(ModArmorMaterial.CRYSTALITE, 0, EntityEquipmentSlot.CHEST).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+
 	// TOOL ITEMS
 	public static final Item AETERNIUM_SWORD = registerItem("aeternium_sword", () -> new ItemSword(ModItemTier.AETERNIUM).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
 	public static final Item AETERNIUM_SHOVEL = registerItem("aeternium_shovel", () -> new ItemSpade(ModItemTier.AETERNIUM).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));

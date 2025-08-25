@@ -315,7 +315,7 @@ public class BiomeTemplate
 
 
 	public Biome build(){
-		ExtendedBiome biome = new ExtendedBiome(
+		ExtendedBiome biome = new ExtendedBiome(id,
 				new Biome.BiomeProperties(convertToTitleCase(id.getPath()))
 						.setWaterColor(waterColor)
 						.setTemperature(temperature)

@@ -98,7 +98,8 @@ public class ModBiomes
 			if (biome == Biomes.SKY)
 			{
 				ResourceLocation id = biomeRegistry.getKey(biome);
-				
+
+				Configs.BIOME_CONFIG.getBoolean(id, "fogEnabled", true);
 				if (Configs.BIOME_CONFIG.getBoolean(id, "enabled", true))
 				{
 					if (!LAND_BIOMES.containsImmutable(id) && !VOID_BIOMES.containsImmutable(id) && !SUBBIOMES_UNMUTABLES.contains(id)) 
@@ -190,6 +191,7 @@ public class ModBiomes
 	public static BetterEndBiome registerBiome(Biome biome, EndBiomeType type, float fogDensity, float genChance) 
 	{
 		BetterEndBiome endBiome = new BetterEndBiome(ForgeRegistries.BIOMES.getKey(biome), biome, fogDensity, genChance, true);
+		Configs.BIOME_CONFIG.getBoolean(endBiome.getID(), "fogEnabled", true);
 		if (Configs.BIOME_CONFIG.getBoolean(endBiome.getID(), "enabled", true))
 		{
 			addToPicker(endBiome, type);
@@ -206,6 +208,7 @@ public class ModBiomes
 	public static BetterEndBiome registerSubBiome(Biome biome, BetterEndBiome parent, float fogDensity, float genChance, boolean hasCaves) 
 	{
 		BetterEndBiome endBiome = new BetterEndBiome(ForgeRegistries.BIOMES.getKey(biome), biome, fogDensity, genChance, hasCaves);
+		Configs.BIOME_CONFIG.getBoolean(endBiome.getID(), "fogEnabled", true);
 		if (Configs.BIOME_CONFIG.getBoolean(endBiome.getID(), "enabled", true))
 		{
 			parent.addSubBiome(endBiome);
@@ -220,6 +223,7 @@ public class ModBiomes
 	public static BetterEndBiome registerBiome(BetterEndBiome biome, EndBiomeType type) 
 	{
 		registerBiomeDirect(biome);
+		Configs.BIOME_CONFIG.getBoolean(biome.getID(), "fogEnabled", true);
 		if (Configs.BIOME_CONFIG.getBoolean(biome.getID(), "enabled", true))
 		{
 			addToPicker(biome, type);
@@ -231,6 +235,7 @@ public class ModBiomes
 	public static BetterEndBiome registerSubBiome(BetterEndBiome biome, BetterEndBiome parent) 
 	{
 		registerBiomeDirect(biome);
+		Configs.BIOME_CONFIG.getBoolean(biome.getID(), "fogEnabled", true);
 		if (Configs.BIOME_CONFIG.getBoolean(biome.getID(), "enabled", true))
 		{
 			parent.addSubBiome(biome);
@@ -265,6 +270,7 @@ public class ModBiomes
 	
 	private static void registerBiomeDirect(BetterEndBiome biome) 
 	{
+		Configs.BIOME_CONFIG.getBoolean(biome.getID(), "fogEnabled", true);
 		if (Configs.BIOME_CONFIG.getBoolean(biome.getID(), "enabled", true))
 		{
 			biome.getBiome().setRegistryName(biome.getID()); 
@@ -313,6 +319,7 @@ public class ModBiomes
 	public static BetterEndCaveBiome registerCaveBiome(BetterEndCaveBiome biome) 
 	{
 		registerBiomeDirect(biome);
+		Configs.BIOME_CONFIG.getBoolean(biome.getID(), "fogEnabled", true);
 		if (Configs.BIOME_CONFIG.getBoolean(biome.getID(), "enabled", true))
 		{
 			CAVE_BIOMES.addBiome(biome);
