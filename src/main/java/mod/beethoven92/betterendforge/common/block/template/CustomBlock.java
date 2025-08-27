@@ -12,6 +12,9 @@ public class CustomBlock extends Block {
 
     public CustomBlock(Material materialIn) {
         super(materialIn);
+        if(materialIn==Material.CRAFTED_SNOW){
+            setHarvestLevel("shovel", 1);
+        }
     }
 
     @Override

@@ -1,6 +1,6 @@
 {
   "variants": {
-    "active=false,has_item=false,has_light=false,state=pedestal_top": [
+    "activated=false,has_item=false,has_light=false,state=pedestal_top": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_top_1"
 			},
@@ -23,7 +23,7 @@
 				"model": "betterendforge:block/eternal_pedestal_top_7"
 			}
 		],
-    "active=false,has_item=true,has_light=false,state=pedestal_top": [
+    "activated=false,has_item=true,has_light=false,state=pedestal_top": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_top_1"
 			},
@@ -46,7 +46,7 @@
 				"model": "betterendforge:block/eternal_pedestal_top_7"
 			}
 		],
-    "active=false,has_item=false,has_light=true,state=pedestal_top": [
+    "activated=false,has_item=false,has_light=true,state=pedestal_top": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_top_1"
 			},
@@ -69,7 +69,7 @@
 				"model": "betterendforge:block/eternal_pedestal_top_7"
 			}
 		],
-    "active=false,has_item=true,has_light=true,state=pedestal_top": [
+    "activated=false,has_item=true,has_light=true,state=pedestal_top": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_top_1"
 			},
@@ -92,55 +92,55 @@
 				"model": "betterendforge:block/eternal_pedestal_top_7"
 			}
 		],
-    "active=false,has_item=false,has_light=false,state=column_top": {
+    "activated=false,has_item=false,has_light=false,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=false,has_item=true,has_light=false,state=column_top": {
+    "activated=false,has_item=true,has_light=false,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=false,has_item=false,has_light=true,state=column_top": {
+    "activated=false,has_item=false,has_light=true,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=false,has_item=true,has_light=true,state=column_top": {
+    "activated=false,has_item=true,has_light=true,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=false,has_item=false,has_light=false,state=bottom": {
+    "activated=false,has_item=false,has_light=false,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=false,has_item=true,has_light=false,state=bottom": {
+    "activated=false,has_item=true,has_light=false,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=false,has_item=false,has_light=true,state=bottom": {
+    "activated=false,has_item=false,has_light=true,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=false,has_item=true,has_light=true,state=bottom": {
+    "activated=false,has_item=true,has_light=true,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=false,has_item=false,has_light=false,state=pillar": {
+    "activated=false,has_item=false,has_light=false,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=false,has_item=true,has_light=false,state=pillar": {
+    "activated=false,has_item=true,has_light=false,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=false,has_item=false,has_light=true,state=pillar": {
+    "activated=false,has_item=false,has_light=true,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=false,has_item=true,has_light=true,state=pillar": {
+    "activated=false,has_item=true,has_light=true,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=false,has_item=false,has_light=false,state=column": {
+    "activated=false,has_item=false,has_light=false,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=false,has_item=true,has_light=false,state=column": {
+    "activated=false,has_item=true,has_light=false,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=false,has_item=false,has_light=true,state=column": {
+    "activated=false,has_item=false,has_light=true,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=false,has_item=true,has_light=true,state=column": {
+    "activated=false,has_item=true,has_light=true,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=false,has_item=false,has_light=false,state=default": [
+    "activated=false,has_item=false,has_light=false,state=default": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_default_1"
 			},
@@ -163,7 +163,7 @@
 				"model": "betterendforge:block/eternal_pedestal_default_7"
 			}
 		],
-    "active=false,has_item=true,has_light=false,state=default": [
+    "activated=false,has_item=true,has_light=false,state=default": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_default_1"
 			},
@@ -186,7 +186,7 @@
 				"model": "betterendforge:block/eternal_pedestal_default_7"
 			}
 		],
-    "active=false,has_item=false,has_light=true,state=default": [
+    "activated=false,has_item=false,has_light=true,state=default": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_default_1"
 			},
@@ -209,7 +209,7 @@
 				"model": "betterendforge:block/eternal_pedestal_default_7"
 			}
 		],
-    "active=false,has_item=true,has_light=true,state=default": [
+    "activated=false,has_item=true,has_light=true,state=default": [
 			{
 				"model": "betterendforge:block/eternal_pedestal_default_1"
 			},
@@ -233,236 +233,236 @@
 			}
 		],
 
-    "active=true,has_item=false,has_light=false,state=pedestal_top": [
+    "activated=true,has_item=false,has_light=false,state=pedestal_top": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_1"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_2"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_3"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_4"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_5"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_6"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_7"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_7"
 			}
 		],
-    "active=true,has_item=true,has_light=false,state=pedestal_top": [
+    "activated=true,has_item=true,has_light=false,state=pedestal_top": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_1"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_2"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_3"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_4"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_5"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_6"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_7"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_7"
 			}
 		],
-    "active=true,has_item=false,has_light=true,state=pedestal_top": [
+    "activated=true,has_item=false,has_light=true,state=pedestal_top": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_1"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_2"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_3"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_4"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_5"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_6"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_7"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_7"
 			}
 		],
-    "active=true,has_item=true,has_light=true,state=pedestal_top": [
+    "activated=true,has_item=true,has_light=true,state=pedestal_top": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_1"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_2"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_3"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_4"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_5"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_6"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_top_active_7"
+				"model": "betterendforge:block/eternal_pedestal_top_activated_7"
 			}
 		],
-    "active=true,has_item=false,has_light=false,state=column_top": {
+    "activated=true,has_item=false,has_light=false,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=true,has_item=true,has_light=false,state=column_top": {
+    "activated=true,has_item=true,has_light=false,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=true,has_item=false,has_light=true,state=column_top": {
+    "activated=true,has_item=false,has_light=true,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=true,has_item=true,has_light=true,state=column_top": {
+    "activated=true,has_item=true,has_light=true,state=column_top": {
       "model": "betterendforge:block/eternal_pedestal_column_top"
     },
-    "active=true,has_item=false,has_light=false,state=bottom": {
+    "activated=true,has_item=false,has_light=false,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=true,has_item=true,has_light=false,state=bottom": {
+    "activated=true,has_item=true,has_light=false,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=true,has_item=false,has_light=true,state=bottom": {
+    "activated=true,has_item=false,has_light=true,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=true,has_item=true,has_light=true,state=bottom": {
+    "activated=true,has_item=true,has_light=true,state=bottom": {
       "model": "betterendforge:block/eternal_pedestal_bottom"
     },
-    "active=true,has_item=false,has_light=false,state=pillar": {
+    "activated=true,has_item=false,has_light=false,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=true,has_item=true,has_light=false,state=pillar": {
+    "activated=true,has_item=true,has_light=false,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=true,has_item=false,has_light=true,state=pillar": {
+    "activated=true,has_item=false,has_light=true,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=true,has_item=true,has_light=true,state=pillar": {
+    "activated=true,has_item=true,has_light=true,state=pillar": {
       "model": "betterendforge:block/eternal_pedestal_pillar"
     },
-    "active=true,has_item=false,has_light=false,state=column": {
+    "activated=true,has_item=false,has_light=false,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=true,has_item=true,has_light=false,state=column": {
+    "activated=true,has_item=true,has_light=false,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=true,has_item=false,has_light=true,state=column": {
+    "activated=true,has_item=false,has_light=true,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=true,has_item=true,has_light=true,state=column": {
+    "activated=true,has_item=true,has_light=true,state=column": {
       "model": "betterendforge:block/eternal_pedestal_column"
     },
-    "active=true,has_item=false,has_light=false,state=default": [
+    "activated=true,has_item=false,has_light=false,state=default": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_1"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_2"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_3"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_4"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_5"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_6"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_7"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_7"
 			}
 		],
-    "active=true,has_item=true,has_light=false,state=default": [
+    "activated=true,has_item=true,has_light=false,state=default": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_1"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_2"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_3"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_4"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_5"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_6"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_7"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_7"
 			}
 		],
-    "active=true,has_item=false,has_light=true,state=default": [
+    "activated=true,has_item=false,has_light=true,state=default": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_1"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_2"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_3"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_4"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_5"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_6"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_7"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_7"
 			}
 		],
-    "active=true,has_item=true,has_light=true,state=default": [
+    "activated=true,has_item=true,has_light=true,state=default": [
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_1"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_1"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_2"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_2"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_3"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_3"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_4"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_4"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_5"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_5"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_6"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_6"
 			},
 			{
-				"model": "betterendforge:block/eternal_pedestal_default_active_7"
+				"model": "betterendforge:block/eternal_pedestal_default_activated_7"
 			}
 		]
   }

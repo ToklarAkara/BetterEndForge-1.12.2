@@ -112,4 +112,12 @@ public class LargeAmaranitaBlock extends PlantBlock {
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState().withProperty(SHAPE, TripleShape.values()[meta]);
 	}
+
+	@Nullable
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState p_180646_1_, IBlockAccess p_180646_2_, BlockPos p_180646_3_) {
+		if(p_180646_1_.getValue(SHAPE)==TripleShape.TOP){
+			return SHAPE_TOP;
+		}
+		return NULL_AABB;
+	}
 }

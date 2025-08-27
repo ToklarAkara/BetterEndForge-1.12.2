@@ -181,4 +181,8 @@ public class EndVineBlock extends Block implements IGrowable, IShearable {
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
 	}
+
+	public boolean isLadder(IBlockState p_isLadder_1_, IBlockAccess p_isLadder_2_, BlockPos p_isLadder_3_, EntityLivingBase p_isLadder_4_) {
+		return true;
+	}
 }
