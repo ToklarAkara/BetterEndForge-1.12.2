@@ -14,6 +14,7 @@ import mod.beethoven92.betterendforge.common.block.*;
 import mod.beethoven92.betterendforge.common.block.BlockProperties.TripleShape;
 import mod.beethoven92.betterendforge.common.block.material.*;
 import mod.beethoven92.betterendforge.common.block.template.*;
+import mod.beethoven92.betterendforge.common.item.FlamaleaItem;
 import mod.beethoven92.betterendforge.common.item.ModArmorMaterial;
 import mod.beethoven92.betterendforge.common.item.ModItemTier;
 import mod.beethoven92.betterendforge.mixin.minecraft.BlockAccessor;
@@ -853,13 +854,13 @@ public class ModBlocks {
         }
     });
 
-    public static final Block AMARANITA_LANTERN = registerBlockWithDefaultItem("amaranita_lantern", () -> new Block(Material.WOOD) {
+    public static final Block AMARANITA_LANTERN = ((BlockAccessor)registerBlockWithDefaultItem("amaranita_lantern", () -> new Block(Material.WOOD) {
         @Nullable
         @Override
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    }.setLightLevel(1));
+    }.setLightLevel(1))).invokeSetSoundType(SoundType.PLANT);
 
     public static final Block AMARANITA_FUR = registerBlockWithDefaultItem("amaranita_fur", () -> new FurBlock(Material.PLANTS).setHardness(0).setResistance(0).setLightLevel(1));
 
@@ -984,13 +985,13 @@ public class ModBlocks {
 
     public static final Block FILALUX = registerBlockWithDefaultItem("filalux", () -> new FilaluxBlock());
     public static final Block FILALUX_WINGS = registerBlockWithDefaultItem("filalux_wings", () -> new FilaluxWingsBlock());
-    public static final Block FILALUX_LANTERN = registerBlockWithDefaultItem("filalux_lantern", () -> new Block(Material.WOOD){
+    public static final Block FILALUX_LANTERN = ((BlockAccessor)registerBlockWithDefaultItem("filalux_lantern", () -> new Block(Material.WOOD){
         @Nullable
         @Override
         public String getHarvestTool(IBlockState state) {
             return "axe";
         }
-    }.setLightLevel(1));
+    }.setLightLevel(1))).invokeSetSoundType(SoundType.WOOD);
 
 
     // STONE MATERIALS
@@ -1025,7 +1026,7 @@ public class ModBlocks {
 
     public static final ColoredMaterial IRON_BULB_LANTERN_COLORED = new ColoredMaterial("iron_bulb_lantern", () -> new BulbVineLanternBlock(), IRON_BULB_LANTERN, false);
 
-    public final static Item FLAMAEA_ITEM = ModItems.registerItem("flamaea", () -> new ItemLilyPad(ModBlocks.FLAMAEA).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
+    public final static Item FLAMAEA_ITEM = ModItems.registerItem("flamaea", () -> new FlamaleaItem(ModBlocks.FLAMAEA).setCreativeTab(ModCreativeTabs.CREATIVE_TAB));
     public final static Item CHARCOAL_BLOCK_ITEM = ModItems.registerItem("charcoal_block", () -> new ItemBlock(ModBlocks.CHARCOAL_BLOCK)
     {
         @Override

@@ -6,6 +6,7 @@ import mod.beethoven92.betterendforge.common.block.template.PlantBlock;
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -29,6 +30,7 @@ public class MurkweedBlock extends BlockBush
 	{
 		super(mat);
 		this.setTickRandomly(true);
+		setSoundType(SoundType.PLANT);
 	}
 
 	@Override

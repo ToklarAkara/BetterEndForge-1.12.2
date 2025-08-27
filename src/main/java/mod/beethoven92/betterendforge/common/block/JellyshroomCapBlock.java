@@ -5,6 +5,7 @@ import mod.beethoven92.betterendforge.common.util.ModMathHelper;
 import mod.beethoven92.betterendforge.common.world.generator.OpenSimplexNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlime;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -32,6 +33,7 @@ public class JellyshroomCapBlock extends BlockSlime
 		colorStart = new Vec3i(r1, g1, b1);
 		colorEnd = new Vec3i(r2, g2, b2);
 		coloritem = ModMathHelper.color((r1 + r2) >> 1, (g1 + g2) >> 1, (b1 + b2) >> 1);
+		setSoundType(SoundType.SLIME);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(COLOR, 0));
 	}
 

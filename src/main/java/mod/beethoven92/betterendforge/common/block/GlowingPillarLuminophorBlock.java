@@ -28,7 +28,8 @@ public class GlowingPillarLuminophorBlock extends Block {
 
 	@Override
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return this.isNatural(worldIn.getBlockState(pos.down())) || super.canPlaceBlockAt(worldIn, pos);
+		IBlockState state = worldIn.getBlockState(pos);
+		return state.getBlock() != this || !state.getValue(NATURAL) || worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.GLOWING_PILLAR_ROOTS;
 	}
 
 	private boolean isNatural(IBlockState state) {

@@ -94,6 +94,16 @@ public class AlloyingRecipes {
                         2.5f, 450
                 )
         );
+
+        consumer.accept(
+                new AlloyingRecipe(
+                        rl("thallasium_ingot"), "",
+                        Ingredient.fromItem(Item.getItemFromBlock(ModBlocks.THALLASIUM.ore)),
+                        Ingredient.fromStacks(ItemStack.EMPTY),
+                        new ItemStack(ModBlocks.THALLASIUM.ingot, 1),
+                        0.0f, 100
+                )
+        );
     }
 
     public static ArrayList<AlloyingRecipe> getRecipes() {
