@@ -12,6 +12,7 @@ import net.minecraft.util.EnumHand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import mod.beethoven92.betterendforge.common.init.ModBlocks;
@@ -53,5 +54,21 @@ public abstract class ChorusPlantBlockMixin extends Block {
             plant = plant.withProperty(BlockChorusPlant.DOWN, true);
             worldIn.setBlockState(pos, plant);
         }
+    }
+
+    @Redirect(method = "canSurviveAt", at= @At(value = "INVOKE", target = "Lnet/minecraft/block/state/IBlockState;getBlock()Lnet/minecraft/block/Block;"))
+    public Block canSurviveAt(IBlockState instance) {
+        if(ModTags.END_GROUND.contains(instance.getBlock())){
+            return Blocks.END_STONE;
+        }
+        return instance.getBlock();
+    }
+
+    @Redirect(method = "getActualState", at= @At(value = "INVOKE", target = "Lnet/minecraft/block/state/IBlockState;getBlock()Lnet/minecraft/block/Block;"))
+    public Block getActualState(IBlockState instance) {
+        if(ModTags.END_GROUND.contains(instance.getBlock())){
+            return Blocks.END_STONE;
+        }
+        return instance.getBlock();
     }
 }

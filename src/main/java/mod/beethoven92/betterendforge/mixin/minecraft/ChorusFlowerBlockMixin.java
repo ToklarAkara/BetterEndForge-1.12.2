@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -82,5 +83,13 @@ public abstract class ChorusFlowerBlockMixin extends Block {
             world.playEvent(1034, pos, 0);
         }
         info.cancel();
+    }
+
+    @Redirect(method = "canSurvive", at= @At(value = "INVOKE", target = "Lnet/minecraft/block/state/IBlockState;getBlock()Lnet/minecraft/block/Block;"))
+    public Block canSurviveAt(IBlockState instance) {
+        if(ModTags.END_GROUND.contains(instance.getBlock())){
+            return Blocks.END_STONE;
+        }
+        return instance.getBlock();
     }
 }
