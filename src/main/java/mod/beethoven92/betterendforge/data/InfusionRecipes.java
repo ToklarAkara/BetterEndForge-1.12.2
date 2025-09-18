@@ -671,8 +671,8 @@ public class InfusionRecipes {
 	
 	private static ItemStack enchBook(Enchantment enchantment, int level) {
 		ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-		EnchantmentHelper.setEnchantments(ImmutableMap.of(enchantment, level), book);
-		return book;
+	    ItemEnchantedBook.addEnchantment(book, new EnchantmentData(enchantment, level));
+	    return book;
 	}
 
     public static List<InfusionRecipe> getRecipes() {
