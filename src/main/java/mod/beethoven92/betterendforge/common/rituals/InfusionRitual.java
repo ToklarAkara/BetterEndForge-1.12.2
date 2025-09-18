@@ -134,17 +134,17 @@ public class InfusionRitual implements IInventory
 		if (progress == time) 
 		{
 			ItemStack result = activeRecipe.output.copy();
-
 			ItemStack inputStack = input.getStack();
-			NBTTagCompound inputTag = inputStack.getTagCompound();
 
-			// Only merge if input has NBT and output is an enchanted book
-			if (inputTag != null && result.getItem() == Items.ENCHANTED_BOOK) {
-			    NBTTagCompound resultTag = result.getTagCompound();
+			NBTTagCompound inputTag = inputStack.getTagCompound();
+			NBTTagCompound resultTag = result.getTagCompound();
+
+			if (inputTag != null) {
 			    if (resultTag == null) resultTag = new NBTTagCompound();
 
 			    for (String key : inputTag.getKeySet()) {
-			        if (!key.equals("StoredEnchantments")) {
+			        // Only overwrite if the output doesn't already define this tag
+			        if (!resultTag.hasKey(key)) {
 			            resultTag.setTag(key, inputTag.getTag(key));
 			        }
 			    }
