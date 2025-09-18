@@ -133,17 +133,35 @@ public class InfusionRitual implements IInventory
 		this.progress++;
 		if (progress == time) 
 		{
-			IBlockState inputState = world.getBlockState(input.getPos());
 			ItemStack result = activeRecipe.output.copy();
-			result.setTagCompound(input.getStack().getTagCompound());
+
+			ItemStack inputStack = input.getStack();
+			NBTTagCompound inputTag = inputStack.getTagCompound();
+
+			// Only merge if input has NBT and output is an enchanted book
+			if (inputTag != null && result.getItem() == Items.ENCHANTED_BOOK) {
+			    NBTTagCompound resultTag = result.getTagCompound();
+			    if (resultTag == null) resultTag = new NBTTagCompound();
+
+			    for (String key : inputTag.getKeySet()) {
+			        if (!key.equals("StoredEnchantments")) {
+			            resultTag.setTag(key, inputTag.getTag(key));
+			        }
+			    }
+
+			    result.setTagCompound(resultTag);
+			}
+
+			IBlockState inputState = world.getBlockState(input.getPos());
 			this.input.removeStack(world, inputState);
 			this.input.setStack(result);
-			for (PedestalTileEntity catalyst : catalysts) 
-			{
-				catalyst.removeStack(world, world.getBlockState(catalyst.getPos()));
+
+			for (PedestalTileEntity catalyst : catalysts) {
+			    catalyst.removeStack(world, world.getBlockState(catalyst.getPos()));
 			}
+
 			this.stop();
-		} 
+		}
 		else 
 		{
 			WorldServer world = (WorldServer) this.world;
